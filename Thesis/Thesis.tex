@@ -1,0 +1,105 @@
+\documentclass[12pt]{report}
+\usepackage[parfill]{parskip}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{xcolor}
+
+\graphicspath{ {images/} }
+
+\title{
+{Thesis Title}\\
+{\large Cal Poly}\\
+% {\includegraphics{university.jpg}}
+}
+\author{Max Varverakis}
+\date{\today}
+
+% MATH STUFF
+% \renewcommand\qedsymbol{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
+
+\begin{document}
+
+\maketitle
+
+\chapter{Background Info}
+
+\begin{definition}[Representations of a Group]
+    If there is a homomorphism from a group $G$ to a group of operators $U(G)$ on a linear vector space $V$, we say that $U(G)$ forms a \textit{representation} of $G$ with dimension $\dim V$.
+\end{definition}
+
+The representation is a map
+\begin{equation}
+    g\in G\xrightarrow{U} U(g)
+\end{equation}
+in which $U(g)$ is an operator on the vector space $V$. For a set of basis vectors $\{\hat{e_i},i=1,2,\dots,n\}$, we can realize each operator $U(g)$ as an $n\times n$ matrix $D(g)$.
+\begin{equation}
+    U(g)\ket{e_i} = \sum_{j=1}^n \ket{e_j}{{D(g)}^j}_i = \ket{e_j}{{D(g)}^j}_i,
+\end{equation}
+where the first index $j$ is the row index and the second index $i$ is the column index. We use the Einstein summation convention, so repeated indices are summed over. Note that the operator multiplication is defined as
+\begin{equation}
+    U(g_1)U(g_2) = U(g_1g_2),
+\end{equation}
+which satisfies the group multiplication rules.
+
+\begin{definition}
+    If the homomorphism defining the representation is an isomorphism, then the representation is \textit{faithful}. Otherwise, it is \textit{degenerate}.
+\end{definition}
+
+\begin{example}
+    Let $G$ be the group of continuous rotations in the $xy$-plane about the origin. We can write $G = \{R(\phi),0\leq\phi\leq2\pi\}$ with group operation $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$. Consider the 2-dimensional Euclidean vector space $V_2$. Then we define a representation of $G$ on $V_2$ by the familiar rotation operation
+    \begin{align}
+        \hat{e}_1' &= U(\phi)\hat{e}_1 = \hat{e}_1\cdot\cos\phi + \hat{e}_2\cdot\sin\phi\\
+        \hat{e}_2' &= U(\phi)\hat{e}_2 = -\hat{e}_1\cdot\sin\phi + \hat{e}_2\cdot\cos\phi.
+    \end{align}
+This gives us the matrix representation
+\begin{equation}
+    D(\phi) = \begin{pmatrix}
+        \cos\phi & \sin\phi\\
+        -\sin\phi & \cos\phi
+    \end{pmatrix}.
+\end{equation}
+To further illustrate this representation, if we consider an arbitrary vector $\hat{e_i}x^i=\vec{x}\in V_2$, then we have
+\begin{equation}
+    \vec{x}' = U(\phi)\vec{x} = \hat{e}_j{x'}^j,
+\end{equation}
+where ${x'}^j = {{D(\phi)}^j}_i x^i$.
+\end{example}
+
+\begin{definition}[Equivalence of Representations]
+    For a group $G$, two representations are \textit{equivalent} if they are related by a similarity transformation. Equivalent representations form an equivalence class.
+\end{definition}
+
+To determine whether two representations belong to the same equivalence class, we define
+\begin{definition}[Characters of a Representation]
+    The \textit{character} $\chi(g)$ of an element $g\in G$ in a representation $U(g)$ is defined as $\chi(g) = \text{Tr}~D(g)$.
+\end{definition}
+Since trace is independent of basis, the character serves as a class label.
+
+Vector space representations of a group have familiar substructures, which are useful in constructing representations of the group.
+\begin{definition}[Invariant Subspace]
+    Let $U(G)$ be a representation of $G$ on a vector space $V$, and $W$ a subspace of $V$ such that $U(g)\ket{x}\in W$ for all $\vec{x}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $U(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it does not contain any non-trivial invariant subspace with respect to $U(G)$.
+\end{definition}
+
+The identification of invariant subspaces on vector space representations leads to the following distinction of the representations.
+\begin{definition}[Irreducible Representation]
+    A representation $U(G)$ on $V$ \textit{irreducible} if there is no non-trivial invariant subspace in $V$ with respect to $U(G)$. Otherwise, it is \textit{reducible}. If $U(G)$ is reducible and its orthogonal complement to the invariant subspace is also invariant with respect to $U(G)$, then the representation is \textit{fully reducible}.
+    
+\end{definition}
+
+The irreducible representation matrices satisfy orthonormality and completeness relations.\textbf{ Thm. 3.5}?
+
+% \bibliographystyle{plain}
+% \bibliography{references}
+
+\end{document}
