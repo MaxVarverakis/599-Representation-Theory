@@ -19,6 +19,11 @@
 
 % MATH STUFF
 % \renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\mat}[3]{{{#1}^#2}_#3}
+\newcommand{\sotwo}{\textrm{SO}{(2)}}
+% \newcommand{\behat}[1]{\bra{\hat{e}[#1]}}
+% \newcommand{\kehat}[1]{\ket{\hat{e}[#1]}}
 
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{corollary}{Corollary}[theorem]
@@ -65,8 +70,8 @@ which satisfies the group multiplication rules.
 This gives us the matrix representation
 \begin{equation}
     D(\phi) = \begin{pmatrix}
-        \cos\phi & \sin\phi\\
-        -\sin\phi & \cos\phi
+        \cos\phi & -\sin\phi\\
+        \sin\phi & \cos\phi
     \end{pmatrix}.
 \end{equation}
 To further illustrate this representation, if we consider an arbitrary vector $\hat{e_i}x^i=\vec{x}\in V_2$, then we have
@@ -98,6 +103,68 @@ The identification of invariant subspaces on vector space representations leads 
 \end{definition}
 
 The irreducible representation matrices satisfy orthonormality and completeness relations.\textbf{ Thm. 3.5}?
+
+\begin{example}[Generator of $\sotwo$]
+    Consider the rotations of a 2-dimensional Euclidean vector space about the origin. Let $\ehat_1$ and $\ehat_2$ be orthonormal basis vectors of this space. Using geometry, we can determine how a rotation by some angle $\phi$, written in operator form as $R(\phi)$, acts on the basis vectors:
+    \begin{align}
+        R(\phi)\ehat_1 &= \ehat_1\cos\phi + \ehat_2\sin\phi \label{eq:rot_1}\\
+        R(\phi)\ehat_2 &= -\ehat_1\sin\phi + \ehat_2\cos\phi.\label{eq:rot_2}
+    \end{align}
+    In matrix form, we can write
+    \begin{equation}
+        R(\phi) = 
+        \begin{pmatrix}
+            \cos\phi & -\sin\phi \\
+            \sin\phi & \cos\phi
+        \end{pmatrix}
+    \end{equation}
+    which allows us to write Eqn.~\ref{eq:rot_1} and Eqn.~\ref{eq:rot_2} in a condensed form
+    \begin{equation}
+        R(\phi)\ehat_i = \ehat_j{{R(\phi)}^j}_i,
+    \end{equation}
+    where we are summing over $j=1,2$.
+
+    Now, let $\vec{x}$ be an arbitrary vector in the plane. Then $\vec{x}$ has components $x^i$ in the basis $\{\ehat_i\}$, where $i=1,2$. Equivalently, we can write $\vec{x}=\ehat_i x^i$. Then under rotations, $\vec{x}$ transforms in accordance to the basis vectors
+    \begin{align}
+        R(\phi)\vec{x} &= R(\phi)\ehat_i x^i \label{eq:rot_vec} \\
+        &= \ehat_j{{R(\phi)}^j}_i x^i \nonumber \\
+        &= \left( \ehat_1\mat{R(\phi)}{1}{i} + \ehat_2\mat{R(\phi)}{2}{i} \right)x^i \nonumber \\
+        &= \left( \ehat_1\cos\phi + \ehat_2\sin\phi \right) x^1 + \left( \ehat_1(-\sin\phi) + \ehat_2\cos\phi \right) x^2 \nonumber \\
+        &= \left( x^1\cos\phi - x^2\sin\phi \right)\ehat_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\ehat_2.  \nonumber
+    \end{align}
+
+    Observe that $R(\phi)R^\top(\phi) = E$ where $E$ is the identity matrix. This is precisely what defines \textit{orthogonal matrices}. For 2-dimensional vectors in the plane, it is clear that these rotations do not change the length of said vectors. This can be verified by using Eqn.~\ref{eq:rot_vec}:
+    \begin{align}
+        |R(\phi)\vec{x}|^2 &= |\ehat_j\mat{R(\phi)}{j}{i} x^i|^2 \\
+        &= \left|\left( x^1\cos\phi - x^2\sin\phi \right)\ehat_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\ehat_2\right|^2 \nonumber \\
+        &= {\left( x^1\cos\phi - x^2\sin\phi \right)}^2 + {\left( x^1\sin\phi + x^2\cos\phi \right)}^2 \nonumber \\
+        &= \left( \cos^2\phi + \sin^2\phi \right)x^1 x_1 + \left( \sin^2\phi + \cos^2\phi \right)x^2 x_2 \nonumber \\
+        &= x^1 x_1 + x^2 x_2 = |\vec{x}|^2. \nonumber
+    \end{align}
+
+    Similarly, notice that for any continuous rotation by angle $\phi$, $\det R(\phi) = \cos^2\phi+\sin^2\phi = 1$. In general, orthogonal matrices have determinant equal to $\pm1$. However, the result of the above determinant of $R(\phi)$ implies that all continuous rotations in the 2-dimensional plane have determinant equal to $+1$. These are the \textit{special orthogonal matrices of rank 2}. This family of matrices is denoted $\sotwo$. Furthermore, there is a one-to-one correspondence with $\sotwo$ matrices and rotations in a plane.
+
+    We define the group of continuous rotations in a plane by letting $R(0) = E$ be the identity element corresponding to no rotation (i.e., a rotation by angle $\phi=0$), and defining the inverse of a rotation as $R^{-1}(\phi) = R(-\phi) = R(2\pi-\phi)$. This group can be called the $\sotwo$ group. Lastly, we define group multiplication as $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$ and note that $R(\phi) = R(\phi\pm2\pi)$, which can be verified geometrically. Thus, group elements of $\sotwo$ can be labelled by the angle of rotation $\phi\in[0,2\pi)$.
+
+    Now we can find a generator of $sotwo$ by considering an infinitesimal rotation, labelled by some infinitesimal angle $d\phi$. Then this is equivalent to the identity plus some small rotation, which we can write as
+    \begin{equation}
+        R(\textrm{d}\phi) = E - i \textrm{d}\phi J
+    \end{equation}
+    where the scalar quantity $-i$ is introduced for later convenience and $J$ is some quantity independent of the rotation angle. If we consider the rotation $R(\phi + \textrm{d}\phi)$, then there are two equivalent ways to interpret this rotation
+    \begin{align}
+        R(\phi + \textrm{d}\phi) &= R(\phi)R(\textrm{d}\phi) = R(\phi)(E - i \textrm{d}\phi J) = R(\phi) - i \textrm{d}\phi R(\phi)J \\
+        R(\phi + \textrm{d}\phi) &= R(\phi) + \textrm{d}R(\phi) = R(\phi) + \textrm{d}\phi\frac{\textrm{d}R(\phi)}{\textrm{d}\phi}
+    \end{align}
+    where the second equation can be thought of as a Taylor expansion of $R(\phi + \textrm{d}\phi)$ about $\phi$. Equating the two expressions for $R(\phi + \textrm{d}\phi)$ yields
+    \begin{equation}
+        \textrm{d}R(\phi) = -i\textrm{d}\phi R(\phi)J.
+    \end{equation}
+    Solving this differential equation (with boundary condition $R(0)=E$) provides us with an equation for any group element involving $J$:
+    \begin{equation}
+        R(\phi) = e^{-i\phi J},
+    \end{equation}
+    where $J$ is called the \textit{generator} of the group.
+\end{example}
 
 % \bibliographystyle{plain}
 % \bibliography{references}
