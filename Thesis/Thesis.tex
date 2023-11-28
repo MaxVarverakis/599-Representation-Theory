@@ -10,9 +10,8 @@
 \graphicspath{ {images/} }
 
 \title{
-{Thesis Title}\\
-{\large Cal Poly}\\
-% {\includegraphics{university.jpg}}
+{Title}\\
+% {\large A Thesis \\presented to \\ the Faculty of California Polytechnic State University, \\San Luis Obispo}\\
 }
 \author{Max Varverakis}
 \date{\today}
@@ -98,9 +97,26 @@ Vector space representations of a group have familiar substructures, which are u
 
 The identification of invariant subspaces on vector space representations leads to the following distinction of the representations.
 \begin{definition}[Irreducible Representation]
-    A representation $U(G)$ on $V$ \textit{irreducible} if there is no non-trivial invariant subspace in $V$ with respect to $U(G)$. Otherwise, it is \textit{reducible}. If $U(G)$ is reducible and its orthogonal complement to the invariant subspace is also invariant with respect to $U(G)$, then the representation is \textit{fully reducible}.
+    A representation $U(G)$ on $V$ is \textit{irreducible} if there is no non-trivial invariant subspace in $V$ with respect to $U(G)$. Otherwise, it is \textit{reducible}. If $U(G)$ is reducible and its orthogonal complement to the invariant subspace is also invariant with respect to $U(G)$, then the representation is \textit{fully reducible}.
     
 \end{definition}
+
+\begin{example}
+    Under the group of 2-dimensional rotations, consider the 1-dimensional subspace spanned by $\ehat_1$. This subspace is not invariant under 2-dimensional rotations, because a rotation of $\ehat_1$ by $\pi/2$ results in the vector $\ehat_2$ that is clearly not in the subspace spanned by $\ehat_1$. A similar argument shows that the subspace spanned by $\ehat_2$ is not invariant under 2-dimensional rotations.
+
+    However, consider the linear combination of basis vectors
+    \begin{equation}
+        \ehat_\pm = \frac{1}{\sqrt{2}}\left( \mp\ehat_1 + i\ehat_2 \right),
+    \end{equation}
+    where $i = \sqrt{-1}$. Then a rotation by angle $\phi$, denoted in operator form as $U(\phi)$, acts on $\ehat_\pm$ by
+    \begin{align}
+        U(\phi)\ket{\ehat_+} &= \ehat_+ e^{-i\phi} \\
+        U(\phi)\ket{\ehat_-} &= \ehat_- e^{i\phi}.
+    \end{align}
+
+\end{example}
+
+
 
 The irreducible representation matrices satisfy orthonormality and completeness relations.\textbf{ Thm. 3.5}?
 
