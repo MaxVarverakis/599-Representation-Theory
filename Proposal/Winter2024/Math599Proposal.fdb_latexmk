@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1702553787 "/Users/max/Library/CloudStorage/OneDrive-CalPoly/Quarters/F23/Math 599/Proposal/Winter2024/Math599Proposal.tex" "Math599Proposal.pdf" "Math599Proposal" 1702553787 0
-  "/Users/max/Library/CloudStorage/OneDrive-CalPoly/Quarters/F23/Math 599/Proposal/Winter2024/Math599Proposal.tex" 1702553786 3734 235a4804e42ed3427720d71d1811059a ""
+["pdflatex"] 1702914924 "/Users/max/Library/CloudStorage/OneDrive-CalPoly/Math 599/Proposal/Winter2024/Math599Proposal.tex" "Math599Proposal.pdf" "Math599Proposal" 1702914924 0
+  "/Users/max/Library/CloudStorage/OneDrive-CalPoly/Math 599/Proposal/Winter2024/Math599Proposal.tex" 1702914924 3649 3ae00aa8a869a0ac2f12fe9d1603321c ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
@@ -53,8 +53,8 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1697227028 4710157 881d30f3c679b3ae82ecfb33f956b294 ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1697227152 8195575 6adcbac9e6b36feebeea45a50579798d ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "Math599Proposal.aux" 1702553787 625 70ac217fdd0b89acb1122942dd43cebd "pdflatex"
-  "Math599Proposal.tex" 1702553786 3734 235a4804e42ed3427720d71d1811059a ""
+  "Math599Proposal.aux" 1702914924 625 70ac217fdd0b89acb1122942dd43cebd "pdflatex"
+  "Math599Proposal.tex" 1702914924 3649 3ae00aa8a869a0ac2f12fe9d1603321c ""
   (generated)
   "Math599Proposal.aux"
   "Math599Proposal.log"

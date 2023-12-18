@@ -1,8 +1,8 @@
-PWD /Users/max/Library/CloudStorage/OneDrive-CalPoly/Quarters/F23/Math 599/Proposal/Winter2024
+PWD /Users/max/Library/CloudStorage/OneDrive-CalPoly/Math 599/Proposal/Winter2024
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/max/Library/CloudStorage/OneDrive-CalPoly/Quarters/F23/Math 599/Proposal/Winter2024/Math599Proposal.tex
+INPUT /Users/max/Library/CloudStorage/OneDrive-CalPoly/Math 599/Proposal/Winter2024/Math599Proposal.tex
 OUTPUT Math599Proposal.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/memoir/memoir.cls
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/memoir/memoir.cls
