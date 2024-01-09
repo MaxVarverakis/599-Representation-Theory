@@ -111,8 +111,12 @@ The identification of invariant subspaces on vector space representations leads 
     where $i = \sqrt{-1}$. Then a rotation by angle $\phi$, denoted in operator form as $U(\phi)$, acts on $\ehat_\pm$ by
     \begin{align}
         U(\phi)\ket{\ehat_+} &= U(\phi)\frac{1}{\sqrt{2}}(-\ehat_1 + i\ehat_2) \\
-        &= \frac{1}{\sqrt{2}}(\ehat_1(-\cos\phi-i\sin\phi) + \ehat_2(\sin\phi+i\cos\phi)) \nonumber \\
-        &= \frac{1}{\sqrt{2}}(-\ehat_1 + i\ehat_2)(\cos\phi - i\sin\phi) \nonumber \\
+        &= \frac{1}{\sqrt{2}}(-U(\phi)\ket{\ehat_1} + iU(\phi)\ket{\ehat_2}) \nonumber \\
+        &= \frac{1}{\sqrt{2}}\left( -\ehat_1\cos\phi - \ehat_2\sin\phi -i\ehat_1\sin\phi + i\ehat_2\cos\phi \right) \nonumber \\
+        &= \frac{1}{\sqrt{2}}\left( -\ehat_1(\cos\phi+ i\sin\phi) +i\ehat_2(\cos\phi-i\sin\phi) \right) \nonumber \\
+        % &= \frac{1}{\sqrt{2}}\big(\ehat_1(-\cos\phi+i\sin\phi) + \ehat_2(i\cos\phi + \sin\phi)\big) \nonumber \\
+        % &= \frac{1}{\sqrt{2}}(-\ehat_1 + i\ehat_2)(\cos\phi - i\sin\phi) \nonumber \\
+        & \textbf{Not Done} \nonumber \\
         &= \ehat_+ (\cos\phi - i\sin\phi) \nonumber \\
         &= \ehat_+ e^{-i\phi}, \\
         \textrm{and } U(\phi)\ket{\ehat_-} &= \ehat_- e^{i\phi}.
