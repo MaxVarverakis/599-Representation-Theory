@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{amsthm}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{braket}
 \usepackage{xcolor}
 
@@ -21,6 +22,12 @@
 \newcommand{\ehat}{\hat{e}}
 \newcommand{\mat}[3]{{{#1}^#2}_#3}
 \newcommand{\sotwo}{\textrm{SO}{(2)}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\iv}[1]{{ #1 }^{-1}}
 % \newcommand{\behat}[1]{\bra{\hat{e}[#1]}}
 % \newcommand{\kehat}[1]{\ket{\hat{e}[#1]}}
 
@@ -36,7 +43,7 @@
 
 \maketitle
 
-\chapter{Background Info}
+\chapter{Representation Theory Background}
 
 \begin{definition}[Representations of a Group]
     If there is a homomorphism from a group $G$ to a group of operators $U(G)$ on a linear vector space $V$, we say that $U(G)$ forms a \textit{representation} of $G$ with dimension $\dim V$.
@@ -189,6 +196,67 @@ The irreducible representation matrices satisfy orthonormality and completeness 
     \end{equation}
     where $J$ is called the \textit{generator} of the group.
 \end{example}
+
+\chapter{Topological Definitions}
+The braid group is formally defined in terms of topology. In order to understand the braid group, we must first understand the underlying topological properties that are used to define the braid group. Similar to an isomorphism in algebra, we can define a notion of equivalence in topology.
+
+\begin{definition}
+    Consider $X$ and $Y$ to be two topological spaces. A \textit{homotopy} between two continuous functions $f,g:X\to Y$ is a continuous function $H:X\times[0,1]\to Y$ such that $H(x,0)=f(x)$ and $H(x,1)=g(x)$ for all $x\in X$. If such a homotopy exists, we say that $f$ and $g$ are \textit{homotopic}.
+\end{definition}
+The homotopy $H$ can be thought of as a continuous deformation of $f$ into $g$. The interval $\left[ 0,1 \right]$ represents the ``time'' parameter of the deformation. At time equal to 0, the function $H$ is equal to $f$, and at time equal to 1, the function $H$ is equal to $g$. If two functions are homotopic, then they belong to the same homotopy class, which is an equivalence class of functions under the relation of homotopy.
+
+\begin{definition}
+    A \textit{loop} on a topological space $X$ is a continuous function $\ell:[0,1]\to X$ such that $\ell(0) = \ell(1)$. In other words, the path of $\ell$ starts and ends at the same point in $X$. Often, this point is called the \textit{base point} of the loop.
+\end{definition}
+
+\begin{definition}
+    A \textit{homotopy class of loops} on a topological space $X$ is an equivalence class of loops under the relation of homotopy. More plainly, a homotopy of loops is a continuous transformation of one loop into another. If two loops $\ell_1,\ell_2:[0,1]\to X$ with base point $\xi\in X$ are homotopic, then there exists a continuous map $H:[0,1]\times [0,1]\to X$ such that:
+    \begin{enumerate}
+        \item $H(0,t) = \xi = H(1,t)$ for all $t\in [0,1]$, and
+        \item $H(s,0) = \ell_1(s)$ and $H(s,1) = \ell_2(s)$ for all $s\in [0,1]$.
+    \end{enumerate}
+    Property 1 ensures that the starting/ending point of the loop remains fixed throughout the deformation from $\ell_1$ to $\ell_2$, and property 2 follows from the definition of a homotopy.
+\end{definition}
+
+\begin{definition}
+    The \textit{fundamental group} of a topological space $X$ with base point $\xi$ is defined as the collection of loops on $X$ with base point $\xi$ modulo homotopy. In other words, the fundamental group is the collection of equivalence classes of loops under homotopy. This is written as
+    \begin{align*}
+        \pi(X,\xi):=\left\{ \textrm{loops }\ell \textrm{ on }X \textrm{ with base point }\xi \right\}/\textrm{homotopy}.
+    \end{align*}
+    Often times, the base point of a loop is arbitrary, so we can write $\pi(X)$ instead of $\pi(X,\xi)$ to denote the fundamental group of $X$.
+\end{definition}
+
+The group structure of the fundamental group is defined as operations on the loops themselves. Consider two loops $\ell_1,\ell_2:[0,1]\to X$ with base point $\xi$. Then the product $\ell_1\cdot\ell_2$ is defined in terms of \textit{concatenation} of the two loops. Specifically, this defines a new loop $(\ell_1\cdot\ell_2)(t)=\mathcal{L}(t):[0,1]\to X$ where $\mathcal{L}(t) = \ell_1(2t)$ on $\left[ 0,\frac{1}{2} \right]$ and $\mathcal{L}(t) = \ell_2(2t-1)$ on $\left[ \frac{1}{2},1 \right]$. Loop concatenation can be thought of as stitching the loops together at the shared base point. As $t$ ranges from 0 to 1, we can think of the first half of the deformation as traversing the first loop at twice the original speed, and then traveling along the second loop at twice the original speed in the second half of the deformation. 
+
+In the above description, recall that each loop $\ell$ is actually an equivalence class $\left[ \ell \right]$ under the relation of homotopy. So the concatenation of two loops $\ell_1$ and $\ell_2$ is actually the concatenation of any two loops belonging to the equivalence classes $\left[ \ell_1 \right]$ and $\left[ \ell_2 \right]$, which becomes the equivalence class $\left[ \ell_1\cdot\ell_2 \right]$.
+
+In the fundamental group, the inverse of an element is the identical topological path traversed in the opposite direction. Hence, if $\gamma:[0,1]\to X$ is a loop on $X$, then $\iv{\gamma}(t) := \gamma(1-t)$.
+
+% \begin{example}
+%     Consider a \textbf{3-dimensional(?)} torus $T^3$. The fundamental group of the torus is $\pi(T^3)$. There are two types of loops on the torus: those that pass through the hole of the torus, and those that do not.
+% \end{example}
+
+\chapter{The Braid Group}
+\begin{definition}
+    The \textit{configuration space} of $n$ ordered distinct points in the complex plane $\C$ is defined as $M_n = \left\{ \left( z_1,\dots,z_n \right)\in\C ; z_i\neq z_j,\forall i\neq j \right\}$. Alternatively, consider $\mathcal{D}$ to be the collection of all hyperplanes $H_{i,j}=\left\{ z_i=z_j \right\}\in\C^n$ for $1\leq i < j \leq n$. Then we can define $M_n = \C^n \setminus \mathcal{D}$.
+\end{definition}
+
+Note that $\left( z_1,z_2,z_3,\dots,z_n \right)$ and $\left( z_2,z_1,z_3,\dots,z_n \right)$ are different points in the configuration space $M_n$. Before studying the various interpretations of the braid group, we first define the braid group itself.
+
+\begin{definition}
+    The \textit{pure braid group} on $n$ strands, denoted $PB_n$, is the fundamental group of $M_n$. One can write $PB_n = \pi_1(M_n)$.
+\end{definition}
+
+\section{Visualization of the Braid Group}
+
+We can think of a pure braid as a loop in $M_n$:
+\begin{align*}
+    \beta : \left[ 0,1 \right] &\to M_n \\
+    t &\mapsto \beta(t) = \left( \beta_1(t),\beta_2(t),\dots,\beta_n(t) \right),
+\end{align*}
+with some base point. Conventionally, we define the base point as the $n$-tuple of integers $(1,2,3,\dots,n)\in \C^n$. Then a pure braid can be though of the motion of these points in the complex plane as $t$ ranges from 0 to 1 in which $\beta_i(t)$ is defined and $\beta_i(t)\neq \beta_j(t)$ for every $t\in[0,1]$ and $i\neq j\in\left\{ 1,2,\dots,n \right\}$. Because each $\beta_i$ is a loop, it must start and end at the point $i$ (e.g., $\beta_i(0)=\beta_i(1)=i$). Recall that the loops are actually equivalence classes of loops under homotopy. As a result, we can continuously deform the motion of the $n$ points while maintaining the same pure braid (up to equivalence) so long as we preserve the pairwise distinction of the points for all time $t\in[0,1]$.
+
+A common visualization of pure braids is as strands in 3-dimensional space.
 
 % \bibliographystyle{plain}
 % \bibliography{references}
