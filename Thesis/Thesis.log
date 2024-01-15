@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.13)  14 JAN 2024 14:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.13)  15 JAN 2024 15:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -226,30 +226,32 @@ Chapter 2.
 Chapter 3.
 [8
 
-]
-Overfull \hbox (15.53369pt too wide) in paragraph at lines 259--260
-[]\OT1/cmr/m/n/12 A com-mon vi-su-al-iza-tion of pure braids is as strands in 3-dimensional space. 
+] [9]
+Overfull \hbox (8.27777pt too wide) in paragraph at lines 274--274
+[]\OT1/cmr/bx/n/17.28 Standard gen-er-a-tors of the braid group 
  []
 
-[9] (./Thesis.aux)
+(./Thesis.bbl [10]) [11
+
+] (./Thesis.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-10-10>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3556 strings out of 474510
- 53016 string characters out of 5752974
+ 3565 strings out of 474510
+ 53182 string characters out of 5752974
  1938040 words of memory out of 5000000
- 25489 multiletter control sequences out of 15000+600000
+ 25495 multiletter control sequences out of 15000+600000
  568099 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,65p,931b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,11n,65p,951b,259s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Thesis.pdf (10 pages, 147363 bytes).
+Output written on Thesis.pdf (12 pages, 154679 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
