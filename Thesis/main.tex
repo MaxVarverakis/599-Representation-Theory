@@ -1,0 +1,65 @@
+\documentclass[12pt]{report}
+\usepackage[parfill]{parskip}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{braket}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\graphicspath{ {figures/} }
+% \FloatBarrier
+
+\title{
+{Title}\\
+% {\large A Thesis \\presented to \\ the Faculty of California Polytechnic State University, \\San Luis Obispo}\\
+}
+\author{Max Varverakis}
+\date{\today}
+
+% MATH STUFF
+% \renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\mat}[3]{{{#1}^#2}_#3}
+\newcommand{\sotwo}{\textrm{SO}{(2)}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\iv}[1]{{ #1 }^{-1}}
+\newcommand{\aut}[1]{\textrm{Aut}\!\left( #1 \right)}
+% \newcommand{\behat}[1]{\bra{\hat{e}[#1]}}
+% \newcommand{\kehat}[1]{\ket{\hat{e}[#1]}}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
+
+\begin{document}
+
+\maketitle
+
+\include{chapters/Rep_Theory_Background}
+
+\include{chapters/Top_Background}
+
+\include{chapters/The_Braid_Group}
+
+% Bibliography with hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

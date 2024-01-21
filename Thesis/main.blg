@@ -1,11 +1,14 @@
 This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: Thesis.aux
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: chapters/Rep_Theory_Background.aux
+A level-1 auxiliary file: chapters/Top_Background.aux
+A level-1 auxiliary file: chapters/The_Braid_Group.aux
 The style file: plain.bst
 Database file #1: references.bib
 You've used 1 entry,
             2118 wiz_defined-function locations,
-            506 strings with 4077 characters,
+            509 strings with 4162 characters,
 and the built_in function-call counts, 270 in all, are:
 = -- 24
 > -- 7
