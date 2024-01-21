@@ -8,7 +8,7 @@
 \usepackage{braket}
 \usepackage{xcolor}
 
-\graphicspath{ {images/} }
+\graphicspath{ {figures/} }
 
 \title{
 {Title}\\
@@ -28,6 +28,7 @@
 \newcommand{\D}{\mathbb{D}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\iv}[1]{{ #1 }^{-1}}
+\newcommand{\aut}[1]{\textrm{Aut}\!\left( #1 \right)}
 % \newcommand{\behat}[1]{\bra{\hat{e}[#1]}}
 % \newcommand{\kehat}[1]{\ket{\hat{e}[#1]}}
 
@@ -236,6 +237,17 @@ In the fundamental group, the inverse of an element is the identical topological
 %     Consider a \textbf{3-dimensional(?)} torus $T^3$. The fundamental group of the torus is $\pi(T^3)$. There are two types of loops on the torus: those that pass through the hole of the torus, and those that do not.
 % \end{example}
 
+Just as how homotopy describes a continuous transformation from one continuous path on a topological space to another, we can define topological equivalence on a larger scale.
+\begin{definition}
+    A continuous, bijective function $f:X\to Y$ between two topological spaces $X$ and $Y$ such that the inverse $\iv{f}:Y\to X$ is also continuous and bijective is called a \textit{homeomorphism}. If there exists such a homeomorphism, then we say $X$ is \textit{homeomorphic} to $Y$. Moreover, an \textit{embedding} of topological spaces is a continuous function that is a homeomorphism when restricted to its image. If we have a continuous family of homeomorphisms $f_t:X\to Y$ for $t\in[0,1]$, then we say that $X$ and $Y$ are \textit{isotopic}. The isotopy of $X$ and $Y$ can be written as a function $H:X\times[0,1]\to Y$ such that
+    \begin{enumerate}
+        \item $H(x,0)=x$ for all $x\in X$, 
+        \item $H(x,1)=f(x)$ for all $x\in X$, and
+        \item $H(-,t)$ is an embedding of $X$ onto $Y$ for all $t\in[0,1]$.
+    \end{enumerate}
+\end{definition}
+Evidently, isotopy defines a stronger and more broad notion of topological equivalence, which will be important in defining representations later on.
+
 \chapter{The Braid Group}
 \begin{definition}
     The \textit{configuration space} of $n$ ordered distinct points in the complex plane $\C$ is defined as $M_n = \left\{ \left( z_1,\dots,z_n \right)\in\C ; z_i\neq z_j,\forall i\neq j \right\}$. Alternatively, consider $\mathcal{D}$ to be the collection of all hyperplanes $H_{i,j}=\left\{ z_i=z_j \right\}\in\C^n$ for $1\leq i < j \leq n$. Then we can define $M_n = \C^n \setminus \mathcal{D}$.
@@ -271,14 +283,67 @@ In the previous section, we defined pure braids in which the endpoints of each s
 
 The visualization of a braid is the same as in the case of pure braids, only now the endpoints of each strand do not necessarily match the starting points. For example, the $i$-th strand may start at the point $(i,0)$ but end at the point $(j,1)$ for $i,j\in\left\{ 1,\dots,n \right\}$. The equivalence of strands is still defined as before under the homotopy of loops. Loop concatenation defines the multiplication of braids, as before.
 
-\section{Standard generators of the braid group}
+\section{Standard generators of the braid group}\label{sec:std_gens}
 Originally proposed by Artin~\cite{Artin1947}, each braid can be decomposed into a product of \textit{standard generators} of the braid group. When visualizing braids in $\R\times[0,1]$, a crossing of two strands is clearly indicated by one going over the other. Suppose each crossing occurs at a different time $t\in[0,1]$. Then by rescaling the time component of an arbitrary braid, we can deconstruct it into a stack of simple braids with only one crossing between neighboring strands per braid. Each single crossing of strands can be obtained by performing a transposition between neighboring endpoints of the strands.
 
-For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be written as applying $\sigma_i$ to the identity braid (i.e., the braid that starts without any crossings of strands). It must be noted that there are two distinct ways to swap the endpoints of two strands. From a top-down perspective looking at just $\C\times\left\{ 1 \right\}$, $\sigma_i$ swaps $(i,1)$ and $(i+1,1)$ in a clockwise rotation. The reverse of this operation (i.e., twisting the endpoints around in the counterclockwise direction) is denoted $\sigma_i^{-1}$. The standard generators of the braid group $B_n$ are defined as the set $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$. An arbitrary braid can be constructed by concatenating (or stacking) the simpler braids made from the standard generators before rescaling the time dimension to $[0,1]$.
+For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be written as applying $\sigma_i$ to the identity braid (i.e., the braid that starts without any crossings of strands). It must be noted that there are two distinct ways to swap the endpoints of two strands. From a bottom-up perspective looking at just $\C\times\left\{ 1 \right\}$, $\sigma_i$ swaps $(i,1)$ and $(i+1,1)$ in a counterclockwise rotation. The reverse of this operation (i.e., twisting the endpoints around in the clockwise direction) is denoted $\sigma_i^{-1}$. The standard generators of the braid group $B_n$ are defined as the set $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$. An arbitrary braid can be constructed by concatenating (or stacking) the simple braids made from the standard generators before rescaling the time coordinate to $[0,1]$.
 
+\section{Automorphisms of the free group}
 
+Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ involves loops that start and end at the same (fixed) base point in $\partial\D_n$. Up to homotopy, a clockwise loop that only encompasses the $i$-th hole in $\D_n$ is analogous to the $i$-th generator of the free group $F_n$ of rank $n$. In fact, we have $\pi_1\left( \D_n \right) = F_n$. This equality allows us to define a representation of the braid group on $n$ strands as automorphisms of $F_n$.
 
+Each braid $\beta\in B_n$ is realized as an automorphism of $\pi_1(\D_n) = F_n$ (up to isotopy) in which each loop $\gamma\in\pi_1(\D_n)$ is sent to another loop $\beta(\gamma)$. In other words, we have a representation of the braid group defined by
+\begin{align}
+    \rho: B_n &\to \aut{F_n} \\
+    \beta &\mapsto \rho_\beta.
+\end{align}
+The action of $\beta$ on a loop $\gamma$ is defined by the rearrangements of the $n$ holes in $\D_n$, similar to the action of the standard generators of $B_n$ on the base points in $\C\times\left\{ 1 \right\}$. In terms of the standard generators of $B_n$, each $\sigma_i$ corresponds to switching the places of hole $i$ and hole $i+1$ by means of a counterclockwise rotation, as seen in Figure~\ref{fig:sigma_on_Dn}. This is identical to viewing the action of $\sigma_i$ on the base points in $\C\times\left\{ 1 \right\}$ from the bottom-up, as described in Section~\ref{sec:std_gens}. As before, the inverse action $\iv{\sigma_i}$ is a clockwise rotation of the two adjacent holes $i$ and $i+1$ in $\D_n$. These actions respect the group operation of loop concatenation.
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = .5\textwidth]{Gonzalez_Fig4_sigma_on_Dn.png}
+    \caption{\colorbox{red}{Replace}}\label{fig:sigma_on_Dn}
+\end{figure}
+
+The automorphism $\rho_\beta$ is most simply defined in terms of the action of the standard generators of $B_n$ on the generators $x_1,\dots,x_n$ of $F_n$ (visualized as loops in $\D_n$). For each $i\in\left\{ 1,\dots,n-1 \right\}$, it follows that
+\begin{align}
+    &\rho_{\sigma_i}(x_i) = x_{i+1}, \\
+    &\rho_{\sigma_i}(x_{i+1}) = \iv{x_{i+1}}x_i x_{i+1}, \\
+    &\rho_{\sigma_i}(x_j) = x_j, \textrm{ for } j\neq i,i+1.
+\end{align}
+These relations can be verified graphically as in Figure~\ref{fig:sigma_on_x_i}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = .5\textwidth]{sketch_sigma_on_x_i.png}
+    \caption{\colorbox{red}{CAPTION}}\label{fig:sigma_on_x_i}
+\end{figure}
+For any $\sigma_i$, $\rho_{\iv{\sigma_i}}$ is clearly defined. It follows that for any braid $\beta\in B_n$, we can decompose $\rho_\beta$ the composition of the automorphisms of the standard generators $\sigma_1,\dots,\sigma_{n-1}$ and their inverses that make up $\beta$. 
+
+Notice that for any $\sigma_i$, $\rho_{\sigma_i}(x_1\cdots x_n) = x_1\cdots x_n$. This is because the loop $x_1\cdots x_n$ in $\D_n$, encompassing all holes, is parallel to the boundary $\partial\D_n$. Thus, the action of $\sigma_i$ on $x_1\cdots x_n$ is trivial does not affect the structure of the loop up to isotopy. More generally, this implies that $\rho_\beta(x_1\cdots x_n) = x_1\cdots x_n$ for any $\beta\in B_n$. Paired with the observation that every generator is conjugate to another, Artin~\cite{Artin1947} showed that this is a necessary and sufficient condition for $\rho_\beta$ to be an automorphism of $F_n$.
+
+\begin{theorem}
+    An automorphism $f\in\aut{F_n}$ is equal to $\rho_\beta$ for some $\beta\in B_n$ if and only if
+    \begin{enumerate}
+        \item $f(x_i)$ is a conjugate of some $x_j$ for every $i\in\left\{ 1,\dots,n \right\}$, and
+        \item $f(x_1\cdots x_n) = x_1\cdots x_n$.
+    \end{enumerate}
+\end{theorem}
+
+In this interpretation of the braid group, we can express $B_n$ in terms of the standard generators:
+\begin{equation}
+    B_n = \left\langle \sigma_1,\dots,\sigma_{n-1} \;\middle|\;
+    \begin{aligned}
+        \sigma_i\sigma_j &= \sigma_j\sigma_i, & |i-j|&>1 \\
+        \sigma_i\sigma_{i+1}\sigma_i &= \sigma_{i+1}\sigma_i\sigma_{i+1}, & |i-j|&=1
+    \end{aligned}
+    \right\rangle.
+\end{equation}
+The first condition that the standard generators commute if $|i-j|>1$ is easily verified by looking at the graphic of Figure~\ref{fig:sigma_on_x_i} in describing the property of the automorphism $\rho_{\sigma_i}(\sigma_j) = \sigma_j$. This follows by the fact that if two holes are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in Figure~\ref{fig:YB_criterion_verification} by looking at the corresponding braids in $\R\times[0,1]$.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
+    \caption{\colorbox{red}{Grayed-out strand indicates that it is behind all other strands.}}\label{fig:YB_criterion_verification}
+\end{figure}
 
 \bibliographystyle{plain}
 \bibliography{references}
