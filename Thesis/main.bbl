@@ -5,4 +5,32 @@ E.~Artin.
 \newblock Theory of braids.
 \newblock {\em The Annals of Mathematics}, 48(1):101, January 1947.
 
+\bibitem{Fulton1997}
+W.~Fulton.
+\newblock {\em Algebraic Topology: A First Course}.
+\newblock Graduate Texts in Mathematics. Springer New York, 1997.
+
+\bibitem{Gonzalez2010}
+Juan Gonzalez-Meneses.
+\newblock Basic results on braid groups, 2010.
+
+\bibitem{Kassel2008}
+Christian Kassel and Vladimir Turaev.
+\newblock {\em Homological Representations of the Braid Groups}, page 93–150.
+\newblock Springer New York, 2008.
+
+\bibitem{Rolfsen2010}
+Dale Rolfsen.
+\newblock Tutorial on the braid groups, 2010.
+
+\bibitem{key}
+Jean-Luc Thiffeault.
+\newblock The burau representation of the braid group and its application to dynamics.
+\newblock Presentation given at Topological Methods in Mathematical Physics 2022, Seminar {GEOTOP}-{A}, September 2022.
+
+\bibitem{Tung1985}
+Wu-Ki Tung.
+\newblock {\em Group theory in physics: An introduction to symmetry principles, group representations, and special functions in classical and quantum physics}.
+\newblock World Scientific Publishing, Singapore, Singapore, January 1985.
+
 \end{thebibliography}
