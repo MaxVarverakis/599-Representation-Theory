@@ -1,5 +1,4 @@
-\chapter{The Braid Group}
-\label{ch:braid_group}
+\chapter{The Braid Group}\label{ch:braid_group}
 
 \begin{definition}
     The \textit{configuration space} of $n$ ordered distinct points in the complex plane $\C$ is defined as $M_n = \left\{ \left( z_1,\dots,z_n \right)\in\C ; z_i\neq z_j,\forall i\neq j \right\}$. Alternatively, consider $\mathcal{D}$ to be the collection of all hyperplanes $H_{i,j}=\left\{ z_i=z_j \right\}\in\C^n$ for $1\leq i < j \leq n$. Then we can define $M_n = \C^n \setminus \mathcal{D}$.
@@ -42,16 +41,16 @@ Originally proposed by Artin~\cite{Artin1947}, each braid can be decomposed into
 
 \missingfigure[figwidth=6cm]{Gonzalez Figure 2}
 
-For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be written as applying $\sigma_i$ to the identity braid (i.e., the braid that starts without any crossings of strands). It must be noted that there are two distinct ways to swap the endpoints of two strands. From a bottom-up perspective looking at just $\C\times\left\{ 1 \right\}$, $\sigma_i$ swaps $(i,1)$ and $(i+1,1)$ in a counterclockwise rotation. The reverse of this operation (i.e., twisting the endpoints around in the clockwise direction) is denoted $\sigma_i^{-1}$. The standard generators of the braid group $B_n$ are defined as the set $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$. An arbitrary braid can be constructed by concatenating (or stacking) the simple braids made from the standard generators before rescaling the time coordinate to $[0,1]$.
+For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be written as applying $\sigma_i$ to the identity braid (i.e., the braid that starts without any crossings of strands). It must be noted that there are two distinct ways to swap the endpoints of two strands. From a top-down perspective looking at the plane $\C\times\left\{ t \right\}$ for some time $t$, $\sigma_i$ swaps $(i,t)$ and $(i+1,t)$ in a clockwise rotation. The reverse of this operation (i.e., twisting the endpoints around in the counterclockwise direction) is denoted $\sigma_i^{-1}$. The standard generators of the braid group $B_n$ are defined as the set $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$. An arbitrary braid can be constructed by concatenating (or stacking) the simple braids made from the standard generators before rescaling the time coordinate to $[0,1]$.
 
 \section{Automorphisms of the free group}
 
-Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ involves loops that start and end at the same (fixed) base point in $\partial\D_n$. Up to homotopy, a clockwise loop that encompasses the $i$-th hole in $\D_n$ corresponds to the $i$-th generator of the free group $F_n$ of rank $n$, which is illustrated in Figure~\ref{fig:Gen_on_Dn}. In fact, $\pi_1\left( \D_n \right) = F_n$. This equality allows us to define a representation of the braid group on $n$ strands as automorphisms of $F_n$.
+Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ involves loops that start and end at the same (fixed) base point in $\partial\D_n$. Up to homotopy, a clockwise-directional loop that encompasses the $i$-th hole in $\D_n$ corresponds to the $i$-th generator of the free group $F_n$ of rank $n$, which is illustrated in Figure~\ref{fig:Gen_on_Dn}. In fact, $\pi_1\left( \D_n \right) = F_n$. This equality allows us to define a representation of the braid group on $n$ strands as automorphisms of $F_n$.
 
 \begin{figure}[htbp]
     \centering
     \input{TikZ/Gen_on_Dn.tikz}
-    \caption{Only one loop is depicted here, but for each $i\in\left\{ 1,\dots,n \right\}$, the loop encircling the $i$-th hole in $\D_n$ corresponds to the $i$-th free generator of $F_n$ (i.e., $x_i$). The red dot indicates the (arbitrary) base point for the loops in $\pi_1(\D_n)$.\colorbox{red}{(Gonzalez Figure 3)}}\label{fig:Gen_on_Dn}
+    \caption{Only one loop is depicted here, but for each $i\in\left\{ 1,\dots,n \right\}$, the loop encircling the $i$-th hole in $\D_n$ corresponds to the $i$-th free generator of $F_n$ (i.e., $x_i$). The red dot indicates the (arbitrary) base point for the loops in $\pi_1(\D_n)$. Adapted from Ref.~\cite{Gonzalez2010}, Figure 3.}\label{fig:Gen_on_Dn}
 \end{figure}
 
 Each braid $\beta\in B_n$ is realized as an automorphism of $\pi_1(\D_n) = F_n$ (up to isotopy) where each loop $\gamma\in\pi_1(\D_n)$ is sent to another loop $\beta(\gamma)$. In other words, we have a representation of the braid group defined by
@@ -59,7 +58,9 @@ Each braid $\beta\in B_n$ is realized as an automorphism of $\pi_1(\D_n) = F_n$ 
     \rho: B_n &\to \aut{F_n} \\
     \beta &\mapsto \rho_\beta.
 \end{align}
-The action of $\beta$ on a loop $\gamma$ is defined by the rearrangements of the $n$ holes in $\D_n$, similar to the action of the standard generators of $B_n$ on the base points in $\C\times\left\{ 1 \right\}$. In terms of the standard generators of $B_n$, each $\sigma_i$ corresponds to switching the places of hole $i$ and hole $i+1$ by means of a counterclockwise rotation, as seen in Figure~\ref{fig:sigma_on_Dn}. This is identical to viewing the action of $\sigma_i$ on the base points in $\C\times\left\{ 1 \right\}$ from the bottom-up, as described in Section~\ref{sec:std_gens}. As before, the inverse action $\iv{\sigma_i}$ is a clockwise rotation of the two adjacent holes $i$ and $i+1$ in $\D_n$. These actions respect the group operation of loop concatenation.
+The action of $\beta$ on a loop $\gamma$ is defined by the rearrangements of the $n$ holes in $\D_n$, similar to the action of the standard generators of $B_n$ on the base points in $\C\times\left\{ 1 \right\}$. In terms of the standard generators of $B_n$, each $\sigma_i$ corresponds to switching the places of hole $i$ and hole $i+1$ by means of a clockwise rotation, as seen in Figure~\ref{fig:sigma_on_Dn}. This is identical to viewing the action of $\sigma_i$ on the base points (Section~\ref{sec:std_gens}) from above, looking down on the $\C\times\left\{ t \right\}$-plane. As before, the inverse action $\iv{\sigma_i}$ is a counterclockwise rotation of the two adjacent holes $i$ and $i+1$ in $\D_n$. These actions respect the group operation of loop concatenation.
+
+\colorbox{red}{A note on convention of directions/consistency up to inverses.}
 
 \begin{figure}[htbp]
     \centering
@@ -67,11 +68,16 @@ The action of $\beta$ on a loop $\gamma$ is defined by the rearrangements of the
     \caption{\colorbox{red}{Gonzalez Figure 4}}\label{fig:sigma_on_Dn}
 \end{figure}
 
+\begin{figure}[htbp]
+    \centering
+    \input{TikZ/sigma_on_xi.tikz}
+\end{figure}
+
 The automorphism $\rho_\beta$ is most simply defined in terms of the action of the standard generators of $B_n$ on the generators $x_1,\dots,x_n$ of $F_n$ (visualized as loops in $\D_n$). For each $i\in\left\{ 1,\dots,n-1 \right\}$, it follows that
 \begin{align}
-    &\rho_{\sigma_i}(x_i) = x_{i+1}, \\
-    &\rho_{\sigma_i}(x_{i+1}) = \iv{x_{i+1}}x_i x_{i+1}, \\
-    &\rho_{\sigma_i}(x_j) = x_j, \textrm{ for } j\neq i,i+1.
+    &\rho_{\sigma_i}(x_{i}) = \iv{x_{i}}x_{i+1} x_{i}, \\
+    &\rho_{\sigma_i}(x_i+1) = x_{i}, \\
+    &\rho_{\sigma_i}(x_j) = x_j, \textrm{ for } j\neq i,i-1.
 \end{align}
 These relations can be verified graphically as in Figure~\ref{fig:sigma_on_x_i}.
 \begin{figure}[htbp]
@@ -106,3 +112,5 @@ The first condition that the standard generators commute if $|i-j|>1$ is easily 
     \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
     \caption{\colorbox{red}{Grayed-out strand indicates that it is behind all other strands.}}\label{fig:YB_criterion_verification}
 \end{figure}
+
+\section{The Burau Representation}

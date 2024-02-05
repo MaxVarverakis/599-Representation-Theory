@@ -9,7 +9,8 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{todonotes}
-\usepackage{commands}
+
+% \usepackage{commands}
 
 \graphicspath{ {figures/} }
 % \FloatBarrier
@@ -29,9 +30,18 @@
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{example}{Example}[chapter]
 
+\renewcommand{\bibname}{References}
+
+\includeonly{chapters/tikz_test}
+
 \begin{document}
 
+% load custom commands (placed after begin document so that VSCode intellisence recognizes the commands)
+\input{commands.tex}
+
 \maketitle
+
+\tableofcontents
 
 \include{chapters/Rep_Theory_Background}
 
@@ -39,10 +49,12 @@
 
 \include{chapters/The_Braid_Group}
 
+\include{chapters/tikz_test}
+
+\addcontentsline{toc}{chapter}{References}
 \nocite{*} % Include all references in the bibliography
 % Bibliography with hyperlinks
 \hypersetup{
-    colorlinks=true,
     linkcolor=blue,
     citecolor=blue,
     urlcolor=blue
