@@ -3,9 +3,9 @@
 \def\XOff{1.5*\circleRadius}
 \def\YOff{-2.5*\circleRadius}
 
-% \pgfdeclarelayer{edgelayer}
-% \pgfdeclarelayer{nodelayer}
-% \pgfsetlayers{edgelayer,nodelayer,main}
+\pgfdeclarelayer{edgelayer}
+\pgfdeclarelayer{nodelayer}
+\pgfsetlayers{edgelayer,nodelayer,main}
 
 \newcommand{\drawRegion}[3]{
         \begin{scope}[shift={#1}]
@@ -42,33 +42,42 @@
 
         \draw[-latex, ultra thick] (-\XOff + \circleRadius + 0.25cm, \YOff) -- node[above] {$\sigma_i$} (\XOff - \circleRadius - 0.25cm, \YOff);
         
-        \coordinate (A) at (1.3*\sep+.35*\circleRadius+\XOff,\YOff + 0.39*\circleRadius - 2*\sep);
-        \coordinate (D) at (-.2*\sep + \XOff,\YOff - 0.39*\circleRadius - 2*\sep);
+        % \drawRegion{(\XOff,\YOff)}{}{}
+
+        \begin{scope}[shift={(\XOff,\YOff)}]
+                \node[anchor=north west, font=\large] at (-\circleRadius, \circleRadius) {$\D_n$};
         
-        \coordinate (M) at (2*\sep + \XOff,\YOff);
-
-        \coordinate (B) at (-2.2*\sep-.35*\circleRadius+\XOff,\YOff + 0.39*\circleRadius);
-        \coordinate (C) at (-3.25*\sep+.35*\circleRadius+\XOff,\YOff + 0.39*\circleRadius - \sep);
+                \draw[ultra thick] (0,0) circle (\circleRadius);
+                \filldraw [black] 
+                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
+                        (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
+                        (-\sep,0) circle (2pt) node[above, yshift=.4*\sep] {$i$}
+                        (\sep,0) circle (2pt) node[above, yshift=.3*\sep] {$i+1$};
+                \path (-\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
+                \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
         
-        \drawRegion{(\XOff,\YOff)}{}{$x_{i+1}$}
-        
-        \draw[-latex, ultra thick] (0 + \XOff,\YOff-\circleRadius + 2.8452755906/2) .. controls (B) and (C) .. (M) .. controls (A) and (D) .. node[pos=0.1, left] {$x$} (.05*\sep + \XOff,\YOff-\circleRadius + 2.8452755906/2);
+                \filldraw [red] (0,-\circleRadius) circle (2pt);
 
-        % \node (0) at (-9.75 + \XOff, -\circleRadius + \YOff) {};
-        % \node (1) at (-9.5 + \XOff, -0.5 + \YOff) {};
-        % \node (3) at (-5.25 + \XOff, 4.75 + \YOff) {};
-        % \node (4) at (-7.75 + \XOff, 5.75 + \YOff) {};
-        % \node (5) at (-9.25 + \XOff, -\circleRadius + \YOff) {};
-        % \draw [in=105, out=-120, looseness=0.50] (0.center) to (1.center);
-        % \draw [in=60, out=60, looseness=0.50] (3.center) to (0.center);
-        % \draw [in=-150, out=-15, looseness=0.50] (4.center) to (3.center);
-        % \draw [in=165, out=105] (5.center) to (4.center);
+                \begin{pgfonlayer}{nodelayer}
+                        \node (0) at (-1.5*\sep,.35*\sep ) {};
+                        \node (1) at (0, -\circleRadius + 2.8452755906/2) {};
+                        \node (2) at (1.5*\sep, -1.5*\sep) {$x_i x_{i+1}\iv{x_i}$};
+                        \node (3) at (1.25*\sep, -.25*\sep) {};
+                        \node (4) at (-.5*\sep, .35*\sep) {};
+                        \node (5) at (.05*\sep, -\circleRadius + 2.8452755906/2) {};
+                \end{pgfonlayer}
+                \begin{pgfonlayer}{edgelayer}
+                        \draw [in=105, out=-120, looseness=0.50, ultra thick] (0.center) to (1.center);
+                        \draw [in=60, out=30, looseness=0.85, ultra thick] (3.center) to (0.center);
+                        \draw [in=-150, out=-15, looseness=0.50, ultra thick] (4.center) to (3.center);
+                        \draw [latex-, in=165, out=85, ultra thick] (5.center) to (4.center);
+                \end{pgfonlayer}
 
-        \foreach \point in {A, B, C, D} {
-                \fill[red] (\point) circle (2pt);
-                \node[above right] at (\point) {\point};
-        }
-
+                % \foreach \point in {0,1,3,4,5} {
+                %         \fill[red] (\point) circle (2pt);
+                %         \node[above right] at (\point) {\point};
+                % }
+        \end{scope}
         
         \draw[-latex, ultra thick] (-\XOff + \circleRadius + 0.25cm, 0) -- node[above] {$\sigma_i$} (\XOff - \circleRadius - 0.25cm, 0);
 \end{tikzpicture}
