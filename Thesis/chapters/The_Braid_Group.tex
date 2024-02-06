@@ -71,7 +71,7 @@ The action of $\beta$ on a loop $\gamma$ is defined by the rearrangements of the
 \begin{figure}[htbp]
     \centering
     \input{TikZ/sigma_on_xi.tikz}
-    \caption{The action of $\sigma_i$ on the generators $x_i$ and $x_{i+1}$ as described by \cref{eq:rho_i,eq:rho_ip1,eq:rho_j}.}\label{fig:sigma_on_Dn}
+    \caption{The action of $\sigma_i$ on the generators $x_i$ and $x_{i+1}$ as described by \cref{eq:rho_i,eq:rho_ip1,eq:rho_j}. The image of $x_i$ under $\sigma_i$ is verified visually in \cref{fig:sigma_on_x_i}}\label{fig:sigma_on_Dn}
 \end{figure}
 
 The automorphism $\rho_\beta$ is most simply defined in terms of the action of the standard generators of $B_n$ on the generators $x_1,\dots,x_n$ of $F_n$ (visualized as loops in $\D_n$). For each $i\in\left\{ 1,\dots,n-1 \right\}$, it follows that
@@ -80,16 +80,11 @@ The automorphism $\rho_\beta$ is most simply defined in terms of the action of t
     &\rho_{\sigma_i}(x_i+1) = x_{i}, \label{eq:rho_ip1}\\
     &\rho_{\sigma_i}(x_j) = x_j, \textrm{ for } j\neq i,i-1.\label{eq:rho_j}
 \end{align}
-These relations can be verified graphically as in \cref{fig:sigma_on_x_i}.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width = .5\textwidth]{sketch_sigma_on_x_i.png}
-    \caption{\colorbox{red}{CAPTION}}\label{fig:sigma_on_x_i}
-\end{figure}
-
+Clearly, any two loops that are separated by at least one puncture will not interact while performing $\sigma_i$. The relations for adjacent loops can be verified graphically as illustrated in \cref{fig:sigma_on_Dn,fig:sigma_on_x_i}.
 \begin{figure}[htbp]
     \centering
     \input{TikZ/rho_verification.tikz}
+    \caption{Up to homotopy, the product $x_i x_{i+1} \iv{x_i}$ is visualized as the concatenation of the loops $x_i,x_{i+1},\iv{x_i}\in\pi_1(\D_n)$. In the top right diagram, small red dots are used indicate the points of concatenation.}\label{fig:sigma_on_x_i}
 \end{figure}
 
 For any $\sigma_i$, $\rho_{\iv{\sigma_i}}$ is clearly defined. It follows that for any braid $\beta\in B_n$, we can decompose $\rho_\beta$ the composition of the automorphisms of the standard generators $\sigma_1,\dots,\sigma_{n-1}$ and their inverses that make up $\beta$. 

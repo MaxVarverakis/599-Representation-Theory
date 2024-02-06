@@ -13,32 +13,33 @@
 
         \draw[ultra thick] (0,0) circle (\circleRadius);
         \filldraw [black] 
-                (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
+                (-\circleRadius + \sep,0) circle (2pt) node[above] {$1$}
                 (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
                 (-\sep,0) circle (2pt) node[above, yshift=.2*\sep] {$i$}
                 (\sep,0) circle (2pt) node[above, yshift=.1*\sep] {$i+1$};
         \path (-\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
         \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
 
-        \filldraw [red] (0,-\circleRadius) circle (2pt);
-
         \ifx&#2&  % Check if #2 is empty
                 % Do nothing if #2 is empty
         \else
-                \draw[-latex, ultra thick] (0,-\circleRadius + 2.8452755906/2) .. controls #2 .. node[pos=0.1, left] {#3} (.05*\sep,-\circleRadius + 2.8452755906/2);
+                \draw[-latex, ultra thick] (0,-\circleRadius) .. controls #2 .. node[pos=0.1, left] {#3} (.05*\sep,-\circleRadius + 2.8452755906/2);
         \fi
+        
+        \filldraw [red] (0,-\circleRadius) circle (2pt);
+        
         \end{scope}
 }
 
 
 \begin{tikzpicture}
-        \drawRegion{(\XOff,0)}{(-1.4*\sep-.35*\circleRadius,0.39*\circleRadius) and  (-1.4*\sep+.35*\circleRadius,0.39*\circleRadius)}{$x_i$}
+        \drawRegion{(\XOff,0)}{(-1.425*\sep-.35*\circleRadius,0.39*\circleRadius) and  (-1.425*\sep+.35*\circleRadius,0.39*\circleRadius)}{$x_i$}
         
         \draw[-latex, ultra thick] (-\XOff + \circleRadius + 0.25cm, 0) -- node[above] {$\sigma_i$} (\XOff - \circleRadius - 0.25cm, 0);
         
         \drawRegion{(-\XOff,0)}{(1.3*\sep-.35*\circleRadius,0.39*\circleRadius) and  (1.3*\sep+.35*\circleRadius,0.39*\circleRadius)}{$x_{i+1}$}
         
-        \drawRegion{(-\XOff,\YOff)}{(-1.4*\sep-.35*\circleRadius,0.39*\circleRadius) and  (-1.4*\sep+.35*\circleRadius,0.39*\circleRadius)}{$x_i$}
+        \drawRegion{(-\XOff,\YOff)}{(-1.425*\sep-.35*\circleRadius,0.39*\circleRadius) and  (-1.425*\sep+.35*\circleRadius,0.39*\circleRadius)}{$x_i$}
 
         \draw[-latex, ultra thick] (-\XOff + \circleRadius + 0.25cm, \YOff) -- node[above] {$\sigma_i$} (\XOff - \circleRadius - 0.25cm, \YOff);
         
@@ -49,7 +50,7 @@
         
                 \draw[ultra thick] (0,0) circle (\circleRadius);
                 \filldraw [black] 
-                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
+                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$1$}
                         (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
                         (-\sep,0) circle (2pt) node[above, yshift=.45*\sep] {$i$}
                         (\sep,0) circle (2pt) node[above, yshift=.3*\sep] {$i+1$};
@@ -60,7 +61,7 @@
 
                 \begin{pgfonlayer}{nodelayer}
                         \node (0) at (-1.5*\sep,.35*\sep ) {};
-                        \node (1) at (0, -\circleRadius + 2.8452755906/2) {};
+                        \node (1) at (0, -\circleRadius) {};
                         \node (2) at (1.5*\sep, -1.5*\sep) {$x_i x_{i+1}\iv{x_i}$};
                         \node (3) at (1.25*\sep, -.25*\sep) {};
                         \node (4) at (-.5*\sep, .35*\sep) {};

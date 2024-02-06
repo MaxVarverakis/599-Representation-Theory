@@ -15,7 +15,7 @@
 
         \draw[ultra thick] (0,0) circle (\circleRadius);
         \filldraw [black] 
-                (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
+                (-\circleRadius + \sep,0) circle (2pt) node[above] {$1$}
                 (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
                 (-\sep,0) circle (2pt) node[above, yshift=.2*\sep] {$i$}
                 (\sep,0) circle (2pt) node[above, yshift=.1*\sep] {$i+1$};
@@ -27,14 +27,14 @@
         \ifx&#2&  % Check if #2 is empty
                 % Do nothing if #2 is empty
         \else
-                \draw[-latex, ultra thick] (0,-\circleRadius + 2.8452755906/2) .. controls #2 .. node[pos=0.1, left] {#3} (.05*\sep,-\circleRadius + 2.8452755906/2);
+                \draw[-latex, ultra thick] (0,-\circleRadius) .. controls #2 .. node[pos=0.1, left] {#3} (.05*\sep,-\circleRadius);
         \fi
         \end{scope}
 }
 
-\newcommand{\drawloop}[4]{\draw[ultra thick, postaction={decorate}, decoration={markings, mark= at position 0.75 with {\arrow{latex},sloped}}, #2] (0,-\circleRadius + 2.8452755906/2) .. controls #1 .. node[pos=#4, left] {#3} (.05*\sep,-\circleRadius + 2.8452755906/2);}
+\newcommand{\drawloop}[4]{\draw[ultra thick, postaction={decorate}, decoration={markings, mark= at position 0.75 with {\arrow{latex},sloped}}, #2] (0,-\circleRadius + 2.8452755906/2) .. controls #1 .. node[pos=#4, left] {#3} (.0*\sep,-\circleRadius + 2.8452755906/2);}
 
-\newcommand{\rdrawloop}[4]{\draw[ultra thick, postaction={decorate}, decoration={markings, mark= at position 0.25 with {\arrowreversed{latex},sloped}}, #2] (0,-\circleRadius + 2.8452755906/2) .. controls #1 .. node[pos=#4, left] {#3} (.05*\sep,-\circleRadius + 2.8452755906/2);}
+\newcommand{\rdrawloop}[4]{\draw[ultra thick, postaction={decorate}, decoration={markings, mark= at position 0.25 with {\arrowreversed{latex},sloped}}, #2] (0,-\circleRadius + 2.8452755906/2) .. controls #1 .. node[pos=#4, left] {#3} (.0*\sep,-\circleRadius + 2.8452755906/2);}
 
 
 \begin{tikzpicture}
@@ -43,19 +43,18 @@
         
                 \draw[ultra thick] (0,0) circle (\circleRadius);
                 \filldraw [black] 
-                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
+                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$1$}
                         (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
                         (-\sep,0) circle (2pt) node[above, yshift=.2*\sep] {$i$}
                         (\sep,0) circle (2pt) node[above, yshift=.25*\sep] {$i+1$};
                 \path (-\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
                 \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
         
-                \filldraw [red] (0,-\circleRadius) circle (2pt);
-
                 \begin{pgfonlayer}{nodelayer}
                         \node (0) at (.7*\sep,-.5*\circleRadius ) {};
                         \node (1) at (0, -\circleRadius + 2.8452755906/2) {};
                         \node (2) at (.5*\circleRadius, -2*\sep) {$\color{NavyBlue} x_{i+1}$};
+                        \node (xi) at (-.75*\sep, -1.35*\sep) {$\color{OliveGreen} x_{i}$};
                         \node (3) at (.9*\sep, .5*\sep) {};
                         \node (4) at (1.75*\sep, -.5*\circleRadius) {};
                         \node (5) at (.05*\sep, -\circleRadius + 2.8452755906/2) {};
@@ -72,10 +71,11 @@
                 %         \node[above right] at (\point) {\point};
                 % }
 
-                \rdrawloop{(-1.4*\sep-.65*\circleRadius,0.7*\circleRadius) and  (-1.4*\sep+.55*\circleRadius,0.7*\circleRadius)}{purple}{$\iv{x_i}$}{.45}
+                \rdrawloop{(-1.4*\sep-.65*\circleRadius,0.7*\circleRadius) and  (-1.4*\sep+.55*\circleRadius,0.7*\circleRadius)}{purple}{$\iv{x_i}$}{.5}
 
-                \drawloop{(-1.4*\sep-.35*\circleRadius,0.39*\circleRadius) and  (-1.4*\sep+.35*\circleRadius,0.39*\circleRadius)}{OliveGreen}{$x_i$}{.1}
+                \drawloop{(-1.4*\sep-.35*\circleRadius,0.425*\circleRadius) and  (-1.4*\sep+.35*\circleRadius,0.425*\circleRadius)}{OliveGreen}{}{.1}
 
+                \filldraw [red] (0,-\circleRadius) circle (2pt);
         \end{scope}
 
         \begin{scope}[shift={(\XOff,0)}]
@@ -83,19 +83,17 @@
         
                 \draw[ultra thick] (0,0) circle (\circleRadius);
                 \filldraw [black] 
-                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
+                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$1$}
                         (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
                         (-\sep,0) circle (2pt) node[above, yshift=.3*\sep] {\small$i$}
                         (\sep,0) circle (2pt) node[above, xshift=0*\sep, yshift=.15*\sep] {\small$i+1$};
                 \path (-\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
                 \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
-        
-                \filldraw [red] (0,-\circleRadius) circle (2pt);
                 
                 \begin{scope}[shift={(-.25*\sep,0)}]
                                 \begin{pgfonlayer}{nodelayer}
                                 \node (0) at (-1.75*\sep,-.15*\circleRadius ) {};
-                                \node (1) at (.25*\sep, -\circleRadius + 2.8452755906/2) {};
+                                \node (1) at (.25*\sep, -\circleRadius) {};
                                 % \node (2) at (.5*\circleRadius, -2*\sep) {$x_i x_{i+1}\iv{x_i}$};
                                 \node (3) at (0*\sep, 1.5*\sep) {};
                                 \node (4) at (2*\sep, -.05*\circleRadius) {};
@@ -113,7 +111,7 @@
                                 \draw [in=0, out=90, looseness=0.9, ultra thick, NavyBlue] (4.center) to (3.center);
                                 \draw [latex-, in=-100, out=-50, looseness=.9, ultra thick, NavyBlue] (5.center) to (4.center);
                                 \draw [in=60, out=100, looseness=.9, ultra thick, purple] (5.center) to (6.center);
-                                \draw [-latex, in=100, out=-110, looseness=.9, ultra thick, purple] (6.center) to (7.center);
+                                \draw [-latex, in=100, out=-120, looseness=.5, ultra thick, purple] (6.center) to (7.center);
                         \end{pgfonlayer}
                 \end{scope}
                 
@@ -126,14 +124,16 @@
                 %         \fill[red] (\point) circle (1.5pt);
                 %         \node[above right] at (\point) {\point};
                 % }
+                
+                \filldraw [red] (0,-\circleRadius) circle (2pt);
         \end{scope}
 
-        \begin{scope}[shift={(\XOff,\YOff)}]
-                \node[anchor=north west, font=\large] at (-\circleRadius, \circleRadius) {$\D_n$};
+        \begin{scope}[shift={(0,\YOff)}]
+                \node[anchor=north west, font=\large] at (-1.1*\circleRadius, .9*\circleRadius) {$\D_n$};
         
                 \draw[ultra thick] (0,0) circle (\circleRadius);
                 \filldraw [black] 
-                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
+                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$1$}
                         (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
                         (-\sep,0) circle (2pt) node[above, yshift=.45*\sep] {$i$}
                         (\sep,0) circle (2pt) node[above, yshift=.3*\sep] {$i+1$};
@@ -144,8 +144,8 @@
 
                 \begin{pgfonlayer}{nodelayer}
                         \node (0) at (-1.5*\sep,.35*\sep ) {};
-                        \node (1) at (0, -\circleRadius + 2.8452755906/2) {};
-                        \node (2) at (1.5*\sep, -1.5*\sep) {$x_i x_{i+1}\iv{x_i}$};
+                        \node (1) at (0, -\circleRadius) {};
+                        \node (2) at (1.85*\sep, -2.25*\sep) {$x_i x_{i+1}\iv{x_i}$};
                         \node (3) at (1.25*\sep, -.25*\sep) {};
                         \node (4) at (-.5*\sep, .35*\sep) {};
                         \node (5) at (.05*\sep, -\circleRadius + 2.8452755906/2) {};
@@ -159,7 +159,13 @@
 
         \end{scope}
         
-        \draw[latex-latex, ultra thick] (-\XOff + \circleRadius + 0.25cm, 0) -- node[above] {\footnotesize Homotopic} node[below] {\tiny (Loop Concatenation)} (\XOff - \circleRadius - 0.25cm, 0);
+        \draw[latex-latex, ultra thick] (-\XOff + \circleRadius + 0.25cm, 0) -- 
+        % node[above] {\footnotesize Homotopic} 
+        % node[below] {\tiny (Loop Concatenation)}
+        (\XOff - \circleRadius - 0.25cm, 0);
         
-        \draw[latex-latex, ultra thick] (\XOff, -\circleRadius - 0.1cm) -- (\XOff, \YOff+\circleRadius + 0.1cm);
+        \draw[latex-latex, ultra thick] (.675*\XOff, -.925*\circleRadius) -- (.35*\XOff, \YOff + .9*\circleRadius);
+        \draw[latex-latex, ultra thick] (-.675*\XOff, -.925*\circleRadius) -- (-.35*\XOff, \YOff + .9*\circleRadius);
+
+        \node at (0, \YOff + 1.6*\circleRadius) {\large {Homotopic}};
 \end{tikzpicture}
