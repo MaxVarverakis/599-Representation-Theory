@@ -51,7 +51,7 @@
                 \filldraw [black] 
                         (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
                         (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
-                        (-\sep,0) circle (2pt) node[above, yshift=.4*\sep] {$i$}
+                        (-\sep,0) circle (2pt) node[above, yshift=.45*\sep] {$i$}
                         (\sep,0) circle (2pt) node[above, yshift=.3*\sep] {$i+1$};
                 \path (-\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
                 \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};

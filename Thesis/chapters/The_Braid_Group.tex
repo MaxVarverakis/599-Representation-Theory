@@ -45,12 +45,12 @@ For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be
 
 \section{Automorphisms of the free group}
 
-Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ involves loops that start and end at the same (fixed) base point in $\partial\D_n$. Up to homotopy, a clockwise-directional loop that encompasses the $i$-th hole in $\D_n$ corresponds to the $i$-th generator of the free group $F_n$ of rank $n$, which is illustrated in Figure~\ref{fig:Gen_on_Dn}. In fact, $\pi_1\left( \D_n \right) = F_n$. This equality allows us to define a representation of the braid group on $n$ strands as automorphisms of $F_n$.
+Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ involves loops that start and end at the same (fixed) base point in $\partial\D_n$. Up to homotopy, a clockwise-directional loop that encompasses the $i$-th hole in $\D_n$ corresponds to the $i$-th generator of the free group $F_n$ of rank $n$, which is illustrated in \cref{fig:Gen_on_Dn}. In fact, $\pi_1\left( \D_n \right) = F_n$. This equality allows us to define a representation of the braid group on $n$ strands as automorphisms of $F_n$.
 
 \begin{figure}[htbp]
     \centering
-    \input{TikZ/Gen_on_Dn.tikz}
-    \caption{Only one loop is depicted here, but for each $i\in\left\{ 1,\dots,n \right\}$, the loop encircling the $i$-th hole in $\D_n$ corresponds to the $i$-th free generator of $F_n$ (i.e., $x_i$). The red dot indicates the (arbitrary) base point for the loops in $\pi_1(\D_n)$. Adapted from Ref.~\cite{Gonzalez2010}, Figure 3.}\label{fig:Gen_on_Dn}
+    \input{TikZ/Gen_on_Dn_v2.tikz}
+    \caption{For each $i\in\left\{ 1,\dots,n \right\}$, the clockwise-directional loop encircling the $i$-th hole in $\D_n$ corresponds to the $i$-th free generator of $F_n$ (i.e., $x_i$). The red dot indicates the (arbitrary) base point for the loops in $\pi_1(\D_n)$.}\label{fig:Gen_on_Dn}
 \end{figure}
 
 Each braid $\beta\in B_n$ is realized as an automorphism of $\pi_1(\D_n) = F_n$ (up to isotopy) where each loop $\gamma\in\pi_1(\D_n)$ is sent to another loop $\beta(\gamma)$. In other words, we have a representation of the braid group defined by
@@ -58,7 +58,7 @@ Each braid $\beta\in B_n$ is realized as an automorphism of $\pi_1(\D_n) = F_n$ 
     \rho: B_n &\to \aut{F_n} \\
     \beta &\mapsto \rho_\beta.
 \end{align}
-The action of $\beta$ on a loop $\gamma$ is defined by the rearrangements of the $n$ holes in $\D_n$, similar to the action of the standard generators of $B_n$ on the base points in $\C\times\left\{ 1 \right\}$. In terms of the standard generators of $B_n$, each $\sigma_i$ corresponds to switching the places of hole $i$ and hole $i+1$ by means of a clockwise rotation, as seen in Figure~\ref{fig:sigma_on_Dn}. This is identical to viewing the action of $\sigma_i$ on the base points (Section~\ref{sec:std_gens}) from above, looking down on the $\C\times\left\{ t \right\}$-plane. As before, the inverse action $\iv{\sigma_i}$ is a counterclockwise rotation of the two adjacent holes $i$ and $i+1$ in $\D_n$. These actions respect the group operation of loop concatenation.
+The action of $\beta$ on a loop $\gamma$ is defined by the rearrangements of the $n$ holes in $\D_n$, similar to the action of the standard generators of $B_n$ on the base points in $\C\times\left\{ 1 \right\}$. In terms of the standard generators of $B_n$, each $\sigma_i$ corresponds to switching the places of hole $i$ and hole $i+1$ by means of a clockwise rotation, as seen in \cref{fig:sigma_on_Dn}. This is identical to viewing the action of $\sigma_i$ on the base points (\cref{sec:std_gens}) from above, looking down on the $\C\times\left\{ t \right\}$-plane. As before, the inverse action $\iv{\sigma_i}$ is a counterclockwise rotation of the two adjacent holes $i$ and $i+1$ in $\D_n$. These actions respect the group operation of loop concatenation.
 
 \colorbox{red}{A note on convention of directions/consistency up to inverses.}
 
@@ -71,21 +71,27 @@ The action of $\beta$ on a loop $\gamma$ is defined by the rearrangements of the
 \begin{figure}[htbp]
     \centering
     \input{TikZ/sigma_on_xi.tikz}
-    \caption{\colorbox{red}{Gonzalez Figure 4}}\label{fig:sigma_on_Dn}
+    \caption{The action of $\sigma_i$ on the generators $x_i$ and $x_{i+1}$ as described by \cref{eq:rho_i,eq:rho_ip1,eq:rho_j}.}\label{fig:sigma_on_Dn}
 \end{figure}
 
 The automorphism $\rho_\beta$ is most simply defined in terms of the action of the standard generators of $B_n$ on the generators $x_1,\dots,x_n$ of $F_n$ (visualized as loops in $\D_n$). For each $i\in\left\{ 1,\dots,n-1 \right\}$, it follows that
 \begin{align}
-    &\rho_{\sigma_i}(x_{i}) = \iv{x_{i}}x_{i+1} x_{i}, \\
-    &\rho_{\sigma_i}(x_i+1) = x_{i}, \\
-    &\rho_{\sigma_i}(x_j) = x_j, \textrm{ for } j\neq i,i-1.
+    &\rho_{\sigma_i}(x_{i}) = x_{i}x_{i+1} \iv{x_{i}}, \label{eq:rho_i}\\
+    &\rho_{\sigma_i}(x_i+1) = x_{i}, \label{eq:rho_ip1}\\
+    &\rho_{\sigma_i}(x_j) = x_j, \textrm{ for } j\neq i,i-1.\label{eq:rho_j}
 \end{align}
-These relations can be verified graphically as in Figure~\ref{fig:sigma_on_x_i}.
+These relations can be verified graphically as in \cref{fig:sigma_on_x_i}.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width = .5\textwidth]{sketch_sigma_on_x_i.png}
     \caption{\colorbox{red}{CAPTION}}\label{fig:sigma_on_x_i}
 \end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \input{TikZ/rho_verification.tikz}
+\end{figure}
+
 For any $\sigma_i$, $\rho_{\iv{\sigma_i}}$ is clearly defined. It follows that for any braid $\beta\in B_n$, we can decompose $\rho_\beta$ the composition of the automorphisms of the standard generators $\sigma_1,\dots,\sigma_{n-1}$ and their inverses that make up $\beta$. 
 
 Notice that for any $\sigma_i$, $\rho_{\sigma_i}(x_1\cdots x_n) = x_1\cdots x_n$. This is because the loop $x_1\cdots x_n$ in $\D_n$, encompassing all holes, is parallel to the boundary $\partial\D_n$. Thus, the action of $\sigma_i$ on $x_1\cdots x_n$ is trivial does not affect the structure of the loop up to isotopy. More generally, this implies that $\rho_\beta(x_1\cdots x_n) = x_1\cdots x_n$ for any $\beta\in B_n$. Paired with the observation that every generator is conjugate to another, Artin~\cite{Artin1947} showed that this is a necessary and sufficient condition for $\rho_\beta$ to be an automorphism of $F_n$.
@@ -107,7 +113,7 @@ In this interpretation of the braid group, we can express $B_n$ in terms of the 
     \end{aligned}
     \right\rangle.
 \end{equation}
-The first condition that the standard generators commute if $|i-j|>1$ is easily verified by looking at the graphic of Figure~\ref{fig:sigma_on_x_i} in describing the property of the automorphism $\rho_{\sigma_i}(\sigma_j) = \sigma_j$. This follows by the fact that if two holes are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in Figure~\ref{fig:YB_criterion_verification} by looking at the corresponding braids in $\R\times[0,1]$.
+The first condition that the standard generators commute if $|i-j|>1$ is easily verified by looking at the graphic of \cref{fig:sigma_on_x_i} in describing the property of the automorphism $\rho_{\sigma_i}(\sigma_j) = \sigma_j$. This follows by the fact that if two holes are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in \cref{fig:YB_criterion_verification} by looking at the corresponding braids in $\R\times[0,1]$.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
