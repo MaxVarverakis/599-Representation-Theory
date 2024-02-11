@@ -6,6 +6,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{braket}
+\usepackage{mathtools}
+\usepackage{cancel}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
 \usepackage{todonotes}
@@ -38,10 +40,20 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{example}{Example}[chapter]
+% customize end of example symbol
+% \AtBeginEnvironment{example}{%
+%     \pushQED{\qed}\renewcommand{\qedsymbol}{$\triangle$}%
+% }
+% \AtEndEnvironment{example}{\popQED\endexample}
 
 \renewcommand{\bibname}{References}
 
-\includeonly{chapters/Rep_Theory_Background, chapters/Top_Background, chapters/The_Braid_Group}
+\includeonly{
+    % chapters/Rep_Theory_Background, 
+    % chapters/Top_Background, 
+    chapters/The_Braid_Group,
+    % chapters/tikz_test
+}
 
 \begin{document}
 

@@ -51,18 +51,18 @@
                 \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
         
                 \begin{pgfonlayer}{nodelayer}
-                        \node (0) at (.7*\sep,-.5*\circleRadius ) {};
+                        \node (0) at (.55*\sep,-.5*\circleRadius ) {};
                         \node (1) at (0, -\circleRadius + 2.8452755906/2) {};
                         \node (2) at (.5*\circleRadius, -2*\sep) {$\color{NavyBlue} x_{i+1}$};
                         \node (xi) at (-.75*\sep, -1.35*\sep) {$\color{OliveGreen} x_{i}$};
-                        \node (3) at (.9*\sep, .5*\sep) {};
-                        \node (4) at (1.75*\sep, -.5*\circleRadius) {};
+                        \node (3) at (1*\sep, .5*\sep) {};
+                        \node (4) at (1.7*\sep, -.5*\circleRadius) {};
                         \node (5) at (.05*\sep, -\circleRadius + 2.8452755906/2) {};
                 \end{pgfonlayer}
                 \begin{pgfonlayer}{edgelayer}
                         \draw [in=30, out=-90, looseness=0.50, ultra thick, NavyBlue] (0.center) to (1.center);
-                        \draw [in=90, out=-150, looseness=0.85, ultra thick, NavyBlue] (3.center) to (0.center);
-                        \draw [in=20, out=80, looseness=0.50, ultra thick, NavyBlue, postaction={decorate}, decoration={markings, mark= at position .5 with {\arrowreversed{latex},sloped}}] (4.center) to (3.center);
+                        \draw [in=90, out=-160, looseness=0.85, ultra thick, NavyBlue] (3.center) to (0.center);
+                        \draw [in=20, out=80, looseness=0.750, ultra thick, NavyBlue, postaction={decorate}, decoration={markings, mark= at position .35 with {\arrowreversed{latex},sloped}}] (4.center) to (3.center);
                         \draw [in=-100, out=10, ultra thick, NavyBlue] (5.center) to (4.center);
                 \end{pgfonlayer}
                 
@@ -86,13 +86,13 @@
                         (-\circleRadius + \sep,0) circle (2pt) node[above] {$1$}
                         (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
                         (-\sep,0) circle (2pt) node[above, yshift=.3*\sep] {\small$i$}
-                        (\sep,0) circle (2pt) node[above, xshift=0*\sep, yshift=.15*\sep] {\small$i+1$};
+                        (\sep,0) circle (2pt) node[above, xshift=0*\sep, yshift=.1*\sep] {\small$i+1$};
                 \path (-\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
                 \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
                 
                 \begin{scope}[shift={(-.25*\sep,0)}]
                                 \begin{pgfonlayer}{nodelayer}
-                                \node (0) at (-1.75*\sep,-.15*\circleRadius ) {};
+                                \node (0) at (-1.7*\sep,-.05*\circleRadius ) {};
                                 \node (1) at (.25*\sep, -\circleRadius) {};
                                 % \node (2) at (.5*\circleRadius, -2*\sep) {$x_i x_{i+1}\iv{x_i}$};
                                 \node (3) at (0*\sep, 1.5*\sep) {};
@@ -106,10 +106,10 @@
                                 \node (iiv) at (.1*\circleRadius, -3*\sep) {$\color{purple} \iv{x_{i}}$};
                         \end{pgfonlayer}
                         \begin{pgfonlayer}{edgelayer}
-                                \draw [in=150, out=-90, looseness=0.50, ultra thick, OliveGreen] (0.center) to (1.center);
-                                \draw [latex-, in=100, out=180, looseness=0.95, ultra thick, OliveGreen] (3.center) to (0.center);
+                                \draw [in=150, out=-95, looseness=0.50, ultra thick, OliveGreen] (0.center) to (1.center);
+                                \draw [latex-, in=85, out=180, looseness=0.95, ultra thick, OliveGreen] (3.center) to (0.center);
                                 \draw [in=0, out=90, looseness=0.9, ultra thick, NavyBlue] (4.center) to (3.center);
-                                \draw [latex-, in=-100, out=-50, looseness=.9, ultra thick, NavyBlue] (5.center) to (4.center);
+                                \draw [latex-, in=-90, out=-50, looseness=.9, ultra thick, NavyBlue] (5.center) to (4.center);
                                 \draw [in=60, out=100, looseness=.9, ultra thick, purple] (5.center) to (6.center);
                                 \draw [-latex, in=100, out=-120, looseness=.5, ultra thick, purple] (6.center) to (7.center);
                         \end{pgfonlayer}
