@@ -17,12 +17,12 @@
 
 \begin{tikzpicture}[
 ] 
-        \node[anchor=north west, font=\Large] at ({-1.15*\circleRadius}, {1.05*\circleRadius}) {$\sheet{\D}{n,i}$};
+        \node[anchor=north west, font=\Large] at ({-1.15*\circleRadius}, {1.05*\circleRadius}) {$\sheet{\D}{3,i}$};
 
         \draw[ultra thick] (0,0) circle (\circleRadius);
 
         \tikzmath{
-                coordinate \l, \r, \p, \b, \lI, \lO; real \aL, \aR;
+                coordinate \l, \r, \p, \b; real \aL, \aR;
                 \aL1 = \lA+\aSep;
                 \aR1 = \lA-\aSep;
                 \aL2 = \cA+\aSep;
@@ -81,18 +81,18 @@
 
         \draw [out=135, in=-140, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrow{latex},sloped}}, postaction={decorate}] (\b) to (lI1);
         
-
-        \draw [out=80, in=-170, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrowreversed{latex},sloped}}, postaction={decorate}] (\b) to (lI3);
-
-        \draw [out=110, in=-110, looseness=0, ultra thick, cyan] (\p1) to (\l1);
-        \draw [out=110, in=-110, looseness=0, ultra thick, cyan] (\p2) to (\l2);
-        \draw [out=110, in=-110, looseness=0, ultra thick, cyan] (\p3) to (\l3);
+        \draw [out=80, in=-45, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.4 with {\arrowreversed{latex},sloped}}, postaction={decorate}] (\b) to (lO2);
         
-        \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p1) to (\r1);
-        \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p2) to (\r2);
-        \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p3) to (\r3);
+        \draw [out=25, in=-150, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.5 with {\arrowreversed{latex},sloped}}, postaction={decorate}] (\b) to (lI3);
+
+        \node at (-.725*\circleRadius, -.15*\circleRadius) {$t^i x_1$};
+        \node at (-.05*\circleRadius, -.2*\circleRadius) {$t^{i-1} x_2$};
+        \node at (.475*\circleRadius, -.5*\circleRadius) {$-t^{i+1} x_3$};
 
         \foreach \i in {1,2,3} {
+                \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p\i) to (\r\i);
+                \draw [out=110, in=-110, looseness=0, ultra thick, cyan] (\p\i) to (\l\i);
+
                 \fill[black] (\p\i) circle (2pt);
                 \node[above, yshift=-.15*\sep, xshift=.45*\sep] at (\p\i) {$\i$};
         }
