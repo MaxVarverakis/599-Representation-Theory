@@ -139,15 +139,15 @@ First, we define a topological space that will aid in the desired construction.
     A similar example is the covering of the circle $S^1$ through $p:\left[ 0,1 \right]\to S^1$ defined by $p(t) = e^{2\pi it}$. This defines a one-degree covering of $S^1$. If we instead let our domain be $\left[ 0,2 \right]$, then we have a two-degree covering of $S^1$.
 \end{example}
 
-With this topological tool, we construct a countably infinite-degree covering of of the punctured disk $\D_n$, denoted $\widetilde{\D}_n$, which can be visualized as an infinite stack of copies of $\D_n$, with a slight modification to be explained shortly. Let $\sheet{\D}{n,i}$ denote the $i$-th sheet of $\widetilde{\D}_n$, and consider the base sheet our covering to be $\sheet{\D}{n,0}$.
+With this topological tool, we construct a countably infinite-degree covering of the punctured disk $\D_n$, denoted $\widetilde{\D}_n$, which can be visualized as an infinite stack of copies of $\D_n$, with a slight modification to be explained shortly. Let $\sheet{\D}{n,i}$ denote the $i$-th sheet of $\widetilde{\D}_n$, and consider the base sheet our covering to be $\sheet{\D}{n,0}$.
 
 We start this construction with a countably infinite stack of copies of $\D_n$. Then, for every $i\in\Z$, for each of the $n$ punctures on $\sheet{\D}{n,i}$, apply a cut from the hole to some point on the boundary of $\sheet{\D}{n,i}$, as illustrated in \cref{fig:D3_cuts}. Each cut results in two edges, which will be referred to as the left edge and the right edge. Through a homeomorphic deformation, connect the left edge of $\sheet{\D}{n,i}$ to the corresponding right edge of $\sheet{\D}{n,i+1}$, and the right edge of $\sheet{\D}{n,i}$ to the left edge of $\sheet{\D}{n,i-1}$, for every cut on every sheet.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.3\textwidth]{D3_cuts.png}
-    % \input{TikZ/D3_covering.tikz}
-    \caption{\colorbox{red}{CAPTION} Don't show the loops, and maybe actually show the cuts separated, and make sure to indicate/label the left and right edges.}\label{fig:D3_cuts}
+    % \includegraphics[width=.3\textwidth]{D3_cuts.png}
+    \input{TikZ/D3_cuts.tikz}
+    \caption{In the case of $\D_3$, this figure demonstrates how the cuts are applied across each of the three punctures for each sheet in the covering $\widetilde{\D}_3$. The power of $t$ in the base point label $t^j\zeta$ indicates that we are on the $j$-th sheet of the covering. \colorbox{red}{Describe diff. cases of loops on edges by adding $x_1$ and $\iv{x_3}$}.}\label{fig:D3_cuts}
 \end{figure}
 
 Now, when viewing a single sheet, say $\sheet{\D}{n,0}$, from above as in \cref{fig:D3_cuts}, when a loop with base point $\tilde{\zeta}_0$ passes through a cut from the left, it traverses up to the next sheet, and ends at the base point $\tilde{\zeta}_1$. Similarly, a loop passing through a cut from the right ends at the base point $\tilde{\zeta}_{-1}$, on the sheet $\sheet{\D}{n,-1}$ below $\sheet{\D}{n,0}$. To keep track of the starting sheet of a loop, we use a free parameter $t$. For example, a loop $\gamma$ that starts on $\sheet{\D}{n,j}$ would be written $t^j \gamma$, for $j\in\Z$. Notice that the substitution of a complex number for the free parameter $t$ results in a possibly finite degree covering. As an example, if we set $t$ to an $n$-th root of unity, then we obtain an $n$-th degree covering of $\D_n$. For the purposes of this construction, we will keep $t$ as a free parameter for now. The following example describes the action of the standard generators of $B_3$ on the covering space $\widetilde{\D}_3$.

@@ -91,7 +91,7 @@
                 \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
                 
                 \begin{scope}[shift={(-.25*\sep,0)}]
-                                \begin{pgfonlayer}{nodelayer}
+                        \begin{pgfonlayer}{nodelayer}
                                 \node (0) at (-1.7*\sep,-.05*\circleRadius ) {};
                                 \node (1) at (.25*\sep, -\circleRadius) {};
                                 % \node (2) at (.5*\circleRadius, -2*\sep) {$x_i x_{i+1}\iv{x_i}$};
