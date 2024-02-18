@@ -3,7 +3,7 @@
 \def\XOff{1.5*\circleRadius}
 \def\YOff{-2.5*\circleRadius}
 
-\usetikzlibrary{decorations.markings}
+% \usetikzlibrary{decorations.markings}
 
 \pgfdeclarelayer{edgelayer}
 \pgfdeclarelayer{nodelayer}

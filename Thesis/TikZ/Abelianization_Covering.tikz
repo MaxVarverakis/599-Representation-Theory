@@ -1,0 +1,211 @@
+
+%
+\def\circleRadius{1.5cm}
+\def\sep{\circleRadius*0.175}
+\def\aSep{5} % degrees
+\def\lA{130}
+\def\cA{90}
+\def\rA{50}
+%
+
+\def\vSep{3*\circleRadius}
+\def\lw{1.25pt}
+
+\begin{tikzpicture}[
+] 
+
+        \coordinate (t0) at (0,-\vSep);
+        \coordinate (t1) at (0,0);
+        \coordinate (t2) at (0,\vSep);
+
+        % \coordinate (x1) at (-1cm,.5*\vSep);
+        % \coordinate (t1x1) at (-1cm,1.5*\vSep);
+        % \coordinate (x2) at (0,.5*\vSep);
+        % \coordinate (x3) at (1cm,.5*\vSep);
+
+        \draw[out=130, in=-130, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, OliveGreen] (t0) to node[left, pos=.45] {$x_1$} (t1);
+        \draw[out=90, in=-90, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, NavyBlue] (t1) to node[right, pos=.4] {$tx_2$} (t2);
+        \draw[out=-135, in=135, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, Mulberry] (t2) to node[left, pos=.45] {$-tx_1$} (t1);
+
+        \foreach \i in {0,...,2} {
+                \filldraw [red] (t\i) circle (2pt) node[right] {\footnotesize $t^\i\zeta$};
+        }
+
+        \begin{scope}[shift={(3*\circleRadius,-\vSep)}]
+                \node[right] at ({1*\circleRadius}, {0*\circleRadius}) {$\sheet{\D}{3,0}$};
+
+                \draw[ultra thick] (0,0) circle (\circleRadius);
+
+                \tikzmath{
+                        coordinate \l, \r, \p, \b; real \aL, \aR;
+                        \aL1 = \lA+\aSep;
+                        \aR1 = \lA-\aSep;
+                        \aL2 = \cA+\aSep;
+                        \aR2 = \cA-\aSep;
+                        \aL3 = \rA+\aSep;
+                        \aR3 = \rA-\aSep;
+                        %
+                        \b = (0,-\circleRadius);
+                        \p1 = (-.5*\circleRadius,0);
+                        \p2 = (0,0);
+                        \p3 = (.5*\circleRadius,0);
+                        \l1 = (\aL1:\circleRadius);
+                        \r1 = (\aR1:\circleRadius);
+                        \l2 = (\aL2:\circleRadius);
+                        \r2 = (\aR2:\circleRadius);
+                        \l3 = (\aL3:\circleRadius);
+                        \r3 = (\aR3:\circleRadius);
+                }
+
+                \foreach \i in {1,2,3} {
+                        \draw[white, line width=2pt] (\r\i) arc (\aR\i:\aL\i:\circleRadius);
+                }
+
+                \foreach \i in {1,2,3} {
+                        \coordinate (lI\i) at ($(\p\i)!0.5!(\l\i)$);
+                        \coordinate (lO\i) at ($(\p\i)!0.5!(\r\i)$);
+
+                        \fill[cyan] (\l\i) circle (.75pt);
+                        \fill[purple] (\r\i) circle (.75pt);
+                }
+
+                \draw [out=135, in=-140, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrow{latex},sloped}}, postaction={decorate}, OliveGreen] (\b) to node[left, pos=.5] {\footnotesize$x_1$} (lI1);
+                
+                % \draw [out=80, in=-45, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.4 with {\arrowreversed{latex},sloped}}, postaction={decorate}] (\b) to (lO2);
+                
+                % \draw [out=25, in=-150, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.5 with {\arrowreversed{latex},sloped}}, postaction={decorate}] (\b) to (lI3);
+
+                % \node at (-.7*\circleRadius, -.35*\circleRadius) {$x_1$};
+                % \node at (-.05*\circleRadius, -.2*\circleRadius) {$t^{i-1} x_2$};
+                % \node at (.475*\circleRadius, -.5*\circleRadius) {$-t^{i+1} x_3$};
+
+                \foreach \i in {1,2,3} {
+                        \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p\i) to (\r\i);
+                        \draw [out=110, in=-110, looseness=0, ultra thick, cyan] (\p\i) to (\l\i);
+
+                        \fill[black] (\p\i) circle (2pt);
+                        % \node[above, yshift=-.7*\sep, xshift=.75*\sep] at (\p\i) {$\i$};
+                }
+
+                % base point for loop/arrow
+                \filldraw [red] (\b) circle (2pt) node[below] {$t^0\zeta$};
+        \end{scope}
+
+        \begin{scope}[shift={(3*\circleRadius,0)}]
+                \node[right] at ({1*\circleRadius}, {0*\circleRadius}) {$\sheet{\D}{3,1}$};
+
+                \draw[ultra thick] (0,0) circle (\circleRadius);
+
+                \tikzmath{
+                        coordinate \l, \r, \p, \b; real \aL, \aR;
+                        \aL1 = \lA+\aSep;
+                        \aR1 = \lA-\aSep;
+                        \aL2 = \cA+\aSep;
+                        \aR2 = \cA-\aSep;
+                        \aL3 = \rA+\aSep;
+                        \aR3 = \rA-\aSep;
+                        %
+                        \b = (0,-\circleRadius);
+                        \p1 = (-.5*\circleRadius,0);
+                        \p2 = (0,0);
+                        \p3 = (.5*\circleRadius,0);
+                        \l1 = (\aL1:\circleRadius);
+                        \r1 = (\aR1:\circleRadius);
+                        \l2 = (\aL2:\circleRadius);
+                        \r2 = (\aR2:\circleRadius);
+                        \l3 = (\aL3:\circleRadius);
+                        \r3 = (\aR3:\circleRadius);
+                }
+
+                \foreach \i in {1,2,3} {
+                        \draw[white, line width=2pt] (\r\i) arc (\aR\i:\aL\i:\circleRadius);
+                }
+
+                \foreach \i in {1,2,3} {
+                        \coordinate (lI\i) at ($(\p\i)!0.5!(\l\i)$);
+                        \coordinate (lO\i) at ($(\p\i)!0.5!(\r\i)$);
+
+                        \fill[cyan] (\l\i) circle (.75pt);
+                        \fill[purple] (\r\i) circle (.75pt);
+                }
+
+                \draw [out=-5, in=130, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrow{latex},sloped}}, postaction={decorate}, OliveGreen] (lO1) to node[right, pos=.01, yshift=-.05cm, xshift=.05cm] {\footnotesize$x_1$} (\b);
+                
+                \draw [out=80, in=-120, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrow{latex},sloped}}, postaction={decorate}, NavyBlue] (\b) to node[right, pos=.4] {\footnotesize$tx_2$} (lI2);
+                
+                \draw [out=-170, in=175, looseness=.95, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrow{latex},sloped}}, postaction={decorate}, Mulberry] (lI1) to node[right, pos=.45,xshift=-.15cm] {\footnotesize$-tx_1$} (\b);
+
+                \foreach \i in {1,2,3} {
+                        \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p\i) to (\r\i);
+                        \draw [out=110, in=-110, looseness=0, ultra thick, cyan] (\p\i) to (\l\i);
+
+                        \fill[black] (\p\i) circle (2pt);
+                        % \node[above, yshift=-.7*\sep, xshift=.75*\sep] at (\p\i) {$\i$};
+                }
+
+                % base point for loop/arrow
+                \filldraw [red] (\b) circle (2pt) node[below] {$t^1\zeta$};
+        \end{scope}
+
+        \begin{scope}[shift={(3*\circleRadius,\vSep)}]
+                \node[right] at ({1*\circleRadius}, {0*\circleRadius}) {$\sheet{\D}{3,2}$};
+
+                \draw[ultra thick] (0,0) circle (\circleRadius);
+
+                \tikzmath{
+                        coordinate \l, \r, \p, \b; real \aL, \aR;
+                        \aL1 = \lA+\aSep;
+                        \aR1 = \lA-\aSep;
+                        \aL2 = \cA+\aSep;
+                        \aR2 = \cA-\aSep;
+                        \aL3 = \rA+\aSep;
+                        \aR3 = \rA-\aSep;
+                        %
+                        \b = (0,-\circleRadius);
+                        \p1 = (-.5*\circleRadius,0);
+                        \p2 = (0,0);
+                        \p3 = (.5*\circleRadius,0);
+                        \l1 = (\aL1:\circleRadius);
+                        \r1 = (\aR1:\circleRadius);
+                        \l2 = (\aL2:\circleRadius);
+                        \r2 = (\aR2:\circleRadius);
+                        \l3 = (\aL3:\circleRadius);
+                        \r3 = (\aR3:\circleRadius);
+                }
+
+                \foreach \i in {1,2,3} {
+                        \draw[white, line width=2pt] (\r\i) arc (\aR\i:\aL\i:\circleRadius);
+                }
+
+                \foreach \i in {1,2,3} {
+                        \coordinate (lI\i) at ($(\p\i)!0.5!(\l\i)$);
+                        \coordinate (lO\i) at ($(\p\i)!0.5!(\r\i)$);
+
+                        \fill[cyan] (\l\i) circle (.75pt);
+                        \fill[purple] (\r\i) circle (.75pt);
+                }
+                
+                \draw [out=-25, in=60, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrow{latex},sloped}}, postaction={decorate}, NavyBlue] (lO2) to node[right, pos=.5] {\footnotesize$tx_2$} (\b);
+                
+                \draw [out=100, in=-35, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrow{latex},sloped}}, postaction={decorate}, Mulberry] (\b) to node[left, pos=.4] {\footnotesize$-tx_1$} (lO1);
+
+                \foreach \i in {1,2,3} {
+                        \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p\i) to (\r\i);
+                        \draw [out=110, in=-110, looseness=0, ultra thick, cyan] (\p\i) to (\l\i);
+
+                        \fill[black] (\p\i) circle (2pt);
+                        % \node[above, yshift=-.7*\sep, xshift=.75*\sep] at (\p\i) {$\i$};
+                }
+
+                % base point for loop/arrow
+                \filldraw [red] (\b) circle (2pt) node[below] {$t^2\zeta$};
+        \end{scope}
+
+
+        \draw [line width=\lw, transform canvas={yshift=.5*\lw},purple] ($(t0)!0.5!(t1) - (1.45,0)$) -- ++ (1.5*\circleRadius,0);
+        \draw [line width=\lw, transform canvas={yshift=-.5*\lw},cyan] ($(t0)!0.5!(t1) - (1.45,0)$) -- ++ (1.5*\circleRadius,0);
+        
+        \draw [line width=\lw, transform canvas={yshift=.5*\lw},purple] ($(t1)!0.5!(t2) - (1.45,0)$) -- ++ (1.5*\circleRadius,0);
+        \draw [line width=\lw, transform canvas={yshift=-.5*\lw},cyan] ($(t1)!0.5!(t2) - (1.45,0)$) -- ++ (1.5*\circleRadius,0);
+
+\end{tikzpicture}

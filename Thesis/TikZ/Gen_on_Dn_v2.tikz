@@ -1,5 +1,5 @@
 % Suggested circle radius >= 3 cm
-\usetikzlibrary{decorations.markings}
+% \usetikzlibrary{decorations.markings}
 \def\circleRadius{3cm}
 \def\sep{\circleRadius*0.175}
 

@@ -1,15 +1,12 @@
 % Suggested circle radius >= 3 cm
-\usetikzlibrary{
-        math,
-        calc,
-        % decorations.markings,
-}
+% \usetikzlibrary{
+%         % math,
+%         % calc,
+%         % decorations.markings,
+% }
 
 \def\circleRadius{3cm}
 \def\sep{\circleRadius*0.175}
-% \def\Off{.6}
-% \def\eSep{.0005*\circleRadius}
-% \def\cSep{1.2*\eSep}
 \def\aSep{5} % degrees
 \def\lA{130}
 \def\cA{90}
@@ -87,7 +84,7 @@
 
         \node at (-.725*\circleRadius, -.15*\circleRadius) {$t^i x_1$};
         \node at (-.05*\circleRadius, -.2*\circleRadius) {$t^{i-1} x_2$};
-        \node at (.475*\circleRadius, -.5*\circleRadius) {$-t^{i+1} x_3$};
+        \node at (.45*\circleRadius, -.5*\circleRadius) {$-t^{i} x_3$};
 
         \foreach \i in {1,2,3} {
                 \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p\i) to (\r\i);
