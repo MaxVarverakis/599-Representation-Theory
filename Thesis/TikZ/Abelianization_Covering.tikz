@@ -23,9 +23,9 @@
         % \coordinate (x2) at (0,.5*\vSep);
         % \coordinate (x3) at (1cm,.5*\vSep);
 
-        \draw[out=130, in=-130, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, OliveGreen] (t0) to node[left, pos=.45] {$x_1$} (t1);
+        \draw[out=130, in=-130, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, OliveGreen] (t0) to node[left, pos=.4] {$x_1$} (t1);
         \draw[out=90, in=-90, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, NavyBlue] (t1) to node[right, pos=.4] {$tx_2$} (t2);
-        \draw[out=-135, in=135, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, Mulberry] (t2) to node[left, pos=.45] {$-tx_1$} (t1);
+        \draw[out=-135, in=135, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, Mulberry] (t2) to node[left, pos=.4] {$-tx_1$} (t1);
 
         \foreach \i in {0,...,2} {
                 \filldraw [red] (t\i) circle (2pt) node[right] {\footnotesize $t^\i\zeta$};

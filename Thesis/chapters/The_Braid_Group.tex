@@ -36,12 +36,19 @@ In the previous section, we defined pure braids in which the endpoints of each s
 
 The visualization of a braid is the same as in the case of pure braids, only now the endpoints of each strand do not necessarily match the starting points. For example, the $i$-th strand may start at the point $(i,0)$ but end at the point $(j,1)$ for $i,j\in\left\{ 1,\dots,n \right\}$. The equivalence of strands is still defined as before under the homotopy of loops. Loop concatenation defines the multiplication of braids, as before.
 
+Note that for $n\geq 1$ there is a natural inclusion $\iota:B_n\hookrightarrow B_{n+1}$ in which we add a new strand to any $\beta\in B_n$ that does not interact with the other strands.
+
 \section{Standard generators of the braid group}\label{sec:std_gens}
-Originally proposed by Artin~\cite{Artin1947}, each braid can be decomposed into a product of \textit{standard generators} of the braid group. When visualizing braids in $\R\times[0,1]$, a crossing of two strands is clearly indicated by one going over the other. Suppose each crossing occurs at a different time $t\in[0,1]$. Then by rescaling the time component of an arbitrary braid, we can deconstruct it into a stack of simple braids with only one crossing between neighboring strands per braid. Each single crossing of strands can be obtained by performing a transposition between neighboring endpoints of the strands.
+Originally proposed by Artin~\cite{Artin1947}, each braid can be decomposed into a product of \textit{standard generators} of the braid group. When visualizing braids in $\R\times[0,1]$, a crossing of two strands is clearly indicated by one going over the other, as in \cref{fig:Gen_on_Strands}. Suppose each crossing occurs at a different time $t\in[0,1]$. Then by rescaling the time component of an arbitrary braid, we can decompose it into a stack of simple braids with only one crossing between neighboring strands per braid. Each single crossing of strands can be obtained by performing a transposition between neighboring endpoints of the strands.
 
-\missingfigure[figwidth=6cm]{Gonzalez Figure 2}
+% \missingfigure[figwidth=6cm]{Gonzalez Figure 2}
+\begin{figure}[htbp]
+    \centering
+    \input{TikZ/sigma_i_strand.tikz}
+    \caption{The action of $\sigma_i$ on $n$ strands. The $i$-th strand gets twisted behind the $(i+1)$-th strand when acted on by $\sigma_i$, and the opposite occurs for $\iv{\sigma_i}$. In that way, concatenating these two braids would result in no intertwining of strands, giving the identity braid.}\label{fig:Gen_on_Strands}
+\end{figure}
 
-For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be written as applying $\sigma_i$ to the identity braid (i.e., the braid that starts without any crossings of strands). It must be noted that there are two distinct ways to swap the endpoints of two strands. From a top-down perspective looking at the plane $\C\times\left\{ t \right\}$ for some time $t$, $\sigma_i$ swaps $(i,t)$ and $(i+1,t)$ in a clockwise rotation. The reverse of this operation (i.e., twisting the endpoints around in the counterclockwise direction) is denoted $\sigma_i^{-1}$. The standard generators of the braid group $B_n$ are defined as the set $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$. An arbitrary braid can be constructed by concatenating (or stacking) the simple braids made from the standard generators before rescaling the time coordinate to $[0,1]$.
+For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be written as applying $\sigma_i$ to the identity braid (i.e., the braid that starts without any crossings of strands). It must be noted that there are two distinct ways to swap the endpoints of two strands. From a top-down perspective looking at the plane $\C\times\left\{ t \right\}$ for some time $t$, $\sigma_i$ swaps $(i,t)$ and $(i+1,t)$ in a clockwise rotation. The reverse of this operation (i.e., twisting the endpoints around in the counterclockwise direction) is denoted $\sigma_i^{-1}$. Both of these operations are illustrated in \cref{fig:Gen_on_Strands}. The standard generators of the braid group $B_n$ are defined as the set $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$. An arbitrary braid can be constructed by concatenating (or stacking) the simple braids made from the standard generators before rescaling the time coordinate to $[0,1]$.
 
 \section{Automorphisms of the free group}\label{sec:Aut_Fn}
 
@@ -173,7 +180,7 @@ Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with
 \begin{example}\label{ex:Burau_D3}
     Consider the case when $n=3$. Then we have the corresponding covering space $\widetilde{\D}_3$ of $\D_3$. See \cref{fig:D3_cuts} for the view of a single sheet with various loops interacting with the cuts on the sheet. The actions of the standard generators of $B_3$ in $\pi_1(\D_3)$ are known, and can be visually understood in \cref{fig:sigma_on_Dn}. In the context of the covering space $\widetilde{\D}_3$, the action of the generators $\sigma_1$ and $\sigma_2$ is observed by reducing the visualization to only the base points on each sheet and the loops themselves. This can be seen in \cref{fig:Burau_D3} for the case of $\sigma_1$.
     
-    \begin{figure}[htbp]
+    \begin{figure}[h!]
         \centering
         % \includegraphics[width = .3\textwidth]{Burau_D3.png}
         \input{TikZ/Abelianization_Covering.tikz}
@@ -232,3 +239,11 @@ The Burau representation need only be defined on the standard generators, since 
     \psi_n(\sigma_i)\psi_n(\sigma_j) &= \psi_n(\sigma_j)\psi_n(\sigma_i) \textrm{ for } |i-j|>1, \\
     \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \textrm{ for } |i-j|=1.
 \end{align}
+
+Moreover, the Burau representation is compatible with the natural inclusion $\iota:B_n\hookrightarrow B_{n+1}$ for $n\geq 1$ and $\beta\in B_n$:
+\begin{equation}
+    \psi_{n+1}(\iota(\beta)) = \begin{bmatrix}
+        \psi_n(\beta) & 0 \\
+        0 & 1
+    \end{bmatrix}.
+\end{equation}
