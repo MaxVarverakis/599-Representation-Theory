@@ -1,0 +1,50 @@
+\usetikzlibrary{backgrounds}
+
+\def\sep{3cm}
+\def\offset{.875cm}
+
+
+\begin{tikzpicture}[
+    braid/.cd,
+    crossing convention=under,
+    anchor=center,
+    every strand/.style={ultra thick},
+    strand 1/.style={red},
+    strand 2/.style={blue},
+    strand 3/.style={green},
+    ]
+
+    \coordinate (center) at (0,0);
+    
+    \pic (121) at (-1.5*\sep,0) {braid={s_1 s_2 s_1}} node[below, at=(121-2-e)] {$\sigma_1\sigma_2\sigma_1$};
+    \pic (212) at (1.5*\sep,0) {braid={s_2 s_1 s_2}} node[below, at=(212-2-e)] {$\sigma_2\sigma_1\sigma_2$};
+    \pic[braid/.cd,
+        gap=0.015,
+        control factor=0,
+        nudge factor=0,
+        width=2cm,
+        crossing height=3cm,
+        strand 1/.style={blue},
+        strand 2/.style={green},
+    ] (eq1) at (-.5*\sep,0) {braid={s_1}};
+    \pic[braid/.cd,
+        gap=0.015,
+        control factor=0,
+        nudge factor=0,
+        width=2cm,
+        crossing height=3cm,
+        strand 1/.style={blue},
+        strand 2/.style={green},
+    ] (eq2) at (.5*\sep,0) {braid={s_1}};
+
+    \begin{scope}[on background layer]
+        \draw[ultra thick, red, opacity=.35] ($(eq1-1-s) + (-.225cm,-\offset)$) -- ($(eq1-2-s) + (.225cm,-\offset)$);        
+        \draw[ultra thick, red, opacity=.35] ($(eq2-2-e) + (-.225cm,\offset)$) -- ($(eq2-1-e) + (.225cm,\offset)$);        
+    \end{scope}
+
+    \draw[latex-latex, out=70, in=110, looseness=.75, line width=1.2pt] ($(eq1-1-s) + (1cm,.1cm)$) to node[pos=.5,above, font=\footnotesize] {Reidemeister type-III move} ($(eq2-2-s) + (-1cm,.1cm)$);
+
+    \node at ($(121)!.5!(eq1)$) {$=$};
+    \node at ($(eq1)!.5!(eq2)$) {$=$};
+    \node at ($(eq2)!.5!(212)$) {$=$};
+\end{tikzpicture}

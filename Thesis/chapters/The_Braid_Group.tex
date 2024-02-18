@@ -100,7 +100,7 @@ Notice that for any $\sigma_i$, $\rho_{\sigma_i}(x_1\cdots x_n) = x_1\cdots x_n$
 \end{theorem}
 
 In this interpretation of the braid group, we can express $B_n$ in terms of the standard generators:
-\begin{equation}
+\begin{equation}\label{eq:BnGenYangBaxter}
     B_n = \left\langle \sigma_1,\dots,\sigma_{n-1} \;\middle|\;
     \begin{aligned}
         \sigma_i\sigma_j &= \sigma_j\sigma_i, & |i-j|&>1 \\
@@ -108,11 +108,12 @@ In this interpretation of the braid group, we can express $B_n$ in terms of the 
     \end{aligned}
     \right\rangle.
 \end{equation}
-The first condition that the standard generators commute if $|i-j|>1$ is easily verified by looking at the graphic of \cref{fig:sigma_on_x_i} in describing the property of the automorphism $\rho_{\sigma_i}(\sigma_j) = \sigma_j$. This follows by the fact that if two holes are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in \cref{fig:YB_criterion_verification} by looking at the corresponding braids in $\R\times[0,1]$.
+The first condition that the standard generators commute if $|i-j|>1$ is easily verified by thinking about the action of the generators on $\pi_1(\D_n)$ as in \cref{fig:sigma_on_Dn} and as automorphisms in \cref{eq:rho_j}. This follows from the fact that if punctures $i$ and $j$ are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in \cref{fig:YB_criterion_verification} by looking at the corresponding braids in $\R\times[0,1]$.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
-    \caption{\colorbox{red}{Grayed-out strand indicates that it is behind all other strands.}}\label{fig:YB_criterion_verification}
+    % \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
+    \input{TikZ/YB_Braid_v2.tikz}
+    \caption{Graphical verification of \cref{eq:BnGenYangBaxter}. All of the above braids are equivalent up to homotopy. The transformation between the middle two braid diagrams is known as a Reidmeister type-III move, in which the red strand (or string in the context of knot theory) is moved completely under the crossing of the blue and green strands. In these middle two diagrams, the red strand is slightly translucent to indicate that it is behind all other strands in the diagram.}\label{fig:YB_criterion_verification}
 \end{figure}
 
 \section[One-dimensional representations of $B_n$]{One-dimensional representations of $\mathbf{B_n}$}
