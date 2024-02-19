@@ -77,7 +77,7 @@
         \node at ($(ip1s)!0.5!(ns) - (0,.4725pt)$) {$\cdots$};
         \node at ($(1e)!0.5!(ie) - (0,.47pt)$) {$\cdots$};
         \node at ($(ip1e)!0.5!(ne) - (0,.47pt)$) {$\cdots$};
-        \node[below, yshift=-5*\g] at ($(ie)!.5!(ip1e)$) {$\iv{\sigma_i}$};
+        \node[below, yshift=-5*\g, xshift=1.75*\g] at ($(ie)!.5!(ip1e)$) {$\iv{\sigma_i}$};
         
         \draw[ultra thick]
             (1s) -- (1e)

@@ -19,9 +19,13 @@ We can think of a pure braid as a loop in $M_n$:
 \end{align*}
 with some base point. Conventionally, we define the base point as the $n$-tuple of integers $(1,2,3,\dots,n)\in \C^n$. Then a pure braid can be though of the motion of these points in the complex plane as $t$ ranges from 0 to 1 in which $\beta_i(t)$ is defined and $\beta_i(t)\neq \beta_j(t)$ for every $t\in[0,1]$ and $i\neq j\in\left\{ 1,2,\dots,n \right\}$. Because each $\beta_i$ is a loop, it must start and end at the point $i$ (e.g., $\beta_i(0)=\beta_i(1)=i$). Recall that the loops are actually equivalence classes of loops under homotopy. As a result, we can continuously deform the motion of the $n$ points while maintaining the same pure braid (up to equivalence) so long as we preserve the pairwise distinction of the points for all time $t\in[0,1]$.
 
-A common visualization of pure braids is to plot the motion of the points in 3-dimensional space. For each $t\in [0,1]$, we draw the points $\left( \beta_i(t),t \right)$ in $\C\times[0,1]$ for every $i\in\left\{ 1,\dots,n \right\}$. The space $\C\times[0,1]$ can be thought of as a spacetime diagram, where the motion of the points is plotted in the complex plane at each time $t$, with the time being the vertical axis. The convention is to have $\C\times\left\{ 0 \right\}$ placed above $\C\times\left\{ 1 \right\}$, so that the motion of the points is plotted from top to bottom.
+A common visualization of pure braids is to plot the motion of the points in 3-dimensional space. For each $t\in [0,1]$, we draw the points $\left( \beta_i(t),t \right)$ in $\C\times[0,1]$ for every $i\in\left\{ 1,\dots,n \right\}$. The space $\C\times[0,1]$ can be thought of as a spacetime diagram, where the motion of the points is plotted in the complex plane at each time $t$, with the time being the vertical axis. The convention is to have $\C\times\left\{ 0 \right\}$ placed above $\C\times\left\{ 1 \right\}$, so that the motion of the points is plotted from top to bottom, as in \cref{fig:C_pure_braid}.
 
-\missingfigure[figwidth=6cm]{Gonzalez Figure 1}
+\begin{figure}[htbp]
+    \centering
+    \input{TikZ/C_pure_braid.tikz}
+    \caption{A pure braid on three strands is visualized as the trajectory of three particles as they move in $\C$, plotted over an arbitrary (normalized) time period. Each point ends at the same relative starting position in $\C$.}\label{fig:C_pure_braid}
+\end{figure}
 
 For every $i\in\left\{ 1,\dots,n \right\}$, the motion of a single point starting at $(i,0)$ and ending at $(i,1)$ is known as the $i$-th \textit{strand} of the pure braid. This can also be described by the $i$-th projection of the $n$-tuple $\beta(t)$. Thus, two braids are equivalent under homotopy if, for every moment of a continuous deformation of the $n$ strands in $\C\times [0,1]$, the (fixed) endpoints $((1,0),(2,0),\dots,(n,0))$ and $((1,1),(2,1),\dots,(n,1))$ are connected by strands that are pairwise disjoint where each strand intersects the plane $\C\times\left\{ t \right\}$ exactly once for every $t\in[0,1]$.
 
@@ -34,7 +38,14 @@ In the previous section, we defined pure braids in which the endpoints of each s
     The braid group on $n$ strands is the fundamental group of $N_n$, denoted $B_n = \pi_1(N_n)$.
 \end{definition}
 
-The visualization of a braid is the same as in the case of pure braids, only now the endpoints of each strand do not necessarily match the starting points. For example, the $i$-th strand may start at the point $(i,0)$ but end at the point $(j,1)$ for $i,j\in\left\{ 1,\dots,n \right\}$. The equivalence of strands is still defined as before under the homotopy of loops. Loop concatenation defines the multiplication of braids, as before.
+The visualization of a braid is the same as in the case of pure braids, only now the endpoints of each strand do not necessarily match the starting points, as illustrated \cref{fig:C_general_braid}. For example, the $i$-th strand may start at the point $(i,0)$ but end at the point $(j,1)$ for $i,j\in\left\{ 1,\dots,n \right\}$. The equivalence of strands is still defined as before under the homotopy of loops. Loop concatenation defines the multiplication of braids, as before.
+
+% \missingfigure[figwidth=6cm]{Gonzalez Figure 1}
+\begin{figure}[htbp]
+    \centering
+    \input{TikZ/C_braid.tikz}
+    \caption{A general braid on five strands. The ending position of each particle is not necessarily in the same location of $\C$ as the starting position, which classifies this as a general braid.}\label{fig:C_general_braid}
+\end{figure}
 
 Note that for $n\geq 1$ there is a natural inclusion $\iota:B_n\hookrightarrow B_{n+1}$ in which we add a new strand to any $\beta\in B_n$ that does not interact with the other strands.
 
@@ -115,7 +126,7 @@ In this interpretation of the braid group, we can express $B_n$ in terms of the 
     \end{aligned}
     \right\rangle.
 \end{equation}
-The first condition that the standard generators commute if $|i-j|>1$ is easily verified by thinking about the action of the generators on $\pi_1(\D_n)$ as in \cref{fig:sigma_on_Dn} and as automorphisms in \cref{eq:rho_j}. This follows from the fact that if punctures $i$ and $j$ are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in \cref{fig:YB_criterion_verification} by looking at the corresponding braids in $\R\times[0,1]$.
+The first condition that the standard generators commute if $|i-j|>1$ is easily verified by thinking about the action of the generators on $\pi_1(\D_n)$ as in \cref{fig:sigma_on_Dn} and as automorphisms in \cref{eq:rho_j}. This follows from the fact that if punctures $i$ and $j$ are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in \cref{fig:YB_criterion_verification} by looking at the corresponding braids in $\R\times[0,1]$ (here, the distinction between $\R$ and $\C$ is only a matter of choosing to show the starting and ending complex planes in traditional braid visualizations).
 \begin{figure}[htbp]
     \centering
     % \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
