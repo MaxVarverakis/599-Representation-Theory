@@ -13,8 +13,9 @@
 \usepackage{todonotes}
 \usepackage[capitalize]{cleveref}
 \usepackage[section]{placeins}
+\usepackage[labelfont=bf]{caption} % bold figure labels
 
-\usetikzlibrary{decorations.markings,math,calc,braids}
+\usetikzlibrary{decorations.markings,math,calc,braids,intersections,backgrounds}
 
 \creflabelformat{equation}{#2\textup{#1}#3}
 \Crefname{equation}{Eqn.}{Eqns.}
@@ -36,6 +37,7 @@
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[chapter]
@@ -52,7 +54,8 @@
     % chapters/Rep_Theory_Background, 
     % chapters/Top_Background, 
     chapters/The_Braid_Group,
-    % chapters/tikz_test
+    % chapters/tikz_test,
+    chapters/TODO,
 }
 
 \begin{document}
@@ -71,6 +74,8 @@
 \include{chapters/The_Braid_Group}
 
 \include{chapters/tikz_test}
+
+\include{chapters/TODO}
 
 \addcontentsline{toc}{chapter}{References}
 \nocite{*} % Include all references in the bibliography

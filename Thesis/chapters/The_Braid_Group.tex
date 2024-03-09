@@ -109,7 +109,7 @@ For any $\sigma_i$, $\rho_{\iv{\sigma_i}}$ is well-defined. It follows that for 
 
 Notice that for any $\sigma_i$, $\rho_{\sigma_i}(x_1\cdots x_n) = x_1\cdots x_n$. This is because the loop $x_1\cdots x_n$ in $\D_n$, encompassing all holes, is parallel to the boundary $\partial\D_n$. Thus, the action of $\sigma_i$ on $x_1\cdots x_n$ is trivial does not affect the structure of the loop up to isotopy. More generally, this implies that $\rho_\beta(x_1\cdots x_n) = x_1\cdots x_n$ for any $\beta\in B_n$. Paired with the observation that every generator is conjugate to another, Artin~\cite{Artin1947} showed that this is a necessary and sufficient condition for $\rho_\beta$ to be an automorphism of $F_n$.
 
-\begin{theorem}
+\begin{theorem}\label{thm:autFn}
     An automorphism $f\in\aut{F_n}$ is equal to $\rho_\beta$ for some $\beta\in B_n$ if and only if
     \begin{enumerate}
         \item $f(x_i)$ is a conjugate of some $x_j$ for every $i\in\left\{ 1,\dots,n \right\}$, and
@@ -142,9 +142,9 @@ A straightforward nontrivial representation of the braid is defined on the stand
 \end{align}
 for $\theta\in\R$. Clearly, $p_\theta$ is a homomorphism, and it is unitary because
 \begin{equation}
-    p_\theta(\iv{\sigma_i}) = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_i)}.
+    {p_\theta(\sigma_i)}^\dagger = {\left( e^{i\theta} \right)}^\dagger = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_i)},
 \end{equation}
-Notice that with a choice of $\theta=2\pi n$ for $n\in\Z$, we recover the trivial representation of $B_n$. Similarly, $p_{\pi n}$ is a restriction of the sign representation of $S_n$, where the sign of a permutation is defined as the parity of the number of transpositions in its decomposition into a product of transpositions.
+where $^\dagger$ denotes the conjugate transpose of a matrix. Notice that with a choice of $\theta=2\pi n$ for $n\in\Z$, we recover the trivial representation of $B_n$. Similarly, $p_{\pi n}$ is a restriction of the sign representation of $S_n$, where the sign of a permutation is defined as the parity of the number of transpositions in its decomposition into a product of transpositions.
 
 % The degree 1 representations of $B_n$ will be revisited in \cref{sec:Anyons}.
 
@@ -195,7 +195,7 @@ Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with
         \centering
         % \includegraphics[width = .3\textwidth]{Burau_D3.png}
         \input{TikZ/Abelianization_Covering.tikz}
-        \caption{The loop $\sigma_1 x_1 = \iv{x_1}x_2 x_1$ translated to its image on the covering space $\widetilde{\D}_3$. On the right, the loops are depicted on the corresponding sheets of the covering, and on the left is a simplified version. The order of loops is $x_1,tx_2,-tx_1$. The horizontal lines on the left indicate the edges taking each loop up/down a sheet.}\label{fig:Burau_D3}
+        \caption{The loop $\rho_{\sigma_1}(x_1) = \iv{x_1}x_2 x_1$ cast onto the covering space $\widetilde{\D}_3$. On the right, the loops are depicted on the corresponding sheets of the covering, and on the left is a simplified version. The order of loops is $x_1,tx_2,-tx_1$. The horizontal lines on the left indicate the edges taking each loop up/down a sheet.}\label{fig:Burau_D3}
     \end{figure}
 
     Now, we can express loop concatenation as an abelian operation, where \cref{eq:rho_i,eq:rho_ip1,eq:rho_j} become
@@ -251,10 +251,177 @@ The Burau representation need only be defined on the standard generators, since 
     \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \textrm{ for } |i-j|=1.
 \end{align}
 
-Moreover, the Burau representation is compatible with the natural inclusion $\iota:B_n\hookrightarrow B_{n+1}$ for $n\geq 1$ and $\beta\in B_n$:
+Moreover, the Burau representation is compatible with the natural inclusion map $\iota:B_n\hookrightarrow B_{n+1}$ for $n\geq 1$ and $\beta\in B_n$:
 \begin{equation}
     \psi_{n+1}(\iota(\beta)) = \begin{bmatrix}
         \psi_n(\beta) & 0 \\
         0 & 1
     \end{bmatrix}.
 \end{equation}
+
+\section{The Reduced Burau Representation}
+Recall that in \cref{sec:Aut_Fn}, every braid in $B_n$ is described by an automorphism of the free group $F_n$. Equivalently, we thought of each generator $\sigma_i$ as a clockwise rearrangement of adjacent punctures of $\D_n$ and recorded the resulting transformation of the $n$ free generators of $F_n = \pi_1(\D_n)$, which were the loops around the punctures. It is intuitive to understand why the loop $\ell=x_1\cdots x_n$ is invariant under any braid-realized automorphism, as the loop  encompasses all $n$ punctures in $\D_n$. This was discussed in \cref{sec:Aut_Fn}, and was formalized in \cref{thm:autFn} as a necessary and sufficient condition for the realization of braids as automorphisms on the free group.
+
+The invariant loop $\ell$ gives insight into the Burau representation. As was done with the generators $x_1,\dots,x_n$ when constructing the Burau representation from $\pi_1(\D_n)$, the loop $\ell$ is written as an element of the free $\Lambda$-module of rank $n$, denoted $\Lambda^n$, when cast onto the covering space $\widetilde{\D}_n$:
+\begin{equation}
+    x_1\cdots x_n\in F_n\mapsto x_1+t x_2 + t^2 x_3 + \cdots + t^{n-1}x_n = \sum_{i=1}^{n}t^{i-1}x_i\in\Lambda^n.\label{eq:invLoop}
+\end{equation}
+
+The right-hand side of \cref{eq:invLoop} manifests as a vector $\vec{\nu}={\left[ 1,t,t^2,\dots,t^{n-1} \right]}^\top$, where the vector components correspond to the coefficients of the free generators $x_1,\dots,x_n$. Note that this vector comes from the coordinate representation of $\Lambda^n$ rather than directly from a vector space since $\Lambda$ is not a field, but this serves as useful way to describe the elements of $\Lambda^n$. The coordinate description of $\Lambda^n$ is useful in constructing a non-trivial invariant vector space with respect to the Burau representation.
+
+In particular, notice that for any $\sigma_i\in B_n$, the matrix representation $\psi_n(\sigma_i)$ leaves $\vec{\nu}$ invariant. This can be verified directly by computing the matrix multiplication:
+\begin{align*}
+    \psi_n(\sigma_i)\vec{\nu} &= \begin{bmatrix}
+        I_{i-1} & 0 & 0 \\
+        0 & U & 0 \\
+        0 & 0 & I_{n-i-1}
+    \end{bmatrix}\begin{bmatrix}
+        1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+        I_{i-1} & 0 & 0 & 0 \\
+        0 & 1-t & t & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & I_{n-i-1}
+    \end{bmatrix}\begin{bmatrix}
+        1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+        1 \\ \vdots \\ t^{i-1} - {t^i} + {t^i} \\ t^{i} \\ \vdots \\ t^{n-1}
+        % 1 \\ \vdots \\ t^{i-1} - \cancel{t^i} + \cancel{t^i} \\ t^{i} \\ \vdots \\ t^{n-1}
+    \end{bmatrix} = \begin{bmatrix}
+        1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
+    \end{bmatrix} = \vec{\nu},
+\end{align*}
+for $i=1,2,\dots,n-1$. Since $\vec{\nu}$ is invariant under the generators of $B_n$, it is also invariant under any arbitrary braid in $B_n$. Therefore, we have a non-trivial $\psi_n$-invariant subspace defined by $\textrm{span}\left\{ \vec{\nu} \right\}$, which implies that $\psi_n$ is reducible (provided $n>1$).
+
+The goal of the following procedure is to obtain an irreducible representation of $B_n$ from the Burau representation. First, given the invariance of $\vec{\nu}$ under $\psi_n$, we find a basis for a $\psi_n$-invariant vector space by looking for eigenvalues of $\psi_n(\sigma_i)$ for $i=1,2,\dots,n-1$~\cite{Delaney2016}. Let $\vec{v}_i$ be defined as the vector with $i$-th component $-t$, $(i+1)$-th component equal to 1, and all other components equal to zero, for $i=1,2,\dots,n-1$. Again, by direct computation, we can verify that $\vec{v}_i$ is an eigenvector of $\psi_n(\sigma_i)$ with eigenvalue $-t$:
+\begin{align*}
+    \psi_n(\sigma_i)\vec{v}_i &= \begin{bmatrix}
+        I_{i-1} & 0 & 0 & 0 \\
+        0 & 1-t & t & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & I_{n-i-1}
+    \end{bmatrix}\begin{bmatrix}
+        0 \\ \vdots \\ 0 \\ -t \\ 1 \\ 0 \\ \vdots \\ 0
+    \end{bmatrix} = \begin{bmatrix}
+        0 \\ \vdots \\ 0 \\ t^2 \\ -t \\ 0 \\ \vdots \\ 0
+    \end{bmatrix} = -t\vec{v}_i.
+\end{align*}
+
+% Due to the block diagonal nature of $\psi_n(\sigma_i)$ and sparsity of $\vec{v}_i$, we can quickly verify that $\vec{v}_i$ is an eigenvector of $\psi_n(\sigma_i)$ with eigenvalue $-t$:
+% \begin{align*}
+%     U\left.{\vec{v}_i}\right|_{\textrm{span}\left\{ \ehat_i,\ehat_{i+1} \right\}} = \begin{bmatrix}
+%         1-t & t \\ 1 & 0
+%     \end{bmatrix}\begin{bmatrix}
+%         -t \\ 1
+%     \end{bmatrix} = \begin{bmatrix}
+%         t^2 \\ -t
+%     \end{bmatrix} = -t\vec{v}_i \implies \psi_n(\sigma_i)\vec{v}_i = -t\vec{v}_i.
+% \end{align*}
+
+\begin{proposition}
+    Define $\vec{v}_i$ as above. Then $\textrm{span}\left\{ \vec{v}_i \right\} = \textrm{span}\left\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{n-1}\right\}$ form a non-trivial $(n-1)$-dimensional $\psi_n$-invariant vector space.
+\end{proposition}
+\begin{proof}
+    The vectors $\vec{v}_i$ are eigenvectors of $\psi_n(\sigma_i)$ with eigenvalue $-t$ for each $i=1,2,\dots,n-1$. These eigenvectors are clearly linearly independent, and so $\textrm{span}\left\{ \vec{v}_1,\vec{v}_2,\dots,\vec{v}_{n-1} \right\}$ is a non-trivial $(n-1)$-dimensional vector space. Clearly $\psi_n(\sigma_i)\vec{v}_j = \vec{v}_j$ for $|i-j|>1$, which is easily verified due to the block diagonal structure of $\psi_n$. Leveraging this block structure of $\psi_n(\sigma_i)$ also allows the following calculations
+    \begin{align*}
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1-t & t \\
+            0 & 1 & 0
+        \end{bmatrix}\begin{bmatrix}
+            -t \\ 1 \\ 0 \\
+        \end{bmatrix} &= \begin{bmatrix}
+            -t \\ 1-t \\ 1
+        \end{bmatrix} = \begin{bmatrix}
+            -t \\ 1 \\ 0
+        \end{bmatrix} + \begin{bmatrix}
+            0 \\ -t \\ 1
+        \end{bmatrix}, \\
+        \begin{bmatrix}
+            1-t & t & 0\\
+            1 & 0 & 0 \\
+            0 & 0 & 1 \\
+        \end{bmatrix}\begin{bmatrix}
+            0 \\ -t \\ 1 \\
+        \end{bmatrix} &= \begin{bmatrix}
+            -t^2 \\ 0 \\ 1
+        \end{bmatrix} = t\begin{bmatrix}
+            -t \\ 1 \\ 0
+        \end{bmatrix} + \begin{bmatrix}
+            0 \\ -t \\ 1
+        \end{bmatrix},
+    \end{align*}
+    which implies that
+    \begin{align*}
+        \psi_n(\sigma_i)\vec{v}_{i-1} &= \vec{v}_{i-1} + \vec{v}_{i}, \\
+        \psi_n(\sigma_i)\vec{v}_{i+1} &= - t\vec{v}_{i} + \vec{v}_{i+1}.
+    \end{align*}
+    Therefore, $\left\{ \vec{v}_1,\dots,\vec{v}_{n-1} \right\}$ are $\psi_n(\sigma_i)$ invariant for all $i=1,2,\dots,n-1$. Hence, $\textrm{span}\left\{ \vec{v}_1,\dots,\vec{v}_{n-1} \right\}$ is an $(n-1)$-dimensional $\psi_n$-invariant vector space.
+\end{proof}
+
+We can now define the reduced Burau representation in terms of the (unreduced) Burau representation:
+\begin{align}
+    \psi_n^\textbf{r}:B_n&\to\textrm{GL}_{n-1}(\Lambda) \\
+    \sigma_i&\mapsto \psi_n(\sigma_i)\bigr|_{\textrm{span}\left\{ \vec{v}_i \right\}}.
+\end{align}
+
+In practice, we find the actual matrices for $\psi_n^\textbf{r}(\sigma_i)$ by means of a slightly different approach.
+
+\colorbox{red}{Go though derivation of $V_i$'s or just state it?}
+
+\colorbox{cyan}{\textit{\footnotesize not actually sure if these matrices come exactly from the same construction as above\dots}}
+
+Let $V\in\textrm{GL}_{3}(\Lambda)$ be defined by
+\begin{equation}
+    % \psi_n^\textbf{r}(\sigma_i)
+    V = \begin{bmatrix}
+        1 & t & 0 \\
+        0 & -t & 0 \\
+        0 & 1 & 1
+    \end{bmatrix}.
+\end{equation}
+Then the reduced Burau representation matrices are given by
+\begin{align}
+    \psi_n^\textbf{r}(\sigma_1) &= \begin{bmatrix}
+        -t & 0 & 0 \\
+        1 & 1 & 0 \\
+        0 & 0 & I_{n-3}
+    \end{bmatrix}, \\
+    \psi_n^\textbf{r}(\sigma_{n-1}) &= \begin{bmatrix}
+        I_{n-3} & 0 & 0 \\
+        0 & 1 & t \\
+        0 & 0 & -t \\
+    \end{bmatrix}, \\
+    \psi_n^\textbf{r}(\sigma_i) &= \begin{bmatrix}
+        I_{n-2} & 0 & 0 \\
+        0 & V & 0 \\
+        0 & 0 & I_{n-i-2}
+    \end{bmatrix},
+\end{align}
+for $i=2,3,\dots,n-2$.
+
+\colorbox{red}{Prove invertible?}
+
+\section{Unitary Representation Matrices}
+As explained in~\cite{Delaney2016}, we can use $U$ from the construction of the (unreduced) Burau representation to show that there are no choices of the parameter $t$ such that the representation matrices are unitary. However, we can use the reduced Burau representation matrices to construct a unitary representation of $B_n$.
+
+First, let $t=s^2$ for some $s\in\C^*$. In other words, we are restricting $t$ to be a square of a nonzero complex number. Define $(n-1)\times(n-1)$ matrices
+\begin{align}
+    P_{n-1} &= \textrm{diag}(1,s,s^2,\dots,s^{n-1}), \\
+    J_{n-1} &= \begin{bmatrix}
+        s+\iv{s} & -1 & \cdots & 0 \\
+        -1 & s+\iv{s} & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & -1 \\
+        0 & \cdots & -1 & s+\iv{s}
+    \end{bmatrix},
+\end{align}
+where diag denotes the diagonal matrix with the given diagonal entries. Furthermore, define $\psi_\mathbf{s}(\beta) = P_{n-1}\psi_n^\mathbf{r}\iv{P_{n-1}}$ for $\beta\in B_n$. Note that
+\begin{align*}
+    \iv{P_{n-1}} = s^{(n-1)!}\textrm{diag}(1,s^{-1},s^{-2},\dots,s^{1-n}).
+\end{align*}
+
+
+
+
