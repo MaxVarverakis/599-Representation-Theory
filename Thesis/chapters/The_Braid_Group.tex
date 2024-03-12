@@ -405,23 +405,95 @@ for $i=2,3,\dots,n-2$.
 \colorbox{red}{Prove invertible?}
 
 \section{Unitary Representation Matrices}
-As explained in~\cite{Delaney2016}, we can use $U$ from the construction of the (unreduced) Burau representation to show that there are no choices of the parameter $t$ such that the representation matrices are unitary. However, we can use the reduced Burau representation matrices to construct a unitary representation of $B_n$.
+As explained in~\cite{Delaney2016}, we can use $U$ from the construction of the (unreduced) Burau representation to show that there are no choices of the parameter $t$ such that the representation matrices are unitary. However, we can use the Burau representation matrices to construct a unitary representation of $B_n$~\cite{Squier1984}.
 
-First, let $t=s^2$ for some $s\in\C^*$. In other words, we are restricting $t$ to be a square of a nonzero complex number. Define $(n-1)\times(n-1)$ matrices
+% However, we can use the reduced Burau representation matrices to construct a unitary representation of $B_n$.
+
+First, let $t=s^2$ for some $s\in\C^*$. In other words, we are restricting $t$ to be a square of a nonzero complex number. Define $n\times n$ matrix
 \begin{align}
-    P_{n-1} &= \textrm{diag}(1,s,s^2,\dots,s^{n-1}), \\
-    J_{n-1} &= \begin{bmatrix}
-        s+\iv{s} & -1 & \cdots & 0 \\
-        -1 & s+\iv{s} & \ddots & \vdots \\
-        \vdots & \ddots & \ddots & -1 \\
-        0 & \cdots & -1 & s+\iv{s}
-    \end{bmatrix},
+    P_{n-1} &= \textrm{diag}(1,s,s^2,\dots,s^{n-1}),
+    % J_{n-1} &= \begin{bmatrix}
+    %     s+\iv{s} & -1 & \cdots & 0 \\
+    %     -1 & s+\iv{s} & \ddots & \vdots \\
+    %     \vdots & \ddots & \ddots & -1 \\
+    %     0 & \cdots & -1 & s+\iv{s}
+    % \end{bmatrix},
 \end{align}
-where diag denotes the diagonal matrix with the given diagonal entries. Furthermore, define $\psi_\mathbf{s}(\beta) = P_{n-1}\psi_n^\mathbf{r}\iv{P_{n-1}}$ for $\beta\in B_n$. Note that
+where diag denotes the diagonal matrix with the given diagonal entries. Furthermore, define $\psi_n^\mathbf{s}(\beta) = P_{n-1}\psi_n(\beta)\iv{\left( P_{n-1} \right)}$ for $\beta\in B_n$. Note that
 \begin{align*}
-    \iv{P_{n-1}} = s^{(n-1)!}\textrm{diag}(1,s^{-1},s^{-2},\dots,s^{1-n}).
+    \iv{\left( P_{n-1} \right)} = \textrm{diag}(1,s^{-1},s^{-2},\dots,s^{-(n-1)}).
 \end{align*}
+Due to the block structure of $\psi_n$ as before,
+\begin{align*}
+    \begin{bmatrix}
+        s^i & 0 \\
+        0 & s^{i+1}
+    \end{bmatrix}
+    U
+    \begin{bmatrix}
+        s^{-i} & 0 \\
+        0 & s^{-i-1}
+    \end{bmatrix} &= \begin{bmatrix}
+        s^i & 0 \\
+        0 & s^{i+1}
+    \end{bmatrix}
+    \begin{bmatrix}
+        1-s^2 & s^2 \\ 1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        s^{-i} & 0 \\
+        0 & s^{-i-1}
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+        1-s^2 & s \\
+        s & 0
+    \end{bmatrix}
+    \\ \\
+    \psi_n^\mathbf{s}(\sigma_i) &= P_{n-1}\psi_n(\sigma_i)\iv{\left( P_{n-1} \right)} \\
+\end{align*}
+for $\sigma_i\in B_n$, $i=1,\dots,n-1$.
 
+\textbf{SQUIER} claims that this construction of $\psi_n^\mathbf{s}(\sigma_i)$ is unitary for all $i$.
 
+\section{Exercise from DELANEY}
+
+Here, Delaney has defined $\psi_\textbf{s}(\beta) = P_{n-1}\psi_n^\mathbf{r}(\beta)\iv{\left( P_{n-1} \right)}$
+
+Suppose that for specific choices of $s\in\C^*$, we can decompose $J_{n-1}(s) = X^\dagger X$ for some $(n-1)\times(n-1)$ matrix $X$. Then
+\begin{align*}
+    {\left( J_{n-1}(s) \right)}^\dagger = {\left( X^\dagger X \right)}^\dagger = X^\dagger {\left( X^\dagger \right)}^\dagger = X^\dagger X = J_{n-1}(s),
+    % = X^\dagger X &\iff X J_{n-1}(s) = X X^\dagger X = {\left( X^\dagger X \right)}^\dagger X \\
+    % &\iff X J_{n-1}(s) = J_{n-1}(s) X \\
+    % &\iff [X,J_{n-1}(s)] = 0.
+\end{align*}
+which implies that $J_{n-1}(s)$ is Hermitian. In general, $J_{n-1}(s)$ is Hermitian if $s+\iv{s}\in\R$. In other words, either $s\in\R^*$, or if $s\in\C^*$, then
+\begin{align*}
+    s+\iv{s} = \overline{s}+\overline{\iv{s}} &\iff s+\frac{\overline{s}}{\size{s}^2} = \overline{s}+\frac{s}{\size{s}^2} \\
+    &\iff s-\overline{s} = \frac{s-\overline{s}}{\size{s}^2} \\
+    &\iff \size{s} = 1,
+\end{align*}
+where $s\overline{s}=\size{s}^2$. 
+
+Thus, $s\in\R\cup\C_{\size{z}=1}$, which gives a more specific description of the diagonals of $J_{n-1}(s)$:
+\begin{equation}
+    s+\iv{s} = s+\overline{s} = 2\textrm{Re}(s),
+\end{equation}
+where $\textrm{Re}(z)$ denotes the real part of $z\in\C$. However, if $J_{n-1}$ is to be decomposed into $X^\dagger X$, then we can further restrict the allowable values of $s$. Let $x_{i,j}$ denote the $(i,j)$-th entry of $X$. Then it must be that
+\begin{align*}
+    2\textrm{Re}(s) &= \sum_{i=1}^{n-1}\overline{x}_{i,j} x_{i,j} = \sum_{i=1}^{n-1}\size{x_{i,j}}^2 \geq 0,
+\end{align*}
+for all $j=1,2,\dots,n-1$. Therefore, $\textrm{Re}(s)>0$. Furthermore, we place a restriction on $X$ by observing that
+\begin{align*}
+    {\left( X^\dagger X \right)}_{i,j} &= \sum_{k=1}^{n-1} \overline{x}_{k,i}x_{k,j} = -\delta_{i,j\pm 1},
+\end{align*}
+where $\delta_{ij}$ is the Kronecker delta.
+
+For such a choice of $s$ (hence $X$ and $t$) and any braid $\beta\in B_n$, the corresponding matrix $X\psi_\textbf{s}(\beta)\iv{X}$ is unitary.
+
+% \begin{align*}
+%     % X\psi_\textbf{s}(\beta)\iv{X} &= XP_{n-1}\psi_n^\mathbf{r}(\beta)\iv{\left( P_{n-1} \right)}\iv{X}
+%     {\left( \psi_\textbf{s}(\beta) \right)}^\dagger J_{n-1}\psi_\textbf{s}(\beta) = J_{n-1} \\
+%     X\psi_\textbf{s}(\beta)\iv{X} \\
+% \end{align*}
 
 

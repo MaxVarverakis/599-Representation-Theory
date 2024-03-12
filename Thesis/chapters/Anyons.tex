@@ -1,0 +1,131 @@
+\chapter{Anyons}\label{ch:anyons}
+
+The first few sections come from \cite{Khare2005}.
+
+\section{Two Non-Interacting Anyons}\label{sec:non_int}
+
+The interaction term in the Lagrangian for two anyons due to the braiding of the anyons is given by
+\begin{equation}
+    \mathcal{L}_{\text{int}} = \hbar\alpha\dot{\phi},
+\end{equation}
+where a dot indicates a total time derivative $\frac{d}{dt}$ and $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ is the relative angle between the two anyons with positions $\vec{r}_1=(x_1,y_1)$ and $\vec{r}_2=(x_2,y_2)$. As in the previous section, $\alpha\in\left[ 0,1 \right]$ is the \textit{winding angle} or braiding statistic of the anyons. The parameter $\alpha$ can also be thought of as an angle modulo $\pi$. Though the relative angle $\phi$ is ambiguous for identical particles, the derivative $\frac{d\phi}{dt}=\dot{\phi}$ is well-defined.
+
+Notice that if we take $\alpha\to 0$, the interaction term vanishes as expected for bosons. Similarly, for $\alpha>0$, $\phi$ becomes singular if $\vec{r}_1 = \vec{r_2}$, which motivates the Pauli exclusion principle for fermions. In fact, this means that for any $\alpha>0$, the corresponding anyons exhibit some form of the Pauli exclusion principle.
+
+The classical kinetic energy of this system is
+\begin{equation}
+    T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right),
+\end{equation}
+as expected. Then the Lagrangian for this system is
+\begin{align}
+    \mathcal{L}\left( \vd{r}_1,\vd{r}_2, \dot{\phi} \right) &= T + \mathcal{L}_{\text{int}} = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi},
+\end{align}
+which can also be viewed as the Lagrangian for 2 interacting bosons/fermions.
+
+We can redefine the Lagrangian in terms of the relative and center-of-mass coordinates
+\begin{align}
+    \vec{R} &= \frac{\vec{r}_1+\vec{r}_2}{2}, \\
+    \vec{r} &= \vec{r}_1-\vec{r}_2,
+\end{align}
+where $\vec{r}$ is the relative position vector and $\vec{R}$ is the center-of-mass position vector of the two anyons. Note that we are assuming that the mass of the two particles are equal ($m_1=m_2$). Classically, the momentum of a particle is given by the product of its mass and velocity. Then the corresponding center-of-mass and relative momenta:
+\begin{align}
+    \vec{P} &= 2m\vd{R} = 2m \frac{\vec{r}_1+\vec{r}_2}{2} = m\vd{r}_1 + m\vd{r}_2 = \vec{p}_1 + \vec{p}_2, \\
+    \vec{p} &= \mu\vd{r} = \frac{m}{2}\left( \vd{r}_1-\vd{r}_2 \right) = \frac{\vec{p}_1 - \vec{p}_2}{2},
+\end{align}
+where $m$ is the mass of each anyon and $\mu$ is the reduced mass of the system.
+
+With this in mind, we derive the following identity:
+\begin{align}
+    \vd{R} + \frac{1}{4}\vd{r} &= \frac{{\left( \vd{r}_1 + \vd{r}_2 \right)}^2}{4} + \frac{{\left( \vd{r}_1 - \vd{r}_2 \right)}^2}{4} = \frac{{\vd{r}_1}^2 + {\vd{r}_2}^2}{2}.
+\end{align}
+Thus, the Lagrangian decomposes into relative and center-of-mass components upon making the substitution from the above identity:
+\begin{align}
+    \mathcal{L} = \underbrace{m\vd{R}^2}_{\mathcal{L}_R} + \underbrace{\frac{m{\vd{r}}^{\;2}}{4} + \hbar\alpha\dot{\phi}}_{\mathcal{L}_r},
+\end{align}
+where the squared velocities indicate magnitude squared. Observe that the center-of-mass component of the Lagrangian, $\mathcal{L}_R$, is independent of the braiding parameter $\alpha$. We can further simplify the relative component of the Lagrangian, $\mathcal{L}_r$, by noting that we can briefly write the coordinate $\vec{r}$ in polar form by representing it as a complex number $\vec{r} =r e^{i\phi}$. It follows that
+\begin{align}
+    \size{\vd{r}(r,\phi)}^2 = \size{\frac{d}{dt}\vec{r}(r,\phi)}^2 = \size{\left( \dot{r} + ir\dot{\phi} \right)e^{i\phi}}^2 = \dot{r}^2 + r^2\dot{\phi}^2.
+\end{align}
+Hence, we rewrite the relative component of the Lagrangian as
+\begin{align}
+    \mathcal{L}_r = \frac{m\left( \dot{r}^2 + r^2\dot{\phi}^2 \right)}{4} + \hbar\alpha\dot{\phi}.\label{eq:basic_Lr}
+\end{align}
+
+Recall that the classical relative angular momentum can be described by:
+\begin{equation}
+    p_\phi = \frac{d\mathcal{L}}{d\dot{\phi}} = \frac{mr^2}{2}\dot{\phi} + \hbar\alpha.
+\end{equation}
+
+Now, the Hamiltonian for this system can be constructed:
+\begin{align}
+    \mathcal{H} 
+    &= P\dot{R} + p_r\dot{r} + p_\phi\dot{\phi} - \mathcal{L} \nonumber \\
+    &= \frac{P^2}{4m} + \frac{p_r^{2}}{m} + \frac{mr^2}{4} {p_\phi}^2 \nonumber \\
+    &= \frac{P^2}{4m} + \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2}.
+\end{align}
+Once again, the center-of-mass component of the Hamiltonian is independent of $\alpha$, and so we can focus on the relative component of the Hamiltonian, which is
+\begin{equation}
+    \mathcal{H}_r = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2}.\label{eq:basic_Hr}
+\end{equation}
+For the purposes of this work, we need not carry out to find the energy eigenstates corresponding to the quantum operator of this relative Hamiltonian. More about this is found in~\cite{Khare2005}.
+
+
+\section{Anyons in Harmonic Potential}\label{sec:mult_harmonic}
+
+The Hamiltonian for this system requires modification from previous sections when the anyons are placed in a harmonic potential. The potential energy of a 2-anyon system is given by
+\begin{equation}
+    V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{\;2} + {\vec{r}_2}^{\;2} \right) = m\omega^2\left( {\vec{R}}^2 + \frac{1}{4}{\vec{r}}^{\;2} \right),
+\end{equation}
+where $\omega$ is the angular frequency of the harmonic potential. We can make the same substitution as in the previous section to write the potential in terms of the relative and center-of-mass coordinates. As is the recurring theme, the center-of-mass component of the potential has no dependence on the braiding parameter $\alpha$, and corresponds to a 2-dimensional quantum harmonic oscillator problem for a particle of mass $2m$.
+
+Note that we can generalize \cref{eq:basic_Lr} (now omitting the subscript $r$) to an $N$-anyon system in a harmonic potential by writing
+\begin{equation}
+    \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{\;2} + \hbar\alpha\sum_{i\neq j}\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{\;2},
+\end{equation}
+where $\phi_{ij} = \arctan\left( \frac{y_i-y_j}{x_i-x_j} \right)$ is the relative angle between anyons $i$ and $j$.
+
+From~\cite{Date2003}, after rescaling our distance in units of $\sqrt{\frac{\hbar}{m\omega}}$, we can rewrite the Lagrangian as
+\begin{equation}
+    \mathcal{L} = \frac{1}{2}\sum_{i=1}^{N}\left[ \vd{r}^{\;2} - \vec{r}_i^{\;2} \right] + \alpha\sum_{i<j}^{N}\frac{\vec{r}_{ij}\times\vd{r}_{ij}}{{r}_{ij}^{\;2}},
+\end{equation}
+where $r_{ij}^2 = \size{{\vec{r}_{ij}}}^2$ and $\vec{r}_{ij} = \vec{r}_i - \vec{r}_j$ is the relative coordinate between anyons $i$ and $j$.
+
+% To obtain the general Hamiltonian for $N$ anyons in a harmonic well, we need to better characterize the anyons~\cite{Date2003,Khare2005}. First, suppose that each (identical) anyon has 
+
+% Now the Hamiltonian includes the potential energy:
+% \begin{align}
+%     % \mathcal{H} = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2} + V(\vec{r}) = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2} + \frac{m\omega^2}{4}\vec{r}^{\;2}.\label{eq:HO_Hr}
+% \end{align}
+
+The vector (gauge) potential associated with the $i$-th anyon is given by~\cite{Khare2005,Date2003,Moriyasu1983}
+\begin{align}
+    A_i(\vec{r}_i) &= \alpha\sum_{i\neq j}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2}, \label{eq:gauge}
+\end{align}
+where $\hat{z}$ is the direction perpendicular to the 2-dimensional space where the anyon quasiparticles reside. Here, $\alpha$ serves as the coupling constant, which dictates the strength of the interaction between anyons in our system. This will allow us to consolidate the interactions between the anyons into the Hamiltonian.
+
+As an aside, for fermions, such as electrons, $\alpha=1$ corresponds to the strongest form of coupling in the way described above. On the other hand for bosons ($\alpha=0$), we have no coupling between particles, which is reflected in \cref{eq:gauge}.
+
+For the $i$-th anyon, the contribution to the Hamiltonian can be written as
+\begin{align}
+    \mathcal{H}_i = \frac{1}{2m}{(p_i - A_i(\vec{r}_i))}^2 + \frac{m\omega^2}{2}\vec{r}_i^{\;2},
+\end{align}
+where the $p_i - A_i(\vec{r}_i)$ term represents the canonical momentum of the system. This is a required modification since we must account for the motion of the anyons in the presence of the gauge potential in addition to their mechanical momentum.
+
+Then, with only essential coupling  (minimal prescription) between the anyons by means of the gauge potential, the Hamiltonian for the $N$-anyon system in a harmonic potential is given by
+\begin{align}
+    \mathcal{H} = \frac{1}{2m} \sum_{i=1}^{N}{(p_i - A_i(\vec{r}_i))}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}\vec{r}_i^{\;2}. \label{eq:min_prescription_H}
+\end{align}
+
+Substituting \cref{eq:gauge} into \cref{eq:min_prescription_H}, this gives rise to
+\begin{equation}
+    \mathcal{H} = \frac{1}{2m}\sum_{i=1}^{N}\vec{p}_i^{\;2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}\vec{r}_i^{\;2} - \frac{\alpha}{2m}\sum_{i\neq j}^{N}\frac{\ell_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{i\neq j,k}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},
+\end{equation}
+where $\ell_{ij} = (\vec{r}_i-\vec{r}_j)\times(\vec{p}_i-\vec{p}_j)$ is the relative angular momentum of anyon $i$ and $j$.
+
+
+
+% \subsection{2-Anyon System}\label{subsec:two_harmonic}
+
+
+
+% \subsection{3-Anyon System}\label{subsec:three_harmonic}
