@@ -95,8 +95,12 @@ More generally, let $\vec{r}_{ij} = \vec{r}_i - \vec{r}_j$ be the relative coord
 
 Setting $\hbar=1$, we can rewrite the Lagrangian as~\cite{Date2003}
 \begin{equation}
-    \mathcal{L} = \frac{m}{2}\sum_{i=1}^{N}\left[ \vd{r}^{\;2} - \omega^2\vec{r}_i^{\;2} \right] + \alpha\sum_{i<j}^{N}\frac{\vec{r}_{ij}\times\vd{r}_{ij}}{{r}_{ij}^{\;2}}.\label{eq:compact_L}
+    \mathcal{L} = \frac{m}{2}\sum_{i=1}^{N}\left[ \vd{r}^{\;2} - \omega^2\vec{r}_i^{\;2} \right] + \alpha\sum_{i<j}^{N}\frac{\vec{r}_{ij}\times\vd{r}_{ij}}{{r}_{ij}^{\;2}},\label{eq:compact_L}
 \end{equation}
+which can be expanded as
+\begin{align}
+    \mathcal{L} &= \frac{m}{2}\sum_{i=1}^{N}\left[ \vd{r}^{\;2} - \omega^2\vec{r}_i^{\;2} \right] + \alpha\sum_{i<j}^{N}\vd{r}_{ij}\cdot\frac{\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2}.\label{eq:L_with_A}
+\end{align}
 
 % To obtain the general Hamiltonian for $N$ anyons in a harmonic well, we need to better characterize the anyons~\cite{Date2003,Khare2005}. First, suppose that each (identical) anyon has 
 
@@ -105,42 +109,57 @@ Setting $\hbar=1$, we can rewrite the Lagrangian as~\cite{Date2003}
 %     % \mathcal{H} = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2} + V(\vec{r}) = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2} + \frac{m\omega^2}{4}\vec{r}^{\;2}.\label{eq:HO_Hr}
 % \end{align}
 
-The vector (gauge) potential associated with the $i$-th anyon is given by~\cite{Khare2005,Date2003,Moriyasu1983}
+The last term in \cref{eq:L_with_A} is of similar form to the vector (gauge) potential associated with the $i$-th anyon~\cite{Khare2005,Date2003,Moriyasu1983}:
 \begin{align}
     \vec{A}_i(\vec{r}_i) &= \alpha\sum_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}, \label{eq:gauge}
 \end{align}
-where $\hat{z}$ is the unit vector perpendicular to the $r_{ij}$-plane. Here, $\alpha$ serves as the coupling constant, which dictates the strength of the interaction between anyons in our system. This will allow us to consolidate the interactions between the anyons into the Hamiltonian.
+where $\hat{z}$ is the unit vector perpendicular to the $r_{ij}$-plane. Here, $\alpha$ serves as the coupling constant, which dictates the strength of the interaction between anyons in the system.
 
-As an aside, for fermions, such as electrons, $\alpha=1$ corresponds to the strongest form of coupling in the way described above. On the other hand, for bosons ($\alpha=0$), we have no coupling between particles, which is reflected in \cref{eq:gauge}.
+% For fermions, such as electrons, $\alpha=1$ corresponds to the strongest amount of coupling, which is observed as Coulombic interaction. For bosons, we have no coupling between particles, which is reflected in \cref{eq:gauge} when we take $\alpha$ to zero.
 
 For the $i$-th anyon, the contribution to the Hamiltonian can be written as
 \begin{align}
-    \mathcal{H}_i = \frac{1}{2m}{(\vec{p}_i - \vec{A}_i(\vec{r}_i))}^2 + \frac{m\omega^2}{2}{r}_i^{2},
+    \mathcal{H}_i = \frac{1}{2m}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2},
 \end{align}
-where the $p_i - A_i(\vec{r}_i)$ term represents the canonical momentum of the system. This is a required modification since we must account for the motion of the anyons in the presence of the gauge potential in addition to their mechanical momentum.
+where the $p_i - A_i(\vec{r}_i)$ term is known as the \textit{canonical momentum} of the system. This is a required modification since we must account for the motion of the anyons in the presence of the gauge potential in addition to their mechanical momentum.
 
-Then, with only essential coupling  (minimal prescription) between the anyons by means of the gauge potential, the Hamiltonian for the $N$-anyon system in a harmonic potential is given by
+Then, with only essential coupling between the anyons (due to the gauge potential), the Hamiltonian for the $N$-anyon system in a harmonic potential is given by
 \begin{align}
-    \mathcal{H} = \frac{1}{2m} \sum_{i=1}^{N}{(\vec{p}_i - \vec{A}_i(\vec{r}_i))}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2}. \label{eq:min_prescription_H}
+    \mathcal{H} = \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2}. \label{eq:min_prescription_H}
 \end{align}
 
-Substituting \cref{eq:gauge} into \cref{eq:min_prescription_H}, this gives rise to
+Substituting \cref{eq:gauge} into \cref{eq:min_prescription_H}, we have
 \begin{equation}
-    \mathcal{H} = \frac{1}{2m}\sum_{i=1}^{N}\vec{p}_i^{\;2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}\vec{r}_i^{\;2} - \frac{\alpha}{2m}\sum_{j\neq i}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{j,k\neq i}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},\label{eq:full_H}
+    \mathcal{H} = \frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{j\neq i}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{j,k\neq i}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},\label{eq:full_H}
 \end{equation}
 where $\vec{\ell}_{ij} = (\vec{r}_i-\vec{r}_j)\times(\vec{p}_i-\vec{p}_j)$ is the relative angular momentum of anyon $i$ and $j$.
 
 \subsection{Notes}
 \subsubsection{Hamiltonian Terms}
-The last term in \cref{eq:full_H} is the result of squaring the canonical momentum in \cref{eq:min_prescription_H}. For example, let's isolate one set of the terms. Fix $i$. Then,
+The last term in \cref{eq:full_H} is the result of squaring the canonical momentum in \cref{eq:min_prescription_H}. To see this, let's isolate one of the terms. Fix $i$. Then,
 \begin{align*}
-    {(\vec{p}_i - \vec{A}_i(\vec{r}_i))}^2 = {p}_i^{2} - 2\vec{p}_i\cdot\vec{A}_i(\vec{r}_i) + \vec{A}_i^{\;2}(\vec{r}_i).
+    {\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 = {p}_i^{2} - 2\vec{p}_i\cdot\vec{A}_i(\vec{r}_i) + {A}_i^{2}(\vec{r}_i).
 \end{align*}
 
 By \cref{eq:gauge}, we have
 \begin{align*}
-    \vec{A}_i^{\;2}(\vec{r}_i) = {\left( \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2} \right)}^2 = \alpha^2\sum_{j,k\neq i}\frac{y_{ij}y_{ik} + x_{ij}x_{ik}}{r_{ij}^2r_{ik}^2} = \alpha^2\sum_{j,k\neq i}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}.
+    \vec{A}_i^{\;2}(\vec{r}_i) = {\left( \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2} \right)}^2 = \alpha^2\sum_{j,k\neq i}\frac{y_{ij}y_{ik} + x_{ij}x_{ik}}{r_{ij}^2r_{ik}^2} = \alpha^2\sum_{j,k\neq i}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},
+\end{align*}
+which is the last term in \cref{eq:full_H}.
+
+Moreover, the cross term in the expansion of ${\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2$ is
+\begin{align*}
+    -2\vec{p}_i\cdot\vec{A}_i(\vec{r}_i) &= -2\vec{p}_i\cdot\left( \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2} \right) \\
+    &= -2\alpha\sum_{j\neq i}\frac{\vec{p}_i\cdot\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2} \\
+    &= -2\alpha\sum_{j\neq i}\frac{p_{ix}y_{ij} - p_{iy}x_{ij}}{r_{ij}^2} \\
+    &= -2\alpha\sum_{j\neq i}\frac{(\vec{p}_i\times\vec{r}_{ij})\cdot\hat{z}}{r_{ij}^2}.
 \end{align*}
 
-\subsubsection{Connecting Lagrangian to Hamiltonian}
-The connection between \cref{eq:compact_L} and \cref{eq:gauge} is the multiplication of $\vec{A}_i(\vec{r}_i)$ by $\vd{r}_{ij}$, as is done when constructing the Hamiltonian.
+For each $j$, there is a corresponding term in \cref{eq:full_H} with
+\begin{align*}
+    -2\alpha \frac{(\vec{p}_j\times\vec{r}_{ji})\cdot\hat{z}}{r_{ji}^2} = 2\alpha \frac{(\vec{p}_j\times\vec{r}_{ij})\cdot\hat{z}}{r_{ij}^2}.
+\end{align*}
+Then, summing over all $i$ and $j$ yields the second-to-last term in \cref{eq:full_H} since each of these terms can be combined to give:
+\begin{align*}
+    -2\alpha\sum_{j\neq i}\frac{(\vec{p}_i\times\vec{r}_{ij} - \vec{p}_j\times\vec{r}_{ij})\cdot\hat{z}}{r_{ij}^2} = -2\alpha\sum_{j\neq i}\frac{(\vec{p}_{ij}\times\vec{r}_{ij})\cdot\hat{z}}{r_{ij}^2} = -2\alpha\sum_{j\neq i}\frac{\vec{\ell}_{ij}}{r_{ij}^2}.
+\end{align*}
