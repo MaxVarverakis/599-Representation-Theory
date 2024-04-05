@@ -227,13 +227,13 @@ Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with
     Notice that these matrices have entries in the ring of Laurent polynomials, $\Lambda=\Z[t,\iv{t}]$.
 \end{example}
 
-Clearly, the result from \cref{ex:Burau_D3} generalizes to the case of braids on $n$ strands. Fix $n>1$. Let $I_k$ denote the $k\times k$ dimensional identity matrix, and let
+The result from \cref{ex:Burau_D3} generalizes to the case of braids on $n$ strands. Fix $n>1$. Let $I_k$ denote the $k\times k$ dimensional identity matrix, and let
 \begin{equation}
     U=\begin{bmatrix}
         1-t & t \\ 1 & 0
     \end{bmatrix}.
 \end{equation} 
-For $i\in\left\{ 1,\dots,n-1 \right\}$, the action of $\sigma_i$ on $\pi_1\left( \widetilde{\D}_n \right)$ is realized as an $n\times n$ matrix with entries in $\Lambda = \Z[t,\iv{t}]$. 
+For $i\in\left\{ 1,\dots,n-1 \right\}$, the action of $\sigma_i$ on $\pi_1\bigl( \widetilde{\D}_n \bigr)$ is realized as an $n\times n$ matrix with entries in $\Lambda = \Z[t,\iv{t}]$. 
 
 The Burau representation of $B_n$ is then defined by:
 \begin{align}
@@ -245,7 +245,7 @@ The Burau representation of $B_n$ is then defined by:
     \end{bmatrix}.
 \end{align}
 
-The Burau representation need only be defined on the standard generators, since any braid $\beta\in B_n$ decomposes into a product of $\sigma_1,\dots,\sigma_{n-1}$ and their inverses. Notice that if we set $t\to 1$, we recover the defining representation of $S_n$, as expected when we use a degree 1 covering space of $\D_n$ and force the action of the generators to be abelian. Furthermore, by direct computation, it follows that
+The Burau representation need only be defined on the standard generators, since any braid $\beta\in B_n$ decomposes into a product of $\sigma_1,\dots,\sigma_{n-1}$ and their inverses. Notice that if we set $t = 1$, we recover the defining representation of $S_n$, as expected when we use a degree 1 covering space of $\D_n$ and force the action of the generators to be abelian. Furthermore, by direct computation, it follows that
 \begin{align}
     \psi_n(\sigma_i)\psi_n(\sigma_j) &= \psi_n(\sigma_j)\psi_n(\sigma_i) \textrm{ for } |i-j|>1, \\
     \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \textrm{ for } |i-j|=1.
@@ -295,7 +295,9 @@ In particular, notice that for any $\sigma_i\in B_n$, the matrix representation 
 \end{align*}
 for $i=1,2,\dots,n-1$. Since $\vec{\nu}$ is invariant under the generators of $B_n$, it is also invariant under any arbitrary braid in $B_n$. Therefore, we have a non-trivial $\psi_n$-invariant subspace defined by $\textrm{span}\left\{ \vec{\nu} \right\}$, which implies that $\psi_n$ is reducible (provided $n>1$).
 
-The goal of the following procedure is to obtain an irreducible representation of $B_n$ from the Burau representation. First, given the invariance of $\vec{\nu}$ under $\psi_n$, we find a basis for a $\psi_n$-invariant vector space by looking for eigenvalues of $\psi_n(\sigma_i)$ for $i=1,2,\dots,n-1$~\cite{Delaney2016}. Let $\vec{v}_i$ be defined as the vector with $i$-th component $-t$, $(i+1)$-th component equal to 1, and all other components equal to zero, for $i=1,2,\dots,n-1$. Again, by direct computation, we can verify that $\vec{v}_i$ is an eigenvector of $\psi_n(\sigma_i)$ with eigenvalue $-t$:
+The goal of the following procedure is to obtain an irreducible representation of $B_n$ from the Burau representation. First, given the invariance of $\vec{\nu}$ under $\psi_n$, we find a basis for a $\psi_n$-invariant vector space by looking for eigenvalues of $\psi_n(\sigma_i)$ for $i=1,2,\dots,n-1$~\cite{Delaney2016}.
+
+Let $\vec{v}_i$ be defined as the vector with $i$-th component $-t$, $(i+1)$-th component equal to 1, and all other components equal to zero, for $i=1,2,\dots,n-1$. Again, by direct computation, we can verify that $\vec{v}_i$ is an eigenvector of $\psi_n(\sigma_i)$ with eigenvalue $-t$:
 \begin{align*}
     \psi_n(\sigma_i)\vec{v}_i &= \begin{bmatrix}
         I_{i-1} & 0 & 0 & 0 \\
@@ -373,6 +375,8 @@ In practice, we find the actual matrices for $\psi_n^\textbf{r}(\sigma_i)$ by me
 
 \colorbox{cyan}{\textit{\footnotesize not actually sure if these matrices come exactly from the same construction as above\dots}}
 
+\textit{There is no widely accepted convention, and this can differ up to a matrix transposition.}
+
 Let $V\in\textrm{GL}_{3}(\Lambda)$ be defined by
 \begin{equation}
     % \psi_n^\textbf{r}(\sigma_i)
@@ -389,75 +393,80 @@ Then the reduced Burau representation matrices are given by
         1 & 1 & 0 \\
         0 & 0 & I_{n-3}
     \end{bmatrix}, \\
-    \psi_n^\textbf{r}(\sigma_{n-1}) &= \begin{bmatrix}
-        I_{n-3} & 0 & 0 \\
-        0 & 1 & t \\
-        0 & 0 & -t \\
-    \end{bmatrix}, \\
     \psi_n^\textbf{r}(\sigma_i) &= \begin{bmatrix}
         I_{n-2} & 0 & 0 \\
         0 & V & 0 \\
         0 & 0 & I_{n-i-2}
+    \end{bmatrix}, \\
+    \psi_n^\textbf{r}(\sigma_{n-1}) &= \begin{bmatrix}
+        I_{n-3} & 0 & 0 \\
+        0 & 1 & t \\
+        0 & 0 & -t \\
     \end{bmatrix},
 \end{align}
-for $i=2,3,\dots,n-2$.
+for $i=2,3,\dots,n-2$ and $n\geq 3$.
 
 \colorbox{red}{Prove invertible?}
 
 \section{Unitary Representation Matrices}
-As explained in~\cite{Delaney2016}, we can use $U$ from the construction of the (unreduced) Burau representation to show that there are no choices of the parameter $t$ such that the representation matrices are unitary. However, we can use the Burau representation matrices to construct a unitary representation of $B_n$~\cite{Squier1984}.
+As explained in~\cite{Delaney2016}, we can use $U$ from the construction of the (unreduced) Burau representation to show that there are no choices of the parameter $t$ such that the representation matrices are unitary. However, we can use the reduced Burau representation matrices to construct a new representation of $B_n$ that is in fact unitary~\cite{Delaney2016,Squier1984}.
 
 % However, we can use the reduced Burau representation matrices to construct a unitary representation of $B_n$.
 
-First, let $t=s^2$ for some $s\in\C^*$. In other words, we are restricting $t$ to be a square of a nonzero complex number. Define $n\times n$ matrix
+First, let $t=s^2$ for some $s\in\C^*$. In other words, we are restricting $t$ to be a square of a nonzero complex number. Define the $(n-1)\times (n-1)$ matrices
 \begin{align}
-    P_{n-1} &= \textrm{diag}(1,s,s^2,\dots,s^{n-1}),
-    % J_{n-1} &= \begin{bmatrix}
-    %     s+\iv{s} & -1 & \cdots & 0 \\
-    %     -1 & s+\iv{s} & \ddots & \vdots \\
-    %     \vdots & \ddots & \ddots & -1 \\
-    %     0 & \cdots & -1 & s+\iv{s}
-    % \end{bmatrix},
+    P_{n-1} &= \textrm{diag}(s,s^2,\dots,s^{n-1}), \\
+    J_{n-1} &= \begin{bmatrix}
+        s+\iv{s} & -1 & \cdots & 0 \\
+        -1 & s+\iv{s} & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & -1 \\
+        0 & \cdots & -1 & s+\iv{s}
+    \end{bmatrix},
 \end{align}
-where diag denotes the diagonal matrix with the given diagonal entries. Furthermore, define $\psi_n^\mathbf{s}(\beta) = P_{n-1}\psi_n(\beta)\iv{\left( P_{n-1} \right)}$ for $\beta\in B_n$. Note that
+where diag denotes the diagonal matrix with the given diagonal entries. Furthermore, define $\widetilde{\psi}_n(\beta) = P_{n-1}{\left( \psi_n^\mathbf{r}(\beta) \right)}^\dagger\iv{\left( P_{n-1} \right)}$ for $\beta\in B_n$. Note that
 \begin{align*}
-    \iv{\left( P_{n-1} \right)} = \textrm{diag}(1,s^{-1},s^{-2},\dots,s^{-(n-1)}).
+    \iv{\left( P_{n-1} \right)} = \textrm{diag}(s^{-1},s^{-2},\dots,s^{-(n-1)}).
 \end{align*}
-Due to the block structure of $\psi_n$ as before,
-\begin{align*}
-    \begin{bmatrix}
-        s^i & 0 \\
-        0 & s^{i+1}
-    \end{bmatrix}
-    U
-    \begin{bmatrix}
-        s^{-i} & 0 \\
-        0 & s^{-i-1}
-    \end{bmatrix} &= \begin{bmatrix}
-        s^i & 0 \\
-        0 & s^{i+1}
-    \end{bmatrix}
-    \begin{bmatrix}
-        1-s^2 & s^2 \\ 1 & 0
-    \end{bmatrix}
-    \begin{bmatrix}
-        s^{-i} & 0 \\
-        0 & s^{-i-1}
-    \end{bmatrix} \\
-    &= \begin{bmatrix}
-        1-s^2 & s \\
-        s & 0
-    \end{bmatrix}
-    \\ \\
-    \psi_n^\mathbf{s}(\sigma_i) &= P_{n-1}\psi_n(\sigma_i)\iv{\left( P_{n-1} \right)} \\
-\end{align*}
-for $\sigma_i\in B_n$, $i=1,\dots,n-1$.
 
-\textbf{SQUIER} claims that this construction of $\psi_n^\mathbf{s}(\sigma_i)$ is unitary for all $i$.
+% Due to the block structure of $\psi_n$ as before,
+% \begin{align*}
+%     \begin{bmatrix}
+%         s^i & 0 \\
+%         0 & s^{i+1}
+%     \end{bmatrix}
+%     U
+%     \begin{bmatrix}
+%         s^{-i} & 0 \\
+%         0 & s^{-i-1}
+%     \end{bmatrix} &= \begin{bmatrix}
+%         s^i & 0 \\
+%         0 & s^{i+1}
+%     \end{bmatrix}
+%     \begin{bmatrix}
+%         1-s^2 & s^2 \\ 1 & 0
+%     \end{bmatrix}
+%     \begin{bmatrix}
+%         s^{-i} & 0 \\
+%         0 & s^{-i-1}
+%     \end{bmatrix} \\
+%     &= \begin{bmatrix}
+%         1-s^2 & s \\
+%         s & 0
+%     \end{bmatrix}
+%     \\ \\
+%     \psi_n^\mathbf{s}(\sigma_i) &= P_{n-1}\psi_n(\sigma_i)\iv{\left( P_{n-1} \right)} \\
+% \end{align*}
+% for $\sigma_i\in B_n$, $i=1,\dots,n-1$.
 
-\section{Exercise from DELANEY}
+% \textbf{SQUIER} claims that this construction of $\psi_n^\mathbf{s}(\sigma_i)$ is unitary for all $i$.
 
-Here, Delaney has defined $\psi_\textbf{s}(\beta) = P_{n-1}\psi_n^\mathbf{r}(\beta)\iv{\left( P_{n-1} \right)}$
+% \section{Exercise from DELANEY}
+
+
+
+% Here, Delaney has defined $\psi_\textbf{s}(\beta) = P_{n-1}\psi_n^\mathbf{r}(\beta)\iv{\left( P_{n-1} \right)}$
+
+
 
 Suppose that for specific choices of $s\in\C^*$, we can decompose $J_{n-1}(s) = X^\dagger X$ for some $(n-1)\times(n-1)$ matrix $X$. Then
 \begin{align*}
@@ -474,7 +483,7 @@ which implies that $J_{n-1}(s)$ is Hermitian. In general, $J_{n-1}(s)$ is Hermit
 \end{align*}
 where $s\overline{s}=\size{s}^2$. 
 
-Thus, $s\in\R\cup\C_{\size{z}=1}$, which gives a more specific description of the diagonals of $J_{n-1}(s)$:
+Thus, $s\in\R^*\cup\C_{\size{z}=1}$, which gives a more specific description of the diagonals of $J_{n-1}(s)$:
 \begin{equation}
     s+\iv{s} = s+\overline{s} = 2\textrm{Re}(s),
 \end{equation}
@@ -482,13 +491,122 @@ where $\textrm{Re}(z)$ denotes the real part of $z\in\C$. However, if $J_{n-1}$ 
 \begin{align*}
     2\textrm{Re}(s) &= \sum_{i=1}^{n-1}\overline{x}_{i,j} x_{i,j} = \sum_{i=1}^{n-1}\size{x_{i,j}}^2 \geq 0,
 \end{align*}
-for all $j=1,2,\dots,n-1$. Therefore, $\textrm{Re}(s)>0$. Furthermore, we place a restriction on $X$ by observing that
+for all $j=1,2,\dots,n-1$. Since $X$ is not the zero matrix, $\textrm{Re}(s) > 0$. Furthermore, we place a restriction on $X$ by observing that
 \begin{align*}
     {\left( X^\dagger X \right)}_{i,j} &= \sum_{k=1}^{n-1} \overline{x}_{k,i}x_{k,j} = -\delta_{i,j\pm 1},
 \end{align*}
 where $\delta_{ij}$ is the Kronecker delta.
 
-For such a choice of $s$ (hence $X$ and $t$) and any braid $\beta\in B_n$, the corresponding matrix $X\psi_\textbf{s}(\beta)\iv{X}$ is unitary.
+For such a choice of $s$ (hence $X$ and $t$) and any braid $\beta\in B_n$, the corresponding matrix
+\begin{align*}
+    X\widetilde{\psi}_n(\beta)\iv{X} &= X P_{n-1}{\left(\psi_n^\mathbf{r}(\beta)\right)}^\dagger\iv{\left( P_{n-1} \right)}\iv{X} = \left( X P_{n-1} \right){\left(\psi_n^\mathbf{r}(\beta)\right)}^\dagger\iv{\left( X P_{n-1} \right)}
+\end{align*}
+is unitary.
+
+\begin{example}
+    If $s=e^{i\frac{\pi}{6}}=\frac{\sqrt{3}}{2} + \frac{i}{2}$, then $2\textrm{Re}(s) = \sqrt{3}$. In the $2\times 2$ case ($n=3$), trial and error calculations in \texttt{MATLAB} resulted in one of many possibilities for $X$ as
+    \begin{align*}
+        X = \left[
+            \begin{array}{cc}
+            -\frac{1}{\sqrt{2 \left(\sqrt{2}+\sqrt{3}\right)}} & \sqrt{\frac{1}{2} \left(\sqrt{2}+\sqrt{3}\right)} \\
+            \sqrt{\frac{1}{2} \left(\sqrt{2}+\sqrt{3}\right)} & -\frac{1}{\sqrt{2 \left(\sqrt{2}+\sqrt{3}\right)}} \\
+            \end{array}
+            \right]
+        % \left[\begin{array}{cc} -\frac{1}{\sqrt{2\left( \sqrt{2}+\sqrt{3} \right)}} & \sqrt{\frac{1}{2}\left( \sqrt{2}+\sqrt{3} \right)}\\ \sqrt{\frac{1}{2}\left( \sqrt{2}+\sqrt{3} \right)} & -\frac{1}{\sqrt{\sqrt{2}\left( \sqrt{2}+\sqrt{3} \right)}} \end{array}\right].
+    \end{align*}
+    Direct computation can verify that
+    \begin{align*}
+        X^\dagger X = J_{2}(e^{i\frac{\pi}{6}}) = \left[\begin{array}{cc} \sqrt{3} & -1\\ -1 & \sqrt{3} \end{array}\right]
+    \end{align*}
+    % $ for this choice of $s$:
+    % \begin{align*}
+    %     X^\dagger X &= \begin{bmatrix}
+    %         0 & 1 \\
+    %         0 & -1
+    %     \end{bmatrix}\begin{bmatrix}
+    %         0 & 0 \\
+    %         1 & -1
+    %     \end{bmatrix} = \begin{bmatrix}
+    %         1 & -1 \\
+    %         -1 & 1
+    %     \end{bmatrix} = J_{2}(e^{i\frac{\pi}{3}}).
+    % \end{align*}
+
+    Recall that $t=s^2=e^{i\frac{\pi}{3}}$. The corresponding reduced Burau representation matrices are:
+    \begin{align*}
+        \psi_3^\textbf{r}(\sigma_1) &= \begin{bmatrix}
+            -e^{i\frac{\pi}{3}} & 0 \\
+            1 & 1
+        \end{bmatrix} \quad \textrm{ and } \quad
+        \psi_3^\textbf{r}(\sigma_2) = \begin{bmatrix}
+            1 & e^{i\frac{\pi}{3}} \\
+            0 & -e^{i\frac{\pi}{3}}
+        \end{bmatrix}
+    \end{align*}
+    Notice that the involution $\eta_n:\textrm{GL}_n(\C)\to\textrm{GL}_n(\C)$ defined by $A \mapsto A^\dagger$ is an automorphism of $\textrm{GL}_n(\C)$. Then $\eta_2\circ\psi_3^\textbf{r}$ is a homomorphism and thus a representation of $B_3$. In other words, applying the hermitian adjoint to the reduced Burau representation matrices results in a new representation.
+
+    Finally, conjugating $\eta_2\circ\psi_3^\textbf{r}$ by $XP_{n-1}$ produces a representation $\mathcal{U}$ of $B_3$ that is unitary:
+    \begin{align*}
+        \mathcal{U}(\sigma_1) &= \left( X P_{n-1} \right){\left( \psi_n^\mathbf{r} (\sigma_1)\right)}^\dagger\iv{\left( X P_{n-1} \right)} \\
+        % &= \begin{bmatrix}
+        %     \frac{1}{4}\left(\sqrt{3} - i \right)\left( \sqrt{2} + i \right) & \frac{1}{2}e^{-i\frac{\pi}{6}} \\
+        %     \\
+        %     \frac{1}{2}e^{-i\frac{\pi}{6}} & \frac{1}{4} \left(\sqrt{3}-i\right)\left(-\sqrt{2}+i\right)
+        % \end{bmatrix} \\
+        &= \frac{1}{2}e^{-i\frac{\pi}{6}}\begin{bmatrix}
+            \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
+            \\
+            1 & -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}
+        \end{bmatrix} \\ 
+        \\
+        \mathcal{U}(\sigma_2) &= \left( X P_{n-1} \right){\left( \psi_n^\mathbf{r} (\sigma_2)\right)}^\dagger\iv{\left( X P_{n-1} \right)} \\
+        % &= \begin{bmatrix}
+        %     \frac{1}{4} \left(\sqrt{3}-i\right)\left(-\sqrt{2}+i\right) & \frac{1}{2}e^{-i\frac{\pi}{6}} \\
+        %     \\
+        %     \frac{1}{2}e^{-i\frac{\pi}{6}} & \frac{1}{4}\left(\sqrt{3} - i \right)\left( \sqrt{2} + i \right)
+        % \end{bmatrix} \\
+        &= \frac{1}{2}e^{-i\frac{\pi}{6}}\begin{bmatrix}
+            -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
+            \\
+            1 & \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}
+        \end{bmatrix}.
+    \end{align*}
+    The unitarity of $\mathcal{U}(\sigma_1)$ and $\mathcal{U}(\sigma_2)$ can be verified by direct computation. Additionally, $\mathcal{U}$ satisfies the braid relation:
+    \begin{align*}
+        \mathcal{U}(\sigma_1)\mathcal{U}(\sigma_2)\mathcal{U}(\sigma_1) &= \begin{bmatrix}
+            0 & i \\
+            i & 0
+        \end{bmatrix} = \mathcal{U}(\sigma_2)\mathcal{U}(\sigma_1)\mathcal{U}(\sigma_2).
+    \end{align*}
+
+    % \colorbox{red}{\textbf{THIS IS WRONG!!!}}
+    % In the $3\times 3$ case ($n=3$), one possibility is
+    % \begin{align*}
+    %     X = \begin{bmatrix}
+    %         0 & 0 & 0 \\
+    %         1 & -1 & 0 \\
+    %         0 & -1 & 1
+    %     \end{bmatrix},
+    % \end{align*}
+    % again, up to a minus sign. Direct computation again illustrates
+    % \begin{align*}
+    %     X^\dagger X &= \begin{bmatrix}
+    %         0 & 1 & 0 \\
+    %         0 & -1 & -1 \\
+    %         0 & 0 & 1
+    %     \end{bmatrix}\begin{bmatrix}
+    %         0 & 0 & 0 \\
+    %         1 & -1 & 0 \\
+    %         0 & -1 & 1
+    %     \end{bmatrix} = \begin{bmatrix}
+    %         1 & -1 & 0 \\
+    %         -1 & 2 & -1 \\
+    %         0 & -1 & 1
+    %     \end{bmatrix} = J_{2}(e^{i\frac{\pi}{3}}).
+    % \end{align*}
+\end{example}
+
+
 
 % \begin{align*}
 %     % X\psi_\textbf{s}(\beta)\iv{X} &= XP_{n-1}\psi_n^\mathbf{r}(\beta)\iv{\left( P_{n-1} \right)}\iv{X}

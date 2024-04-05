@@ -1,6 +1,6 @@
 \chapter{Anyons}\label{ch:anyons}
 
-The first few sections come from \cite{Khare2005}.
+% The first few sections come from \cite{Khare2005}.
 
 \section{Two Non-Interacting Anyons}\label{sec:non_int}
 
@@ -121,7 +121,7 @@ For the $i$-th anyon, the contribution to the Hamiltonian can be written as
 \begin{align}
     \mathcal{H}_i = \frac{1}{2m}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2},
 \end{align}
-where the $p_i - A_i(\vec{r}_i)$ term is known as the \textit{canonical momentum} of the system. This is a required modification since we must account for the motion of the anyons in the presence of the gauge potential in addition to their mechanical momentum.
+where $p_i - A_i(\vec{r}_i)$ is known as the \textit{canonical momentum} of the system. This is a required modification since we must account for the motion of the anyons in the presence of the gauge potential in addition to their mechanical momentum.
 
 Then, with only essential coupling between the anyons (due to the gauge potential), the Hamiltonian for the $N$-anyon system in a harmonic potential is given by
 \begin{align}
@@ -151,15 +151,22 @@ Moreover, the cross term in the expansion of ${\bigl(\vec{p}_i - \vec{A}_i(\vec{
 \begin{align*}
     -2\vec{p}_i\cdot\vec{A}_i(\vec{r}_i) &= -2\vec{p}_i\cdot\left( \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2} \right) \\
     &= -2\alpha\sum_{j\neq i}\frac{\vec{p}_i\cdot\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2} \\
-    &= -2\alpha\sum_{j\neq i}\frac{p_{ix}y_{ij} - p_{iy}x_{ij}}{r_{ij}^2} \\
-    &= -2\alpha\sum_{j\neq i}\frac{(\vec{p}_i\times\vec{r}_{ij})\cdot\hat{z}}{r_{ij}^2}.
+    &= -2\alpha\sum_{j\neq i}\frac{-p_{ix}y_{ij} + p_{iy}x_{ij}}{r_{ij}^2} \\
+    &= -2\alpha\sum_{j\neq i}\frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ij}^2}.
 \end{align*}
 
 For each $j$, there is a corresponding term in \cref{eq:full_H} with
 \begin{align*}
-    -2\alpha \frac{(\vec{p}_j\times\vec{r}_{ji})\cdot\hat{z}}{r_{ji}^2} = 2\alpha \frac{(\vec{p}_j\times\vec{r}_{ij})\cdot\hat{z}}{r_{ij}^2}.
+    -2\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} = -\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ij}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2},
 \end{align*}
-Then, summing over all $i$ and $j$ yields the second-to-last term in \cref{eq:full_H} since each of these terms can be combined to give:
+where we rewrote one of the two terms to have $\vec{r}_{ij}$ instead of $\vec{r}_{ji}$. Then, for fixed $i$ and $j$, the $ij$- and $ji$-term can be combined in the following manner:
 \begin{align*}
-    -2\alpha\sum_{j\neq i}\frac{(\vec{p}_i\times\vec{r}_{ij} - \vec{p}_j\times\vec{r}_{ij})\cdot\hat{z}}{r_{ij}^2} = -2\alpha\sum_{j\neq i}\frac{(\vec{p}_{ij}\times\vec{r}_{ij})\cdot\hat{z}}{r_{ij}^2} = -2\alpha\sum_{j\neq i}\frac{\vec{\ell}_{ij}}{r_{ij}^2}.
+    -2\alpha \frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ji}^2} -2\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} 
+        &= -\alpha \frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ji}\times\vec{p}_i)\cdot\hat{z}}{r_{ji}^2} \\ 
+        &\hspace{.375cm} +\alpha \frac{(\vec{r}_{ij}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2} - \alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} \\
+        &= -\alpha \frac{(\vec{r}_{ij}\times\left( \vec{p}_{i} - \vec{p}_{j} \right))\cdot\hat{z}}{r_{ij}^2} \\
+        &\hspace{.375cm} -\alpha \frac{(\vec{r}_{ji}\times\left( \vec{p}_{j} - \vec{p}_{i} \right))\cdot\hat{z}}{r_{ji}^2} \\
+        &= -\alpha \frac{(\vec{r}_{ij}\times\vec{p}_{ij})\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ji}\times\vec{p}_{ji})\cdot\hat{z}}{r_{ji}^2} \\
+        &= -\alpha \frac{\vec{\ell}_{ij}}{r_{ij}^2} - \alpha \frac{\vec{\ell}_{ji}}{r_{ji}^2}.
 \end{align*}
+Then, summing over all $i\neq j$ yields the second-to-last term in \cref{eq:full_H}.
