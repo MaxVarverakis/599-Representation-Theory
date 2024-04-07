@@ -28,8 +28,8 @@ b1 = @(k) [ -A(k)/2 1/A(k) ; 1/A(k) -A(k)/2 ]
 %% 
 
 % test = sym([ exp(1i*-pi/4)/2 exp(1i*pi/4) ; exp(1i*pi/4) exp(1i*-pi/4)/2 ])
-test = @(a) sym([ (-(2^(1/2)*a)/2)/(2*(2^(1/2)*a)/2) ((2^(1/2)*a)/2)/((2^(1/2)*a)/2) ; ((2^(1/2)*a)/2)/((2^(1/2)*a)/2) (-(2^(1/2)*a)/2)/(2*(2^(1/2)*a)/2) ])
-test(1)'*test(1)
+% test = @(a) sym([ (-(2^(1/2)*a)/2)/(2*(2^(1/2)*a)/2) ((2^(1/2)*a)/2)/((2^(1/2)*a)/2) ; ((2^(1/2)*a)/2)/((2^(1/2)*a)/2) (-(2^(1/2)*a)/2)/(2*(2^(1/2)*a)/2) ])
+% test(1)'*test(1)
 
 %%
 
@@ -45,7 +45,7 @@ end
 
 clear P p1 p2; clc
 
-s = exp(1i*pi/6);
+s = -exp(1i*pi/6);
 
 P = [ s^1 0 ; 0 s^2 ];
 p1 = [ -s^2 0 ; 1 1 ];
@@ -55,13 +55,13 @@ p2 = [ 1 s^2 ; 0 -s^2 ];
 % us1 = simplify((b1(1)*P) * p1 * inv(b1(1)*P))
 % us2 = simplify((b1(1)*P) * p2 * inv(b1(1)*P))
 
-us1 = eval((b1(1)*P) * p1' * (b1(1)*P)^-1);
+us1 = eval((b1(1)*P) * p1 * (b1(1)*P)^-1);
 us2 = eval((b1(1)*P) * p2' * (b1(1)*P)^-1);
 
-% us1^-1
-% us1'
+us1^-1
+us1'
 
-u1 = 1/2 * exp(-1i*pi/6) * [ sqrt(3)*exp(i*atan(1/sqrt(2))) 1 ; 1 -sqrt(3)*exp(-i*atan(1/sqrt(2))) ]
+% u1 = 1/2 * exp(-1i*pi/6) * [ sqrt(3)*exp(i*atan(1/sqrt(2))) 1 ; 1 -sqrt(3)*exp(-i*atan(1/sqrt(2))) ]
 
 % diagonal entries have magnitude cos(pi/6) = sqrt(3)/2
 % solve(a^2 + us1(1,2)^2 == conj(a)) % weird property from mat. mult us1*us1
@@ -86,7 +86,7 @@ od = 1/2 * exp(1i*pi/6);
 % 
 % [ d2 od ; od d1 ]
 
-u2 = 1/2 * exp(-1i*pi/6) * [ -sqrt(3)*exp(-i*atan(1/sqrt(2))) 1 ; 1 sqrt(3)*exp(i*atan(1/sqrt(2))) ]
+% u2 = 1/2 * exp(-1i*pi/6) * [ -sqrt(3)*exp(-i*atan(1/sqrt(2))) 1 ; 1 sqrt(3)*exp(i*atan(1/sqrt(2))) ]
 
 % us1*us2*us1
 % us2*us1*us2

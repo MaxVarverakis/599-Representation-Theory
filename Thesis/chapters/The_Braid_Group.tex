@@ -545,7 +545,7 @@ is unitary.
     \end{align*}
     Notice that the involution $\eta_n:\textrm{GL}_n(\C)\to\textrm{GL}_n(\C)$ defined by $A \mapsto A^\dagger$ is an automorphism of $\textrm{GL}_n(\C)$. Then $\eta_2\circ\psi_3^\textbf{r}$ is a homomorphism and thus a representation of $B_3$. In other words, applying the hermitian adjoint to the reduced Burau representation matrices results in a new representation.
 
-    Finally, conjugating $\eta_2\circ\psi_3^\textbf{r}$ by $XP_{n-1}$ produces a representation $\mathcal{U}$ of $B_3$ that is unitary:
+    Finally, traditional conjugation of $\eta_2\circ\psi_3^\textbf{r}$ by the matrix $XP_{n-1}$ gives a representation $\mathcal{U}:B_3\to U(2)$ defined by
     \begin{align*}
         \mathcal{U}(\sigma_1) &= \left( X P_{n-1} \right){\left( \psi_n^\mathbf{r} (\sigma_1)\right)}^\dagger\iv{\left( X P_{n-1} \right)} \\
         % &= \begin{bmatrix}
@@ -578,40 +578,7 @@ is unitary.
             i & 0
         \end{bmatrix} = \mathcal{U}(\sigma_2)\mathcal{U}(\sigma_1)\mathcal{U}(\sigma_2).
     \end{align*}
-
-    % \colorbox{red}{\textbf{THIS IS WRONG!!!}}
-    % In the $3\times 3$ case ($n=3$), one possibility is
-    % \begin{align*}
-    %     X = \begin{bmatrix}
-    %         0 & 0 & 0 \\
-    %         1 & -1 & 0 \\
-    %         0 & -1 & 1
-    %     \end{bmatrix},
-    % \end{align*}
-    % again, up to a minus sign. Direct computation again illustrates
-    % \begin{align*}
-    %     X^\dagger X &= \begin{bmatrix}
-    %         0 & 1 & 0 \\
-    %         0 & -1 & -1 \\
-    %         0 & 0 & 1
-    %     \end{bmatrix}\begin{bmatrix}
-    %         0 & 0 & 0 \\
-    %         1 & -1 & 0 \\
-    %         0 & -1 & 1
-    %     \end{bmatrix} = \begin{bmatrix}
-    %         1 & -1 & 0 \\
-    %         -1 & 2 & -1 \\
-    %         0 & -1 & 1
-    %     \end{bmatrix} = J_{2}(e^{i\frac{\pi}{3}}).
-    % \end{align*}
 \end{example}
 
-
-
-% \begin{align*}
-%     % X\psi_\textbf{s}(\beta)\iv{X} &= XP_{n-1}\psi_n^\mathbf{r}(\beta)\iv{\left( P_{n-1} \right)}\iv{X}
-%     {\left( \psi_\textbf{s}(\beta) \right)}^\dagger J_{n-1}\psi_\textbf{s}(\beta) = J_{n-1} \\
-%     X\psi_\textbf{s}(\beta)\iv{X} \\
-% \end{align*}
-
-
+\section{Braiding action on a quantum system}
+As discussed in~\cite{Deshmukh}, 
