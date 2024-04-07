@@ -45,7 +45,7 @@ end
 
 clear P p1 p2; clc
 
-s = -exp(1i*pi/6);
+s = exp(1i*pi/6);
 
 P = [ s^1 0 ; 0 s^2 ];
 p1 = [ -s^2 0 ; 1 1 ];
@@ -55,7 +55,7 @@ p2 = [ 1 s^2 ; 0 -s^2 ];
 % us1 = simplify((b1(1)*P) * p1 * inv(b1(1)*P))
 % us2 = simplify((b1(1)*P) * p2 * inv(b1(1)*P))
 
-us1 = eval((b1(1)*P) * p1 * (b1(1)*P)^-1);
+us1 = eval((b1(1)*P) * p1' * (b1(1)*P)^-1);
 us2 = eval((b1(1)*P) * p2' * (b1(1)*P)^-1);
 
 us1^-1

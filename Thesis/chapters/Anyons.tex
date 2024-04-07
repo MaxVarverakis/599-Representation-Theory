@@ -1,6 +1,40 @@
 \chapter{Anyons}\label{ch:anyons}
 
-% The first few sections come from \cite{Khare2005}.
+\section{Braiding action on a quantum system}
+As discussed in~\cite{Deshmukh}, each of the standard generators of the braid group can be realized as unitary operators on a quantum system. For the one-dimensional representations of the braid group (\cref{sec:1D_rep}), the action on a quantum system is merely a phase shift by $e^{ik\theta}$ for some $\theta\in\R$ and $k\in\Z$ the degree of the braid. We can see this explicitly by considering the action of $\beta\in B_n$ on a wavefunction $\psi(r_1,\dots,r_n)$ by permuting the identical particles fixed at positions $r_1,r_2,\dots,r_n$:
+\begin{align*}
+    \psi(r_{1'},r_{2'},\dots,r_{n'}) &= p_\theta(\beta)\psi(r_1,r_2,\dots,r_n) = e^{ik\theta}\psi(r_1,r_2,\dots,r_n),
+\end{align*}
+where $r_{i'}$ denotes particle $i$'s position after the braid $\beta$ has been applied. 
+
+Physically, we can think of each $\sigma_i$ as a clockwise exchange of identical particles $i$ and $i+1$ that live in 2 spatial dimensions. In general, particles that obey the braid group permutation rules are known as \textit{anyons}, and their statistics are determined by the braid group representation that describes the system. The analysis of anyons will continue in the later sections of this chapter.
+
+Higher degree representations of the braid group are generally nonabelian. Thus, the action of the braid group on a quantum system will not always be as straightforward as a phase shift. This is a direct consequence of the \textit{nontrivial braiding effects}, or nonabelian nature, of the braid group.
+
+In \cref{ex:unitary}, a 2-dimensional, nonabelian, unitary representation of $B_3$ was constructed. Consider a degenerate set of two quantum states with orthonormal basis $\psi_1(r_1,r_2,r_3)$ and $\psi_2(r_1,r_2,r_3)$. Each basis state can be thought of a column vector, written as $\ket{1}$ and $\ket{2}$, for $\psi_1$ and $\psi_2$ respectively.
+
+For the unitary representation $\mathcal{U}$ constructed in \cref{ex:unitary}, the action of $\sigma_1$ on the basis states is given by
+\begin{align*}
+    \mathcal{U}(\sigma_1)\ket{1} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
+    \mathcal{U}(\sigma_1)\ket{2} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} - \sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
+\end{align*}
+Similarly, the action of $\sigma_2$ on the basis states yields
+\begin{align*}
+    \mathcal{U}(\sigma_2)\ket{1} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
+    \mathcal{U}(\sigma_2)\ket{2} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} + \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
+\end{align*}
+
+As a result of these nonabelian braiding effects, we can see that the action of the braid group on this system corresponds to nontrivial rotations in the many-particle Hilbert space that describes the quantum system~\cite{Nayak2008,Deshmukh}.
+
+More generally, if we have a set of $m\geq 2$ degenerate states in terms of $r_1,\dots,r_n$ with orthonormal basis $\psi_1,\psi_2,\dots,\psi_m$, then the basis states transform under the action of $\sigma_k\in B_n$ as
+\begin{align*}
+    \psi_i' &= \sum_{j}{\left[ \Xi(\sigma_k) \right]}_{ij}\psi_j,
+\end{align*}
+where ${\left[ \Xi(\sigma_k) \right]}_{ij}$ is the $(i,j)$-th entry of the unitary matrix $\Xi(\sigma_k)$ for some representation $\Xi:B_n\to U(m)$.
+
+\colorbox{green}{Insert concluding paragraph here!}
+
+% Below: the first few sections come from \cite{Khare2005}.
 
 \section{Two Non-Interacting Anyons}\label{sec:non_int}
 

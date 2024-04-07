@@ -61,6 +61,11 @@ Originally proposed by Artin~\cite{Artin1947}, each braid can be decomposed into
 
 For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be written as applying $\sigma_i$ to the identity braid (i.e., the braid that starts without any crossings of strands). It must be noted that there are two distinct ways to swap the endpoints of two strands. From a top-down perspective looking at the plane $\C\times\left\{ t \right\}$ for some time $t$, $\sigma_i$ swaps $(i,t)$ and $(i+1,t)$ in a clockwise rotation. The reverse of this operation (i.e., twisting the endpoints around in the counterclockwise direction) is denoted $\sigma_i^{-1}$. Both of these operations are illustrated in \cref{fig:Gen_on_Strands}. The standard generators of the braid group $B_n$ are defined as the set $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$. An arbitrary braid can be constructed by concatenating (or stacking) the simple braids made from the standard generators before rescaling the time coordinate to $[0,1]$.
 
+A general braid can be written as a product of the standard generators and their inverses. One of the many metrics to characterize a braid involves the powers of the standard generators in its decomposition, as defined below.
+\begin{definition}
+    The \textit{degree} of a braid $\beta\in B_n$ is the sum of the powers of the standard generators in the decomposition of $\beta$.
+\end{definition}
+
 \section{Automorphisms of the free group}\label{sec:Aut_Fn}
 
 Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ involves loops that start and end at the same (fixed) base point in $\partial\D_n$. Up to homotopy, a clockwise-directional loop that encompasses the $i$-th hole in $\D_n$ corresponds to the $i$-th generator of the free group $F_n$ of rank $n$, which is illustrated in \cref{fig:Gen_on_Dn}. In fact, $\pi_1\left( \D_n \right) = F_n$. This equality allows us to define a representation of the braid group on $n$ strands as automorphisms of $F_n$.
@@ -134,7 +139,7 @@ The first condition that the standard generators commute if $|i-j|>1$ is easily 
     \caption{Graphical verification of \cref{eq:BnGenYangBaxter}. All of the above braids are equivalent up to homotopy. The transformation between the middle two braid diagrams is known as a Reidmeister type-III move, in which the red strand (or string in the context of knot theory) is moved completely under the crossing of the blue and green strands. In these middle two diagrams, the red strand is slightly translucent to indicate that it is behind all other strands in the diagram.}\label{fig:YB_criterion_verification}
 \end{figure}
 
-\section[One-dimensional representations of $B_n$]{One-dimensional representations of $\mathbf{B_n}$}
+\section[One-dimensional representations of $B_n$]{One-dimensional representations of $\mathbf{B_n}$}\label{sec:1D_rep}
 A straightforward nontrivial representation of the braid is defined on the standard generators of $B_n$ and is given by \cite{Deshmukh}:
 \begin{align}
     p_\theta: B_n&\to \C_{\size{z}=1} \\
@@ -144,7 +149,22 @@ for $\theta\in\R$. Clearly, $p_\theta$ is a homomorphism, and it is unitary beca
 \begin{equation}
     {p_\theta(\sigma_i)}^\dagger = {\left( e^{i\theta} \right)}^\dagger = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_i)},
 \end{equation}
-where $^\dagger$ denotes the conjugate transpose of a matrix. Notice that with a choice of $\theta=2\pi n$ for $n\in\Z$, we recover the trivial representation of $B_n$. Similarly, $p_{\pi n}$ is a restriction of the sign representation of $S_n$, where the sign of a permutation is defined as the parity of the number of transpositions in its decomposition into a product of transpositions.
+where $^\dagger$ denotes the conjugate transpose of a matrix. 
+
+Due to the abelian nature of the one-dimensional representations, we are free to simplify products of braids. For example,
+\begin{align*}
+    p_\theta(\sigma_1\sigma_{2}\iv{\sigma_i}\sigma_2) &= p_\theta(\sigma_1)p_\theta(\sigma_{2})p_\theta(\iv{\sigma_i})p_\theta(\sigma_2) \\
+    &= e^{i\theta_1}e^{i\theta_2}e^{-i\theta_{1}}e^{i\theta_2} \\
+    &= e^{i\left( \theta_1-\theta_1 + \theta_2 + \theta_2 \right)} \\
+    &= e^{i\cdot 2\theta_2} = p_\theta(\sigma_2^2),
+\end{align*}
+where the subscripts on $\theta$ are only used to keep track of the contributing generator to each multiple of $\theta$. Hence, for a general braid $\beta\in B_n$, we can express $p_\theta(\beta)$ as a simplified product of the standard generators of $B_n$:
+\begin{align*}
+    p_\theta(\beta) = p_\theta(\sigma_{1}^{m_1}\sigma_{2}^{m_2}\cdots\sigma_{n-1}^{m_{n-1}}) = e^{i\theta(m_1+m_2+\cdots+m_{n-1})} = e^{ik\theta},
+\end{align*}
+where $k$ can be thought of as the degree of the braid.
+
+Notice that with a choice of $\theta=2\pi n$ for $n\in\Z$, we recover the trivial representation of $B_n$. Similarly, $p_{\pi n}$ is a restriction of the sign representation of $S_n$, where the sign of a permutation is defined as the parity of the number of transpositions in its decomposition into a product of transpositions.
 
 % The degree 1 representations of $B_n$ will be revisited in \cref{sec:Anyons}.
 
@@ -503,7 +523,7 @@ For such a choice of $s$ (hence $X$ and $t$) and any braid $\beta\in B_n$, the c
 \end{align*}
 is unitary.
 
-\begin{example}
+\begin{example}\label{ex:unitary}
     If $s=e^{i\frac{\pi}{6}}=\frac{\sqrt{3}}{2} + \frac{i}{2}$, then $2\textrm{Re}(s) = \sqrt{3}$. In the $2\times 2$ case ($n=3$), trial and error calculations in \texttt{MATLAB} resulted in one of many possibilities for $X$ as
     \begin{align*}
         X = \left[
@@ -579,6 +599,3 @@ is unitary.
         \end{bmatrix} = \mathcal{U}(\sigma_2)\mathcal{U}(\sigma_1)\mathcal{U}(\sigma_2).
     \end{align*}
 \end{example}
-
-\section{Braiding action on a quantum system}
-As discussed in~\cite{Deshmukh}, 
