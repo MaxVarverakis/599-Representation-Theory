@@ -15,7 +15,11 @@
 \usepackage[section]{placeins}
 \usepackage[labelfont=bf]{caption} % bold figure labels
 \usepackage[normalem]{ulem} % for strikethrough text
-
+\usepackage[
+    % toc,
+    % page
+    ]{appendix}
+\usepackage{tikz}
 \usetikzlibrary{decorations.markings,math,calc,braids,intersections,backgrounds}
 
 \creflabelformat{equation}{#2\textup{#1}#3}
@@ -54,8 +58,9 @@
 \includeonly{
     % chapters/Rep_Theory_Background, 
     % chapters/Top_Background, 
-    chapters/The_Braid_Group,
+    % chapters/The_Braid_Group,
     chapters/Anyons,
+    chapters/Appendix_multi_anyon,
     % chapters/tikz_test,
     chapters/TODO,
 }
@@ -76,6 +81,10 @@
 \include{chapters/The_Braid_Group}
 
 \include{chapters/Anyons}
+
+\begin{appendices}
+    \include{chapters/Appendix_multi_anyon}
+\end{appendices}
 
 \include{chapters/tikz_test}
 

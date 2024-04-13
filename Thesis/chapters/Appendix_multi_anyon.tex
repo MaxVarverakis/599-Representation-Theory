@@ -1,0 +1,38 @@
+\chapter{Multi-anyon system with harmonic potential}\label{ch:Appendix_multi_anyon}
+\section{Gauge Theory and the Hamiltonian}
+
+\section{Hamiltonian Terms}
+The last term in \cref{eq:full_H} is the result of squaring the canonical momentum in \cref{eq:min_prescription_H}. To see this, let's isolate one of the terms. Fix $i$. Then,
+\begin{align*}
+    {\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 = {p}_i^{2} - 2\vec{p}_i\cdot\vec{A}_i(\vec{r}_i) + {A}_i^{2}(\vec{r}_i).
+\end{align*}
+
+By \cref{eq:gauge}, we have
+\begin{align*}
+    \vec{A}_i^{\;2}(\vec{r}_i) = {\left( \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2} \right)}^2 = \alpha^2\sum_{j,k\neq i}\frac{y_{ij}y_{ik} + x_{ij}x_{ik}}{r_{ij}^2r_{ik}^2} = \alpha^2\sum_{j,k\neq i}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},
+\end{align*}
+which is the last term in \cref{eq:full_H}.
+
+Moreover, the cross term in the expansion of ${\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2$ is
+\begin{align*}
+    -2\vec{p}_i\cdot\vec{A}_i(\vec{r}_i) &= -2\vec{p}_i\cdot\left( \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2} \right) \\
+    &= -2\alpha\sum_{j\neq i}\frac{\vec{p}_i\cdot\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2} \\
+    &= -2\alpha\sum_{j\neq i}\frac{-p_{ix}y_{ij} + p_{iy}x_{ij}}{r_{ij}^2} \\
+    &= -2\alpha\sum_{j\neq i}\frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ij}^2}.
+\end{align*}
+
+For each $j$, there is a corresponding term in \cref{eq:full_H} with
+\begin{align*}
+    -2\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} = -\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ij}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2},
+\end{align*}
+where we rewrote one of the two terms to have $\vec{r}_{ij}$ instead of $\vec{r}_{ji}$. Then, for fixed $i$ and $j$, the $ij$- and $ji$-term can be combined in the following manner:
+\begin{align*}
+    -2\alpha \frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ji}^2} -2\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} 
+        &= -\alpha \frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ji}\times\vec{p}_i)\cdot\hat{z}}{r_{ji}^2} \\ 
+        &\hspace{.375cm} +\alpha \frac{(\vec{r}_{ij}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2} - \alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} \\
+        &= -\alpha \frac{(\vec{r}_{ij}\times\left( \vec{p}_{i} - \vec{p}_{j} \right))\cdot\hat{z}}{r_{ij}^2} \\
+        &\hspace{.375cm} -\alpha \frac{(\vec{r}_{ji}\times\left( \vec{p}_{j} - \vec{p}_{i} \right))\cdot\hat{z}}{r_{ji}^2} \\
+        &= -\alpha \frac{(\vec{r}_{ij}\times\vec{p}_{ij})\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ji}\times\vec{p}_{ji})\cdot\hat{z}}{r_{ji}^2} \\
+        &= -\alpha \frac{\vec{\ell}_{ij}}{r_{ij}^2} - \alpha \frac{\vec{\ell}_{ji}}{r_{ji}^2}.
+\end{align*}
+Then, summing over all $i\neq j$ yields the second-to-last term in \cref{eq:full_H}.

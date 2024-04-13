@@ -33,8 +33,7 @@ More generally, if we have a set of $m\geq 2$ degenerate states in terms of $r_1
 where ${\left[ \Xi(\sigma_k) \right]}_{ij}$ is the $(i,j)$-th entry of the unitary matrix $\Xi(\sigma_k)$ for some representation $\Xi:B_n\to U(m)$.
 
 \colorbox{green}{Insert concluding paragraph here!}
-
-% Below: the first few sections come from \cite{Khare2005}.
+\textit{Comment on why we care about getting the Lagrangian and Hamiltonian for anyons? In general?}
 
 \section{Two Non-Interacting Anyons}\label{sec:non_int}
 
@@ -106,15 +105,15 @@ For the purposes of this work, we need not carry out to find the energy eigensta
 
 \section{Anyons in Harmonic Potential}\label{sec:mult_harmonic}
 
-The Hamiltonian for this system requires modification from previous sections when the anyons are placed in a harmonic potential. The potential energy of a 2-anyon system is given by
+Placing anyons in a harmonic potential alters the Hamiltonian obtained in \cref{sec:non_int}. The potential energy of a 2-anyon system is given by
 \begin{equation}
     V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{\;2} + {\vec{r}_2}^{\;2} \right) = m\omega^2\left( {\vec{R}}^2 + \frac{1}{4}{\vec{r}}^{\;2} \right),
 \end{equation}
-where $\omega$ is the angular frequency of the harmonic potential. We can make the same substitution as in the previous section to write the potential in terms of the relative and center-of-mass coordinates. As is the recurring theme, the center-of-mass component of the potential has no dependence on the braiding parameter $\alpha$, and corresponds to a 2-dimensional quantum harmonic oscillator problem for a particle of mass $2m$.
+where $\omega$ is the angular frequency of the harmonic potential. We can make the same substitution as in \cref{sec:non_int} to write the potential in terms of the relative and center-of-mass coordinates. As is a recurring theme, the center-of-mass component of the potential has no dependence on the braiding parameter $\alpha$, and corresponds to a 2-dimensional quantum harmonic oscillator problem for a particle of mass $2m$.
 
 Note that we can generalize \cref{eq:basic_Lr} (now omitting the subscript $r$) to an $N$-anyon system in a harmonic potential by writing
 \begin{equation}
-    \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{\;2} + \hbar\alpha\sum_{i\neq j}\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{\;2},
+    \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{\;2} + \hbar\alpha\sum_{\substack{i=1\\j\neq i}}^N\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{\;2},
 \end{equation}
 where $\phi_{ij} = \arctan\left( \frac{y_i-y_j}{x_i-x_j} \right)$ is the relative angle between anyons $i$ and $j$. For brevity, we write $x_{ij} = x_i-x_j$ and $y_{ij} = y_i-y_j$ to denote the relative coordinates between the anyons.
 
@@ -164,43 +163,34 @@ Then, with only essential coupling between the anyons (due to the gauge potentia
 
 Substituting \cref{eq:gauge} into \cref{eq:min_prescription_H}, we have
 \begin{equation}
-    \mathcal{H} = \frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{j\neq i}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{j,k\neq i}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},\label{eq:full_H}
+    \mathcal{H} = \frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},\label{eq:full_H}
 \end{equation}
 where $\vec{\ell}_{ij} = (\vec{r}_i-\vec{r}_j)\times(\vec{p}_i-\vec{p}_j)$ is the relative angular momentum of anyon $i$ and $j$.
 
-\subsection{Notes}
-\subsubsection{Hamiltonian Terms}
-The last term in \cref{eq:full_H} is the result of squaring the canonical momentum in \cref{eq:min_prescription_H}. To see this, let's isolate one of the terms. Fix $i$. Then,
-\begin{align*}
-    {\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 = {p}_i^{2} - 2\vec{p}_i\cdot\vec{A}_i(\vec{r}_i) + {A}_i^{2}(\vec{r}_i).
-\end{align*}
+\subsection{Nontrivial braiding effects}
 
-By \cref{eq:gauge}, we have
-\begin{align*}
-    \vec{A}_i^{\;2}(\vec{r}_i) = {\left( \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2} \right)}^2 = \alpha^2\sum_{j,k\neq i}\frac{y_{ij}y_{ik} + x_{ij}x_{ik}}{r_{ij}^2r_{ik}^2} = \alpha^2\sum_{j,k\neq i}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},
-\end{align*}
-which is the last term in \cref{eq:full_H}.
+The last term in \cref{eq:full_H}, which can be thought of as a long-range 2- and 3-particle interaction term, highlights the key difference between the braid group and the symmetric group when studying the physics of a multi-particle system. As previously established, anyons obeying braiding statistics exhibit nontrivial braiding effects.
 
-Moreover, the cross term in the expansion of ${\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2$ is
-\begin{align*}
-    -2\vec{p}_i\cdot\vec{A}_i(\vec{r}_i) &= -2\vec{p}_i\cdot\left( \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2} \right) \\
-    &= -2\alpha\sum_{j\neq i}\frac{\vec{p}_i\cdot\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2} \\
-    &= -2\alpha\sum_{j\neq i}\frac{-p_{ix}y_{ij} + p_{iy}x_{ij}}{r_{ij}^2} \\
-    &= -2\alpha\sum_{j\neq i}\frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ij}^2}.
-\end{align*}
+To better understand these nontrivial braiding effects, first consider two different trajectories of anyons, as illustrated in \cref{fig:anyon_trajectores}~\cite{Khare2005}. From a top-down perspective, trajectory \hyperref[traj:A]{A} involves a clockwise exchange of anyons 1 and 2 while anyon 3 does not take part in the exchange. In trajectory \hyperref[traj:B]{B}, anyon 1 is again swapped with anyon 2 in a clockwise fashion, but anyon 3 is now involved in the exchange by being in between anyons 1 and 2. This is where the differences between the symmetric group and the braid group become apparent. In the symmetric group, both trajectories would be equivalent, but in the braid group, the two trajectories are distinct. This claim is verified by comparing the braid representation of each trajectory in the bottom row of \cref{fig:anyon_trajectores}.
 
-For each $j$, there is a corresponding term in \cref{eq:full_H} with
+\begin{figure}[htbp]
+    \centering
+    \input{TikZ/anyon_trajectories.tikz}
+    \caption{Two possible trajectories of three anyons viewed from above (top) and represented as braids (bottom).}\label{fig:anyon_trajectores}
+\end{figure}
+
+Even in the one-dimensional (abelian) representation of the braid group, the nontrivial braiding effects emerge for the trajectories depicted in \cref{fig:anyon_trajectores}. The braid representations for trajectory \hyperref[traj:A]{A} and trajectory \hyperref[traj:B]{B} are $\sigma_1\mapsto e^{i\theta}$ and $\sigma_2\sigma_1\sigma_2\mapsto e^{3i\theta}$, respectively. As long as the choice of $\theta$ is not an integer multiple of $\pi$, it follows that $e^{i\theta}\neq e^{3i\theta}$. This is precisely the nontrivial braiding effect.
+If there were some wavefunction $\psi(r_1,r_2,r_3)$ that described the system, then the action of the braid group on $\psi$ would yield different phase changes for the two trajectories.
+Despite the fact that both trajectories involve the same exchange of anyons 1 and 2, the relative position of anyon 3 played a significant role in the resultant effect of particle exchange on the system. It is then evident that for a system of $N$ anyons, every particle exchange must also simultaneously consider the relative positions of all other anyons in the system in order to properly encode the braiding action.
+
+Clearly, nontrivial braiding affects must be accounted for when studying a system that obeys braiding statistics. In fact, nontrivial braiding is already encoded into the Hamiltonian found earlier in this section. For a 2-anyon system, the long-range interaction term manifests in a familiar form. Isolating the last term in \cref{eq:full_H} for $N=2$ anyons, we see that
 \begin{align*}
-    -2\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} = -\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ij}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2},
+    \frac{\alpha^2}{2m}\left( \frac{\vec{r}_{12}\cdot\vec{r}_{12}}{r_{12}^2r_{12}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{21}}{r_{21}^2r_{21}^2} \right)  = \frac{\alpha^2}{mr_{12}^2},
 \end{align*}
-where we rewrote one of the two terms to have $\vec{r}_{ij}$ instead of $\vec{r}_{ji}$. Then, for fixed $i$ and $j$, the $ij$- and $ji$-term can be combined in the following manner:
+which is analogous to the Coulombic interaction between two charged particles. The nontrivial braiding effects are not present in the 2-anyon system.
+
+Only when we have $N\geq 3$ anyons will the nontrivial braiding effects truly present themselves in the long-range interaction term of the Hamiltonian. For example, if we take $N=3$, the last term in \cref{eq:full_H} becomes
 \begin{align*}
-    -2\alpha \frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ji}^2} -2\alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} 
-        &= -\alpha \frac{(\vec{r}_{ij}\times\vec{p}_i)\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ji}\times\vec{p}_i)\cdot\hat{z}}{r_{ji}^2} \\ 
-        &\hspace{.375cm} +\alpha \frac{(\vec{r}_{ij}\times\vec{p}_j)\cdot\hat{z}}{r_{ij}^2} - \alpha \frac{(\vec{r}_{ji}\times\vec{p}_j)\cdot\hat{z}}{r_{ji}^2} \\
-        &= -\alpha \frac{(\vec{r}_{ij}\times\left( \vec{p}_{i} - \vec{p}_{j} \right))\cdot\hat{z}}{r_{ij}^2} \\
-        &\hspace{.375cm} -\alpha \frac{(\vec{r}_{ji}\times\left( \vec{p}_{j} - \vec{p}_{i} \right))\cdot\hat{z}}{r_{ji}^2} \\
-        &= -\alpha \frac{(\vec{r}_{ij}\times\vec{p}_{ij})\cdot\hat{z}}{r_{ij}^2} + \alpha \frac{(\vec{r}_{ji}\times\vec{p}_{ji})\cdot\hat{z}}{r_{ji}^2} \\
-        &= -\alpha \frac{\vec{\ell}_{ij}}{r_{ij}^2} - \alpha \frac{\vec{\ell}_{ji}}{r_{ji}^2}.
+    \frac{\alpha^2}{m}\biggl( \underbrace{\frac{1}{r_{12}^2} + \frac{1}{r_{13}^2} + \frac{1}{r_{23}^2}}_{\textrm{Coulomb-like interaction}} + \underbrace{\frac{\vec{r}_{12}\cdot\vec{r}_{13}}{r_{12}^2r_{13}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{23}}{r_{21}^2r_{23}^2} + \frac{\vec{r}_{31}\cdot\vec{r}_{32}}{r_{31}^2r_{32}^2}}_\textrm{Nontrivial braiding} \biggr).
 \end{align*}
-Then, summing over all $i\neq j$ yields the second-to-last term in \cref{eq:full_H}.
+With three anyons, the nontriviality of the long-range interaction becomes clear, as there are now cross terms that involve the relative positions of all three anyons. This result is similar to the observations made in \cref{fig:anyon_trajectores}. The consequence of these three-body interaction terms is that the system is no longer separable into independent 2-anyon systems, which greatly complicates the quantum mechanics and statistical analysis of the system~\cite{Khare2005}. The nontrivial braiding effects of anyonic systems highlights the rich complexity of the braid group and its physical implications.
