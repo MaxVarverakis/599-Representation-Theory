@@ -7,11 +7,13 @@ As discussed in~\cite{Deshmukh}, each of the standard generators of the braid gr
 \end{align*}
 where $r_{i'}$ denotes particle $i$'s position after the braid $\beta$ has been applied. 
 
-Physically, we can think of each $\sigma_i$ as a clockwise exchange of identical particles $i$ and $i+1$ that live in 2 spatial dimensions. In general, particles that obey the braid group permutation rules are known as \textit{anyons}, and their statistics are determined by the braid group representation that describes the system. The analysis of anyons will continue in the later sections of this chapter.
+Physically, we can think of each $\sigma_i$ as a clockwise exchange of identical particles $i$ and $i+1$ that live in 2 spatial dimensions. Using a third time dimension, the spacetime trajectories of the particles can be realized as a braid. In general, particles that obey the braid group permutation rules are known as \textit{anyons}~\cite{Wilczek1982}, and their statistics are determined by the braid group representation that describes the system.
 
-Higher degree representations of the braid group are generally nonabelian. Thus, the action of the braid group on a quantum system will not always be as straightforward as a phase shift. This is a direct consequence of the \textit{nontrivial braiding effects}, or nonabelian nature, of the braid group.
+Higher degree representations of the braid group are generally nonabelian. Thus, the action of the braid group on a quantum system will not always be as straightforward as a phase shift. This is a direct result of the ``omniscience'' the braid group, in the sense that a braid is only well-defined if all particle trajectories are known. As will be investigated later, a permutation of just two anyons requires the knowledge of the positions of all other anyons in the system. 
+% This global property of the braid group contrasts with the locality of symmetric group when dealing with a system of particles.
+These so-called \textit{nontrivial braiding effects} of the braid group are a key feature of anyons and distinguish them from bosons and fermions.
 
-In \cref{ex:unitary}, a 2-dimensional, nonabelian, unitary representation of $B_3$ was constructed. Consider a degenerate set of two quantum states with orthonormal basis $\psi_1(r_1,r_2,r_3)$ and $\psi_2(r_1,r_2,r_3)$. Each basis state can be thought of a column vector, written as $\ket{1}$ and $\ket{2}$, for $\psi_1$ and $\psi_2$ respectively.
+Before studying the consequences of nontrivial braiding effects, it is instructive to first consider the action of the braid group on a quantum system with only two anyons. In \cref{ex:unitary}, a 2-dimensional, nonabelian, unitary representation of $B_3$ was constructed. Consider a degenerate set of two quantum states with orthonormal basis $\psi_1(r_1,r_2,r_3)$ and $\psi_2(r_1,r_2,r_3)$. Each basis state can be thought of a column vector, written as $\ket{1}$ and $\ket{2}$, for $\psi_1$ and $\psi_2$ respectively.
 
 For the unitary representation $\mathcal{U}$ constructed in \cref{ex:unitary}, the action of $\sigma_1$ on the basis states is given by
 \begin{align*}
@@ -24,7 +26,7 @@ Similarly, the action of $\sigma_2$ on the basis states yields
     \mathcal{U}(\sigma_2)\ket{2} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} + \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
 \end{align*}
 
-As a result of these nonabelian braiding effects, we can see that the action of the braid group on this system corresponds to nontrivial rotations in the many-particle Hilbert space that describes the quantum system~\cite{Nayak2008,Deshmukh}.
+As a result of this nonabelian representation, we can see that the action of the braid group on this system corresponds to nontrivial rotations in the many-particle Hilbert space that describes the quantum system~\cite{Nayak2008,Deshmukh}. This differs from the one-dimensional representations of the braid group, where the action on the Hilbert space is merely a phase shift on every basis state.
 
 More generally, if we have a set of $m\geq 2$ degenerate states in terms of $r_1,\dots,r_n$ with orthonormal basis $\psi_1,\psi_2,\dots,\psi_m$, then the basis states transform under the action of $\sigma_k\in B_n$ as
 \begin{align*}
@@ -165,13 +167,13 @@ Substituting \cref{eq:gauge} into \cref{eq:min_prescription_H}, we have
 \begin{equation}
     \mathcal{H} = \frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2},\label{eq:full_H}
 \end{equation}
-where $\vec{\ell}_{ij} = (\vec{r}_i-\vec{r}_j)\times(\vec{p}_i-\vec{p}_j)$ is the relative angular momentum of anyon $i$ and $j$.
+where $\vec{\ell}_{ij} = (\vec{r}_i-\vec{r}_j)\times(\vec{p}_i-\vec{p}_j)$ is the relative angular momentum of anyon $i$ and $j$. For details on the derivation of \cref{eq:full_H}, see \cref{ch:Appendix_multi_anyon}.
 
 \subsection{Nontrivial braiding effects}
 
-The last term in \cref{eq:full_H}, which can be thought of as a long-range 2- and 3-particle interaction term, highlights the key difference between the braid group and the symmetric group when studying the physics of a multi-particle system. As previously established, anyons obeying braiding statistics exhibit nontrivial braiding effects.
+The last term in \cref{eq:full_H} can be thought of as a long-range 2- and 3-particle interaction term. As previously established, anyons obeying braiding statistics exhibit nontrivial braiding effects. To better understand these nontrivial braiding effects, first consider two different trajectories of anyons, as depicted in \cref{fig:anyon_trajectores}~\cite{Khare2005}. 
 
-To better understand these nontrivial braiding effects, first consider two different trajectories of anyons, as illustrated in \cref{fig:anyon_trajectores}~\cite{Khare2005}. From a top-down perspective, trajectory \hyperref[traj:A]{A} involves a clockwise exchange of anyons 1 and 2 while anyon 3 does not take part in the exchange. In trajectory \hyperref[traj:B]{B}, anyon 1 is again swapped with anyon 2 in a clockwise fashion, but anyon 3 is now involved in the exchange by being in between anyons 1 and 2. This is where the differences between the symmetric group and the braid group become apparent. In the symmetric group, both trajectories would be equivalent, but in the braid group, the two trajectories are distinct. This claim is verified by comparing the braid representation of each trajectory in the bottom row of \cref{fig:anyon_trajectores}.
+From a top-down perspective, trajectory \hyperref[traj:A]{A} involves a clockwise exchange of anyons 1 and 2 while anyon 3 does not take part in the exchange. In trajectory \hyperref[traj:B]{B}, anyon 1 is again swapped with anyon 2 in a clockwise fashion, but anyon 3 is now involved in the exchange by being in between anyons 1 and 2. The differences between the symmetric group and the braid group now become apparent. In the symmetric group, both trajectories would be equivalent. However, the two trajectories are distinct in the braid group, which is clear by comparing the braid of each trajectory in the bottom row of \cref{fig:anyon_trajectores}.
 
 \begin{figure}[htbp]
     \centering
@@ -180,17 +182,21 @@ To better understand these nontrivial braiding effects, first consider two diffe
 \end{figure}
 
 Even in the one-dimensional (abelian) representation of the braid group, the nontrivial braiding effects emerge for the trajectories depicted in \cref{fig:anyon_trajectores}. The braid representations for trajectory \hyperref[traj:A]{A} and trajectory \hyperref[traj:B]{B} are $\sigma_1\mapsto e^{i\theta}$ and $\sigma_2\sigma_1\sigma_2\mapsto e^{3i\theta}$, respectively. As long as the choice of $\theta$ is not an integer multiple of $\pi$, it follows that $e^{i\theta}\neq e^{3i\theta}$. This is precisely the nontrivial braiding effect.
-If there were some wavefunction $\psi(r_1,r_2,r_3)$ that described the system, then the action of the braid group on $\psi$ would yield different phase changes for the two trajectories.
-Despite the fact that both trajectories involve the same exchange of anyons 1 and 2, the relative position of anyon 3 played a significant role in the resultant effect of particle exchange on the system. It is then evident that for a system of $N$ anyons, every particle exchange must also simultaneously consider the relative positions of all other anyons in the system in order to properly encode the braiding action.
 
-Clearly, nontrivial braiding affects must be accounted for when studying a system that obeys braiding statistics. In fact, nontrivial braiding is already encoded into the Hamiltonian found earlier in this section. For a 2-anyon system, the long-range interaction term manifests in a familiar form. Isolating the last term in \cref{eq:full_H} for $N=2$ anyons, we see that
+If there were some wavefunction $\psi(r_1,r_2,r_3)$ that described the system, then the action of the braid group on $\psi$ would yield different phase changes for the two trajectories.
+Despite the fact that both trajectories involve the same exchange of anyons 1 and 2, the relative position of anyon 3 significantly impacts the outcome of the exchange. It is then evident that for a system of $N$ anyons, every particle exchange must also simultaneously consider the relative positions of all other anyons in the system in order to properly encode the braiding action.
+
+Clearly, nontrivial braiding affects must be accounted for when studying a system that obeys braiding statistics. In fact, nontrivial braiding is already encoded into the Hamiltonian found \cref{sec:mult_harmonic}. For a 2-anyon system, the long-range interaction term manifests in a familiar form. 
+
+Isolating the last term in \cref{eq:full_H} for $N=2$ anyons, we see that
 \begin{align*}
     \frac{\alpha^2}{2m}\left( \frac{\vec{r}_{12}\cdot\vec{r}_{12}}{r_{12}^2r_{12}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{21}}{r_{21}^2r_{21}^2} \right)  = \frac{\alpha^2}{mr_{12}^2},
 \end{align*}
-which is analogous to the Coulombic interaction between two charged particles. The nontrivial braiding effects are not present in the 2-anyon system.
-
+which is analogous to the Coulombic interaction between two charged particles.
+%  The nontrivial braiding effects are not present in the 2-anyon system.
 Only when we have $N\geq 3$ anyons will the nontrivial braiding effects truly present themselves in the long-range interaction term of the Hamiltonian. For example, if we take $N=3$, the last term in \cref{eq:full_H} becomes
 \begin{align*}
     \frac{\alpha^2}{m}\biggl( \underbrace{\frac{1}{r_{12}^2} + \frac{1}{r_{13}^2} + \frac{1}{r_{23}^2}}_{\textrm{Coulomb-like interaction}} + \underbrace{\frac{\vec{r}_{12}\cdot\vec{r}_{13}}{r_{12}^2r_{13}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{23}}{r_{21}^2r_{23}^2} + \frac{\vec{r}_{31}\cdot\vec{r}_{32}}{r_{31}^2r_{32}^2}}_\textrm{Nontrivial braiding} \biggr).
 \end{align*}
+
 With three anyons, the nontriviality of the long-range interaction becomes clear, as there are now cross terms that involve the relative positions of all three anyons. This result is similar to the observations made in \cref{fig:anyon_trajectores}. The consequence of these three-body interaction terms is that the system is no longer separable into independent 2-anyon systems, which greatly complicates the quantum mechanics and statistical analysis of the system~\cite{Khare2005}. The nontrivial braiding effects of anyonic systems highlights the rich complexity of the braid group and its physical implications.

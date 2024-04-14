@@ -82,15 +82,10 @@
 
 \include{chapters/Anyons}
 
-\begin{appendices}
-    \include{chapters/Appendix_multi_anyon}
-\end{appendices}
-
 \include{chapters/tikz_test}
 
 \include{chapters/TODO}
 
-\addcontentsline{toc}{chapter}{References}
 \nocite{*} % Include all references in the bibliography
 % Bibliography with hyperlinks
 \hypersetup{
@@ -100,5 +95,12 @@
 }
 \bibliographystyle{plain}
 \bibliography{references}
+\addcontentsline{toc}{chapter}{References}
+
+
+\begin{appendices}
+    \appendix
+    \include{chapters/Appendix_multi_anyon}
+\end{appendices}
 
 \end{document}
