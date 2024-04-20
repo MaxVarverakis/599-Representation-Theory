@@ -1,20 +1,25 @@
-\chapter{Representation Theory Background}\label{ch:rep_background}
+\chapter{An Introduction to Representation Theory}\label{ch:rep_background}
 
-\begin{definition}[Representations of a Group]
-    If there is a homomorphism from a group $G$ to a group of operators $U(G)$ on a linear vector space $V$, we say that $U(G)$ forms a \textit{representation} of $G$ with dimension $\dim V$.
+\section{Introduction}
+
+\textcolor{red}{Intro paragraph to lead into the definitions.}
+
+\begin{definition}[Representation of a group]
+    Let $G$ be a group. A \textit{representation} of $G$ is a homomorphism from $G$ to a group of operators on a linear vector space $V$. The dimension of $V$ is the \textit{dimension} or \textit{degree} of the representation.
+    % If there is a homomorphism from a group $G$ to a group of operators $X(G)$ on a linear vector space $V$, we say that $X(G)$ forms a \textit{representation} of $G$ with dimension $\dim V$.
 \end{definition}
 
-The representation is a map
+If $X$ is a representation of $G$ on $V$, then $X$ is a map
 \begin{equation}
-    g\in G\xrightarrow{U} U(g)
+    g\in G\xrightarrow{X} X(g)
 \end{equation}
-in which $U(g)$ is an operator on the vector space $V$. For a set of basis vectors $\{\hat{e_i},i=1,2,\dots,n\}$, we can realize each operator $U(g)$ as an $n\times n$ matrix $D(g)$.
+in which $X(g)$ is an operator on the vector space $V$. For a set of basis vectors $\{\hat{e_i},i=1,2,\dots,n\}$, we can realize each operator $X(g)$ as an $n\times n$ matrix $D(g)$.
 \begin{equation}
-    U(g)\ket{e_i} = \sum_{j=1}^n \ket{e_j}{{D(g)}^j}_i = \ket{e_j}{{D(g)}^j}_i,
+    X(g)\ket{e_i} = \sum_{j=1}^n \ket{e_j}{{D(g)}^j}_i = \ket{e_j}{{D(g)}^j}_i,
 \end{equation}
 where the first index $j$ is the row index and the second index $i$ is the column index. We use the Einstein summation convention, so repeated indices are summed over. Note that the operator multiplication is defined as
 \begin{equation}
-    U(g_1)U(g_2) = U(g_1g_2),
+    X(g_1)X(g_2) = X(g_1g_2),
 \end{equation}
 which satisfies the group multiplication rules.
 
@@ -23,65 +28,99 @@ which satisfies the group multiplication rules.
 \end{definition}
 
 \begin{example}
+    Consider the symmetric group $S_n$. The \textit{defining} representation of $S_n$ encodes each $\sigma\in S_n$ by placing a 1 in the $j$-th row and $i$-th column of the matrix $D(\sigma)$ if $\sigma$ sends $i$ to $j$, and 0 otherwise. For example, in $S_3$, the permutation $(23)$ has the matrix representation
+    \begin{align*}
+        D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix},
+    \end{align*}
+    whereas the permutation $(123)$ is realized by the matrix
+    \begin{align*}
+        D\big((123)\big) = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}.
+    \end{align*}
+\end{example}
+
+The above example involves a finite group. Infinite groups can also have representations, as demonstrated in the following example.
+\begin{example}
     Let $G$ be the group of continuous rotations in the $xy$-plane about the origin. We can write $G = \{R(\phi),0\leq\phi\leq2\pi\}$ with group operation $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$. Consider the 2-dimensional Euclidean vector space $V_2$. Then we define a representation of $G$ on $V_2$ by the familiar rotation operation
     \begin{align}
-        \hat{e}_1' &= U(\phi)\hat{e}_1 = \hat{e}_1\cdot\cos\phi + \hat{e}_2\cdot\sin\phi\\
-        \hat{e}_2' &= U(\phi)\hat{e}_2 = -\hat{e}_1\cdot\sin\phi + \hat{e}_2\cdot\cos\phi.
+        \hat{e}_1' &= X(\phi)\hat{e}_1 = \hat{e}_1\cdot\cos\phi + \hat{e}_2\cdot\sin\phi\\
+        \hat{e}_2' &= X(\phi)\hat{e}_2 = -\hat{e}_1\cdot\sin\phi + \hat{e}_2\cdot\cos\phi,
     \end{align}
-This gives us the matrix representation
-\begin{equation}
-    D(\phi) = \begin{pmatrix}
-        \cos\phi & -\sin\phi\\
-        \sin\phi & \cos\phi
-    \end{pmatrix}.
-\end{equation}
-To further illustrate this representation, if we consider an arbitrary vector $\hat{e_i}x^i=\vec{x}\in V_2$, then we have
-\begin{equation}
-    \vec{x}' = U(\phi)\vec{x} = \hat{e}_j{x'}^j,
-\end{equation}
-where ${x'}^j = {{D(\phi)}^j}_i x^i$.
+    where $\hat{e}_1$ and $\hat{e}_2$ are orthonormal basis vectors of $V_2$. This gives us the matrix representation
+    \begin{equation}
+        D(\phi) = \begin{bmatrix}
+            \cos\phi & -\sin\phi\\
+            \sin\phi & \cos\phi
+        \end{bmatrix}.
+    \end{equation}
+    To further illuminate this representation, if we consider an arbitrary vector $\hat{e_i}x^i=\vec{x}\in V_2$, then we have
+    \begin{equation}
+        \vec{x}\,' = X(\phi)\vec{x} = \hat{e}_j{x'}^j,
+    \end{equation}
+    where ${x'}^j = {{D(\phi)}^j}_i x^i$.
+    \textcolor{red}{Can probably simplify the notation}
 \end{example}
 
 \begin{definition}[Equivalence of Representations]
     For a group $G$, two representations are \textit{equivalent} if they are related by a similarity transformation. Equivalent representations form an equivalence class.
 \end{definition}
 
-To determine whether two representations belong to the same equivalence class, we define
+To determine whether two representations belong to the same equivalence class, we define the following.
 \begin{definition}[Characters of a Representation]
-    The \textit{character} $\chi(g)$ of an element $g\in G$ in a representation $U(g)$ is defined as $\chi(g) = \text{Tr}~D(g)$.
+    The \textit{character} $\chi(g)$ of an element $g\in G$ in a representation $X(g)$ is defined as $\chi(g) = \text{Tr}~D(g)$.
 \end{definition}
 Since trace is independent of basis, the character serves as a class label.
 
 Vector space representations of a group have familiar substructures, which are useful in constructing representations of the group.
 \begin{definition}[Invariant Subspace]
-    Let $U(G)$ be a representation of $G$ on a vector space $V$, and $W$ a subspace of $V$ such that $U(g)\ket{x}\in W$ for all $\vec{x}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $U(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it does not contain any non-trivial invariant subspace with respect to $U(G)$.
+    Let $X(G)$ be a representation of $G$ on a vector space $V$, and $W$ a subspace of $V$ such that $X(g)\ket{x}\in W$ for all $\vec{x}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $X(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it does not contain any non-trivial invariant subspace with respect to $X(G)$.
 \end{definition}
 
 The identification of invariant subspaces on vector space representations leads to the following distinction of the representations.
 \begin{definition}[Irreducible Representation]
-    A representation $U(G)$ on $V$ is \textit{irreducible} if there is no non-trivial invariant subspace in $V$ with respect to $U(G)$. Otherwise, it is \textit{reducible}. If $U(G)$ is reducible and its orthogonal complement to the invariant subspace is also invariant with respect to $U(G)$, then the representation is \textit{fully reducible}.
+    A representation $X(G)$ on $V$ is \textit{irreducible} if there is no non-trivial invariant subspace in $V$ with respect to $X(G)$. Otherwise, it is \textit{reducible}. If $X(G)$ is reducible and its orthogonal complement to the invariant subspace is also invariant with respect to $X(G)$, then the representation is \textit{fully reducible}.
 \end{definition}
 
 \begin{example}
     Under the group of 2-dimensional rotations, consider the 1-dimensional subspace spanned by $\ehat_1$. This subspace is not invariant under 2-dimensional rotations, because a rotation of $\ehat_1$ by $\pi/2$ results in the vector $\ehat_2$ that is clearly not in the subspace spanned by $\ehat_1$. A similar argument shows that the subspace spanned by $\ehat_2$ is not invariant under 2-dimensional rotations.
 
-    However, consider the linear combination of basis vectors
-    \begin{equation}
-        \ehat_\pm = \frac{1}{\sqrt{2}}\left( \mp\ehat_1 + i\ehat_2 \right),
-    \end{equation}
-    where $i = \sqrt{-1}$. Then a rotation by angle $\phi$, denoted in operator form as $U(\phi)$, acts on $\ehat_\pm$ by
-    \begin{align}
-        U(\phi)\ket{\ehat_+} &= U(\phi)\frac{1}{\sqrt{2}}(-\ehat_1 + i\ehat_2) \\
-        &= \frac{1}{\sqrt{2}}(-U(\phi)\ket{\ehat_1} + iU(\phi)\ket{\ehat_2}) \nonumber \\
-        &= \frac{1}{\sqrt{2}}\left( -\ehat_1\cos\phi - \ehat_2\sin\phi -i\ehat_1\sin\phi + i\ehat_2\cos\phi \right) \nonumber \\
-        &= \frac{1}{\sqrt{2}}\left( -\ehat_1(\cos\phi+ i\sin\phi) +i\ehat_2(\cos\phi-i\sin\phi) \right) \nonumber \\
-        % &= \frac{1}{\sqrt{2}}\big(\ehat_1(-\cos\phi+i\sin\phi) + \ehat_2(i\cos\phi + \sin\phi)\big) \nonumber \\
-        % &= \frac{1}{\sqrt{2}}(-\ehat_1 + i\ehat_2)(\cos\phi - i\sin\phi) \nonumber \\
-        & \colorbox{red}{\textbf{Not Done}} \nonumber \\
-        &= \ehat_+ (\cos\phi - i\sin\phi) \nonumber \\
-        &= \ehat_+ e^{-i\phi}, \\
-        \textrm{and } U(\phi)\ket{\ehat_-} &= \ehat_- e^{i\phi}.
-    \end{align}
+    % However, if there are eigenvectors of the rotation operator, we then have invariant subspaces formed by the span of the eigenvectors. For example, the eigenvalues of the rotation operator $X(\phi)$ are such that
+    % \begin{align*}
+    %     \det\left( D(\phi)-\lambda I \right)
+    %         &= {\left( \cos\phi-1 \right)}^2 + \sin^2\phi\\
+    %         &= 2-2\cos\phi = 0 \\
+    %         &\iff \cos\phi = 1 \\
+    %         &\iff \phi = 2\pi n, n\in\mathbb{Z}.
+    % \end{align*}
+    % \begin{align*}
+    %     \begin{bmatrix}
+    %         \cos\phi & -\sin\phi\\
+    %         \sin\phi & \cos\phi
+    %     \end{bmatrix} \begin{bmatrix}
+    %         x^1\\x^2
+    %     \end{bmatrix} &= \begin{bmatrix}
+    %         x^1\cos\phi - x^2\sin\phi\\x^1\sin\phi + x^2\cos\phi
+    %     \end{bmatrix} = \lambda \begin{bmatrix}
+    %         x^1\\x^2
+    %     \end{bmatrix},
+    % \end{align*}
+
+    % However, consider the linear combination of basis vectors
+    % \begin{equation}
+    %     \ehat_\pm = \frac{1}{\sqrt{2}}\left( \mp\ehat_1 + i\ehat_2 \right),
+    % \end{equation}
+    % where $i = \sqrt{-1}$. Then a rotation by angle $\phi$, denoted in operator form as $X(\phi)$, acts on $\ehat_\pm$ by
+    % \begin{align}
+    %     X(\phi)\ket{\ehat_+} &= X(\phi)\frac{1}{\sqrt{2}}(-\ehat_1 + i\ehat_2) \\
+    %     &= \frac{1}{\sqrt{2}}(-X(\phi)\ket{\ehat_1} + iX(\phi)\ket{\ehat_2}) \nonumber \\
+    %     &= \frac{1}{\sqrt{2}}\left( -\ehat_1\cos\phi - \ehat_2\sin\phi -i\ehat_1\sin\phi + i\ehat_2\cos\phi \right) \nonumber \\
+    %     &= \frac{1}{\sqrt{2}}\left( -\ehat_1(\cos\phi+ i\sin\phi) +i\ehat_2(\cos\phi-i\sin\phi) \right) \nonumber \\
+    %     % &= \frac{1}{\sqrt{2}}\big(\ehat_1(-\cos\phi+i\sin\phi) + \ehat_2(i\cos\phi + \sin\phi)\big) \nonumber \\
+    %     % &= \frac{1}{\sqrt{2}}(-\ehat_1 + i\ehat_2)(\cos\phi - i\sin\phi) \nonumber \\
+    %     & \colorbox{red}{\textbf{Not Done}} \nonumber \\
+    %     &= \ehat_+ (\cos\phi - i\sin\phi) \nonumber \\
+    %     &= \ehat_+ e^{-i\phi}, \\
+    %     \textrm{and } X(\phi)\ket{\ehat_-} &= \ehat_- e^{i\phi}.
+    % \end{align}
 
 \end{example}
 
@@ -89,8 +128,11 @@ The identification of invariant subspaces on vector space representations leads 
 
 The irreducible representation matrices satisfy \colorbox{red}{orthonormality and completeness} relations.\textbf{ Thm. 3.5}?
 
-\begin{example}[Generator of $\sotwo$]
-    Consider the rotations of a 2-dimensional Euclidean vector space about the origin. Let $\ehat_1$ and $\ehat_2$ be orthonormal basis vectors of this space. Using geometry, we can determine how a rotation by some angle $\phi$, written in operator form as $R(\phi)$, acts on the basis vectors:
+\section{Rotations in a plane and the group SO(2)}
+
+\textcolor{red}{R vs U inconsistency from earlier notation}
+\subsection{The rotation group}
+Consider the rotations of a 2-dimensional Euclidean vector space about the origin. Let $\ehat_1$ and $\ehat_2$ be orthonormal basis vectors of this space. Using geometry, we can determine how a rotation by some angle $\phi$, written in operator form as $R(\phi)$, acts on the basis vectors:
     \begin{align}
         R(\phi)\ehat_1 &= \ehat_1\cos\phi + \ehat_2\sin\phi \label{eq:rot_1}\\
         R(\phi)\ehat_2 &= -\ehat_1\sin\phi + \ehat_2\cos\phi.\label{eq:rot_2}
@@ -98,10 +140,10 @@ The irreducible representation matrices satisfy \colorbox{red}{orthonormality an
     In matrix form, we can write
     \begin{equation}
         R(\phi) = 
-        \begin{pmatrix}
+        \begin{bmatrix}
             \cos\phi & -\sin\phi \\
             \sin\phi & \cos\phi
-        \end{pmatrix}
+        \end{bmatrix}
     \end{equation}
     which allows us to write \cref{eq:rot_1,eq:rot_2} in a condensed form
     \begin{equation}
@@ -109,7 +151,7 @@ The irreducible representation matrices satisfy \colorbox{red}{orthonormality an
     \end{equation}
     where we are summing over $j=1,2$.
 
-    Now, let $\vec{x}$ be an arbitrary vector in the plane. Then $\vec{x}$ has components $x^i$ in the basis $\{\ehat_i\}$, where $i=1,2$. Equivalently, we can write $\vec{x}=\ehat_i x^i$. Then under rotations, $\vec{x}$ transforms in accordance to the basis vectors
+    Let $\vec{x}$ be an arbitrary vector in the plane. Then $\vec{x}$ has components $x^i$ in the basis $\{\ehat_i\}$, where $i=1,2$. Equivalently, we can write $\vec{x}=\ehat_i x^i$. Then under rotations, $\vec{x}$ transforms in accordance to the basis vectors
     \begin{align}
         R(\phi)\vec{x} &= R(\phi)\ehat_i x^i \label{eq:rot_vec} \\
         &= \ehat_j{{R(\phi)}^j}_i x^i \nonumber \\
@@ -118,7 +160,7 @@ The irreducible representation matrices satisfy \colorbox{red}{orthonormality an
         &= \left( x^1\cos\phi - x^2\sin\phi \right)\ehat_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\ehat_2.  \nonumber
     \end{align}
 
-    Observe that $R(\phi)R^\top(\phi) = E$ where $E$ is the identity matrix. This is precisely what defines \textit{orthogonal matrices}. For 2-dimensional vectors in the plane, it is clear that these rotations do not change the length of said vectors. This can be verified by using \cref{eq:rot_vec}:
+    Notice that $R(\phi)R^\top(\phi) = E$ where $E$ is the identity matrix. This is precisely what defines \textit{orthogonal matrices}. For 2-dimensional vectors in the plane, it is clear that these rotations do not change the length of said vectors. This can be verified by using \cref{eq:rot_vec}:
     \begin{align}
         |R(\phi)\vec{x}|^2 &= |\ehat_j\mat{R(\phi)}{j}{i} x^i|^2 \\
         &= \left|\left( x^1\cos\phi - x^2\sin\phi \right)\ehat_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\ehat_2\right|^2 \nonumber \\
@@ -131,14 +173,16 @@ The irreducible representation matrices satisfy \colorbox{red}{orthonormality an
 
     We define the group of continuous rotations in a plane by letting $R(0) = E$ be the identity element corresponding to no rotation (i.e., a rotation by angle $\phi=0$), and defining the inverse of a rotation as $R^{-1}(\phi) = R(-\phi) = R(2\pi-\phi)$. This group can be called the $\sotwo$ group. Lastly, we define group multiplication as $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$ and note that $R(\phi) = R(\phi\pm2\pi)$, which can be verified geometrically. Thus, group elements of $\sotwo$ can be labelled by the angle of rotation $\phi\in[0,2\pi)$.
 
-    Now we can find a generator of $sotwo$ by considering an infinitesimal rotation, labelled by some infinitesimal angle $d\phi$. Then this is equivalent to the identity plus some small rotation, which we can write as
+    \subsection{Infinitesimal rotations}\label{sec:inf_rot}
+    % Now we can find a generator of $\sotwo$ by considering
+    Consider an infinitesimal rotation labelled by some infinitesimal angle $d\phi$. This is equivalent to the identity plus some small rotation, which can be written as
     \begin{equation}
-        R(\textrm{d}\phi) = E - i \textrm{d}\phi J
+        R(\textrm{d}\phi) = E - i \textrm{d}\phi J \label{eq:dphi}
     \end{equation}
     where the scalar quantity $-i$ is introduced for later convenience and $J$ is some quantity independent of the rotation angle. If we consider the rotation $R(\phi + \textrm{d}\phi)$, then there are two equivalent ways to interpret this rotation
     \begin{align}
-        R(\phi + \textrm{d}\phi) &= R(\phi)R(\textrm{d}\phi) = R(\phi)(E - i \textrm{d}\phi J) = R(\phi) - i \textrm{d}\phi R(\phi)J \\
-        R(\phi + \textrm{d}\phi) &= R(\phi) + \textrm{d}R(\phi) = R(\phi) + \textrm{d}\phi\frac{\textrm{d}R(\phi)}{\textrm{d}\phi}
+        R(\phi + \textrm{d}\phi) &= R(\phi)R(\textrm{d}\phi) = R(\phi)(E - i \textrm{d}\phi J) = R(\phi) - i \textrm{d}\phi R(\phi)J, \\
+        R(\phi + \textrm{d}\phi) &= R(\phi) + \textrm{d}R(\phi) = R(\phi) + \textrm{d}\phi\frac{\textrm{d}R(\phi)}{\textrm{d}\phi},
     \end{align}
     where the second equation can be thought of as a Taylor expansion of $R(\phi + \textrm{d}\phi)$ about $\phi$. Equating the two expressions for $R(\phi + \textrm{d}\phi)$ yields
     \begin{equation}
@@ -149,4 +193,137 @@ The irreducible representation matrices satisfy \colorbox{red}{orthonormality an
         R(\phi) = e^{-i\phi J},
     \end{equation}
     where $J$ is called the \textit{generator} of the group.
-\end{example}
+
+    The explicit form of $J$ is found as follows. To first order in $\textrm{d}\phi$, we have
+    \begin{align*}
+        R(\textrm{d}\phi) &= \begin{bmatrix}
+            1 & -\textrm{d}\phi \\
+            \textrm{d}\phi & 1
+        \end{bmatrix}.
+    \end{align*}
+    Comparing to \cref{eq:dphi},
+    \begin{align*}
+        E - i \textrm{d}\phi J &= \begin{bmatrix}
+            1 & -\textrm{d}\phi \\
+            \textrm{d}\phi & 1
+        \end{bmatrix} \implies J = \begin{bmatrix}
+            0 & -i \\
+            i & 0
+        \end{bmatrix}.
+    \end{align*}
+    
+    In fact, notice that $J^2 = E$, which implies that even powers of $J$ equal the identity matrix and odd powers of $J$ equal $J$. Taylor expanding $e^{-iJ\phi }$ gives
+    \begin{align*}
+        R(\phi) = e^{-iJ\phi} &= E - iJ\phi - E \frac{\phi^2}{2!} - iJ\frac{\phi^3}{3!} + \cdots \\
+        &= E\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n}}{(2n)!} \right) - iJ\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n+1}}{(2n+1)!} \right) \\
+        &= E\cos\phi - iJ\sin\phi \\
+        &= \begin{bmatrix}
+            \cos\phi & -\sin\phi \\
+            \sin\phi & \cos\phi
+        \end{bmatrix}.
+    \end{align*}
+    Therefore, the generator $J$ can be used to recover the rotation matrix for an arbitrary angle $\phi$. Clearly, the map $R(\phi)\mapsto e^{-iJ\phi}$ is a valid homomorphism that respects the periodic nature of $\sotwo$.
+
+    \section{Irreducible representations of SO(2)}
+    With the generator $J$ in hand, we can now construct the irreducible representations of $\sotwo$. First, consider a representation $U$ of $\sotwo$ defined on a finite dimensional vector space $V$. Then $U(\phi)$ is the corresponding matrix representation of $R(\phi)$. The same argument as in \cref{sec:inf_rot} can be applied to an infinitesimal rotation to give
+    \begin{align*}
+        U(\phi) = e^{-iJ\phi},
+    \end{align*}
+    which is an operator on $V$.
+
+    \section{Note}
+    Possible reference here~\cite{Hall2013}!
+    
+    Suppose $G$ is an operator on a quantum Hilbert space of states. The quantity $\braket{G}$ is conserved if
+    \begin{align*}
+        \frac{d\braket{G}}{dt} = 0.
+    \end{align*}
+    Recall the time-dependent Schr\"odinger equation
+    \begin{align*}
+        \hat{H}\psi = i\hbar\frac{d\psi}{dt} \implies \frac{d\psi}{dt} = \frac{1}{i\hbar}\hat{H}\psi.
+    \end{align*}
+
+    Then if $G$ is time-independent we have
+    \begin{align*}
+        \frac{d\braket{G}}{dt} &= \frac{d}{dt}\braket{\psi|G|\psi} \\
+        &= \Braket{\frac{d\psi}{dt}\biggl|G\biggr|\psi} + \Braket{\psi\biggl|G\biggr|\frac{d\psi}{dt}} + \cancelto{0}{\Braket{\psi|\frac{\partial G}{\partial t}|\psi}} \\
+        &= \Braket{\frac{1}{i\hbar}\hat{H}\psi\biggl|G\biggr|\psi} + \Braket{\psi\biggl|G\biggr|\frac{1}{i\hbar}\hat{H}\psi} \\
+        &= \frac{i}{\hbar}\left( \braket{\hat{H}\psi|G|\psi} - \braket{\psi|G|\hat{H}\psi} \right) \\
+        &= \frac{i}{\hbar}\left( \braket{\psi|\hat{H}^\dagger G|\psi} - \braket{\psi|G\hat{H}|\psi} \right) \\
+        &= \frac{i}{\hbar}\left( \braket{\psi|\hat{H}G|\psi} - \braket{\psi|G\hat{H}|\psi} \right) \textrm{ because }\hat{H}\textrm{ is Hermitian} \\
+        &= \frac{i}{\hbar}\bra{\psi}(\hat{H}G - G\hat{H})\ket{\psi} \\
+        &= \frac{i}{\hbar}\bra{\psi}[\hat{H},G]\ket{\psi} = 0 \iff [\hat{H},G] = 0.
+        % &= \frac{1}{i\hbar}\left( \bra{\psi}\hat{H}J - \bra{\psi}J\hat{H} \right)\ket{\psi} \\
+        % &= \frac{1}{i\hbar}\left( \bra{\psi}[\hat{H},J]\right)\ket{\psi} \\
+    \end{align*}
+    (linear in the second argument). (See Ehrenfest's theorem).
+
+    Thus, if $[\hat{H},G]=0$ and $G$ is unitary, it follows that
+    \begin{align*}
+        \hat{H}G-G\hat{H} = 0
+            &\iff \hat{H}G = G\hat{H} \\
+            &\iff \iv{G}\hat{H}G = \hat{H}.
+            % &\iff G^\dagger\hat{H}G = \hat{H},
+            % &\iff \iv{G}\hat{H}G\ket{\psi} = \hat{H}\ket{\psi},
+            % &\iff G^\dagger\hat{H}G\ket{\psi} = \hat{H}\ket{\psi}
+    \end{align*}
+    Thus, $\iv{G}\hat{H}G$ and $\hat{H}$ share the same eigenvalues (observables), which is only true if $\hat{H}$ is invariant under $G$.
+    % Alternatively, it is known that commuting matrices share a common set of eigenvectors, so they are simultaneously diagonalizable in that eigenbasis. Then in this diagonal basis clearly $\iv{G}\hat{H}G = \hat{H}$, which implies that the eigenvalues are the same.
+    If $G$ generates a group of transformations, then $\hat{H}$ is invariant under the group of transformations generated by $G$. Often times, this invariance is expressed as 
+    \begin{align*}
+        G^\dagger\hat{H}G = \hat{H}
+    \end{align*}
+    since $G$ is unitary.
+    
+    % where the last line ensures that the resulting transformation of $\hat{G}$ by $G$ is Hermitian, and thus corresponds to physical observables. The Hermiticity of $\hat{H}$ is preserved under $G$ if and only if $\hat{H}$ is invariant under the transformations generated by $G$. 
+    
+    Running the argument in reverse, if $\hat{H}$ is invariant under the transformations generated by $G$, then $[\hat{H},G]=0$, which, by the Ehrenfest theorem, implies that $\braket{G}$ is conserved.
+
+    Therefore, if a physical system represented by a Hamiltonian $H$ is invariant under rotations, then $[H,R(\phi)] = 0$ for all $\phi\in\R$ and thus $[H,J]=0$, so angular momentum is conserved.
+
+    % In the case of $J=\begin{bmatrix}
+    %     0 & -i \\
+    %     i & 0
+    % \end{bmatrix}$, we have
+    % \begin{align*}
+    %     [H,J] &= \begin{bmatrix}
+    %         E_1 & 0 \\
+    %         0 & E_2
+    %         \end{bmatrix}\begin{bmatrix}
+    %             0 & -i \\
+    %             i & 0
+    %         \end{bmatrix} - \begin{bmatrix}
+    %             0 & -i \\
+    %             i & 0
+    %         \end{bmatrix}\begin{bmatrix}
+    %             E_1 & 0 \\
+    %             0 & E_2
+    %         \end{bmatrix} \\
+    %     &= \begin{bmatrix}
+    %         0 & -iE_1 \\
+    %         iE_2 & 0
+    %     \end{bmatrix} - \begin{bmatrix}
+    %         0 & -iE_2 \\
+    %         iE_1 & 0
+    %     \end{bmatrix}
+    %     % [H,J] &= \begin{bmatrix}
+    %     %     H_{11} & H_{12} \\
+    %     %     H_{21} & H_{22}
+    %     % \end{bmatrix}\begin{bmatrix}
+    %     %     0 & -i \\
+    %     %     i & 0
+    %     % \end{bmatrix} - \begin{bmatrix}
+    %     %     0 & -i \\
+    %     %     i & 0
+    %     % \end{bmatrix}\begin{bmatrix}
+    %     %     H_{11} & H_{12} \\
+    %     %     H_{21} & H_{22}
+    %     % \end{bmatrix} \\
+    %     % &= \begin{bmatrix}
+    %     %     iH_{12} & -iH_{11} \\
+    %     %     iH_{22} & -iH_{21}
+    %     % \end{bmatrix} - \begin{bmatrix}
+    %     %     -iH_{21} & -iH_{22} \\
+    %     %     iH_{11} & iH_{12}
+    %     % \end{bmatrix}
+    % \end{align*}
