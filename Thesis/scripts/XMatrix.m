@@ -12,8 +12,8 @@ chk = @(s) [ conj(s.a) conj(s.c) ; conj(s.b) conj(s.d) ]*[ s.a s.b ; s.c s.d ];
 clear A b1
 clc
 
-sol = solve(X'*X == J(0))
-% sol = solve(X'*X == J((sqrt(6)+sqrt(2))/4))
+% sol = solve(X'*X == J(sqrt(3)/2))
+sol = solve(X'*X == J((sqrt(6)+sqrt(2))/4))
 % sol = solve(X'*X == J(-1/2))
 % sol = vpasolve(X'*X == J(-1/2),'Random',true)
 
@@ -48,7 +48,7 @@ end
 
 clear P p1 p2; clc
 
-s = exp(1i*11*pi/12);
+s = exp(1i*pi/12);
 
 P = [ s^1 0 ; 0 s^2 ];
 p1 = [ -s^2 0 ; 1 1 ];

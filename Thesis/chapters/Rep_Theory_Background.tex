@@ -28,6 +28,10 @@ which satisfies the group multiplication rules.
 \end{definition}
 
 \begin{example}
+    The simplest representation of any group $G$ is the \textit{trivial} representation, in which every $g\in G$ is realized by $g\mapsto 1$. This representation is clearly degenerate.
+\end{example}
+
+\begin{example}
     Consider the symmetric group $S_n$. The \textit{defining} representation of $S_n$ encodes each $\sigma\in S_n$ by placing a 1 in the $j$-th row and $i$-th column of the matrix $D(\sigma)$ if $\sigma$ sends $i$ to $j$, and 0 otherwise. For example, in $S_3$, the permutation $(23)$ has the matrix representation
     \begin{align*}
         D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix},
@@ -150,6 +154,7 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
         R(\phi)\ehat_i = \ehat_j{{R(\phi)}^j}_i,
     \end{equation}
     where we are summing over $j=1,2$.
+    % The set of these rotation matrices forms a degree 2 representation of the rotation group.
 
     Let $\vec{x}$ be an arbitrary vector in the plane. Then $\vec{x}$ has components $x^i$ in the basis $\{\ehat_i\}$, where $i=1,2$. Equivalently, we can write $\vec{x}=\ehat_i x^i$. Then under rotations, $\vec{x}$ transforms in accordance to the basis vectors
     \begin{align}
@@ -171,22 +176,22 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
 
     Similarly, notice that for any continuous rotation by angle $\phi$, $\det R(\phi) = \cos^2\phi+\sin^2\phi = 1$. In general, orthogonal matrices have determinant equal to $\pm1$. However, the result of the above determinant of $R(\phi)$ implies that all continuous rotations in the 2-dimensional plane have determinant equal to $+1$. These are the \textit{special orthogonal matrices of rank 2}. This family of matrices is denoted $\sotwo$. Furthermore, there is a one-to-one correspondence with $\sotwo$ matrices and rotations in a plane.
 
-    We define the group of continuous rotations in a plane by letting $R(0) = E$ be the identity element corresponding to no rotation (i.e., a rotation by angle $\phi=0$), and defining the inverse of a rotation as $R^{-1}(\phi) = R(-\phi) = R(2\pi-\phi)$. This group can be called the $\sotwo$ group. Lastly, we define group multiplication as $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$ and note that $R(\phi) = R(\phi\pm2\pi)$, which can be verified geometrically. Thus, group elements of $\sotwo$ can be labelled by the angle of rotation $\phi\in[0,2\pi)$.
+    We define the group of continuous rotations in a plane by letting $R(0) = E$ be the identity element corresponding to no rotation (i.e., a rotation by angle $\phi=0$), and defining the inverse of a rotation as $R^{-1}(\phi) = R(-\phi) = R(2\pi-\phi)$. Lastly, we define group multiplication as $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$ and note that $R(\phi) = R(\phi\pm2\pi)$, which can be verified geometrically. Although SO(2) is technically a 2-dimensional representation of a more abstract rotation group, it is often just referred to as the rotation group due to the nature of the construction. Thus, group elements of $\sotwo$ can be labelled by the angle of rotation $\phi\in[0,2\pi)$.
 
     \subsection{Infinitesimal rotations}\label{sec:inf_rot}
     % Now we can find a generator of $\sotwo$ by considering
     Consider an infinitesimal rotation labelled by some infinitesimal angle $d\phi$. This is equivalent to the identity plus some small rotation, which can be written as
     \begin{equation}
-        R(\textrm{d}\phi) = E - i \textrm{d}\phi J \label{eq:dphi}
+        R(d\phi) = E - i d\phi J \label{eq:dphi}
     \end{equation}
-    where the scalar quantity $-i$ is introduced for later convenience and $J$ is some quantity independent of the rotation angle. If we consider the rotation $R(\phi + \textrm{d}\phi)$, then there are two equivalent ways to interpret this rotation
+    where the scalar quantity $-i$ is introduced for later convenience and $J$ is some quantity independent of the rotation angle. If we consider the rotation $R(\phi + d\phi)$, then there are two equivalent ways to interpret this rotation
     \begin{align}
-        R(\phi + \textrm{d}\phi) &= R(\phi)R(\textrm{d}\phi) = R(\phi)(E - i \textrm{d}\phi J) = R(\phi) - i \textrm{d}\phi R(\phi)J, \\
-        R(\phi + \textrm{d}\phi) &= R(\phi) + \textrm{d}R(\phi) = R(\phi) + \textrm{d}\phi\frac{\textrm{d}R(\phi)}{\textrm{d}\phi},
+        R(\phi + d\phi) &= R(\phi)R(d\phi) = R(\phi)(E - i d\phi J) = R(\phi) - i d\phi R(\phi)J, \\
+        R(\phi + d\phi) &= R(\phi) + dR(\phi) = R(\phi) + d\phi\frac{dR(\phi)}{d\phi},
     \end{align}
-    where the second equation can be thought of as a Taylor expansion of $R(\phi + \textrm{d}\phi)$ about $\phi$. Equating the two expressions for $R(\phi + \textrm{d}\phi)$ yields
+    where the second equation can be thought of as a Taylor expansion of $R(\phi + d\phi)$ about $\phi$. Equating the two expressions for $R(\phi + d\phi)$ yields
     \begin{equation}
-        \textrm{d}R(\phi) = -i\textrm{d}\phi R(\phi)J.
+        dR(\phi) = -id\phi R(\phi)J.
     \end{equation}
     Solving this differential equation (with boundary condition $R(0)=E$) provides us with an equation for any group element involving $J$:
     \begin{equation}
@@ -194,25 +199,25 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     \end{equation}
     where $J$ is called the \textit{generator} of the group.
 
-    The explicit form of $J$ is found as follows. To first order in $\textrm{d}\phi$, we have
+    The explicit form of $J$ is found as follows. To first order in $d\phi$, we have
     \begin{align*}
-        R(\textrm{d}\phi) &= \begin{bmatrix}
-            1 & -\textrm{d}\phi \\
-            \textrm{d}\phi & 1
+        R(d\phi) &= \begin{bmatrix}
+            1 & -d\phi \\
+            d\phi & 1
         \end{bmatrix}.
     \end{align*}
     Comparing to \cref{eq:dphi},
     \begin{align*}
-        E - i \textrm{d}\phi J &= \begin{bmatrix}
-            1 & -\textrm{d}\phi \\
-            \textrm{d}\phi & 1
+        E - i d\phi J &= \begin{bmatrix}
+            1 & -d\phi \\
+            d\phi & 1
         \end{bmatrix} \implies J = \begin{bmatrix}
             0 & -i \\
             i & 0
         \end{bmatrix}.
     \end{align*}
     
-    In fact, notice that $J^2 = E$, which implies that even powers of $J$ equal the identity matrix and odd powers of $J$ equal $J$. Taylor expanding $e^{-iJ\phi }$ gives
+    Notice that $J^2 = E$, which implies that even powers of $J$ equal the identity matrix and odd powers of $J$ equal $J$. Taylor expanding $e^{-iJ\phi }$ gives
     \begin{align*}
         R(\phi) = e^{-iJ\phi} &= E - iJ\phi - E \frac{\phi^2}{2!} - iJ\frac{\phi^3}{3!} + \cdots \\
         &= E\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n}}{(2n)!} \right) - iJ\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n+1}}{(2n+1)!} \right) \\
@@ -224,14 +229,77 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     \end{align*}
     Therefore, the generator $J$ can be used to recover the rotation matrix for an arbitrary angle $\phi$. Clearly, the map $R(\phi)\mapsto e^{-iJ\phi}$ is a valid homomorphism that respects the periodic nature of $\sotwo$.
 
-    \section{Irreducible representations of SO(2)}
-    With the generator $J$ in hand, we can now construct the irreducible representations of $\sotwo$. First, consider a representation $U$ of $\sotwo$ defined on a finite dimensional vector space $V$. Then $U(\phi)$ is the corresponding matrix representation of $R(\phi)$. The same argument as in \cref{sec:inf_rot} can be applied to an infinitesimal rotation to give
+    \subsection{Irreducible representations of SO(2)}\label{sub:irr_so2}
+    Equipped with the generator $J$, we can construct the irreducible representations of $\sotwo$.
+    First, consider a representation $U$ of $\sotwo$ defined on a finite dimensional vector space $V$. Then $U(\phi)$ is the corresponding representation of $R(\phi)$. The same argument as in \cref{sec:inf_rot} can be applied to an infinitesimal rotation to give
     \begin{align*}
         U(\phi) = e^{-iJ\phi},
     \end{align*}
-    which is an operator on $V$.
+    which is an operator on $V$ (for convenience, the same symbol $J$ is used to denote the generator of the representation).
+    % As seen in \cref{sec:inf_rot}, a one-dimensional representation of $\sotwo$ is given by $R(\phi)\mapsto e^{-iJ\phi}$, where $J$ is the generator of the group. This representation is clearly irreducible, as there are no non-trivial invariant subspaces of a one-dimensional vector space.
 
-    \section{Note}
+    Since $U$ is a representation of rotations that preserves the length of vectors, we have
+    \begin{align*}
+        \size{a}^2 = \size{U(\phi)a}^2, \, \forall \ket{a}\in V &\iff \braket{a|a} = \braket{U(\phi)a|U(\phi)a} = \braket{a|{U(\phi)}^\dagger U(\phi)|a} \\
+        &\iff U(\phi)^\dagger U(\phi) = E \\
+        &\iff e^{iJ^\dagger\phi}e^{-iJ\phi} = e^{-i(J-J^\dagger)\phi} = 1 \\
+        &\iff J = J^\dagger.
+    \end{align*}
+    Therefore, not only must $U$ be unitary, but the generator $J$ must be Hermitian. This fact becomes especially important in the physical interpretation of the representations of $\sotwo$ in \cref{sub:phys_J}.
+
+    Then the minimal invariant subspace of any $\ket{\alpha}\in V$ under $\sotwo$ must satisfy
+    \begin{align*}
+        J\ket{\alpha} &= \alpha\ket{\alpha}, \\
+        U(\phi)\ket{\alpha} &= e^{-iJ\phi}\ket{\alpha} = e^{-i\alpha\phi}\ket{\alpha},
+    \end{align*}
+    where the eigenvalue $\alpha$ of $J$ is used as a label for the eigenvectors of $J$. The periodicity conditions of SO(2) imply that $\ket{\alpha} = U(2\pi)\ket{\alpha}$, or equivalently, $e^{-i\alpha2\pi} = 1$. This implies that $\alpha$ must be an integer, as $e^{i2\pi m} = 1$ for $m\in\mathbb{Z}$. Then $U$ has a corresponding 1-dimensional representation for each integer $m$, defined by
+    \begin{align*}
+        J\ket{m} = m\ket{m}, \\
+        U^m(\phi)\ket{m} = e^{-im\phi}\ket{m}.
+    \end{align*}
+    Since these representations correspond to 1-dimensional invariant subspaces, they are irreducible.
+
+    If $m=0$, then $R(\phi)\to U^0(\phi) = 1$, which corresponds to the trivial representation. If instead $m=1$, then $R(\phi)\to U^1(\phi) = e^{-i\phi}$, which maps rotations in SO(2) to distinct points on the unit circle in the complex plane. The $m=1$ representation is faithful because each rotation by $\phi$ has a unique image under $U^1(\phi)$, which is clear when interpreting rotations of unit vectors geometrically. As $\phi$ ranges from 0 to $2\pi$, $U^1$ traces over the unit circle in $\C$ in the counterclockwise direction. Similarly, $U^{-1}$ traces over the unit circle in the clockwise direction because $U^{-1}(\phi)=e^{i\phi}$. In general, $U^n$ covers the unit circle $n$ times as $\phi$ ranges from 0 to $2\pi$.
+    
+    \textcolor{red}{Get eigenvalues and eigenvectors of $J$ to write SO(2) in block diagonal form?}
+
+    \subsection{Multivalued representations}
+    If we restrict the periodic condition on $U$ to $U(2n\pi) = E$ for some $n\in\Z$, then the resulting 1-dimensional irreducible representations of SO(2) become multivalued. Consider the same construction of $U^m$ in \cref{sub:irr_so2}, but now with $m\in\Q$. For $m=\frac{1}{2}$, we have
+    \begin{align*}
+        U^{1/2}(2\pi + \phi) &= e^{-i\pi -i\frac{\phi}{2}} = -e^{-i\frac{\phi}{2}} = -U^{1/2}(\phi).
+    \end{align*}
+    Hence, the rotation $R(\phi)$ is assigned to both $\pm e^{i\phi/2}$ in the $U^{1/2}$ representation. For this reason, it can be said that $U^{1/2}$ is a \textit{two-valued} representation of SO(2).
+    
+    Despite this ambiguity in the realization of rotations in SO(2), the periodicity condition is still satisfied, as $U^{1/2}(4\pi) = e^{i2\pi} = 1$. In other words, the double-valued representation of SO(2) traverses the unit circle twice before returning to the identity. In general, $U^{n/m}$ is an $m$-valued representation of SO(2) for $\frac{n}{m}\in\Q$ and $\gcd(n,m)=1$.
+
+    \subsection{Application of SO(2) to quantum mechanics}\label{sub:phys_J}
+    The generalization of the SO(2) group to quantum mechanics is the unitary group U(1), which is the group of continuous phase transformations. The group elements of U(1) are complex numbers of unit modulus, similar to that of the irreducible representations of SO(2) found in \cref{sub:irr_so2}. The requirement of unitary matrices in quantum mechanics is a consequence of the fact that physical transformations, such as rotations and translations, must preserve probabilities. In quantum mechanics, probabilities are encoded in the norm of the state vectors. By definition, unitary transformations preserve the norm of vectors, which is why they represent physical transformations in quantum mechanics. \textcolor{red}{Move that second half to appendix and combine with discussion of braket notation et al.?}
+
+    \begin{itemize}
+        \item \textcolor{red}{\textbf{Discuss Lie groups/algebras specifically?}}
+        \item The real generalization is to 3 spatial dimensions, SO(3), which then has the Lie algebra $\mathfrak{so}(3)$ with generators $J_i$ and familiar commutation relations.
+        \item The eigenvalues of $J$ are real since it is Hermitian, and so they correspond to physical observables. In particular, the eigenvalues $m$ of $J$ correspond to the angular momentum of a quantum system (really it's a projection of the total angular momentum onto the axis of rotation normalized to $\hbar$). When $m$ is an integer, the representation $U^m$ corresponds to integer-spin particles, such as bosons or gravitons. When $m$ is a half-integer, the representation $U^m$ corresponds to half-integer-spin particles, such as fermions.
+        \item The \textbf{quantization of angular momentum in quantum mechanics} is a direct consequence of the representation theory of SO(2) (really SO(3))!!! The allowable values of angular momentum are quantized because the eigenvalues of the generator $J$ are quantized. \textcolor{blue}{Moreover, for eigenvalue $m$, the possible spin states with angular momentum $m$ correspond to the multiple values ($U^m$'s satisfying the periodicity condition for the eigenvector $\ket{m}$): $-m, -m+1, \dots, m-1, m$ (normalized to $\hbar$). Jumping between spin states is done by the ladder operators $J_\pm$ in SO(3).}
+        \item Example for $U^{1/2}$, or in physics $j=\frac{1}{2}$. The spin state of an electron can either be up $+U^{1/2}$ or down $-U^{1/2}$, which \textcolor{purple}{corresponds to the two-valued-ness} of the representation. A rotation of $2\pi$ results in a change of sign (a change in spin state). Moreover, the spin state of a spin-$\frac{1}{2}$ particle is described by a \textit{spinor} (a two-component complex-valued vector). The purely mathematical consequences of double-valued representations of SO(2) explains the emergent behavior of spinors under coordinate rotations.
+    \end{itemize}
+
+    \section{Continuous translations}
+    \begin{itemize}
+        % \item Look at the translation group $\R^n$ and its Lie algebra $\mathfrak{t}(n)$.
+        \item Look at the 1D translation group $T$ and its Lie algebra $\mathfrak{t}(1)$.
+        \item Go through same process as SO(2) for $T$ in terms of infinitesimal translations and the generator $P$.
+        \item Point out differences between observables (discretization vs continuous).
+        \item \textcolor{cyan}{Pg. 106 in Tung, show/derive the $\ket{x}\leftrightarrow\ket{p}$ transformations?}
+        % \item \textcolor{cyan}{Discuss the commutation relations of $J$ and $P$ and the physical implications of these relations?}
+    \end{itemize}
+
+    \section{Ehrenfest's theorem and conserved quantities}
+    \textcolor{red}{Move most of this to appendix? Just keep part about $J$ and $P$ specifically here?}
+
+    \begin{itemize}
+        \item Get specific $\hat{H}$ that commutes with $J$ and $P$. I'm thinking $\hat{H} = \frac{1}{2m}\hat{P}^2 + V(\hat{X})$?
+    \end{itemize}
+
     Possible reference here~\cite{Hall2013}!
     
     Suppose $G$ is an operator on a quantum Hilbert space of states. The quantity $\braket{G}$ is conserved if
