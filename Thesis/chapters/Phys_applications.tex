@@ -145,11 +145,15 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
 
     If $m=0$, then $R(\phi)\mapsto U^0(\phi) = 1$, which corresponds to the trivial representation. If instead $m=1$, then $R(\phi)\mapsto U^1(\phi) = e^{-i\phi}$, which maps rotations in SO(2) to distinct points on the unit circle in the complex plane. The $m=1$ representation is faithful because each rotation by $\phi$ has a unique image under $U^1(\phi)$, which is clear when interpreting rotations of unit vectors geometrically. As $\phi$ ranges from 0 to $2\pi$, $U^1$ traces over the unit circle in $\C$ in the counterclockwise direction. Similarly, $U^{-1}$ traces over the unit circle in the clockwise direction because $U^{-1}(\phi)=e^{i\phi}$. The $m=-1$ case is therefore faithful as well. In general, $U^n$ covers the unit circle $\size{n}$ times as $\phi$ ranges from 0 to $2\pi$, and is not faithful for $n\neq\pm1$.
 
-    % The irreducible representations of SO(2) satisfy orthonormality and completeness relations. Since SO(2) is a continuous group, where the group elements are labelled by the continuous parameter $\phi$, we must integrate over all possible values of $\phi$ to obtain such relations. Indeed,
+    The irreducible representations of SO(2) are orthonormal in the sense that
+    \begin{align*}
+        \frac{1}{2\pi}\int_{0}^{2\pi}{(U^m(\phi))}^\dagger U^n(\phi) \,d\phi = \frac{1}{2\pi}\int_{0}^{2\pi} e^{-i(n-m)x} \,d\phi = \delta_{nm}.
+    \end{align*}
+    % and complete:
     % \begin{align*}
-    %     \frac{1}{2\pi}\int_{0}^{2\pi}{(U^m(\phi))}^\dagger U^n(\phi) \,d\phi = \int_{0}^{2\pi} e^{-i(n-m)x} \,d\phi = \delta_{nm}, \\
-    %     \sum_{n\in\Z} U^n(\phi){(U^n(\phi'))}^\dagger = \sum_{n\in\Z} e^{-in(\phi-\phi')} 
+    %     \sum_{n} U^n(\phi){(U^n(\phi'))}^\dagger = \sum_{n} e^{-in(\phi-\phi')}
     % \end{align*}
+    % Since SO(2) is a continuous group where the group elements are labelled by the continuous parameter $\phi$, we must integrate over all possible values of $\phi$ to obtain such relations. 
 
     \subsection{Multivalued representations}
     If we restrict the periodic condition on $U$ to $U(2n\pi) = E$ for some $n\in\Z$, then the resulting 1-dimensional irreducible representations of SO(2) become multivalued. Consider the same construction of $U^m$ in \cref{sub:irr_so2}, but now with $m\in\Q$. For $m=\frac{1}{2}$, we have
@@ -163,9 +167,11 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     The physical implications of these irreducible representations will become clear when generalizing to rotations in 3-dimensional space in \cref{sub:phys_J}. Next, a similar construction will be done for the group of continuous translations in one dimension.
 
     \subsection{State vector decomposition}\label{sub:SO2_decomp}
-    The concept of $J$ generating 2-dimensional rotations is summarized in the following example. Consider a particle in a plane with polar coordinates $(r,\phi)$. The state vector of this particle is $\ket{\phi}$, where the coordinate $r$ is suppressed in the vector notation, as the action of SO(2) preserves vector lengths. Note that the state vector $\ket{\phi}$ belongs to some Hilbert space $V$ that is not necessarily the same as the physical space of the particle. Then $\ket{\phi}$ can be decomposed using $J$ as
+    The concept of $J$ generating 2-dimensional rotations is summarized in the following example. Consider a particle in a plane with polar coordinates $(r,\phi)$. The state vector of this particle is $\ket{\phi}$, where the coordinate $r$ is suppressed in the vector notation, as the action of SO(2) preserves vector lengths. Note that the state vector $\ket{\phi}$ belongs to some Hilbert space $V$ that is not necessarily the same as the physical space of the particle.
+    
+    In general, we have $U(\theta)\ket{\phi} = \ket{\theta+\phi}$, as expected. Then $\ket{\phi}$ can be decomposed as
     \begin{align*}
-        \ket{\phi} = e^{-iJ\phi}\ket{\mathcal{O}},
+        \ket{\phi} = U(\phi)\ket{\mathcal{O}} = e^{-iJ\phi}\ket{\mathcal{O}},
     \end{align*}
     where $\ket{\mathcal{O}}$ is a ``standard'' state vector aligned with a pre-selected $x$-axis. The triviality of this result must not be overlooked, for it is important to note that any arbitrary state vector can be decomposed into $e^{-iJ\phi}$ acting on $\ket{\mathcal{O}}$~\cite{Tung1985}. This notion generalizes beyond the 2-dimensional case, and will be revisited in the more general case of rotations in 3 spatial dimensions in \cref{sub:phys_J}.
 
@@ -175,13 +181,63 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     \end{align*}
     where
     \begin{align*}
-        \braket{m|\phi} = \braket{m|U(\phi)|0} = \braket{U^\dagger(\phi)m|0} = e^{-im\phi}\braket{m|0}
+        \braket{m|\phi} = \braket{m|U(\phi)|\mathcal{O}} = \braket{U^\dagger(\phi)m|\mathcal{O}} = e^{-im\phi}\braket{m|\mathcal{O}}
     \end{align*}
     is the projection of $\ket{\phi}$ onto the eigenvector $\ket{m}$ of $J$. Note that $m$ is left unspecified, as the allowable values of $m$ depend on the representation of SO(2) and thus the vector space $V$.
 
     By construction, the eigenstates of $J$ are invariant under rotations, so we are free to modify them up to a phase factor (i.e., pick  different representatives from the eigenspaces). For example, we can choose the basis vector $\ket{m}$ to instead be $e^{ikm}\ket{m}$ for some $k\in\R$.  With this strategy, all eigenvectors $\ket{m}$ can be oriented along the direction of $\ket{\mathcal{O}}$ so that $\braket{m|\mathcal{O}} = 1$. Again, note that the inner product $\braket{m|\mathcal{O}}$ is a projection of the \textit{state} $\ket{m}$ onto the \textit{state} $\ket{\mathcal{O}}$, not to be confused with the projection of position vectors in the physical space of this system.
 
+    Thus, we can write the state vector $\ket{\phi}$ as
+    \begin{align}
+        \ket{\phi} = \sum_{m} e^{-im\phi}\ket{m}.\label{eq:phi2m}
+    \end{align}
+    As a result, the action of $J$ on the state $\ket{\phi}$ can be written as
+    \begin{align*}
+        J\ket{\phi} = \sum_{m} e^{-im\phi} J\ket{m} = \sum_{m} m e^{-im\phi}\ket{m} = \sum_{m} i \frac{d}{d\phi} \left( e^{-im\phi}\ket{m} \right) = i\frac{d}{d\phi}\ket{\phi}.
+    \end{align*}
 
+    For fixed $m$, multiplying \cref{eq:phi2m} by $\frac{1}{2\pi} e^{im\phi}$ and integrating over $\phi$, we obtain
+    \begin{align*}
+        \frac{1}{2\pi}\int_{0}^{2\pi} e^{im\phi}\ket{\phi} \,d\phi 
+            &= \sum_n \left( \frac{1}{2\pi}\int_{0}^{2\pi}e^{-i(n-m)\phi} \right)\ket{n} \\
+            &= \sum_n \left( \frac{1}{2\pi}\int_{0}^{2\pi}{(U^m(\phi))}^\dagger U^n(\phi) \right)\ket{n} \\
+            &= \sum_n \delta_{mn}\ket{n} = \ket{m}.
+    \end{align*}
+
+    Then for an arbitrary state $\ket{\psi}\in V$, it follows that
+    \begin{align*}
+        \ket{\psi} = \sum_m \braket{m|\psi}\ket{m} 
+            &= \frac{1}{2\pi}\int_{0}^{2\pi} \left( \sum_m e^{im\phi}\braket{m|\psi} \right)\ket{\phi} \,d\phi \\
+            &= \frac{1}{2\pi}\int_{0}^{2\pi} \left( \sum_m \braket{\phi|m}\braket{m|\psi} \right)\ket{\phi} \,d\phi \\
+            &= \frac{1}{2\pi}\int_{0}^{2\pi} \bra{\phi}\Biggl( \underbrace{\sum_m \ket{m}\bra{m}}_{\textrm{identity}} \Biggr)\ket{\psi}\ket{\phi} \,d\phi \\
+            &= \frac{1}{2\pi}\int_{0}^{2\pi} \braket{\phi|\psi}\ket{\phi} \,d\phi \\
+            &= \frac{1}{2\pi}\int_{0}^{2\pi} \psi(\phi)\ket{\phi} \,d\phi,
+    \end{align*}
+    where $\braket{\phi|\psi}$ is written as the \textit{wavefunction} $\psi(\phi)$ since $\phi$ is a continuous parameter.
+    % \begin{align*}
+    %     \psi(\phi) = \braket{\phi|\psi} = \frac{1}{2\pi}\int_{0}^{2\pi} e^{im\phi}\ket{\phi} \,d\phi
+    % \end{align*}
+
+    \textcolor{red}{Add wavefunction description (to appendix?) for uncountably infinite-dim Hilbert space. How you can write $\braket{x|\Psi}$ as just the \textit{wavefunction} $\Psi(x)$ since $x$ is a continuous variable.} \textcolor{blue}{Also, add QM citations. Textbooks, etc.}
+
+    Then the action of $J$ generalizes to
+    \begin{align*}
+        \braket{\phi|J|\psi} = \braket{J^\dagger \phi|\psi} = \frac{1}{i}\frac{d}{d\phi}\braket{\phi|\psi} = -i\frac{d}{d\phi}\psi(\phi).
+    \end{align*}
+    
+    If we let $x$ and $y$ be the Cartesian coordinates of the plane, then
+    \begin{align*}
+        \phi = \arctan\left(\frac{y}{x}\right) \implies \frac{d}{d\phi} 
+            &= \frac{d}{dx}\frac{\partial x}{\partial \phi} + \frac{d}{dy}\frac{\partial y}{\partial \phi} \\
+            &= -y\frac{d}{dx} + x\frac{d}{dy} \\
+            &= \vec{r}\times\vec{\nabla},
+    \end{align*}
+    where $\vec{r} = (x,y)$ and $\vec{\nabla} = \left(\frac{d}{dx},\frac{d}{dy}\right)$. Therefore, the general form of $J$ is
+    \begin{align*}
+        J = -i \frac{d}{d\phi} = -i \left( \vec{r}\times\vec{\nabla} \right).
+    \end{align*}
+    This result is of particular significance to quantum mechanics, as $J$ has the same form as the orbital \textit{angular momentum operator} $\hat{L}_z$ (normalized to $\hbar$ here), where $z$ is the axis of rotation of the plane.
+    
 
     \section{Continuous 1-dimensional translations}
     % \begin{itemize}
@@ -235,6 +291,10 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     %     \int_{-\infty}^{\infty}{(U^{p'}(x))}^\dagger U^p(x) \,dx = \int_{-\infty}^{\infty} e^{-i(p-p')x} \,dx 
     % \end{align*}
 
+    \section{Symmetry, invariance, and conservation laws}
+
+    According to Ehrenfest's theorem (see \cref{sec:conserved_quantities}), if a physical system represented by a Hamiltonian $H$ is invariant under (SO(2)) rotations, then $[H,R(\phi)] = 0$ for all $\phi\in\R$ and hence $[H,J]=0$. Therefore, angular momentum is conserved.
+
 
     \section{Extend to SO(3)!}\label{sub:phys_J}
     % \subsection{Application of SO(2) to quantum mechanics}\label{sub:phys_J}
@@ -248,54 +308,3 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
         \item \textcolor{red}{Regarding the above bullet point, need to do SO(3) Lie algebra stuff in order to discuss ladder operators and hence the connection to the discretized angular momentum values!}
         \item \textcolor{purple}{Not until SO(3).} Example for $U^{1/2}$, or in physics $j=\frac{1}{2}$. The spin state of an electron can either be up $+U^{1/2}$ or down $-U^{1/2}$, which \textcolor{purple}{corresponds to the two-valued-ness} of the representation. A rotation of $2\pi$ results in a change of sign (a change in spin state). Moreover, the spin state of a spin-$\frac{1}{2}$ particle is described by a \textit{spinor} (a two-component complex-valued vector). The purely mathematical consequences of double-valued representations of SO(2) explains the emergent behavior of spinors under coordinate rotations.
     \end{itemize}
-
-    \section{Conservation of momentum}
-
-    According to Ehrenfest's theorem (see \cref{sec:conserved_quantities}), if a physical system represented by a Hamiltonian $H$ is invariant under (SO(2)) rotations, then $[H,R(\phi)] = 0$ for all $\phi\in\R$ and hence $[H,J]=0$. Therefore, angular momentum is conserved.
-
-    % In the case of $J=\begin{bmatrix}
-    %     0 & -i \\
-    %     i & 0
-    % \end{bmatrix}$, we have
-    % \begin{align*}
-    %     [H,J] &= \begin{bmatrix}
-    %         E_1 & 0 \\
-    %         0 & E_2
-    %         \end{bmatrix}\begin{bmatrix}
-    %             0 & -i \\
-    %             i & 0
-    %         \end{bmatrix} - \begin{bmatrix}
-    %             0 & -i \\
-    %             i & 0
-    %         \end{bmatrix}\begin{bmatrix}
-    %             E_1 & 0 \\
-    %             0 & E_2
-    %         \end{bmatrix} \\
-    %     &= \begin{bmatrix}
-    %         0 & -iE_1 \\
-    %         iE_2 & 0
-    %     \end{bmatrix} - \begin{bmatrix}
-    %         0 & -iE_2 \\
-    %         iE_1 & 0
-    %     \end{bmatrix}
-    %     % [H,J] &= \begin{bmatrix}
-    %     %     H_{11} & H_{12} \\
-    %     %     H_{21} & H_{22}
-    %     % \end{bmatrix}\begin{bmatrix}
-    %     %     0 & -i \\
-    %     %     i & 0
-    %     % \end{bmatrix} - \begin{bmatrix}
-    %     %     0 & -i \\
-    %     %     i & 0
-    %     % \end{bmatrix}\begin{bmatrix}
-    %     %     H_{11} & H_{12} \\
-    %     %     H_{21} & H_{22}
-    %     % \end{bmatrix} \\
-    %     % &= \begin{bmatrix}
-    %     %     iH_{12} & -iH_{11} \\
-    %     %     iH_{22} & -iH_{21}
-    %     % \end{bmatrix} - \begin{bmatrix}
-    %     %     -iH_{21} & -iH_{22} \\
-    %     %     iH_{11} & iH_{12}
-    %     % \end{bmatrix}
-    % \end{align*}
