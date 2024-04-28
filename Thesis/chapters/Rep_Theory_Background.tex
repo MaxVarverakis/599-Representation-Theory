@@ -46,10 +46,10 @@ The above example involves a finite group. Infinite groups can also have represe
 \begin{example}
     Let $G$ be the group of continuous rotations in the $xy$-plane about the origin. We can write $G = \{R(\phi),0\leq\phi\leq2\pi\}$ with group operation $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$. Consider the 2-dimensional Euclidean vector space $V_2$. Then we define a representation of $G$ on $V_2$ by the familiar rotation operation
     \begin{align}
-        \hat{e}_1' &= X(\phi)\hat{e}_1 = \hat{e}_1\cdot\cos\phi + \hat{e}_2\cdot\sin\phi\\
-        \hat{e}_2' &= X(\phi)\hat{e}_2 = -\hat{e}_1\cdot\sin\phi + \hat{e}_2\cdot\cos\phi,
+        \e_1' &= X(\phi)\e_1 = \e_1\cdot\cos\phi + \e_2\cdot\sin\phi\\
+        \e_2' &= X(\phi)\e_2 = -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi,
     \end{align}
-    where $\hat{e}_1$ and $\hat{e}_2$ are orthonormal basis vectors of $V_2$. This gives us the matrix representation
+    where $\e_1$ and $\e_2$ are orthonormal basis vectors of $V_2$. This gives us the matrix representation
     \begin{equation}
         D(\phi) = \begin{bmatrix}
             \cos\phi & -\sin\phi\\
@@ -58,7 +58,7 @@ The above example involves a finite group. Infinite groups can also have represe
     \end{equation}
     To further illuminate this representation, if we consider an arbitrary vector $\hat{e_i}x^i=\vec{x}\in V_2$, then we have
     \begin{equation}
-        \vec{x}\,' = X(\phi)\vec{x} = \hat{e}_j{x'}^j,
+        \vec{x}\,' = X(\phi)\vec{x} = \e_j{x'}^j,
     \end{equation}
     where ${x'}^j = {{D(\phi)}^j}_i x^i$.
     \textcolor{red}{Can probably simplify the notation}

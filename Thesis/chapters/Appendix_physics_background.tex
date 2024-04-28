@@ -3,6 +3,37 @@
 \section{Dirac notation}
 Bra-ket notation, ``Hilbert space'', inner product, etc.
 
+\section{Commutator Identities}
+\begin{align}
+    [A,B] &= -[B,A] \label{eq:BA} \\
+    [A,-B] &= -AB + BA = -[A,B].\label{eq:AmB} \\
+    \nonumber\\
+    [A,B+C] 
+        &= A(B+C) - (B+C)A \nonumber\\
+        &= AB + AC - BA - CA \nonumber\\
+        &= AB - BA + AC - CA \nonumber\\
+        &= [A,B] + [A,C]. \label{eq:ABpC} \\
+    \nonumber\\
+    [A^2,B] 
+        &= [AA,B] \nonumber\\
+        &= AAB - BAA \nonumber\\
+        &= AAB - ABA + ABA - BAA \nonumber\\
+        &= A(AB-BA) + (AB-BA)A \nonumber\\
+        &= A[A,B] + [A,B]A.\label{eq:A2B}\\
+    \nonumber\\
+    [A,BC]
+        &= ABC - BCA \nonumber\\
+        &= ABC - BAC + BAC - BCA \nonumber\\
+        &= (AB - BA)C + B(AC - CA).\label{eq:ABC}
+    %     \\
+    % [A,B^2] 
+    %     &= [A,BB] \nonumber\\
+    %     &= ABB - BBA \nonumber\\
+    %     &= ABB - BAB + BAB - BBA \nonumber\\
+    %     &= (AB-BA)B + B(AB-BA) \nonumber\\
+    %     &= [A,B]B + B[A,B].
+\end{align}
+
 \section{Ehrenfest's theorem and conserved quantities}\label{sec:conserved_quantities}
 
     % \begin{itemize}
