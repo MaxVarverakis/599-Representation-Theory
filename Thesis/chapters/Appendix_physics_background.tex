@@ -34,6 +34,21 @@ Bra-ket notation, ``Hilbert space'', inner product, etc.
     %     &= [A,B]B + B[A,B].
 \end{align}
 
+\section{Commutation relations for SO(3)}\label{sec:SO3_comms}
+\begin{align*}
+    [y,\hat{p}_y] &= y\hat{p}_y - \hat{p}_y y = \cancel{y\hat{p}_y} - \bigl(\overbrace{-i\hbar + \cancel{y\hat{p}_y}}^{\textrm{product rule}}\bigr) = i\hbar, \\
+    \\
+    [\hat{L}_z,\hat{p}_z]
+        &= [x\hat{p}_y - y\hat{p}_x, \hat{p}_z] = [x\hat{p}_y, \hat{p}_z] - [y\hat{p}_x, \hat{p}_z] = 0. \\
+    \\
+    [\hat{L}_z, z] &= [x\hat{p}_y - y\hat{p}_x, z] = [x\hat{p}_y, z] - [y\hat{p}_x, z] = 0. \\
+    \\
+    [\hat{L}_z,\hat{p}_y] 
+        &= [x\hat{p}_y - y\hat{p}_x, \hat{p}_y] = \cancelto{0}{[x\hat{p}_y, \hat{p}_y]} - [y\hat{p}_x, \hat{p}_y] = -y\cancelto{0}{[\hat{p}_x, \hat{p}_y]} - [y, \hat{p}_y]\hat{p}_x = -i\hbar\hat{p}_x. \\
+    \\
+    [\hat{L}_z, y] &= [x\hat{p}_y - y\hat{p}_x, y] = [x\hat{p}_y, y] - \cancelto{0}{[y\hat{p}_x, y]} = x[\hat{p}_y, y] + \cancelto{0}{[x, y]}\hat{p}_y = -i\hbar x.
+\end{align*}
+
 \section{Ehrenfest's theorem and conserved quantities}\label{sec:conserved_quantities}
 
     % \begin{itemize}

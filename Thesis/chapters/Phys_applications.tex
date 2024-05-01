@@ -123,7 +123,7 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
         &\iff e^{iJ^\dagger\phi}e^{-iJ\phi} = e^{-i(J-J^\dagger)\phi} = 1 \\
         &\iff J = J^\dagger.
     \end{align*}
-    Therefore, not only must $U$ be unitary, but the generator $J$ must be Hermitian. This fact becomes especially important in the \textcolor{red}{physical interpretation of the representations of $\sotwo$} in \cref{sub:phys_J}.
+    Therefore, not only must $U$ be unitary, but the generator $J$ must be Hermitian. This fact becomes especially important in the physical interpretation of the representations of 3-dimensional rotations in \cref{sec:SO3}.
 
     According to \cref{cor:abelian_irred}, the abelian nature of SO(2) implies that all of its irreducible representations are one-dimensional. Then for any $\ket{\alpha}\in V$, the minimal subspace containing $\ket{\alpha}$ that is invariant under SO(2) is one-dimensional. Hence,
     \begin{align*}
@@ -164,7 +164,7 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     
     Despite this ambiguity in the realization of rotations in SO(2), the periodicity condition is still satisfied, as $U^{1/2}(4\pi) = e^{i2\pi} = 1$. In other words, the double-valued representation of SO(2) traverses the unit circle twice before returning to the identity. In general, $U^{n/m}$ is an $m$-valued representation of SO(2) for $\frac{n}{m}\in\Q$ and $\gcd(n,m)=1$.
     
-    The physical implications of these irreducible representations will become clear when generalizing to rotations in 3-dimensional space in \cref{sub:phys_J}. Next, a similar construction will be done for the group of continuous translations in one dimension.
+    The physical implications of these irreducible representations will become clear when generalizing to rotations in 3-dimensional space in \cref{sec:SO3}. Next, a similar construction will be done for the group of continuous translations in one dimension.
 
     \subsection{State vector decomposition}\label{sub:SO2_decomp}
     The concept of $J$ generating 2-dimensional rotations is summarized in the following example. Consider a particle in a plane with polar coordinates $(r,\phi)$. The state vector of this particle is $\ket{\phi}$, where the coordinate $r$ is suppressed in the vector notation, as the action of SO(2) preserves vector lengths. Note that the state vector $\ket{\phi}$ belongs to some Hilbert space $V$ that is not necessarily the same as the physical space of the particle.
@@ -173,7 +173,7 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     \begin{align*}
         \ket{\phi} = U(\phi)\ket{\mathcal{O}} = e^{-iJ\phi}\ket{\mathcal{O}},
     \end{align*}
-    where $\ket{\mathcal{O}}$ is a ``standard'' state vector aligned with a pre-selected $x$-axis. The triviality of this result must not be overlooked, for it is important to note that any arbitrary state vector can be decomposed into $e^{-iJ\phi}$ acting on $\ket{\mathcal{O}}$~\cite{Tung1985}. This notion generalizes beyond the 2-dimensional case, and will be revisited in the more general case of rotations in 3 spatial dimensions in \cref{sub:phys_J}.
+    where $\ket{\mathcal{O}}$ is a ``standard'' state vector aligned with a pre-selected $x$-axis. The triviality of this result must not be overlooked, for it is important to note that any arbitrary state vector can be decomposed into $e^{-iJ\phi}$ acting on $\ket{\mathcal{O}}$~\cite{Tung1985}. This notion generalizes beyond the 2-dimensional case, and will be revisited in the more general case of rotations in 3 spatial dimensions in \cref{sec:SO3}.
 
     Since the set of eigenvectors of $J$ form a basis for $V$, an arbitrary state $\ket{\phi}$ can be decomposed into a linear combination of the eigenvectors of $J$:
     \begin{align*}
@@ -233,9 +233,9 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
             &= (\vec{r}\times\vec{\nabla})\cdot\e_z,
     \end{align*}
     where $\vec{r} = (x,y,z)$ and $\vec{\nabla} = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right)$. Therefore, the general form of $J$ is
-    \begin{align*}
+    \begin{align}\label{eq:SO2_J}
         J = -i \frac{\partial}{\partial\phi} = -i \left( \vec{r}\times\vec{\nabla} \right)\cdot\e_z.
-    \end{align*}
+    \end{align}
     This result is of particular significance to quantum mechanics, as $J$ has the same form as the orbital \textit{angular momentum operator} $\hat{L}_z$ (normalized to $\hbar$ here), where $z$ is the axis of rotation of the plane\cite{Hall2013}.
     
 
@@ -323,7 +323,7 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     \end{align*}
     The above form of $P$ agrees with the (normalized) quantum mechanical linear momentum operator $\hat{p}$~\cite{Hall2013}.
     
-    \subsection{Generalization to 3-dimensional space}
+    \subsection{Generalization to 3-dimensional space}\label{sub:3D_translations}
     The derivation in \cref{sub:explicit_P} generalizes to 3-dimensional space, where the group of 3-dimensional translations $T_3$ is defined by
     \begin{align*}
         T(\vec{r})\ket{\vec{r}_0}
@@ -339,16 +339,16 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     \end{align*}
     produces the following relations:
     \begin{align*}
-        dT(x_\mu) = -idx_\mu T(x_\mu)P_\mu,
+        dT(x_j) = -idx_j T(x_j)P_j,
     \end{align*}
-    for $\mu=x,y,z$.
+    for $j=1,2,3$ and $(x_1,x_2,x_3) = (x,y,z)$.
     This gives the expected result, namely
     \begin{align*}
         T(\vec{r}) = e^{-iP_x x}e^{-iP_y y}e^{-iP_z z} = e^{-i\vec{P}\cdot\vec{r}},
     \end{align*}
     where the generator of 3-dimensional translations is the vector $\vec{P}=(P_x,P_y,P_z)$. The consequences of the separability of $T_3$ allows the results from \cref{sub:explicit_P} to be applied independently to each axis of translation. The intuitive generalization of $T_1$ to $T_3$ lets us immediately write down the explicit form of the generator for 3-dimensional translations. Since
     \begin{equation}
-        P_\mu = -i\frac{\partial}{\partial x_\mu},
+        P_j = -i\frac{\partial}{\partial x_j},
     \end{equation}
     we have
     \begin{equation}
@@ -357,13 +357,15 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     Again, up to $\hbar$, \cref{eq:P_3D} is precisely the quantum mechanical linear momentum operator in 3 dimensions, often denoted $\vh{p}=(\hat{p}_x,\hat{p}_y,\hat{p}_z)$.
 
 
-    \section{Symmetry, invariance, and conserved quantities}
+    \section{Symmetry, invariance, and conserved quantities}\label{sec:PJ_physical}
 
     % Armed with the linear and angular momentum operators $\vh{p}$ and $\hat{L}_z$, we can now discuss the physical implications of the representations of $T_3$ and $\sotwo$. 
     % The generators $\vec{P}$ and $J$ correspond to Hermitian operators that act on the state vectors of a quantum system. Physically, $\vec{P}$ and $J$ perform their respective transformations to the system, which  
     Physically, the generators $\vec{P}$ and $J$ alter a (quantum) system by translation and rotation. These transformations correspond to the Hermitian operators $\vh{p}$ and $\hat{L}_z$ that act on the state vectors belonging to the Hilbert space describing the system. Hence, the (real) eigenvalues of $P$ and $J$ correspond to the physical observables (measurable quantities) of linear and angular momentum, respectively. Armed with the explicit forms of these operators, the physical ramifications of the irreducible representations of $T_3$ and $\sotwo$ can now be demonstrated.
     
     According to Ehrenfest's theorem (see \cref{sec:conserved_quantities}), if a physical system represented by a Hamiltonian $\hat{H}$ is invariant under a transformation generated by an operator $\hat{A}$, then the physical observable corresponding to $\hat{A}$ is conserved. In other words, the expectation value of $\hat{A}$ is constant in time if the commutator $[\hat{H},\hat{A}] = \hat{H}\hat{A} - \hat{A}\hat{H} = 0$.
+
+    The generators obtained in previous sections fit this framework. If a Hamiltonian $\hat{H}$ is invariant under translations or rotations, then $[\hat{H}, \vec{P}] = [\hat{H},\vh{p}] = 0$ or $[\hat{H}, J] = [\hat{H}, \hat{L}_z] = 0$, respectively. Therefore, the physical observables of linear and angular momentum are conserved in systems with translational and rotational symmetry, respectively. The following are examples of physical systems that exhibit these symmetries and the conserved quantities that result from them.
     
     \subsection{Conservation of linear momentum}
     Consider a free particle in three spatial dimensions. The Hamiltonian of this system is given by
@@ -397,9 +399,9 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
             % &= \left[\frac{\vh{p}^2}{2m} + \hat{V},\vh{p}\right] = \frac{1}{2m}{\left[\vh{p}^2,\vh{p}\right]} + {[\hat{V},\vh{p}]} = 0
     \end{align*}
 
-    Therefore, linear momentum is conserved in this system. This result is expected, as the Hamiltonian of a free particle is invariant under translations in space, which are generated by $P$. The conservation of linear momentum is a direct consequence of the translational symmetry of the system.
+    Therefore, linear momentum is conserved in this system. This result is expected, as the Hamiltonian of a free particle is invariant under translations in space, which are generated by $\vec{P}$. The conservation of linear momentum is a direct consequence of the translational symmetry of the system.
 
-    \subsection{Conservation of angular momentum}
+    \subsection{Conservation of angular momentum}\label{sub:cons_ang_mom}
     Now, consider the Hamiltonian describing a free particle in confined to a radially symmetric scalar potential $V(\vec{r})$.
     % If we consider a harmonic potential, the classical Hamiltonian is given by
     % \begin{align*}
@@ -421,16 +423,18 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     \begin{align*}
         \hat{L}_z = -i\hbar \frac{\partial}{\partial\phi},
     \end{align*}
-    where $\phi$ is the azimuthal angle in the $xy$-plane. The following result is immediate:
+    where $\phi$ is the polar angle in the $xy$-plane. The following result is immediate:
     \begin{align*}
         [V(\vec{r}),\hat{L}_z] = 0,
     \end{align*}
-    since $V(\vec{r})$ does not have any $\phi$-dependence.
-    
+    since $V(\vec{r})$ does not have $\phi$-dependence.
+
     Recall that we can express $\hat{L}_z$ in Cartesian coordinates as
-    \begin{align*}
-        \hat{L}_z = -i\hbar \left( \vh{r}\times\vh{p} \right)\cdot\e_z = -i\hbar\left( -y\frac{\partial}{\partial x} + x\frac{\partial}{\partial y} \right) =  -y \hat{p}_x + x \hat{p}_y.
-    \end{align*}
+    \begin{align}\label{eq:Lz_cartesian}
+        \hat{L}_z = -i\hbar \left( \vh{r}\times\vh{p} \right)\cdot\e_z = -i\hbar\left( -y\frac{\partial}{\partial x} + x\frac{\partial}{\partial y} \right) =  -y \hat{p}_x + x \hat{p}_y,
+    \end{align}
+    where the \textit{position operator} is defined as $\hat{\vec{r}}\ket{\vec{r}} = \vec{r}\ket{\vec{r}}$. To reduce clutter, the components $\hat{x}, \hat{y}, \hat{z}$ of $\vh{r}$ are written without the hats.
+
     First, we can reduce the commutator $[\vh{p}^2,\hat{L}_z]$ to a simpler form:
     \begin{align*}
         [\vh{p}^2,\hat{L}_z]
@@ -457,7 +461,7 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     \end{align*}
     This result agrees with the previous claim that the emergence of conservation of angular momentum is due to the rotational symmetry of the system.
     
-    The profound connection between symmetries and conserved quantities is a fundamental principle in physics, and the results obtained in this section highlight the significance of representation theory in physics. The irreducible representations of $T_3$ and $\sotwo$ provided the necessary mathematical framework to derive conservation laws without having a preconceived notion of the physical universe.
+    The profound connection between symmetries and conserved quantities is a fundamental principle in physics, and the results obtained in this section highlight the significance of representation theory in physics. The irreducible representations of $T_3$ and $\sotwo$ provide the necessary mathematical framework to derive conservation laws without a preconceived notion of the physical universe.
 
     % \subsection{Fancy minimal prescription}
     % Gauge-invariant classical version for vector potential $\vec{A}$: $\mathcal{H} = \frac{{(\vec{p}-q\vec{A})}^2}{2m}$
@@ -480,20 +484,169 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
     %         &= -i\hbar\left( \vh{r}^2\frac{\partial}{\partial x}\ket{x} - \frac{\partial}{\partial x}\left( x^2\ket{x} \right) \right) \\
     % \end{align*}
 
-    \section{Outline}
-    \begin{enumerate}
-        \item \sout{Explicit form of $P$.}
-        \item Explicit Hamiltonians, conservation, symmetry, invariance section. \textcolor{blue}{Talk about observables? Did I do that already for SO(2)?}
-        \item SO(3) construction.
-        \item Lie group/algebra definitions and contextualized in the above.
-        \item Finally, the physical applications of the above. Meaning the connection of irreducible reps to spin states, quantization of observables (angular momentum), etc.
-        \item Then if roughly finished with the main goals/content of this chapter, \textbf{need} to go back to chapter 1 and do Schur's lemmas (if needed?) and prove the \textcolor{purple}{correspondence between irreducible representations and conjugacy classes}.
-    \end{enumerate}
-
-    \section{Extend to SO(3)!}\label{sub:phys_J}
     % \subsection{Application of SO(2) to quantum mechanics}\label{sub:phys_J}
-    The generalization of the SO(2) group to quantum mechanics is the unitary group U(1), which is the group of continuous phase transformations. The group elements of U(1) are complex numbers of unit modulus, similar to that of the irreducible representations of SO(2) found in \cref{sub:irr_so2}. The requirement of unitary matrices in quantum mechanics is a consequence of the fact that physical transformations, such as rotations and translations, must preserve probabilities. In quantum mechanics, probabilities are encoded in the norm of the state vectors. By definition, unitary transformations preserve the norm of vectors, which is why they represent physical transformations in quantum mechanics. \textcolor{red}{Move that second half to appendix and combine with discussion of braket notation et al.?}
+    % The generalization of the SO(2) group to quantum mechanics is the unitary group U(1), which is the group of continuous phase transformations. The group elements of U(1) are complex numbers of unit modulus, similar to that of the irreducible representations of SO(2) found in \cref{sub:irr_so2}. The requirement of unitary matrices in quantum mechanics is a consequence of the fact that physical transformations, such as rotations and translations, must preserve probabilities. In quantum mechanics, probabilities are encoded in the norm of the state vectors. By definition, unitary transformations preserve the norm of vectors, which is why they represent physical transformations in quantum mechanics. \textcolor{red}{Move that second half to appendix and combine with discussion of braket notation et al.?}
+    \section{3D rotations and the group SO(3)}\label{sec:SO3}
+    As was done for translations in \cref{sub:3D_translations}, we can generalize SO(2) to rotations in 3-dimensional space, albeit with less triviality. The group of rotations in Euclidean 3-space, which is synonymous with 3-dimensional linear operators that fix the length of vectors, is a \textit{special orthogonal group in 3D}, denoted by SO(3).
 
+    Consider a rotation in three dimensions about an axis (vector) $\vec{n}$ by an angle $\theta$. The rotation $R_{\vec{n}}(\theta)$ is a linear transformation that maps a vector $\vec{v}$ to a new vector $\vec{v}'$ such that $\size{\vec{v}}=\size{\vec{v}'}$. The rotation angle $\theta\in[0,2\pi)$ is a continuous parameter, and every one-parameter subgroup of SO(3) can be written as $\left\{ R_{\vec{n}}(\theta) \st \theta\in[0,2\pi) \right\}$ for fixed $\vec{n}$.
+    
+    The set of rotations in a plane perpendicular $\vec{n}$ is clearly isomorphic to SO(2). Thus, for a fixed axis of rotation $\vec{n}$, an infinitesimal rotation $R_{\vec{n}}(d\theta)$ can be used to obtain a generator of rotations about $\vec{n}$. The derivation is identical to that of $J$ for SO(2) in \cref{sub:inf_rot} since the group of rotations about $\vec{n}$ is isomorphic to SO(2). Hence, we can label the generator of rotations about $\vec{n}$ as $J_{\vec{n}}$, and the corresponding results from \cref{sec:SO2} can be applied to $J_{\vec{n}}$. Most notably, for arbitrary $\theta$, we can write
+    \begin{align*}
+        R_{\vec{n}}(\theta) = e^{-i\theta J_{\vec{n}}}.
+    \end{align*}
+
+    Consider the standard basis vectors $\e_x,\e_y,\e_z$ in 3-dimensional Euclidean space. The generators of rotations about the $x,y,z$ axes are denoted by $J_x,J_y,J_z$, respectively. With some work~\cite{Tung1985}, it can be shown that the generator $J_{\vec{n}}$ is decomposable into $J_x,J_y,J_z$ for any $\vec{n}$ by projection onto the standard basis:
+    \begin{equation}
+        J_{\vec{n}} = n_x J_x + n_y J_y + n_z J_z,
+    \end{equation}
+    where $n_\mu = \vec{n}\cdot\e_\mu$ for $\mu=x,y,z$.
+    The general rotation operator about $\vec{n}$ becomes
+    \begin{align*}
+        R_{\vec{n}}(\theta) = e^{-i\theta(n_x J_x + n_y J_y + n_z J_z)}.
+    \end{align*}
+    As in \cref{sub:irr_so2}, the unitarity of the rotation operator requires that the generators $J_x,J_y,J_z$ be Hermitian and therefore have real eigenvalues.
+
+    Therefore, the set $\left\{ J_x,J_y,J_z \right\}$ forms a basis for the generators of the one-parameter abelian subgroups of SO(3). As a result, we have a \textcolor{red}{representation} of SO(3) defined by the generator $\vec{J} = (J_x,J_y,J_z)$. Namely, for an arbitrary rotation $R_{\vec{n}}(\theta)$, we can write
+    \begin{align*}
+        R_{\vec{n}}(\theta) = e^{-i\theta\,\vec{n}\cdot\vec{J}}.
+    \end{align*}
+    
+    \subsection{Explicit form of $\vec{J}$}\label{sec:SO3_J}
+    % For generality, consider $\mu,\nu,\lambda$ as placeholders, each one of $x,y,z$. 
+    Since the subspace generated by each component of $\vec{J}$ is isomorphic to SO(2), we can use the same arguments made in \cref{sub:SO2_decomp} to obtain the explicit forms of the generators $J_x,J_y,J_z$. For $\mu=x,y,z$, \cref{eq:SO2_J} generalizes to rotations about $\e_\mu$ as follows:
+    \begin{align*}
+        J_\mu = -i \frac{\partial}{\partial\phi_\mu} = -i \left( \vec{r}\times\vec{\nabla} \right)\cdot\e_\mu,
+    \end{align*}
+    where $\phi_\mu$ is the polar angle in the plane perpendicular to $\e_\mu$. This allows an explicit expression for $\vec{J}$:
+    \begin{align}
+        \vec{J} = -i \left( \vec{r}\times\vec{\nabla} \right),
+    \end{align}
+    which, up to $\hbar$, is the quantum mechanical angular momentum operator in 3 dimensions~\cite{Hall2013}, often written as $\vh{L}=(\hat{L}_x,\hat{L}_y,\hat{L}_z)$.
+
+    \subsection{Commutation relations of SO(3) generators}\label{sub:SO3_comms}
+    The algebraic structure of the representation of SO(3) in terms of $\vec{J}$ is defined by the commutation relations of the basis generators $J_x,J_y,J_z$. By studying the underlying algebraic relationships between the generators, we can gain insight into the irreducible representations of SO(3) and the physical implications of these representations.
+    
+    A consequence of the correspondence found in \cref{sec:SO3_J} is that the commutation relations of the generators $J_x,J_y,J_z$ are identical to those of the angular momentum operators $\hat{L}_x,\hat{L}_y,\hat{L}_z$ up to $\hbar$. First, note that \cref{eq:Lz_cartesian} can be generalized to each component of $\vec{L}$:
+    \begin{align}
+        \hat{L}_x &= y \hat{p}_z - z \hat{p}_y, \\
+        \hat{L}_y &= z \hat{p}_x - x \hat{p}_z, \\
+        \hat{L}_z &= x \hat{p}_y - y \hat{p}_x.
+    \end{align}
+    % where $\mu,\nu,\lambda$ are cyclic permutations of $x,y,z$.
+    Thus, we can write
+    \begin{align}
+        \vh{L} &= \vh{r}\times\vh{p}.
+    \end{align}
+
+    The commutation relations of the angular momentum operators can then be found by direct computation:
+    \begin{align*}
+        [\hat{L}_z,\hat{L}_x]
+            &= [\hat{L}_z, y \hat{p}_z-z\hat{p}_y] \\
+            &= [\hat{L}_z, y \hat{p}_z] - [\hat{L}_z, z\hat{p}_y] \\
+            &= y[\hat{L}_z, \hat{p}_z] + [\hat{L}_z, y]\hat{p}_z - z[\hat{L}_z, \hat{p}_y] - [\hat{L}_z, z]\hat{p}_y \\
+            &= 0 - i\hbar x\hat{p}_z + i\hbar z\hat{p}_x + 0 \\
+            &= i\hbar(z\hat{p}_x - x\hat{p}_z) = i\hbar\hat{L}_y,
+    \end{align*}
+    where the remaining details can be found in \cref{sec:SO3_comms}. The appropriate permutation of the indices gives the other commutation relations. Altogether, the commutation relations of the angular momentum operators are
+    \begin{align}
+        [\hat{L}_x,\hat{L}_y] &= i\hbar\hat{L}_z, \label{eq:comLz} \\
+        [\hat{L}_y,\hat{L}_z] &= i\hbar\hat{L}_x, \label{eq:comLx} \\
+        [\hat{L}_z,\hat{L}_x] &= i\hbar\hat{L}_y. \label{eq:comLy}
+    \end{align}
+    These commutation relations are identical to those of the generators $J_x,J_y,J_z$ up to $\hbar$.
+
+    \subsection{Irreducible representations of SO(3)}
+    Due to the nontrivial interaction between $J_x,J_y,J_z$, the irreducible representations of SO(3) are not as straightforward to determine as those of SO(2). However, the commutation relations in \cref{eq:comLz,eq:comLx,eq:comLy} provide the necessary foundation to proceed with the following analysis.
+
+    Let $V$ be a finite-dimensional vector space corresponding to a representation of SO(3). The generators $J_x,J_y,J_z$ act on $V$ as linear operators, and the $J$-analogue of \cref{eq:comLz,eq:comLx,eq:comLy} must be satisfied. To obtain an irreducible representation of SO(3), we seek a subspace of $V$ that is invariant under SO(3) rotations. Equivalently, a subspace of $V$ that is invariant under the action of $J_x,J_y,J_z$ will be invariant under SO(3).
+
+    The most straightforward procedure for constructing an invariant subspace of $V$ is by choosing a ``standard'' vector that is an eigenvector of one of the generators, and then applying SO(3) operations to generate the rest of the basis~\cite{Tung1985}. As is customary in physics, we choose the $z$-axis as the standard axis of rotation.
+
+    Let $\ket{m}$ be a normalized eigenvector of $J_z$, in which $J_z\ket{m} = m\ket{m}$ for some real number $m$. For reasons presently unknown, define a new operator
+    \begin{align*}
+        J^2 = \vec{J}\cdot\vec{J} = J_x^2 + J_y^2 + J_z^2.
+    \end{align*}
+    It follows that
+    \begin{align*}
+        [J^2,J_z] 
+            &= [J_x^2 + J_y^2 + J_z^2, J_z] \\
+            &= [J_x^2,J_z] + [J_y^2,J_z] \\
+            &= J_x [J_x,J_z] + [J_x,J_z]J_x + J_y [J_y,J_z] + [J_y,J_z]J_y \\
+            &= -i J_x J_y -i J_y J_x + i J_y J_x + i J_x J_y = 0.
+    \end{align*}
+    A relabeling of $z$ with $x$ and $y$ yields an identical result. Since $J^2$ commutes with $J_x,J_y,J_z$, it follows that $J^2$ commutes with any linear combination of $J_x,J_y,J_z$. Therefore, $J^2$ commutes with all SO(3) rotations.
+
+    As shown in \cref{sec:conserved_quantities}, commuting operators have a common set of eigenvectors. In this case, we choose the common eigenvectors of $J^2$ and $J_z$ as the basis vectors of the invariant subspace of $V$. At this point, we have one eigenvector $\ket{m}$ of $J_z$ and $J^2$. To obtain the other eigenvectors that span the invariant subspace, we first define two more operators. Let
+    \begin{equation}
+        J_\pm = J_x \pm i J_y.
+    \end{equation}
+    These operators have the following properties~\cite{Tung1985}:
+    \begin{align*}
+        [J_z, J_\pm] &= [J_z, J_x] \pm i[J_z, J_y] = i J_y \pm i(-i J_x) = J_\pm, \\
+        [J_+, J_-] &= [J_x + i J_y, J_x - i J_y] = i[J_x, J_y] - i[J_y, J_x] = 2i J_z, \\
+        J^2 
+            &= J_z^2 + J_x^2 + J_y^2 \\
+            &= J_z^2 + J_+ J_- + i(J_y J_x - J_x J_y) \\
+            &= J_z^2 + J_+ J_- + i(-i J_z) \\
+            &= \textcolor{red}{J_z^2 + J_- J_+ + J_z} \\
+            &= \textcolor{red}{J_z^2 + J_+ J_- - J_z} \\
+        J_\pm^\dagger &= J_\mp.
+    \end{align*}
+    
+    Notice that
+    \begin{align*}
+        J_z J_\pm\ket{m} &= [J_z,J_\pm]\ket{m} + J_\pm J_z\ket{m} \\
+        &= \pm J_\pm\ket{m} + m J_\pm\ket{m} \\
+        &= (m\pm 1)J_\pm\ket{m}.
+    \end{align*}
+    Therefore, $J_\pm\ket{m}$ are either eigenstates of $J_z$ with eigenvalue $m\pm 1$ or zero. The name of $J_\pm$ as the \textit{ladder operators} is justified by the fact that they raise or lower the eigenvalue of $J_z$ by one unit as if climbing the rungs of a ladder. Assume that $J_+\ket{m}\neq 0$. Then the eigenvector $J_+\ket{m}$ can be normalized and written as $\ket{m+1}$. Similarly, $\ket{m-1}$ can be defined as $J_-\ket{m}$, assuming it is nonzero.
+
+    With the ladder operators, we can generate a set of eigenvectors of $J_z$ (and $J^2$) by repeated application on the standard eigenvector $\ket{m}$. Since $V$ is assumed to be finite, this process must terminate at some point. Let $j$ denote the largest eigenvalue of $J_z$ in the invariant subspace, and similarly let $l$ denote the lowest. In other words, we have
+    \begin{align*}
+        J_+\ket{j} = 0, \quad J_-\ket{l} = 0,
+    \end{align*}
+    so that any further application of the corresponding ladder operator returns zero.
+    
+    The span of eigenvectors $\left\{ \ket{l}, \ket{l+1}, \dots, \ket{j-1}, \ket{j} \right\}$ is indeed an invariant subspace of $V$ under SO(3) rotations. Since $J_x = \frac{1}{2}(J_+ + J_-)$ and $J_y = \frac{1}{2i}(J_+ - J_-)$, it follows that their action on $\left\{ \ket{l}, \ket{l+1}, \dots, \ket{j-1}, \ket{j} \right\}$ is closed within the subspace.
+
+    Additionally, for any eigenvector $\ket{m}$, we know specifically that
+    \begin{align*}
+        J^2\ket{m} &= (J_z^2 - J_z + J_+ J_-)\ket{m} \\
+        &= (m^2 - m + m(m-1))\ket{m} \\
+        &= m(m+1)\ket{m}.
+    \end{align*}
+    We gain further insight into this invariant subspace by noting that
+    % \begin{align*}
+    %     0 = \braket{0|0} = \braket{J_-l|J_-l}
+    %         &= \braket{l|J_-^\dagger J_-|l} \\
+    %         &= \braket{l|J_+ J_-|l} \\
+    %         &= \braket{l|J^2 - J_z^2 + J_z|l} 
+    % \end{align*}
+
+    \subsection{Physical implications of SO(3) representations}
+    As discussed in \cref{sec:PJ_physical}, the eigenvalues of the components of $\vec{J}$ and thus $\vh{L}$ correspond to physical observables. In particular, the eigenvalues of $\hat{L}_z$\dots
+
+    \textcolor{red}{Make a note that it's really the irreducible representation of $\mathfrak{so}(3)$, but it seamlessly translates to the group representations?}
+
+    % The set of rotations in 3-space is equivalent to the collection of continuous linear operators that with determinant 1. Similar to the case of SO(2), the set of all rotations in 3-space forms a \textit{special orthogonal group}, denoted by SO(3).
+    
+    
+    % The set of all rotations about $\vh{n}$ forms a group that is identical (isomorphic) to SO(2).
+
+
+    % Since there are an uncountably infinite number of axes $\vh{n}$ to rotate about, the generalization of SO(2) to SO(3) is nontrivial. With some work~\cite{Tung1985}, it can be shown that 
+    
+    \subsection{Further applications}
+    This is a section about what else you can do with the irreducible representations of SO(3) that I won't get into in this thesis.
+    \begin{itemize}
+        \item As with SO(2), if a system is invariant under 3D rotations (radially symmetric), then angular momentum is conserved. For each axis of rotation, we have $[\hat{H},\hat{L}_\mu]=0$. Can make the same arguments as in \cref{sub:cons_ang_mom} with all three angular momentum generators.
+        \item Show that radially symmetric systems with basis eigenvectors $\ket{E,l,m}$ of $\hat{H},\vec{J}^2,J_3$ are separable into a radial function and a spherical harmonic (Tung 7.5.1).
+        \item Direct product, multiple particle states, Clebsch-Gordan coefficients, etc.
+        \item Talk about $U(2)$?
+    \end{itemize}
+
+\textit{Notes below:}
     \begin{itemize}
         \item \textcolor{red}{\textbf{Discuss Lie groups/algebras specifically?}}
         \item The real generalization is to 3 spatial dimensions, SO(3), which then has the Lie algebra $\mathfrak{so}(3)$ with generators $J_i$ and familiar commutation relations.
@@ -502,3 +655,13 @@ Consider the rotations of a 2-dimensional Euclidean vector space about the origi
         \item \textcolor{red}{Regarding the above bullet point, need to do SO(3) Lie algebra stuff in order to discuss ladder operators and hence the connection to the discretized angular momentum values!}
         \item \textcolor{purple}{Not until SO(3).} Example for $U^{1/2}$, or in physics $j=\frac{1}{2}$. The spin state of an electron can either be up $+U^{1/2}$ or down $-U^{1/2}$, which \textcolor{purple}{corresponds to the two-valued-ness} of the representation. A rotation of $2\pi$ results in a change of sign (a change in spin state). Moreover, the spin state of a spin-$\frac{1}{2}$ particle is described by a \textit{spinor} (a two-component complex-valued vector). The purely mathematical consequences of double-valued representations of SO(2) explains the emergent behavior of spinors under coordinate rotations.
     \end{itemize}
+
+\section{Outline}
+    \begin{enumerate}
+        \item \sout{Explicit form of $P$.}
+        \item \sout{Explicit Hamiltonians, conservation, symmetry, invariance section.}
+        \item SO(3) construction. How much new stuff do I need to do vs just generalize the other components of $J$ like what was done for $T_3$?
+        \item Lie group/algebra definitions and contextualized in the above.
+        \item Finally, the physical applications of the above. Meaning the connection of irreducible reps to spin states, quantization of observables (angular momentum), etc.
+        \item Then if roughly finished with the main goals/content of this chapter, \textbf{need} to go back to chapter 1 and do Schur's lemmas (if needed?) and prove the \textcolor{purple}{correspondence between irreducible representations and conjugacy classes}.
+    \end{enumerate}

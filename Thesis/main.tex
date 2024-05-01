@@ -53,7 +53,7 @@
 % }
 % \AtEndEnvironment{example}{\popQED\endexample}
 
-\renewcommand{\bibname}{References}
+% \renewcommand{\bibname}{References}
 
 \includeonly{
     chapters/Rep_Theory_Background, 
@@ -75,6 +75,7 @@
 \maketitle
 
 \tableofcontents
+% \listoffigures % need short caption for each figure or something like that
 
 \include{chapters/Rep_Theory_Background}
 
@@ -99,13 +100,13 @@
 }
 \bibliographystyle{plain}
 \bibliography{references}
-\addcontentsline{toc}{chapter}{References}
+\addcontentsline{toc}{chapter}{Bibliography}
 
 
-\begin{appendices}
+% \begin{appendices}
     \appendix
     \include{chapters/Appendix_physics_background}
     \include{chapters/Appendix_multi_anyon}
-\end{appendices}
+% \end{appendices}
 
 \end{document}
