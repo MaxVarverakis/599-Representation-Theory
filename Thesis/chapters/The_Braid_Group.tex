@@ -1,5 +1,7 @@
 \chapter{The Braid Group}\label{ch:braid_group}
 
+The study of the braid group has far-reaching implications from knot theory to quantum computation~\cite{Artin1947,Date2003,Delaney2016,Deshmukh,Kassel2008,Khare2005}. A basic understanding of topology is assumed in the following discussions. The necessary topological definitions are provided in \cref{ch:top_background}.
+
 \begin{definition}
     The \textit{configuration space} of $n$ ordered distinct points in the complex plane $\C$ is defined as $M_n = \left\{ \left( z_1,\dots,z_n \right)\in\C ; z_i\neq z_j,\forall i\neq j \right\}$. Alternatively, consider $\mathcal{D}$ to be the collection of all hyperplanes $H_{i,j}=\left\{ z_i=z_j \right\}\in\C^n$ for $1\leq i < j \leq n$. Then we can define $M_n = \C^n \setminus \mathcal{D}$.
 \end{definition}
@@ -140,12 +142,12 @@ The first condition that the standard generators commute if $|i-j|>1$ is easily 
 \end{figure}
 
 \section[One-dimensional representations of $B_n$]{One-dimensional representations of $\mathbf{B_n}$}\label{sec:1D_rep}
-A straightforward nontrivial representation of the braid is defined on the standard generators of $B_n$ and is given by \cite{Deshmukh}:
+A straightforward nontrivial representation of the braid is defined on the standard generators of $B_n$ and is given by:
 \begin{align}
     p_\theta: B_n&\to \C_{\size{z}=1} \\
     \sigma_i &\mapsto e^{i\theta},
 \end{align}
-for $\theta\in\R$. Clearly, $p_\theta$ is a homomorphism, and it is unitary because
+for $\theta\in\R$~\cite{Deshmukh}. Clearly, $p_\theta$ is a homomorphism, and it is unitary because
 \begin{equation}
     {p_\theta(\sigma_i)}^\dagger = {\left( e^{i\theta} \right)}^\dagger = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_i)},
 \end{equation}
@@ -201,12 +203,12 @@ We start this construction with a countably infinite stack of copies of $\D_n$. 
     % \includegraphics[width=.3\textwidth]{D3_cuts.png}
     \input{TikZ/D3_cuts.tikz}
     \caption[Punctured disk covering space]{
-        % In the case of $\D_3$, this figure demonstrates how the cuts are applied across each of the three punctures for each sheet in the covering $\widetilde{\D}_3$. The power of $t$ in the base point label $t^j\zeta$ indicates that we are on the $j$-th sheet of the covering.
-        For the covering of $\D_3$, we observe the $i$-th sheet of $\widetilde{\D}_3$ with the cuts applied across each of the three punctures. The base point of the loop is indicated by the red dot, and labelled as $t^i\zeta$. The power of $t$ indicates that we are on the $i$-th sheet of the covering. The portions of three different loops are drawn to illustrate the behavior of loops as they pass through various edges on $\sheet{\D}{3,i}$. The loop that would traditionally be $x_1$ is labeled by $t^i x_1$ to indicate that it's starting on the $i$-th sheet. When it passes through the left edge corresponding to this puncture labeled with a 1, it traverses up to the sheet $\sheet{\D}{3,i+1}$ and ends at base point $t^{i+1}\zeta$. Similarly, the loop that starts on $\sheet{\D}{3,i-1}$ and passes through the left edge of puncture 2 ends up coming out of the right edge of puncture 2 on $\sheet{\D}{3,i}$ and ends at the base point $t^i\zeta$. This loop is labeled by the starting sheet, so it is $t^{i-1}x_2$. Finally, the loop that starts on $\sheet{\D}{3,i+1}$ and passes through the right edge of puncture 3 ends up coming out of the left edge of puncture 3 on $\sheet{\D}{3,i}$. This loop is labeled by $-t^{i}x_3$ since it is the inverse of $t^i x_3$, with the negative sign indicating that the loop direction is reversed.
+        % In the case of $\D_3$, this figure demonstrates how the cuts are applied across each of the three punctures for each sheet in the covering $\widetilde{\D}_3$. The power of $t$ in the base point label $t^j\xi$ indicates that we are on the $j$-th sheet of the covering.
+        For the covering of $\D_3$, we observe the $i$-th sheet of $\widetilde{\D}_3$ with the cuts applied across each of the three punctures. The base point of the loop is indicated by the red dot, and labelled as $t^i\xi$. The power of $t$ indicates that we are on the $i$-th sheet of the covering. The portions of three different loops are drawn to illustrate the behavior of loops as they pass through various edges on $\sheet{\D}{3,i}$. The loop that would traditionally be $x_1$ is labeled by $t^i x_1$ to indicate that it's starting on the $i$-th sheet. When it passes through the left edge corresponding to this puncture labeled with a 1, it traverses up to the sheet $\sheet{\D}{3,i+1}$ and ends at base point $t^{i+1}\xi$. Similarly, the loop that starts on $\sheet{\D}{3,i-1}$ and passes through the left edge of puncture 2 ends up coming out of the right edge of puncture 2 on $\sheet{\D}{3,i}$ and ends at the base point $t^i\xi$. This loop is labeled by the starting sheet, so it is $t^{i-1}x_2$. Finally, the loop that starts on $\sheet{\D}{3,i+1}$ and passes through the right edge of puncture 3 ends up coming out of the left edge of puncture 3 on $\sheet{\D}{3,i}$. This loop is labeled by $-t^{i}x_3$ since it is the inverse of $t^i x_3$, with the negative sign indicating that the loop direction is reversed.
     }\label{fig:D3_cuts}
 \end{figure}
 
-Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with base point $\tilde{\zeta}_0$ passes through a cut from the left, it traverses up to the next sheet, and ends at the base point $\tilde{\zeta}_1$. Similarly, a loop passing through a cut from the right ends at the base point $\tilde{\zeta}_{-1}$, on the sheet $\sheet{\D}{n,-1}$ below $\sheet{\D}{n,0}$. To keep track of the various loops, we use a free parameter $t$. For example, a loop $\gamma$ that starts on $\sheet{\D}{n,j}$ would be written $t^j \gamma$, for $j\in\Z$. Notice that the substitution of a complex number for the free parameter $t$ results in a possibly finite degree covering. As an example, if we set $t$ to an $n$-th root of unity, then we obtain an $n$-th degree covering of $\D_n$. For the purposes of this construction, we will keep $t$ as a free parameter for now.{ }\cref{fig:D3_cuts} demonstrates how loops interact with the cuts on different sheets. The following example describes the action of the standard generators of $B_3$ on the covering space $\widetilde{\D}_3$.
+Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with base point $\tilde{\xi}_0$ passes through a cut from the left, it traverses up to the next sheet, and ends at the base point $\tilde{\xi}_1$. Similarly, a loop passing through a cut from the right ends at the base point $\tilde{\xi}_{-1}$, on the sheet $\sheet{\D}{n,-1}$ below $\sheet{\D}{n,0}$. To keep track of the various loops, we use a free parameter $t$. For example, a loop $\gamma$ that starts on $\sheet{\D}{n,j}$ would be written $t^j \gamma$, for $j\in\Z$. Notice that the substitution of a complex number for the free parameter $t$ results in a possibly finite degree covering. As an example, if we set $t$ to an $n$-th root of unity, then we obtain an $n$-th degree covering of $\D_n$. For the purposes of this construction, we will keep $t$ as a free parameter for now.{ }\cref{fig:D3_cuts} demonstrates how loops interact with the cuts on different sheets. The following example describes the action of the standard generators of $B_3$ on the covering space $\widetilde{\D}_3$.
 
 \begin{example}\label{ex:Burau_D3}
     Consider the case when $n=3$. Then we have the corresponding covering space $\widetilde{\D}_3$ of $\D_3$. See \cref{fig:D3_cuts} for the view of a single sheet with various loops interacting with the cuts on the sheet. The actions of the standard generators of $B_3$ in $\pi_1(\D_3)$ are known, and can be visually understood in \cref{fig:sigma_on_Dn}. In the context of the covering space $\widetilde{\D}_3$, the action of the generators $\sigma_1$ and $\sigma_2$ is observed by reducing the visualization to only the base points on each sheet and the loops themselves. This can be seen in \cref{fig:Burau_D3} for the case of $\sigma_1$.
@@ -265,7 +267,31 @@ The Burau representation of $B_n$ is then defined by:
     \end{bmatrix}.
 \end{align}
 
-The Burau representation need only be defined on the standard generators, since any braid $\beta\in B_n$ decomposes into a product of $\sigma_1,\dots,\sigma_{n-1}$ and their inverses. Notice that if we set $t = 1$, we recover the defining representation of $S_n$, as expected when we use a degree 1 covering space of $\D_n$ and force the action of the generators to be abelian. Furthermore, by direct computation, it follows that
+The Burau representation need only be defined on the standard generators, since any braid $\beta\in B_n$ decomposes into a product of $\sigma_1,\dots,\sigma_{n-1}$ and their inverses. Notice that if we set $t = 1$, we recover the defining representation of $S_n$, as expected when we use a degree 1 covering space of $\D_n$ and force the action of the generators to be abelian.
+
+By the Cayley-Hamilton, it follows that~\cite{Kassel2008}
+\begin{align}
+    U^2 - \tr{U}U - \det(U)I_2 &= U^2 - (1-t)U - tI_2 = 0.
+\end{align}
+Rewriting gives
+\begin{align}
+    \iv{t}U(U - (1-t)I_2) &= I_2,
+\end{align}
+or simply
+\begin{equation}
+    \iv{U} = \iv{t}(U - (1-t)I_2) = \begin{bmatrix}
+        0 & 1 \\ \iv{t} & 1-\iv{t}
+    \end{bmatrix}.
+\end{equation}
+The block structure of the matrix representation of $\sigma_i$ results in
+\begin{align*}
+    \iv{\psi_n(\sigma_i)} = \begin{bmatrix}
+        I_{i-1} & 0 & 0 \\
+        0 & \iv{U} & 0 \\
+        0 & 0 & I_{n-i-1}
+    \end{bmatrix}.
+\end{align*}
+Furthermore, by direct computation~\cite{Kassel2008}, it follows that
 \begin{align}
     \psi_n(\sigma_i)\psi_n(\sigma_j) &= \psi_n(\sigma_j)\psi_n(\sigma_i) \textrm{ for } |i-j|>1, \\
     \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \textrm{ for } |i-j|=1.
@@ -389,13 +415,7 @@ We can now define the reduced Burau representation in terms of the (unreduced) B
     \sigma_i&\mapsto \psi_n(\sigma_i)\bigr|_{\textrm{span}\left\{ \vec{v}_i \right\}}.
 \end{align}
 
-In practice, we find the actual matrices for $\psi_n^\textbf{r}(\sigma_i)$ by means of a slightly different approach.
-
-\colorbox{red}{Go though derivation of $V_i$'s or just state it?}
-
-\colorbox{cyan}{\textit{\footnotesize not actually sure if these matrices come exactly from the same construction as above\dots}}
-
-\textit{There is no widely accepted convention, and this can differ up to a matrix transposition.}
+In practice, the matrices for $\psi_n^\textbf{r}(\sigma_i)$ are found by means of a slightly different approach. The exact arguments are beyond the scope of this thesis, but can be found in~\cite{Palmer2022}.
 
 Let $V\in\textrm{GL}_{3}(\Lambda)$ be defined by
 \begin{equation}
@@ -424,9 +444,7 @@ Then the reduced Burau representation matrices are given by
         0 & 0 & -t \\
     \end{bmatrix},
 \end{align}
-for $i=2,3,\dots,n-2$ and $n\geq 3$.
-
-\colorbox{red}{Prove invertible?}
+for $i=2,3,\dots,n-2$ and $n\geq 3$~\cite{Kassel2008}. The exact form of the above matrices may differ by a transpose in some sources, but the results are equivalent.
 
 \section{Unitary Representation Matrices}
 As explained in~\cite{Delaney2016}, we can use $U$ from the construction of the (unreduced) Burau representation to show that there are no choices of the parameter $t$ such that the representation matrices are directly unitary. However, we can use the reduced Burau representation matrices to construct a new representation of $B_n$ that is in fact unitary~\cite{Delaney2016,Squier1984}.

@@ -16,6 +16,9 @@
 \usepackage[labelfont=bf]{caption} % bold figure labels
 \usepackage[normalem]{ulem} % for strikethrough text
 \usepackage[
+    % nocompress
+    ]{cite}
+\usepackage[
     % toc,
     % page
     ]{appendix}
@@ -33,7 +36,7 @@
 % \FloatBarrier
 
 \title{
-{Title}\\
+{Representation Theory and its Applications in Physics}\\
 % {\large A Thesis \\presented to \\ the Faculty of California Polytechnic State University, \\San Luis Obispo}\\
 }
 \author{Max Varverakis}
@@ -58,11 +61,11 @@
 \includeonly{
     chapters/introduction,
     % chapters/Rep_Theory_Background,
-    chapters/Phys_applications,
-    % chapters/Top_Background,
-    % chapters/The_Braid_Group,
+    % chapters/Phys_applications,
+    chapters/The_Braid_Group,
     % chapters/Anyons,
-    chapters/Appendix_physics_background,
+    chapters/Top_Background,
+    % chapters/Appendix_physics_background,
     % chapters/Appendix_multi_anyon,
     % chapters/tikz_test,
     chapters/TODO,
@@ -83,8 +86,6 @@
 \include{chapters/Rep_Theory_Background}
 
 \include{chapters/Phys_applications}
-
-\include{chapters/Top_Background}
 
 \include{chapters/The_Braid_Group}
 
@@ -108,6 +109,7 @@
 
 % \begin{appendices}
     \appendix
+    \include{chapters/Top_Background}
     \include{chapters/Appendix_physics_background}
     \include{chapters/Appendix_multi_anyon}
 % \end{appendices}

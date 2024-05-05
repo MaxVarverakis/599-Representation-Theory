@@ -148,7 +148,7 @@ The last term in \cref{eq:L_with_A} is of similar form to the vector (gauge) pot
 \begin{align}
     \vec{A}_i(\vec{r}_i) &= \alpha\sum_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}, \label{eq:gauge}
 \end{align}
-where $\hat{z}$ is the unit vector perpendicular to the $r_{ij}$-plane. Here, $\alpha$ serves as the coupling constant, which dictates the strength of the interaction between anyons in the system.
+where $\hat{z}$ is the unit vector perpendicular to the $r_{ij}$-plane. This is analogous to the Coulomb potential for charged particles. Here, $\alpha$ serves as the coupling constant, which dictates the strength of the interaction between anyons in the system.
 
 % For fermions, such as electrons, $\alpha=1$ corresponds to the strongest amount of coupling, which is observed as Coulombic interaction. For bosons, we have no coupling between particles, which is reflected in \cref{eq:gauge} when we take $\alpha$ to zero.
 
@@ -158,7 +158,9 @@ For the $i$-th anyon, the contribution to the Hamiltonian can be written as
 \end{align}
 where $p_i - A_i(\vec{r}_i)$ is known as the \textit{canonical momentum} of the system. This is a required modification since we must account for the motion of the anyons in the presence of the gauge potential in addition to their mechanical momentum.
 
-Then, with only essential coupling between the anyons (due to the gauge potential), the Hamiltonian for the $N$-anyon system in a harmonic potential is given by
+More generally, a gauge potential is added to the Lagrangian and thus Hamiltonian such that the equations of motion are invariant under the relevant gauge transformation. In the case of electromagnetism, the prescription of invariance under local changes in electric and magnetic potentials leads to the introduction of the gauge potential in the Lagrangian~\cite{Griffiths2018,Moriyasu1983,Griffiths2017}.
+
+Hence, the Hamiltonian for the $N$-anyon system in a harmonic potential is given by
 \begin{align}
     \mathcal{H} = \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2}. \label{eq:min_prescription_H}
 \end{align}

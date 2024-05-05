@@ -26,6 +26,11 @@ W.~Fulton.
 Juan Gonzalez-Meneses.
 \newblock Basic results on braid groups, 2010.
 
+\bibitem{Griffiths2017}
+David~J. Griffiths.
+\newblock {\em Introduction to Electrodynamics}.
+\newblock Cambridge University Press, June 2017.
+
 \bibitem{Griffiths2018}
 David~J. Griffiths and Darrell~F. Schroeter.
 \newblock {\em Introduction to Quantum Mechanics}.
@@ -55,6 +60,11 @@ K~Moriyasu.
 Chetan Nayak, Steven~H. Simon, Ady Stern, Michael Freedman, and Sankar Das~Sarma.
 \newblock Non-abelian anyons and topological quantum computation.
 \newblock {\em Reviews of Modern Physics}, 80(3):1083–1159, September 2008.
+
+\bibitem{Palmer2022}
+Martin Palmer and Arthur Soulié.
+\newblock The burau representations of loop braid groups.
+\newblock 2021.
 
 \bibitem{Rolfsen2010}
 Dale Rolfsen.
