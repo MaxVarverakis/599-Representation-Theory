@@ -43,7 +43,7 @@ Let $\vec{x}$ be an arbitrary vector in the plane. Then $\vec{x}$ has components
     &= \left( x^1\cos\phi - x^2\sin\phi \right)\e_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\e_2.  \nonumber
 \end{align}
 
-Notice that $R(\phi)R^\top(\phi) = E$ where $E$ is the identity matrix. This is precisely what defines \textit{orthogonal matrices}. For 2-dimensional vectors in the plane, it is clear that these rotations do not change the length of said vectors. This can be verified by using \cref{eq:rot_vec}:
+Notice that $R(\phi)R^\top(\phi) = I$ where $I$ is the identity matrix. This is precisely what defines \textit{orthogonal matrices}. For 2-dimensional vectors in the plane, it is clear that these rotations do not change the length of said vectors. This can be verified by using \cref{eq:rot_vec}:
 \begin{align}
     |R(\phi)\vec{x}|^2 &= |\e_j\mat{R(\phi)}{j}{i} x^i|^2 \\
     &= \left|\left( x^1\cos\phi - x^2\sin\phi \right)\e_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\e_2\right|^2 \nonumber \\
@@ -54,24 +54,24 @@ Notice that $R(\phi)R^\top(\phi) = E$ where $E$ is the identity matrix. This is 
 
 Similarly, notice that for any continuous rotation by angle $\phi$, $\det R(\phi) = \cos^2\phi+\sin^2\phi = 1$. In general, orthogonal matrices have determinant equal to $\pm1$. However, the result of the above determinant of $R(\phi)$ implies that all continuous rotations in the 2-dimensional plane have determinant equal to $+1$. These are the \textit{special orthogonal matrices of rank 2}. This family of matrices is denoted $\sotwo$. Furthermore, there is a one-to-one correspondence with $\sotwo$ matrices and rotations in a plane.
 
-We define the group of continuous rotations in a plane by letting $R(0) = E$ be the identity element corresponding to no rotation (i.e., a rotation by angle $\phi=0$), and defining the inverse of a rotation as $R^{-1}(\phi) = R(-\phi) = R(2\pi-\phi)$. Lastly, we define group multiplication as $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$ and note that $R(\phi) = R(\phi\pm2\pi)$, which can be verified geometrically. Although SO(2) is technically a 2-dimensional representation of a more abstract rotation group, it is often just referred to as the rotation group due to the nature of the construction. Thus, group elements of $\sotwo$ can be labelled by the angle of rotation $\phi\in[0,2\pi)$.
+We define the group of continuous rotations in a plane by letting $R(0) = I$ be the identity element corresponding to no rotation (i.e., a rotation by angle $\phi=0$), and defining the inverse of a rotation as $R^{-1}(\phi) = R(-\phi) = R(2\pi-\phi)$. Lastly, we define group multiplication as $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$ and note that $R(\phi) = R(\phi\pm2\pi)$, which can be verified geometrically. Although SO(2) is technically a 2-dimensional representation of a more abstract rotation group, it is often just referred to as the rotation group due to the nature of the construction. Thus, group elements of $\sotwo$ can be labelled by the angle of rotation $\phi\in[0,2\pi)$.
 
 \subsection{Infinitesimal rotations}\label{sub:inf_rot}
 % Now we can find a generator of $\sotwo$ by considering
 Consider an infinitesimal rotation labelled by some infinitesimal angle $d\phi$. This is equivalent to the identity plus some small rotation, which can be written as
 \begin{equation}
-    R(d\phi) = E - i d\phi J \label{eq:dphi}
+    R(d\phi) = I - i d\phi J \label{eq:dphi}
 \end{equation}
 where the scalar quantity $-i$ is introduced for later convenience and $J$ is some quantity independent of the rotation angle. If we consider the rotation $R(\phi + d\phi)$, then there are two equivalent ways to interpret this rotation
 \begin{align}
-    R(\phi + d\phi) &= R(\phi)R(d\phi) = R(\phi)(E - i d\phi J) = R(\phi) - i d\phi R(\phi)J,\label{eq:dphi1} \\
+    R(\phi + d\phi) &= R(\phi)R(d\phi) = R(\phi)(I - i d\phi J) = R(\phi) - i d\phi R(\phi)J,\label{eq:dphi1} \\
     R(\phi + d\phi) &= R(\phi) + dR(\phi) = R(\phi) + d\phi\frac{dR(\phi)}{d\phi},\label{eq:dphi2}
 \end{align}
 where the second equation can be thought of as a Taylor expansion of $R(\phi + d\phi)$ about $\phi$. Equating the two expressions for $R(\phi + d\phi)$ yields
 \begin{equation}
     dR(\phi) = -id\phi R(\phi)J.
 \end{equation}
-Solving this differential equation (with boundary condition $R(0)=E$) provides us with an equation for any group element involving $J$:
+Solving this differential equation (with boundary condition $R(0)=I$) provides us with an equation for any group element involving $J$:
 \begin{equation}
     R(\phi) = e^{-i\phi J},
 \end{equation}
@@ -86,7 +86,7 @@ The explicit form of $J$ is found as follows. To first order in $d\phi$, we have
 \end{align*}
 Comparing to \cref{eq:dphi},
 \begin{align*}
-    E - i d\phi J &= \begin{bmatrix}
+    I - i d\phi J &= \begin{bmatrix}
         1 & -d\phi \\
         d\phi & 1
     \end{bmatrix} \implies J = \begin{bmatrix}
@@ -95,11 +95,11 @@ Comparing to \cref{eq:dphi},
     \end{bmatrix}.
 \end{align*}
 
-Notice that $J^2 = E$, which implies that even powers of $J$ equal the identity matrix and odd powers of $J$ equal $J$. Taylor expanding $e^{-iJ\phi }$ gives
+Notice that $J^2 = I$, which implies that even powers of $J$ equal the identity matrix and odd powers of $J$ equal $J$. Taylor expanding $e^{-iJ\phi }$ gives
 \begin{align*}
-    R(\phi) = e^{-iJ\phi} &= E - iJ\phi - E \frac{\phi^2}{2!} - iJ\frac{\phi^3}{3!} + \cdots \\
-    &= E\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n}}{(2n)!} \right) - iJ\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n+1}}{(2n+1)!} \right) \\
-    &= E\cos\phi - iJ\sin\phi \\
+    R(\phi) = e^{-iJ\phi} &= I - iJ\phi - I \frac{\phi^2}{2!} - iJ\frac{\phi^3}{3!} + \cdots \\
+    &= I\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n}}{(2n)!} \right) - iJ\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n+1}}{(2n+1)!} \right) \\
+    &= I\cos\phi - iJ\sin\phi \\
     &= \begin{bmatrix}
         \cos\phi & -\sin\phi \\
         \sin\phi & \cos\phi
@@ -121,7 +121,7 @@ which is an operator on $V$ (for convenience, the same symbol $J$ is used to den
 Since $U$ is a representation of rotations that preserves the length of vectors, we have
 \begin{align*}
     \size{a}^2 = \size{U(\phi)a}^2, \, \forall \ket{a}\in V &\iff \braket{a|a} = \braket{U(\phi)a|U(\phi)a} = \braket{a|{U(\phi)}^\dagger U(\phi)|a} \\
-    &\iff U(\phi)^\dagger U(\phi) = E \\
+    &\iff U(\phi)^\dagger U(\phi) = I \\
     &\iff e^{iJ^\dagger\phi}e^{-iJ\phi} = e^{-i(J-J^\dagger)\phi} = 1 \\
     &\iff J = J^\dagger.
 \end{align*}
@@ -157,8 +157,8 @@ The irreducible representations of SO(2) are orthonormal in the sense that
 % \end{align*}
 % Since SO(2) is a continuous group where the group elements are labelled by the continuous parameter $\phi$, we must integrate over all possible values of $\phi$ to obtain such relations. 
 
-\subsection{Multivalued representations}
-If we relax the periodic condition on $U$ to $U(2n\pi) = E$ for some $n\in\Z$, then the resulting 1-dimensional irreducible representations of SO(2) become multivalued. Consider the same construction of $U^m$ in \cref{sub:irr_so2}, but now with $m\in\Q$. For $m=\frac{1}{2}$, we have
+\subsection{Multivalued representations}\label{sub:multi_so2}
+If we relax the periodic condition on $U$ to $U(2n\pi) = I$ for some $n\in\Z$, then the resulting 1-dimensional irreducible representations of SO(2) become multivalued. Consider the same construction of $U^m$ in \cref{sub:irr_so2}, but now with $m\in\Q$. For $m=\frac{1}{2}$, we have
 \begin{align*}
     U^{1/2}(2\pi + \phi) &= e^{-i\pi -i\frac{\phi}{2}} = -e^{-i\frac{\phi}{2}} = -U^{1/2}(\phi).
 \end{align*}
@@ -220,7 +220,7 @@ where $\braket{\phi|\psi}$ is written as the \textit{wavefunction} $\psi(\phi)$ 
 %     \psi(\phi) = \braket{\phi|\psi} = \frac{1}{2\pi}\int_{0}^{2\pi} e^{im\phi}\ket{\phi} \,d\phi
 % \end{align*}
 
-\textcolor{red}{Add wavefunction description (to appendix?) for uncountably infinite-dim Hilbert space. How you can write $\braket{x|\Psi}$ as just the \textit{wavefunction} $\Psi(x)$ since $x$ is a continuous variable.} \textcolor{blue}{Also, add QM citations. Textbooks, etc.}
+\textcolor{red}{Add wavefunction description for uncountably infinite-dim Hilbert space. How you can write $\braket{x|\Psi}$ as just the \textit{wavefunction} $\Psi(x)$ since $x$ is a continuous variable.}
 
 Then the action of $J$ generalizes to
 \begin{align*}
@@ -258,14 +258,14 @@ Consider the group of continuous translations in one dimension, denoted by $T_1$
 
 The operator $T(x)$ has the expected group properties
 \begin{align}
-    T(0) &= E, \label{eq:P_BC} \\
+    T(0) &= I, \label{eq:P_BC} \\
     T(x)^{-1} &= T(-x), \label{eq:P_inv}\\
     T(x_1)T(x_2) &= T(x_1+x_2).\label{eq:P_add}
 \end{align}
 
 Consider an infinitesimal translation $T(dx)$. This derivation is identical to finding the generator $J$ for SO(2) in \cref{sub:inf_rot}. Thus, we rewrite
 \begin{align*}
-    T(dx) &= E - i dx P,
+    T(dx) &= I - i dx P,
 \end{align*}
 where, for the moment, $P$ is an arbitrary quantity. \cref{eq:dphi1,eq:dphi2} apply to $T(x)$ with $P$ replacing $J$, $T$ replacing $R$, and $x$ replacing $\phi$. This yields the familiar differential equation
 \begin{equation}
@@ -337,7 +337,7 @@ subject to the equivalent group properties of $T_1$ in \cref{eq:P_BC,eq:P_inv,eq
 
 Notice that $T_3\iso T_1 \oplus T_1 \oplus T_1$, where the group operation is defined as $T(x_1,y_1,z_1)T(x_2,y_2,z_2) = T(x_1+x_2,y_1+y_2,z_1+z_2)$. In other words, $T_3$ can be decomposed into independent 1-dimensional translations along each axis (or more generally along the span of each basis vector in 3-space). Thus, following the same procedure as in \cref{sub:inf_rot}, an infinitesimal translation
 \begin{align*}
-    T(d\vec{r}) = E - i dx P_x\e_x - idy P_y\e_y - idz P_z\e_z
+    T(d\vec{r}) = I - i dx P_x\e_x - idy P_y\e_y - idz P_z\e_z
 \end{align*}
 produces the following relations:
 \begin{align*}
@@ -486,7 +486,7 @@ The profound connection between symmetries and conserved quantities is a fundame
 %         &= -i\hbar\left( \vh{r}^2\frac{\partial}{\partial x}\ket{x} - \frac{\partial}{\partial x}\left( x^2\ket{x} \right) \right) \\
 % \end{align*}
 
-% \subsection{Application of SO(2) to quantum mechanics}\label{sub:phys_J}
+% \subsection{Application of SO(2) to quantum mechanics}\label{sec:phys_SO3}
 % The generalization of the SO(2) group to quantum mechanics is the unitary group U(1), which is the group of continuous phase transformations. The group elements of U(1) are complex numbers of unit modulus, similar to that of the irreducible representations of SO(2) found in \cref{sub:irr_so2}. The requirement of unitary matrices in quantum mechanics is a consequence of the fact that physical transformations, such as rotations and translations, must preserve probabilities. In quantum mechanics, probabilities are encoded in the norm of the state vectors. By definition, unitary transformations preserve the norm of vectors, which is why they represent physical transformations in quantum mechanics. \textcolor{red}{Move that second half to appendix and combine with discussion of braket notation et al.?}
 \section{3D rotations and the group SO(3)}\label{sec:SO3}
 As was done for translations in \cref{sub:3D_translations}, we can generalize SO(2) to rotations in 3-dimensional space, albeit with less triviality. The group of rotations in Euclidean 3-space, which is synonymous with 3-dimensional linear operators that fix the length of vectors, is a \textit{special orthogonal group in 3D}, denoted by SO(3).
@@ -648,7 +648,7 @@ Therefore, each irreducible representation of SO(3) is characterized by the valu
 \end{align}
 where the normalization constant of the ladder operators results from a calculation similar to \cref{eq:ladder_eig}.
 
-\subsection{A preface to the physical implications}\label{sub:phys_J}
+\section{Physical implications of SO(3)}\label{sec:phys_SO3}
 First and foremost, any physical system that is invariant under rotations in 3D space is subject to conservation of angular momentum, which follows the same arguments as in \cref{sub:cons_ang_mom}. Thus, the process of deriving the commutator of a Hamiltonian with the angular momentum operator generalizes to the 3D case and has the same physical consequences. The case of SO(2) versus SO(3) is similar enough that the results obtained in \cref{sub:cons_ang_mom} can be extended to SO(3) with minimal effort. Hence, we reserve the following discussion for new insights that arise from the 3D case.
 
 The irreducible representations of SO(3) give rise to highly fundamental results in quantum mechanics. As discussed in \cref{sec:PJ_physical}, the eigenvalues of the components of $\vec{J}$ and thus $\vh{L}$ correspond to physical observables. Recall that the components of $\vh{L}$ act on the Hilbert space of a quantum system, where each state vector describes a particular physical state of the system. With this in mind, the eigenvalues of $\hat{L}_x, \hat{L}_y, \hat{L}_z$ correspond to the physically measurable values of orbital angular momentum projected along the appropriate axis of rotation.
@@ -659,46 +659,60 @@ The standard generators of spin are denoted by $\vh{S} = (\hat{S}_x,\hat{S}_y,\h
 
 A defining result of quantum theory is that continuous measurables in classical mechanics become discretized (or quantized) when applied to quantum systems. For example, in the classical regime, the angular momentum of an object is equal to the product of its moment of inertia and angular velocity. There are no physical restrictions on the value of angular velocity, and so the angular momentum can take on any real value.
 
-In quantum mechanics, the intuition in the classical sense breaks down. For example, the angular momentum of an electron, which is governed by quantum mechanics, can only be integer multiples of $\hbar/2$ rather than a continuum of values~\cite{Griffiths2018,Hall2013}. These fundamental properties of quantum mechanics can be troubling to reconcile with. The representation theory of SO(3) provides an avenue to understand the quantization of angular momentum in quantum mechanics, as will be discussed in the following section.
+In quantum mechanics, the intuition in the classical sense breaks down. For example, the angular momentum of an electron, which is governed by quantum mechanics, can only be integer multiples of $\hbar/2$ rather than a continuum of values~\cite{Griffiths2018,Hall2013}. The lack of physical intuition behind these properties is troubling for many. However, the representation theory of SO(3) provides an avenue to understand the emergence of discretization of observables in quantum mechanics.
 
-\subsection{Quantization of physical observables}
+\subsection{Quantization of observables}
 Though not offering physical intuition, the irreducible representations of SO(3) provide a mathematical framework to describe the discretization of angular momentum in quantum mechanics.
 
-Consider an arbitrary representation of SO(3). Recall that the eigenvectors $\left\{ \ket{j,m}\st m=-j,-j+1,\dots j+1,j \right\}$ of $J_z$ and $J^2$ (derived in \cref{sub:irr_SO3}) form a basis for the invariant subspace of the representation space of SO(3). The corresponding irreducible representation of SO(3) is characterized by the value of $j$, which is nonnegative and either an integer or a half-integer.
+Consider an arbitrary representation of SO(3). Recall that the eigenvectors $\left\{ \ket{j,m}\st m=-j,-j+1,\dots j+1,j \right\}$ of $J_z$ and $J^2$ (derived in \cref{sub:irr_SO3}) form a basis for the invariant subspace of the representation space of SO(3). The corresponding irreducible representation of SO(3) is characterized by the value of $j$, which is nonnegative and either an integer or half-integer.
 
-By construction, the eigenvalues of $J_z$ are discrete. Consequently, the measurable values of orbital, spin, and total angular momentum are quantized in the same manner. For instance, the eigenvalues of $\hat{L}_z$ are $m\hbar$ for $m=-j,-j+1,\dots,j-1,j$, and the eigenvalues of $\hat{L}^2$ are $j(j+1)\hbar^2$. Other than the factor of $\hbar$, this result is identical to the eigenvalues of $J^2$ and $J_z$.
+By construction, the eigenvalues of $J_z$ are discrete. Consequently, the measurable values of orbital, spin, and total angular momentum are quantized in the same manner. The discretization of observables arises from the mathematics of the irreducible representations of SO(3), which did not require physical intuition to derive. This fact illustrates the power of representation theory in physics, as we have obtained one of the most fundamental and defining attributes of quantum mechanics without ever invoking physical principles.
+% For instance, the eigenvalues of $\hat{L}_z$ are $m\hbar$ for $m=-j,-j+1,\dots,j-1,j$, and the eigenvalues of $\hat{L}^2$ are $j(j+1)\hbar^2$. Other than the factor of $\hbar$, this result is identical to the eigenvalues of $J^2$ and $J_z$.
 
-\textcolor{blue}{Maybe try moving on and just getting to the point, then you can go back and fill in the writing gaps?}
+The irreducible representations of SO(3) fall into two distinct categories: integer values of $j$ and half-integer values. If we restrict our attention to the spin states of particles, the representations with integer values of $j$ correspond to integer-spin particles, such as bosons or gravitons. Conversely, the representations with half-integer values of $j$ correspond to half-integer-spin particles, such as fermions. The characteristics of integer-spin and half-integer-spin particles emerges from the underlying irreducible representation of SO(3).
+
+The first case to look at is spin-1 particles, which includes exchange bosons such as the photon for electromagnetism. The representation of SO(3) with $j=1$ has eigenvectors $\left\{ \ket{1,1}, \ket{1,0}, \ket{1,-1} \right\}$, which correspond to the possible spin states of a spin-1 particle. The measurable spin values of a spin-1 particle are thus $m=-1,0,1$ (normalized to $\hbar$), which comes directly from the eigenvalues of the generators of the irreducible representation of SO(3). One can use the ladder operators obtained in \cref{sub:irr_SO3} to jump between the spin states of a spin-1 particle. As discussed in \cref{sub:irr_so2} for SO(2), the single-valued representations (integer-$j$ representations) are faithful, and thus the global periodicity condition of SO(3) (rotations by $2\pi$ are equivalent to the identity) is satisfied. This periodicity condition is a defining property of integer-spin particles, and will be exploited in \cref{ch:anyons}.
+
+As discussed in \cref{sub:multi_so2}, the irreducible representations of SO(3) corresponding to half-integer values of $j$ are double-valued. This fact has profound implications for the behavior of \textit{spinors} under coordinate rotations. A spinor is a 2-component complex-valued vector that describes the spin state of a half-integer-spin particle, such as an electron~\cite{Griffiths2018}. A non-intuitive property of electrons, and thus spinors, is that a rotation by $2\pi$ results in a change of sign of the spinor. This antisymmetric behavior is a direct consequence of the double-valued representations of SO(3), as was seen in the $m=1/2$ case of SO(2) in \cref{sub:multi_so2}.
+
+For the case of electrons, we can understand the possible spin states by investigating the eigenvectors corresponding to the $j=1/2$ irreducible representation of SO(3). According to \cref{sub:irr_SO3}, we have a 2-dimensional invariant space with eigenbasis $\ket{\frac{1}{2},\pm \frac{1}{2}}$. In physics, these two states are often referred to as the spin-up ($m=+1/2$) and spin-down ($m=-1/2$) states. From these vectors, one can derive the matrix forms of the spin operators $\hat{S}_x,\hat{S}_y,\hat{S}_z$, which give the familiar Pauli-spin matrices~\cite{Griffiths2018}. These matrices are unitary, which agrees with the fact that physical transformations must preserve probabilities (\cref{sec:basics}).
+
+The main takeaway here is that one can derive extremely fundamental properties and results from quantum mechanics without any physical assumptions. The quantization of angular momentum in quantum mechanics is a direct consequence of the irreducible representations of SO(3), which is a powerful and elegant result that has far-reaching implications in physics.
+
+% \textcolor{blue}{Maybe try moving on and just getting to the point, then you can go back and fill in the writing gaps?}
 
 %  to measurable values of angular momentum, the quantization of angular momentum in quantum mechanics is a direct consequence of the underlying construction of the irreducible representation of SO(3).
 
-\subsection{Further applications}
+\subsection{Additional applications}
+We have merely scratched the surface of the physical ramifications of the irreducible representations of SO(3). With the foundation laid in this section, one can explore a variety of topics in quantum physics that are built upon the representation theory of SO(3). A brief list is provided below, and more detailed discussions can be found in references~\cite{Griffiths2018,Hall2013,Tung1985}.
+\begin{enumerate}
+    \item As with SO(2), if a system is invariant under 3D rotations (radially symmetric), then angular momentum is conserved. For each axis of rotation, one can directly calculate the commutator with the Hamiltonian as was done previously for SO(2) rotations. The same arguments in \cref{sub:cons_ang_mom} can be applied to spin, orbital, and total angular momentum and will give the familiar results.
+    \item In a radially symmetric system, one has eigenvectors $\ket{E,l,m}$, which are simultaneous eigenvectors of $\hat{H},J^2,J_z$. In position space, the eigenfunctions corresponding to these eigenvectors are separable into a radial component and a spherical harmonic. This is a classic result in undergraduate quantum physics.
+    \item The analysis of linear and angular momentum and the corresponding operators can be combined by finding simultaneous eigenvectors to construct a subspace invariant under both translations and rotations.
+    \item Multi-particle systems can be described by tensor products of the irreducible representations of SO(3). One such example is a 2-electron state, which results in the classification of singlet and triplet states. Taking this further, one arrives at the Clebsch-Gordan coefficients, which relate the individual angular momentum basis to the total angular momentum basis.
+    \item In the case of spin-1/2 particles, one can apply statistical mechanics to arrive at the renowned Pauli exclusion principle. Though not formally derived, the Pauli exclusion principle will emerge from the antisymmetric nature of fermions in \cref{ch:anyons}.
+\end{enumerate}
+
 \textcolor{red}{Make a note that it's really the irreducible representation of $\mathfrak{so}(3)$, but it seamlessly translates to the group representations?}
 
-This is a section about what else you can do with the irreducible representations of SO(3) that I won't get into in this thesis.
-\begin{itemize}
-    \item As with SO(2), if a system is invariant under 3D rotations (radially symmetric), then angular momentum is conserved. For each axis of rotation, we have $[\hat{H},\hat{L}_\mu]=0$. Can make the same arguments as in \cref{sub:cons_ang_mom} with all three angular momentum generators.
-    \item Show that radially symmetric systems with basis eigenvectors $\ket{E,l,m}$ of $\hat{H},J^2,J_3$ are separable into a radial function and a spherical harmonic (Tung 7.5.1).
-    \item Direct product, multiple particle states, Clebsch-Gordan coefficients, etc.
-    \item Talk about $U(2)$?
-\end{itemize}
+% This is a section about what else you can do with the irreducible representations of SO(3) that I won't get into in this thesis.
 
-\textit{Notes below:}
-\begin{itemize}
-    \item \textcolor{red}{\textbf{Discuss Lie groups/algebras specifically?}}
-    \item The real generalization is to 3 spatial dimensions, SO(3), which then has the Lie algebra $\mathfrak{so}(3)$ with generators $J_i$ and familiar commutation relations.
-    \item The eigenvalues of $J$ are real since it is Hermitian, and so they correspond to physical observables. In particular, the eigenvalues $m$ of $J$ correspond to the angular momentum of a quantum system (really it's a projection of the total angular momentum onto the axis of rotation normalized to $\hbar$). When $m$ is an integer, the representation $U^m$ corresponds to integer-spin particles, such as bosons or gravitons. When $m$ is a half-integer, the representation $U^m$ corresponds to half-integer-spin particles, such as fermions.
-    \item The \textbf{quantization of angular momentum in quantum mechanics} is a direct consequence of the representation theory of SO(2) (really SO(3))!!! The allowable values of angular momentum are quantized because the eigenvalues of the generator $J$ are quantized. \textcolor{blue}{Moreover, for eigenvalue $m$, the possible spin states with angular momentum $m$ correspond to the multiple values ($U^m$'s satisfying the periodicity condition for the eigenvector $\ket{m}$): $-m, -m+1, \dots, m-1, m$ (normalized to $\hbar$). Jumping between spin states is done by the ladder operators $J_\pm$ in SO(3).}
-    \item \textcolor{red}{Regarding the above bullet point, need to do SO(3) Lie algebra stuff in order to discuss ladder operators and hence the connection to the discretized angular momentum values!}
-    \item \textcolor{purple}{Not until SO(3).} Example for $U^{1/2}$, or in physics $j=\frac{1}{2}$. The spin state of an electron can either be up $+U^{1/2}$ or down $-U^{1/2}$, which \textcolor{purple}{corresponds to the two-valued-ness} of the representation. A rotation of $2\pi$ results in a change of sign (a change in spin state). Moreover, the spin state of a spin-$\frac{1}{2}$ particle is described by a \textit{spinor} (a two-component complex-valued vector). The purely mathematical consequences of double-valued representations of SO(2) explains the emergent behavior of spinors under coordinate rotations.
-\end{itemize}
+% \textit{Notes below:}
+% \begin{itemize}
+%     \item \textcolor{red}{\textbf{Discuss Lie groups/algebras specifically?}}
+%     \item The real generalization is to 3 spatial dimensions, SO(3), which then has the Lie algebra $\mathfrak{so}(3)$ with generators $J_i$ and familiar commutation relations.
+%     \item The eigenvalues of $J$ are real since it is Hermitian, and so they correspond to physical observables. In particular, the eigenvalues $m$ of $J$ correspond to the angular momentum of a quantum system (really it's a projection of the total angular momentum onto the axis of rotation normalized to $\hbar$). When $m$ is an integer, the representation $U^m$ corresponds to integer-spin particles, such as bosons or gravitons. When $m$ is a half-integer, the representation $U^m$ corresponds to half-integer-spin particles, such as fermions.
+%     \item The \textbf{quantization of angular momentum in quantum mechanics} is a direct consequence of the representation theory of SO(2) (really SO(3))!!! The allowable values of angular momentum are quantized because the eigenvalues of the generator $J$ are quantized. \textcolor{blue}{Moreover, for eigenvalue $m$, the possible spin states with angular momentum $m$ correspond to the multiple values ($U^m$'s satisfying the periodicity condition for the eigenvector $\ket{m}$): $-m, -m+1, \dots, m-1, m$ (normalized to $\hbar$). Jumping between spin states is done by the ladder operators $J_\pm$ in SO(3).}
+%     \item \textcolor{red}{Regarding the above bullet point, need to do SO(3) Lie algebra stuff in order to discuss ladder operators and hence the connection to the discretized angular momentum values!}
+%     \item \textcolor{purple}{Not until SO(3).} Example for $U^{1/2}$, or in physics $j=\frac{1}{2}$. The spin state of an electron can either be up $+U^{1/2}$ or down $-U^{1/2}$, which \textcolor{purple}{corresponds to the two-valued-ness} of the representation. A rotation of $2\pi$ results in a change of sign (a change in spin state). Moreover, the spin state of a spin-$\frac{1}{2}$ particle is described by a \textit{spinor} (a two-component complex-valued vector). The purely mathematical consequences of double-valued representations of SO(2) explains the emergent behavior of spinors under coordinate rotations.
+% \end{itemize}
 
-\section{Outline}
-\begin{enumerate}
-    \item \sout{Explicit form of $P$.}
-    \item \sout{Explicit Hamiltonians, conservation, symmetry, invariance section.}
-    \item SO(3) construction. How much new stuff do I need to do vs just generalize the other components of $J$ like what was done for $T_3$?
-    \item Lie group/algebra definitions and contextualized in the above.
-    \item Finally, the physical applications of the above. Meaning the connection of irreducible reps to spin states, quantization of observables (angular momentum), etc.
-    \item Then if roughly finished with the main goals/content of this chapter, \textbf{need} to go back to chapter 1 and do Schur's lemmas (if needed?) and prove the \textcolor{purple}{correspondence between irreducible representations and conjugacy classes}.
-\end{enumerate}
+% \section{Outline}
+% \begin{enumerate}
+%     \item \sout{Explicit form of $P$.}
+%     \item \sout{Explicit Hamiltonians, conservation, symmetry, invariance section.}
+%     \item \sout{SO(3) construction. How much new stuff do I need to do vs just generalize the other components of $J$ like what was done for $T_3$?}
+%     \item \sout{\textcolor{blue}{Lie group/algebra definitions and contextualized in the above.}}
+%     \item \sout{Finally, the physical applications of the above. Meaning the connection of irreducible reps to spin states, quantization of observables (angular momentum), etc.}
+%     \item Then if roughly finished with the main goals/content of this chapter, \textbf{need} to go back to chapter 1 and do Schur's lemmas (if needed?) and prove the \textcolor{purple}{correspondence between irreducible representations and conjugacy classes}.
+% \end{enumerate}

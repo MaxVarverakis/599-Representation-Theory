@@ -15,15 +15,15 @@ If $X$ is a representation of $G$ on $V$, then $X$ is a map
 \begin{equation}
     g\in G\xrightarrow{X} X(g)
 \end{equation}
-in which $X(g)$ is an operator on the vector space $V$. For a set of basis vectors $\{\hat{e_i},i=1,2,\dots,n\}$, we can realize each operator $X(g)$ as an $n\times n$ matrix $D(g)$.
+in which $X(g)$ is an operator on the vector space $V$. For a set of basis vectors $\{\e_i,i=1,2,\dots,n\}$, we can realize each operator $X(g)$ as an $n\times n$ matrix:
 \begin{equation}
-    X(g)\ket{e_i} = \sum_{j=1}^n \ket{e_j}{{D(g)}^j}_i = \ket{e_j}{{D(g)}^j}_i,
+    X(g)\e_i = \sum_{j=1}^n \e_j{{X(g)}^j}_i = \e_j{{X(g)}^j}_i,
 \end{equation}
 where the first index $j$ is the row index and the second index $i$ is the column index. We use the Einstein summation convention, so repeated indices are summed over. Note that the operator multiplication is defined as
 \begin{equation}
     X(g_1)X(g_2) = X(g_1g_2),
 \end{equation}
-which satisfies the group multiplication rules. \textcolor{red}{Keep Dirac notation here? If so, reference appendix on Dirac notation.}
+which satisfies the group multiplication rules.
 
 \begin{definition}
     If the homomorphism defining the representation is an isomorphism, then the representation is \textit{faithful}. Otherwise, it is \textit{degenerate}.
@@ -53,16 +53,16 @@ The above example involves a finite group. Infinite groups can also have represe
     \end{align}
     where $\e_1$ and $\e_2$ are orthonormal basis vectors of $V_2$. This gives us the matrix representation
     \begin{equation}
-        D(\phi) = \begin{bmatrix}
+        X(\phi) = \begin{bmatrix}
             \cos\phi & -\sin\phi\\
             \sin\phi & \cos\phi
         \end{bmatrix}.
     \end{equation}
-    To further illuminate this representation, if we consider an arbitrary vector $\hat{e_i}x^i=\vec{x}\in V_2$, then we have
+    To further illuminate this representation, if we consider an arbitrary vector $\e_i x^i=\vec{x}\in V_2$ (with an implicit sum over repeated indices) then we have
     \begin{equation}
         \vec{x}\,' = X(\phi)\vec{x} = \e_j{x'}^j,
     \end{equation}
-    where ${x'}^j = {{D(\phi)}^j}_i x^i$.
+    where ${x'}^j = {{X(\phi)}^j}_i x^i$.
     \textcolor{red}{Can probably simplify the notation}
 \end{example}
 
@@ -80,13 +80,15 @@ Since trace is independent of basis, the character serves as a class label.
 
 Vector space representations of a group have familiar substructures, which are useful in constructing representations of the group.
 \begin{definition}[Invariant Subspace]
-    Let $X(G)$ be a representation of $G$ on a vector space $V$, and $W$ a subspace of $V$ such that $X(g)\ket{x}\in W$ for all $\vec{x}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $X(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it does not contain any non-trivial invariant subspace with respect to $X(G)$.
+    Let $X(G)$ be a representation of $G$ on a vector space $V$, and $W$ a subspace of $V$ such that $X(g)\vec{x}\in W$ for all $\vec{x}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $X(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it does not contain any non-trivial invariant subspace with respect to $X(G)$.
 \end{definition}
 
 The identification of invariant subspaces on vector space representations leads to the following distinction of the representations.
 \begin{definition}[Irreducible Representation]
     A representation $X(G)$ on $V$ is \textit{irreducible} if there is no non-trivial invariant subspace in $V$ with respect to $X(G)$. Otherwise, it is \textit{reducible}. If $X(G)$ is reducible and its orthogonal complement to the invariant subspace is also invariant with respect to $X(G)$, then the representation is \textit{fully reducible}.
 \end{definition}
+
+A reducible representation can be decomposed into a direct sum of irreducible representations. This decomposition is unique up to equivalence.
 
 \begin{example}
     \textcolor{red}{Different example!}
@@ -133,21 +135,46 @@ The identification of invariant subspaces on vector space representations leads 
 
 \end{example}
 
-The irreducible representation matrices satisfy \colorbox{red}{orthonormality and completeness} relations.\textbf{ Thm. 3.5}?
+The irreducible representation matrices satisfy \textcolor{red}{orthonormality and completeness relations.\textbf{ Thm. 3.5}?}
 
-\textcolor{red}{Schur's Lemmas!}
-If gross, just put outline of proof and say `see citation for more detail'.
+In the following results, we assume that the representation space is finite-dimensional so that the operators can be represented by matrices.
 
-\begin{theorem}\label{th:irred}
-    Let $G$ be a finite group. The number of irreducible representations of $G$ is equal to the number of conjugacy classes in $G$. Moreover, the degree of each irreducible representation is equal to the size of the corresponding conjugacy class in $G$.
-\end{theorem}
+% \textcolor{red}{Schur's Lemmas!}
+% If gross, just put outline of proof and say `see citation for more detail'.
+
+\begin{lemma}\label{th:irred_invertible}
+    Let $X$ and $Y$ be irreducible representations of some group $G$ such that $TX(g)=Y(g)T$ for all $g\in G$ and some fixed operator $T$. Then $T$ is either zero or invertible.
+\end{lemma}
 \begin{proof}
-    \textcolor{red}{DO IT!!!}
+    Let $V$ be the representation vector space with which $X$,$Y$, and $T$ operate on. Consider $\vec{v}\in\ker(T)$. Then $TX(g)\vec{v} = Y(g)T\vec{v} = Y(g)\vec{0}=\vec{0}$ for all $g\in G$. Thus, $\ker(T)$ is invariant under $X(G)$. Since $X$ is irreducible, there cannot be any non-trivial invariant subspaces, so either $\ker(T) = \left\{ \vec{0} \right\}$ or $\ker(T) = V$.
+
+    Similarly, the image of $T$ is invariant under $Y(G)$ since $Y(g)T\vec{v} = TX(g)\vec{v}\in\textrm{im}(T)$ for all $g\in G$ and $\vec{v}\in V$. The irreducibility of $Y$ implies that the $Y$-invariant subspace $\textrm{im}(T)\subseteq V$ is either $\left\{ \vec{0} \right\}$ or $V$.
+
+    By the rank-nullity theorem, $T$ is either zero or square and invertible.
 \end{proof}
+
+\begin{lemma}[Schur's Lemma]\label{th:schur}
+    Let $X$ be an irreducible representation of a group $G$ defined on a vector space $V$. Consider some operator $T$ on $V$ that commutes with all operators $X(g)$ for $g\in G$. Then $T$ is a scalar multiple of the identity matrix, $I$.
+\end{lemma}
+\begin{proof}
+    Let $\lambda$ be an eigenvalue of $T$. Then $\det(T-\lambda I)$ is not invertible. Since $T$ commutes with $X(G)$, it follows that
+    \begin{align*}
+        \det(T-\lambda I)X(g)=X(g)\det(T-\lambda I),
+    \end{align*}
+    for all $g\in G$. By \cref{th:irred_invertible}, $\det(T-\lambda I) = 0$ since $X(G)$ is irreducible. Thus, $T=\lambda I$.
+\end{proof}
+
+% \begin{theorem}\label{th:irred}
+%     Let $G$ be a finite group. The number of irreducible representations of $G$ is equal to the number of conjugacy classes in $G$. Moreover, the degree of each irreducible representation is equal to the size of the corresponding conjugacy class in $G$.
+% \end{theorem}
+% \begin{proof}
+%     \textcolor{red}{DO IT!!!}
+% \end{proof}
 
 \begin{corollary}\label{cor:abelian_irred}
     Let $G$ be a finite abelian group. Then the irreducible representations of $G$ are one-dimensional.
 \end{corollary}
 \begin{proof}
-    Since $G$ is abelian, the conjugacy classes of $G$ are the elements of $G$ themselves. By \cref{th:irred}, the number of irreducible representations of $G$ is equal to the number of conjugacy classes of $G$, which is equal to the number of elements of $G$. Furthermore, the degree of each irreducible representation is equal to the size of the corresponding conjugacy class in $G$, which is always 1. Therefore, the irreducible representations of $G$ are one-dimensional.
+    Suppose $X(G)$ is an irreducible representation of the abelian group $G$. Fix $h\in G$. Since $X$ is a group homomorphism, we have $X(h)X(g)=X(hg)=X(gh)=X(g)X(h)$ for all $g\in G$. By \cref{th:schur}, $X(h) = \lambda_h I$ for some scalar $\lambda_h$. The choice of $h\in G$ was arbitrary, so $X(g) = \lambda_g I$ for all $g\in G$. Thus, the irreducible representations of $G$ are one-dimensional.
+    % Since $G$ is abelian, the conjugacy classes of $G$ are the elements of $G$ themselves. By \cref{th:irred}, the number of irreducible representations of $G$ is equal to the number of conjugacy classes of $G$, which is equal to the number of elements of $G$. Furthermore, the degree of each irreducible representation is equal to the size of the corresponding conjugacy class in $G$, which is always 1. Therefore, the irreducible representations of $G$ are one-dimensional.
 \end{proof}

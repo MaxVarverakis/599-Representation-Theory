@@ -56,13 +56,14 @@
 % \renewcommand{\bibname}{References}
 
 \includeonly{
-    chapters/Rep_Theory_Background, 
-    chapters/Phys_applications,
-    % chapters/Top_Background, 
-    % chapters/The_Braid_Group,
-    % chapters/Anyons,
+    chapters/introduction,
+    % chapters/Rep_Theory_Background,
+    % chapters/Phys_applications,
+    chapters/Top_Background,
+    chapters/The_Braid_Group,
+    chapters/Anyons,
     chapters/Appendix_physics_background,
-    chapters/Appendix_multi_anyon,
+    % chapters/Appendix_multi_anyon,
     % chapters/tikz_test,
     chapters/TODO,
 }
@@ -75,7 +76,9 @@
 \maketitle
 
 \tableofcontents
-% \listoffigures % need short caption for each figure or something like that
+\listoffigures % need short caption for each figure or something like that
+
+\include{chapters/introduction}
 
 \include{chapters/Rep_Theory_Background}
 
