@@ -1,4 +1,4 @@
-\chapter{Anyons}\label{ch:anyons}
+\chapter{Anyons: A Consequence of Braiding Particles}\label{ch:anyons}
 
 \section{Braiding action on a quantum system}
 As discussed in~\cite{Deshmukh}, each of the standard generators of the braid group can be realized as unitary operators on a quantum system. For the one-dimensional representations of the braid group (\cref{sec:1D_rep}), the action on a quantum system is merely a phase shift by $e^{ik\theta}$ for some $\theta\in\R$ and $k\in\Z$ the degree of the braid. We can see this explicitly by considering the action of $\beta\in B_n$ on a wavefunction $\psi(r_1,\dots,r_n)$ by permuting the identical particles fixed at positions $r_1,r_2,\dots,r_n$:
@@ -34,10 +34,11 @@ More generally, if we have a set of $m\geq 2$ degenerate states in terms of $r_1
 \end{align*}
 where ${\left[ \Xi(\sigma_k) \right]}_{ij}$ is the $(i,j)$-th entry of the unitary matrix $\Xi(\sigma_k)$ for some representation $\Xi:B_n\to U(m)$.
 
-\colorbox{green}{Insert concluding paragraph here!}
-\textit{Comment on why we care about getting the Lagrangian and Hamiltonian for anyons? In general?}
+Now that we have established the braid group (representations) in a physical context, we can investigate the consequences of nontrivial braiding effects on a system of anyons, starting with the simplest nontrivial example of two non-interacting anyons.
 
 \section{Two Non-Interacting Anyons}\label{sec:non_int}
+
+In classical mechanics, the physics of a system is encapsulated in the Lagrangian and/or Hamiltonian of the system, which describe the system in terms of generalized coordinates and momenta~\cite{Taylor2005}. For this reason, the most efficient method to study the dynamics of anyons is to construct the corresponding Lagrangian and Hamiltonian. This approach will lead to a clear understanding of the complexity of anyons and their braiding statistics as compared to traditional particles such as bosons and fermions.
 
 The interaction term in the Lagrangian for two anyons due to the braiding of the anyons is given by
 \begin{equation}
@@ -202,3 +203,9 @@ Only when we have $N\geq 3$ anyons will the nontrivial braiding effects truly pr
 \end{align*}
 
 With three anyons, the nontriviality of the long-range interaction becomes clear, as there are now cross terms that involve the relative positions of all three anyons. This result is similar to the observations made in \cref{fig:anyon_trajectores}. The consequence of these three-body interaction terms is that the system is no longer separable into independent 2-anyon systems, which greatly complicates the quantum mechanics and statistical analysis of the system~\cite{Khare2005}. The nontrivial braiding effects of anyonic systems highlights the rich complexity of the braid group and its physical implications.
+
+\section{Conclusion}
+
+In this chapter, we have seen how the permutation of particles according to the braid group adds additional structure to the physical system as compared to the symmetric group. The study of anyons has emerged as an area of interest in condensed matter physics, such as in the fractional quantum Hall effect~\cite{Bolotin2009}. Arguably the largest area of study involving anyons is in the field of topological quantum computation, where the nontrivial braiding effects of anyons are the key ingredient towards realizing a fault-tolerant quantum computer~\cite{Bernard2018,Delaney2016}.
+
+The braid group is but one example of the rich mathematical structure that underlies the physical world. As demonstrated in this thesis, representation theory serves as a bridge between abstract mathematics and the physical world, and offers unique insight into the fundamental nature of our universe.

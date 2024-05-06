@@ -5,9 +5,18 @@ E.~Artin.
 \newblock Theory of braids.
 \newblock {\em The Annals of Mathematics}, 48(1):101, January 1947.
 
+\bibitem{Bolotin2009}
+Kirill~I. Bolotin, Fereshte Ghahari, Michael~D. Shulman, Horst~L. Stormer, and Philip Kim.
+\newblock Observation of the fractional quantum hall effect in graphene.
+\newblock {\em Nature}, 462(7270):196–199, November 2009.
+
 \bibitem{Date2003}
 G.~Date, M.~V.~N. Murthy, and Radhika Vathsan.
 \newblock Classical and quantum mechanics of anyons, 2003.
+
+\bibitem{Datta2022}
+Amitesh Datta.
+\newblock A strong characterization of the entries of the burau matrices of $4$-braids: The burau representation of the braid group $b_4$ is faithful almost everywhere, 2022.
 
 \bibitem{Delaney2016}
 Colleen Delaney, Eric~C. Rowell, and Zhenghan Wang.
@@ -16,6 +25,11 @@ Colleen Delaney, Eric~C. Rowell, and Zhenghan Wang.
 \bibitem{Deshmukh}
 Avinash Deshmukh.
 \newblock An introduction to anyons.
+
+\bibitem{Bernard2018}
+Bernard Field and Tapio Simula.
+\newblock Introduction to topological quantum computation with non-abelian anyons.
+\newblock 2018.
 
 \bibitem{Fulton1997}
 W.~Fulton.
@@ -74,6 +88,11 @@ Dale Rolfsen.
 Craig~C. Squier.
 \newblock The burau representation is unitary.
 \newblock {\em Proceedings of the American Mathematical Society}, 90(2):199–202, 1984.
+
+\bibitem{Taylor2005}
+John~R. Taylor.
+\newblock {\em Classical Mechanics}.
+\newblock University Science Books, board book edition, 1 2005.
 
 \bibitem{Thiffeault2022}
 Jean-Luc Thiffeault.

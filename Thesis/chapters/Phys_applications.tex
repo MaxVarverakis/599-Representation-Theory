@@ -1,17 +1,10 @@
 \chapter{Examples in Physics}\label{ch:Phys_applications}
 
-\textcolor{red}{Intro paragraph here?}
+The goal of this chapter is to highlight some key results in physics through the lens of representation theory. The intimate connection between quantum mechanics and the representations discussed below offers a unique perspective on the emergence of the fundamental properties of quantum physics. To best illustrate the application of representation theory in quantum mechanics, notation is chosen to agree with the physics conventions. For those not as familiar with Dirac notation and the related quantum mechanical concepts, please refer to \cref{ch:physics_background}.
 
 \section{Rotations in a plane and the group SO(2)}\label{sec:SO2}
-\textcolor{purple}{R vs U inconsistency from earlier notation}
 
-\textcolor{red}{$E$ vs $I$ inconsistency with later on!}
-
-\textcolor{blue}{Resolve index notation at some point.}
-
-\textcolor{green}{Intro paragraph here?}
-
-\textcolor{red}{Reference appendix on Dirac notation somewhere in here.}
+% \textcolor{blue}{Intro paragraph here?}
 
 \subsection{The rotation group}
 Consider the rotations of a 2-dimensional Euclidean vector space about the origin. Let $\e_1$ and $\e_2$ be orthonormal basis vectors of this space. Using geometry, we can determine how a rotation by some angle $\phi$, written in operator form as $R(\phi)$, acts on the basis vectors:
@@ -31,7 +24,7 @@ which allows us to write \cref{eq:rot_1,eq:rot_2} in a condensed form
 \begin{equation}
     R(\phi)\e_i = \e_j{{R(\phi)}^j}_i,
 \end{equation}
-where we are summing over $j=1,2$.
+where we are summing over the repeated index $j=1,2$.
 % The set of these rotation matrices forms a degree 2 representation of the rotation group.
 
 Let $\vec{x}$ be an arbitrary vector in the plane. Then $\vec{x}$ has components $x^i$ in the basis $\{\e_i\}$, where $i=1,2$. Equivalently, we can write $\vec{x}=\e_i x^i$. Then under rotations, $\vec{x}$ transforms in accordance to the basis vectors
@@ -40,24 +33,24 @@ Let $\vec{x}$ be an arbitrary vector in the plane. Then $\vec{x}$ has components
     &= \e_j{{R(\phi)}^j}_i x^i \nonumber \\
     &= \left( \e_1\mat{R(\phi)}{1}{i} + \e_2\mat{R(\phi)}{2}{i} \right)x^i \nonumber \\
     &= \left( \e_1\cos\phi + \e_2\sin\phi \right) x^1 + \left( \e_1(-\sin\phi) + \e_2\cos\phi \right) x^2 \nonumber \\
-    &= \left( x^1\cos\phi - x^2\sin\phi \right)\e_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\e_2.  \nonumber
+    &= \left( x^1\cos\phi - x^2\sin\phi \right)\e_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\e_2. \nonumber 
 \end{align}
 
 Notice that $R(\phi)R^\top(\phi) = I$ where $I$ is the identity matrix. This is precisely what defines \textit{orthogonal matrices}. For 2-dimensional vectors in the plane, it is clear that these rotations do not change the length of said vectors. This can be verified by using \cref{eq:rot_vec}:
-\begin{align}
+\begin{align*}
     |R(\phi)\vec{x}|^2 &= |\e_j\mat{R(\phi)}{j}{i} x^i|^2 \\
-    &= \left|\left( x^1\cos\phi - x^2\sin\phi \right)\e_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\e_2\right|^2 \nonumber \\
-    &= {\left( x^1\cos\phi - x^2\sin\phi \right)}^2 + {\left( x^1\sin\phi + x^2\cos\phi \right)}^2 \nonumber \\
-    &= \left( \cos^2\phi + \sin^2\phi \right)x^1 x_1 + \left( \sin^2\phi + \cos^2\phi \right)x^2 x_2 \nonumber \\
-    &= x^1 x_1 + x^2 x_2 = |\vec{x}|^2. \nonumber
-\end{align}
+    &= \left|\left( x^1\cos\phi - x^2\sin\phi \right)\e_1 + \left( x^1\sin\phi + x^2\cos\phi \right)\e_2\right|^2 \\
+    &= {\left( x^1\cos\phi - x^2\sin\phi \right)}^2 + {\left( x^1\sin\phi + x^2\cos\phi \right)}^2 \\
+    &= \left( \cos^2\phi + \sin^2\phi \right)x^1 x_1 + \left( \sin^2\phi + \cos^2\phi \right)x^2 x_2 \\
+    &= x^1 x_1 + x^2 x_2 = |\vec{x}|^2.
+\end{align*}
 
-Similarly, notice that for any continuous rotation by angle $\phi$, $\det R(\phi) = \cos^2\phi+\sin^2\phi = 1$. In general, orthogonal matrices have determinant equal to $\pm1$. However, the result of the above determinant of $R(\phi)$ implies that all continuous rotations in the 2-dimensional plane have determinant equal to $+1$. These are the \textit{special orthogonal matrices of rank 2}. This family of matrices is denoted $\sotwo$. Furthermore, there is a one-to-one correspondence with $\sotwo$ matrices and rotations in a plane.
+Similarly, notice that for any continuous rotation by angle $\phi$, $\det R(\phi) = \cos^2\phi+\sin^2\phi = 1$. In general, orthogonal matrices have determinant equal to $\pm1$. However, the result of the above determinant of $R(\phi)$ implies that all continuous rotations in the 2-dimensional plane have determinant equal to $+1$. These are the \textit{special orthogonal matrices of rank 2}. This family of matrices is denoted SO(2). Furthermore, there is a one-to-one correspondence with SO(2) matrices and rotations in a plane.
 
-We define the group of continuous rotations in a plane by letting $R(0) = I$ be the identity element corresponding to no rotation (i.e., a rotation by angle $\phi=0$), and defining the inverse of a rotation as $R^{-1}(\phi) = R(-\phi) = R(2\pi-\phi)$. Lastly, we define group multiplication as $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$ and note that $R(\phi) = R(\phi\pm2\pi)$, which can be verified geometrically. Although SO(2) is technically a 2-dimensional representation of a more abstract rotation group, it is often just referred to as the rotation group due to the nature of the construction. Thus, group elements of $\sotwo$ can be labelled by the angle of rotation $\phi\in[0,2\pi)$.
+We define the group of continuous rotations in a plane by letting $R(0) = I$ be the identity element corresponding to no rotation (i.e., a rotation by angle $\phi=0$), and defining the inverse of a rotation as $R^{-1}(\phi) = R(-\phi) = R(2\pi-\phi)$. Lastly, we define group multiplication as $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$ and note that $R(\phi) = R(\phi\pm2\pi)$, which can be verified geometrically. Although SO(2) is technically a 2-dimensional representation of a more abstract rotation group, it is often just referred to as the rotation group due to the nature of the construction. Thus, group elements of SO(2) can be labelled by the angle of rotation $\phi\in[0,2\pi)$.
 
 \subsection{Infinitesimal rotations}\label{sub:inf_rot}
-% Now we can find a generator of $\sotwo$ by considering
+% Now we can find a generator of SO(2) by considering
 Consider an infinitesimal rotation labelled by some infinitesimal angle $d\phi$. This is equivalent to the identity plus some small rotation, which can be written as
 \begin{equation}
     R(d\phi) = I - i d\phi J \label{eq:dphi}
@@ -105,18 +98,17 @@ Notice that $J^2 = I$, which implies that even powers of $J$ equal the identity 
         \sin\phi & \cos\phi
     \end{bmatrix}.
 \end{align*}
-Therefore, the generator $J$ can be used to recover the rotation matrix for an arbitrary angle $\phi$. Clearly, the map $R(\phi)\mapsto e^{-iJ\phi}$ is a valid homomorphism that respects the periodic nature of $\sotwo$.
+Therefore, the generator $J$ can be used to recover the rotation matrix for an arbitrary angle $\phi$. Clearly, the map $R(\phi)\mapsto e^{-iJ\phi}$ is a valid homomorphism that respects the periodic nature of SO(2).
 
 \subsection{Irreducible representations of SO(2)}\label{sub:irr_so2}
-\textcolor{red}{Add comment at the beginning about the Lie algebra generators are actually what's being discussed here and in the following sections. Can link to some blurb in the appendix, perhaps.}
 
-Equipped with the generator $J$, we can construct the irreducible representations of $\sotwo$.
-First, consider a representation $U$ of $\sotwo$ defined on a finite dimensional vector space $V$. Then $U(\phi)$ is the corresponding representation of $R(\phi)$. The same argument as in \cref{sub:inf_rot} can be applied to an infinitesimal rotation to give
+Equipped with the generator $J$, we can construct the irreducible representations of SO(2). Note that the following construction is really based off of the corresponding algebra 
+First, consider a representation $U$ of SO(2) defined on a finite dimensional vector space $V$. Then $U(\phi)$ is the corresponding representation of $R(\phi)$. The same argument as in \cref{sub:inf_rot} can be applied to an infinitesimal rotation to give
 \begin{align*}
     U(\phi) = e^{-iJ\phi},
 \end{align*}
 which is an operator on $V$ (for convenience, the same symbol $J$ is used to denote the generator of the representation).
-% As seen in \cref{sub:inf_rot}, a one-dimensional representation of $\sotwo$ is given by $R(\phi)\mapsto e^{-iJ\phi}$, where $J$ is the generator of the group. This representation is clearly irreducible, as there are no non-trivial invariant subspaces of a one-dimensional vector space.
+% As seen in \cref{sub:inf_rot}, a one-dimensional representation of SO(2) is given by $R(\phi)\mapsto e^{-iJ\phi}$, where $J$ is the generator of the group. This representation is clearly irreducible, as there are no non-trivial invariant subspaces of a one-dimensional vector space.
 
 Since $U$ is a representation of rotations that preserves the length of vectors, we have
 \begin{align*}
@@ -125,7 +117,7 @@ Since $U$ is a representation of rotations that preserves the length of vectors,
     &\iff e^{iJ^\dagger\phi}e^{-iJ\phi} = e^{-i(J-J^\dagger)\phi} = 1 \\
     &\iff J = J^\dagger.
 \end{align*}
-Therefore, not only must $U$ be unitary, but the generator $J$ must be Hermitian. This fact becomes especially important in the physical interpretation of the representations of 3-dimensional rotations in \cref{sec:phys_J}.
+Therefore, not only must $U$ be unitary, but the generator $J$ must be Hermitian. This fact becomes especially important in the physical interpretation of the representations of 3-dimensional rotations in \cref{sec:phys_SO3}.
 
 According to \cref{cor:abelian_irred}, the abelian nature of SO(2) implies that all of its irreducible representations are one-dimensional. Then for any $\ket{\alpha}\in V$, the minimal subspace containing $\ket{\alpha}$ that is invariant under SO(2) is one-dimensional. Hence,
 \begin{align*}
@@ -220,7 +212,7 @@ where $\braket{\phi|\psi}$ is written as the \textit{wavefunction} $\psi(\phi)$ 
 %     \psi(\phi) = \braket{\phi|\psi} = \frac{1}{2\pi}\int_{0}^{2\pi} e^{im\phi}\ket{\phi} \,d\phi
 % \end{align*}
 
-\textcolor{red}{Add wavefunction description for uncountably infinite-dim Hilbert space. How you can write $\braket{x|\Psi}$ as just the \textit{wavefunction} $\Psi(x)$ since $x$ is a continuous variable.}
+% \textcolor{red}{Add wavefunction description for uncountably infinite-dim Hilbert space. How you can write $\braket{x|\Psi}$ as just the \textit{wavefunction} $\Psi(x)$ since $x$ is a continuous variable.}
 
 Then the action of $J$ generalizes to
 \begin{align*}
@@ -361,9 +353,9 @@ Again, up to $\hbar$, \cref{eq:P_3D} is precisely the quantum mechanical linear 
 
 \section{Symmetry, invariance, and conserved quantities}\label{sec:PJ_physical}
 
-% Armed with the linear and angular momentum operators $\vh{p}$ and $\hat{L}_z$, we can now discuss the physical implications of the representations of $T_3$ and $\sotwo$. 
+% Armed with the linear and angular momentum operators $\vh{p}$ and $\hat{L}_z$, we can now discuss the physical implications of the representations of $T_3$ and SO(2). 
 % The generators $\vec{P}$ and $J$ correspond to Hermitian operators that act on the state vectors of a quantum system. Physically, $\vec{P}$ and $J$ perform their respective transformations to the system, which  
-Physically, the generators $\vec{P}$ and $J$ alter a (quantum) system by translation and rotation. These transformations correspond to the Hermitian operators $\vh{p}$ and $\hat{L}_z$ that act on the state vectors belonging to the Hilbert space describing the system. Hence, the (real) eigenvalues of $P$ and $J$ correspond to the physical observables (measurable quantities) of linear and angular momentum, respectively. Armed with the explicit forms of these operators, the physical ramifications of the irreducible representations of $T_3$ and $\sotwo$ can now be demonstrated.
+Physically, the generators $\vec{P}$ and $J$ alter a (quantum) system by translation and rotation. These transformations correspond to the Hermitian operators $\vh{p}$ and $\hat{L}_z$ that act on the state vectors belonging to the Hilbert space describing the system. Hence, the (real) eigenvalues of $P$ and $J$ correspond to the physical observables (measurable quantities) of linear and angular momentum, respectively. Armed with the explicit forms of these operators, the physical ramifications of the irreducible representations of $T_3$ and SO(2) can now be demonstrated.
 
 According to Ehrenfest's theorem (see \cref{sec:conserved_quantities}), if a physical system represented by a Hamiltonian $\hat{H}$ is invariant under a transformation generated by an operator $\hat{A}$, then the physical observable corresponding to $\hat{A}$ is conserved. In other words, the expectation value of $\hat{A}$ is constant in time if the commutator $[\hat{H},\hat{A}] = \hat{H}\hat{A} - \hat{A}\hat{H} = 0$.
 
@@ -463,7 +455,7 @@ Therefore, $[\vh{p}^2,\hat{L}_z] = 0$. It follows from \cref{eq:ABpC} that
 \end{align*}
 This result agrees with the previous claim that the emergence of conservation of angular momentum is due to the rotational symmetry of the system.
 
-The profound connection between symmetries and conserved quantities is a fundamental principle in physics, and the results obtained in this section highlight the significance of representation theory in physics. The irreducible representations of $T_3$ and $\sotwo$ provide the necessary mathematical framework to derive conservation laws without a preconceived notion of the physical universe.
+The profound connection between symmetries and conserved quantities is a fundamental principle in physics, and the results obtained in this section highlight the significance of representation theory in physics. The irreducible representations of $T_3$ and SO(2) provide the necessary mathematical framework to derive conservation laws without a preconceived notion of the physical universe.
 
 % \subsection{Fancy minimal prescription}
 % Gauge-invariant classical version for vector potential $\vec{A}$: $\mathcal{H} = \frac{{(\vec{p}-q\vec{A})}^2}{2m}$
@@ -509,7 +501,7 @@ The general rotation operator about $\vec{n}$ becomes
 \end{align*}
 As in \cref{sub:irr_so2}, the unitarity of the rotation operator requires that the generators $J_x,J_y,J_z$ be Hermitian and therefore have real eigenvalues.
 
-Therefore, the set $\left\{ J_x,J_y,J_z \right\}$ forms a basis for the generators of the one-parameter abelian subgroups of SO(3). As a result, we have a \textcolor{red}{representation} of SO(3) defined by the generator $\vec{J} = (J_x,J_y,J_z)$. Namely, for an arbitrary rotation $R_{\vec{n}}(\theta)$, we can write
+Therefore, the set $\left\{ J_x,J_y,J_z \right\}$ forms a basis for the generators of the one-parameter abelian subgroups of SO(3). As a result, we have a representation of SO(3) defined by the generator $\vec{J} = (J_x,J_y,J_z)$. Namely, for an arbitrary rotation $R_{\vec{n}}(\theta)$, we can write
 \begin{align*}
     R_{\vec{n}}(\theta) = e^{-i\theta\,\vec{n}\cdot\vec{J}}.
 \end{align*}
@@ -618,7 +610,7 @@ Additionally, for the eigenvector $\ket{j}$, we know specifically that
     &= (0 + j + j^2)\ket{j} \\
     &= j(j+1)\ket{j}.
 \end{align*}
-Since $J^2$ commutes with all SO(3) rotations, notice that for any $\ket{m}\in\left\{ \ket{l}, \ket{l+1}, \dots, \ket{j-1}, \ket{j} \right\}$
+Since $J^2$ commutes with all SO(3) rotations, for any $\ket{m}\in\left\{ \ket{l}, \ket{l+1}, \dots, \ket{j-1}, \ket{j} \right\}$ we have
 \begin{align*}
     J^2\ket{m} = J^2 J_-^{(j-m)}\ket{j} = J_-^{(j-m)} J^2\ket{j} = j(j+1)\ket{m}.
 \end{align*}
@@ -688,12 +680,12 @@ We have merely scratched the surface of the physical ramifications of the irredu
 \begin{enumerate}
     \item As with SO(2), if a system is invariant under 3D rotations (radially symmetric), then angular momentum is conserved. For each axis of rotation, one can directly calculate the commutator with the Hamiltonian as was done previously for SO(2) rotations. The same arguments in \cref{sub:cons_ang_mom} can be applied to spin, orbital, and total angular momentum and will give the familiar results.
     \item In a radially symmetric system, one has eigenvectors $\ket{E,l,m}$, which are simultaneous eigenvectors of $\hat{H},J^2,J_z$. In position space, the eigenfunctions corresponding to these eigenvectors are separable into a radial component and a spherical harmonic. This is a classic result in undergraduate quantum physics.
-    \item The analysis of linear and angular momentum and the corresponding operators can be combined by finding simultaneous eigenvectors to construct a subspace invariant under both translations and rotations.
+    \item The analysis of linear and angular momentum and the corresponding operators can be combined by finding simultaneous eigenvectors to construct a subspace invariant under both translations and rotations. The related group is known as the Euclidean group, which is the group of translations and rotations.
     \item Multi-particle systems can be described by tensor products of the irreducible representations of SO(3). One such example is a 2-electron state, which results in the classification of singlet and triplet states. Taking this further, one arrives at the Clebsch-Gordan coefficients, which relate the individual angular momentum basis to the total angular momentum basis.
     \item In the case of spin-1/2 particles, one can apply statistical mechanics to arrive at the renowned Pauli exclusion principle. Though not formally derived, the Pauli exclusion principle will emerge from the antisymmetric nature of fermions in \cref{ch:anyons}.
 \end{enumerate}
 
-\textcolor{red}{Make a note that it's really the irreducible representation of $\mathfrak{so}(3)$, but it seamlessly translates to the group representations?}
+% \textcolor{red}{Make a note that it's really the irreducible representation of $\mathfrak{so}(3)$, but it seamlessly translates to the group representations?}
 
 % This is a section about what else you can do with the irreducible representations of SO(3) that I won't get into in this thesis.
 

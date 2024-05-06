@@ -446,6 +446,8 @@ Then the reduced Burau representation matrices are given by
 \end{align}
 for $i=2,3,\dots,n-2$ and $n\geq 3$~\cite{Kassel2008}. The exact form of the above matrices may differ by a transpose in some sources, but the results are equivalent.
 
+The Burau representation has been shown to be faithful for $n\leq 3$ and degenerate for $n \geq 5$~\cite{Kassel2008}. Whether the Burau representation is faithful for $n=4$ remains an open problem, but has been shown to be faithful almost everywhere~\cite{Datta2022}.
+
 \section{Unitary Representation Matrices}
 As explained in~\cite{Delaney2016}, we can use $U$ from the construction of the (unreduced) Burau representation to show that there are no choices of the parameter $t$ such that the representation matrices are directly unitary. However, we can use the reduced Burau representation matrices to construct a new representation of $B_n$ that is in fact unitary~\cite{Delaney2016,Squier1984}.
 
@@ -611,9 +613,9 @@ is unitary.
             -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
             \\
             1 & \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}
-        \end{bmatrix}.
+        \end{bmatrix},
     \end{align*}
-    The unitarity of $\mathcal{U}(\sigma_1)$ and $\mathcal{U}(\sigma_2)$ can be verified by direct computation. Additionally, $\mathcal{U}$ satisfies the braid relation:
+    where $U(2)$ is the group of $2\times 2$ unitary matrices. The unitarity of $\mathcal{U}(\sigma_1)$ and $\mathcal{U}(\sigma_2)$ can be verified by direct computation. Additionally, $\mathcal{U}$ satisfies the braid relation:
     \begin{align*}
         \mathcal{U}(\sigma_1)\mathcal{U}(\sigma_2)\mathcal{U}(\sigma_1) &= \begin{bmatrix}
             0 & i \\
