@@ -1,0 +1,99 @@
+% Suggested circle radius >= 3 cm
+% \usetikzlibrary{
+%         % math,
+%         % calc,
+%         % decorations.markings,
+% }
+
+\def\circleRadius{3cm}
+\def\sep{\circleRadius*0.175}
+\def\aSep{5} % degrees
+\def\lA{130}
+\def\cA{90}
+\def\rA{50}
+
+\begin{tikzpicture}[
+] 
+        \node[anchor=north west, font=\Large] at ({-1.15*\circleRadius}, {1.05*\circleRadius}) {$\sheet{\D}{3,i}$};
+
+        \draw[ultra thick] (0,0) circle (\circleRadius);
+
+        \tikzmath{
+                coordinate \l, \r, \p, \b; real \aL, \aR;
+                \aL1 = \lA+\aSep;
+                \aR1 = \lA-\aSep;
+                \aL2 = \cA+\aSep;
+                \aR2 = \cA-\aSep;
+                \aL3 = \rA+\aSep;
+                \aR3 = \rA-\aSep;
+                %
+                \b = (0,-\circleRadius);
+                \p1 = (-.5*\circleRadius,0);
+                \p2 = (0,0);
+                \p3 = (.5*\circleRadius,0);
+                \l1 = (\aL1:\circleRadius);
+                \r1 = (\aR1:\circleRadius);
+                \l2 = (\aL2:\circleRadius);
+                \r2 = (\aR2:\circleRadius);
+                \l3 = (\aL3:\circleRadius);
+                \r3 = (\aR3:\circleRadius);
+                %
+        %         Alternate method with cartesian coordinates
+        %         \l1 = ({-(\Off + \eSep)*\circleRadius},{sqrt(1-(\Off + \eSep)^2) * \circleRadius});
+        %         \l2 = (-\cSep*\circleRadius,{sqrt(1-(\cSep)^2) * \circleRadius});
+        %         \l3 = ({(\Off - \eSep)*\circleRadius},{sqrt(1-(\Off - \eSep)^2) * \circleRadius});
+        %         \r1 = ({-(\Off - \eSep)*\circleRadius},{sqrt(1-(\Off - \eSep)^2) * \circleRadius});
+        %         \r2 = (\cSep*\circleRadius,{sqrt(1-(\cSep)^2) * \circleRadius});
+        %         \r3 = ({(\Off + \eSep)*\circleRadius},{sqrt(1-(\Off + \eSep)^2) * \circleRadius});
+        }
+        
+        % \foreach \i in {1,2,3} {
+        %         \draw[white, line width=2pt] (\r\i) arc (atan2(\ry\i,\rx\i):atan2(\ly\i,\lx\i):\circleRadius);
+        % }
+
+        \foreach \i in {1,2,3} {
+                \draw[white, line width=2pt] (\r\i) arc (\aR\i:\aL\i:\circleRadius);
+        }
+
+        % Alternate method with nodes
+        % \node (l1) at ({\lA+\aSep}:\circleRadius) {};
+        % \node (r1) at ({\lA-\aSep}:\circleRadius) {};
+        % 
+        % \node (l2) at ({\cA+\aSep}:\circleRadius) {};
+        % \node (r2) at ({\cA-\aSep}:\circleRadius) {};
+        % 
+        % \node (l3) at ({\rA+\aSep}:\circleRadius) {};
+        % \node (r3) at ({\rA-\aSep}:\circleRadius) {};
+
+        \foreach \i in {1,2,3} {
+                \coordinate (lI\i) at ($(\p\i)!0.5!(\l\i)$);
+                \coordinate (lO\i) at ($(\p\i)!0.5!(\r\i)$);
+
+                \fill[cyan] (\l\i) circle (.75pt);
+                \fill[purple] (\r\i) circle (.75pt);
+        }
+
+        \node at (\l2) [left, yshift=-.3*\circleRadius, xshift=.04*\circleRadius, cyan] {$\substack{\textrm{Left} \\ \textrm{Edge}}$};
+        \node at (\r2) [right, yshift=-.3*\circleRadius, xshift=-.04*\circleRadius, purple] {$\substack{\textrm{Right} \\ \textrm{Edge}}$};
+
+        \draw [out=135, in=-140, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.6 with {\arrow{latex},sloped}}, postaction={decorate}] (\b) to (lI1);
+        
+        \draw [out=80, in=-45, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.4 with {\arrowreversed{latex},sloped}}, postaction={decorate}] (\b) to (lO2);
+        
+        \draw [out=25, in=-150, looseness=.65, line width= 1.4, decoration={markings, mark= at position 0.5 with {\arrowreversed{latex},sloped}}, postaction={decorate}] (\b) to (lI3);
+
+        \node at (-.725*\circleRadius, -.15*\circleRadius) {$t^i x_1$};
+        \node at (-.05*\circleRadius, -.2*\circleRadius) {$t^{i-1} x_2$};
+        \node at (.45*\circleRadius, -.5*\circleRadius) {$-t^{i} x_3$};
+
+        \foreach \i in {1,2,3} {
+                \draw [out=80, in=-80, looseness=0, ultra thick, purple] (\p\i) to (\r\i);
+                \draw [out=110, in=-110, looseness=0, ultra thick, cyan] (\p\i) to (\l\i);
+
+                \fill[black] (\p\i) circle (2pt);
+                \node[above, yshift=-.15*\sep, xshift=.45*\sep] at (\p\i) {$\i$};
+        }
+
+        % base point for loop/arrow
+        \filldraw [red] (\b) circle (2pt) node[below] {$t^i\zeta$};
+\end{tikzpicture}

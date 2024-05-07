@@ -1,0 +1,22 @@
+% Suggested circle radius >= 3 cm
+\def\circleRadius{3cm}
+\def\sep{\circleRadius * 0.175}
+
+\begin{tikzpicture}
+        \node[anchor=north west, font=\Large] at (-\circleRadius, \circleRadius) {$\D_n$};
+
+        \draw[ultra thick] (0,0) circle (\circleRadius);
+        \filldraw [black] 
+                        (-\circleRadius + \sep,0) circle (2pt) node[above] {$0$}
+                        (\circleRadius - \sep,0) circle (2pt) node[above] {$n$}
+                        (-\sep,0) circle (2pt) node[above, yshift=.2*\sep] {$i$}
+                        (\sep,0) circle (2pt) node[above, xshift=0cm] {$i+1$};
+        \path (-\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
+        \path (\circleRadius/2,0) node {$\scalebox{1.5}{$\cdots$}$};
+
+        % base point for loop/arrow
+        \filldraw [red] (0,-\circleRadius) circle (2pt);
+
+        % Arrow looping back around point i (added half a 2pt-radius offset to starting and ending points to make the arrow look better)
+        \draw[-latex, ultra thick] (0,-\circleRadius + 2.8452755906/2) .. controls (-1.4*\sep-.35*\circleRadius,0.39*\circleRadius) and  (-1.4*\sep+.35*\circleRadius,0.39*\circleRadius) .. node[pos=0.1, left] {$x_i$} (.05*\sep,-\circleRadius + 2.8452755906/2);
+\end{tikzpicture}

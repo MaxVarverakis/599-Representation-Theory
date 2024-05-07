@@ -1,0 +1,1 @@
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QA Very Relevant Thesis Title Max Varverakis June 2024 Master of Science June 2024 3 Sean Gasiorek Assistant Professor of Mathematics Anton Kaul Professor of Mathematics Eric Brussel Professor of Mathematics Mathematics San Luis Obispo seven\\E$"}

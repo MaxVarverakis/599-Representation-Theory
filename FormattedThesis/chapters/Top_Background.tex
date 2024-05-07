@@ -1,0 +1,52 @@
+\chapter{Relevant Topological Definitions}\label{ch:top_background}
+
+The braid group is formally defined in terms of topology. In order to understand the braid group, we must first understand the underlying topological properties that are used to define the braid group. The following is a brief introduction to the relevant topological concepts~\cite{Fulton1997,Kassel2008}.
+
+Similar to an isomorphism in algebra, the notion of topological equivalence is given by the following definition.
+\begin{definition}
+    Consider $X$ and $Y$ to be two topological spaces. A \textit{homotopy} between two continuous functions $f,g:X\to Y$ is a continuous function $H:X\times[0,1]\to Y$ such that $H(x,0)=f(x)$ and $H(x,1)=g(x)$ for all $x\in X$. If such a homotopy exists, we say that $f$ and $g$ are \textit{homotopic}.
+\end{definition}
+The homotopy $H$ can be thought of as a continuous deformation of $f$ into $g$. The interval $\left[ 0,1 \right]$ represents the ``time'' parameter of the deformation. At time equal to 0, the function $H$ is equal to $f$, and at time equal to 1, the function $H$ is equal to $g$. If two functions are homotopic, then they belong to the same homotopy class, which is an equivalence class of functions under the relation of homotopy.
+
+\begin{definition}
+    A \textit{loop} on a topological space $X$ is a continuous function $\ell:[0,1]\to X$ such that $\ell(0) = \ell(1)$. In other words, the path of $\ell$ starts and ends at the same point in $X$. Often, this point is called the \textit{base point} of the loop.
+\end{definition}
+
+Equipped with the above definitions, the equivalence of loops on a topological space is defined as follows.
+\begin{definition}
+    A \textit{homotopy class of loops} on a topological space $X$ is an equivalence class of loops under the relation of homotopy. Simply put, a homotopy of loops is a continuous transformation of one loop into another. If two loops $\ell_1,\ell_2:[0,1]\to X$ with base point $\xi\in X$ are homotopic, then there exists a continuous map $H:[0,1]\times [0,1]\to X$ such that:
+    \begin{enumerate}
+        \item $H(0,t) = \xi = H(1,t)$ for all $t\in [0,1]$, and
+        \item $H(s,0) = \ell_1(s)$ and $H(s,1) = \ell_2(s)$ for all $s\in [0,1]$.
+    \end{enumerate}
+    Property 1 ensures that the starting/ending point of the loop remains fixed throughout the deformation from $\ell_1$ to $\ell_2$, and property 2 follows from the definition of a homotopy.
+\end{definition}
+
+\begin{definition}
+    The \textit{fundamental group} of a topological space $X$ with base point $\xi$ is defined as the collection of loops on $X$ with base point $\xi$ modulo homotopy. In other words, the fundamental group is the collection of equivalence classes of loops under homotopy. This is written as
+    \begin{align*}
+        \pi(X,\xi):=\left\{ \textrm{loops }\ell \textrm{ on }X \textrm{ with base point }\xi \right\}/\textrm{homotopy}.
+    \end{align*}
+    Often times, the base point of a loop is arbitrary, so we can write $\pi(X)$ instead of $\pi(X,\xi)$ to denote the fundamental group of $X$.
+\end{definition}
+
+The group structure of the fundamental group is defined as operations on the loops themselves. Consider two loops $\ell_1,\ell_2:[0,1]\to X$ with base point $\xi$. Then the product $\ell_1\cdot\ell_2$ is defined in terms of \textit{concatenation} of the two loops. Specifically, this defines a new loop $(\ell_1\cdot\ell_2)(t)=\mathcal{L}(t):[0,1]\to X$ where $\mathcal{L}(t) = \ell_1(2t)$ on $\left[ 0,\frac{1}{2} \right]$ and $\mathcal{L}(t) = \ell_2(2t-1)$ on $\left[ \frac{1}{2},1 \right]$. Loop concatenation can be thought of as stitching the loops together at the shared base point. As $t$ ranges from 0 to 1, we can think of the first half of the deformation as traversing the first loop at twice the original speed, and then traveling along the second loop at twice the original speed in the second half of the deformation. 
+
+In the above description, recall that each loop $\ell$ is actually an equivalence class $\left[ \ell \right]$ under the relation of homotopy. So the concatenation of two loops $\ell_1$ and $\ell_2$ is actually the concatenation of any two loops belonging to the equivalence classes $\left[ \ell_1 \right]$ and $\left[ \ell_2 \right]$, which becomes the equivalence class $\left[ \ell_1\cdot\ell_2 \right]$.
+
+In the fundamental group, the inverse of an element is the identical topological path traversed in the opposite direction. If $\gamma:[0,1]\to X$ is a loop on $X$, then $\iv{\gamma}(t) := \gamma(1-t)$.
+
+% \begin{example}
+%     Consider a \textbf{3-dimensional(?)} torus $T^3$. The fundamental group of the torus is $\pi(T^3)$. There are two types of loops on the torus: those that pass through the hole of the torus, and those that do not.
+% \end{example}
+
+Just as how homotopy describes a continuous transformation from one continuous path on a topological space to another, topological equivalence is established in a broader sense in the following definition.
+\begin{definition}
+    A continuous, bijective function $f:X\to Y$ between two topological spaces $X$ and $Y$ such that the inverse $\iv{f}:Y\to X$ is also continuous and bijective is called a \textit{homeomorphism}. If there exists such a homeomorphism, then we say $X$ is \textit{homeomorphic} to $Y$. Moreover, an \textit{embedding} of topological spaces is a continuous function that is a homeomorphism when restricted to its image. If we have a continuous family of homeomorphisms $f_t:X\to Y$ for $t\in[0,1]$, then we say that $X$ and $Y$ are \textit{isotopic}. The isotopy of $X$ and $Y$ can be written as a function $H:X\times[0,1]\to Y$ such that
+    \begin{enumerate}
+        \item $H(x,0)=x$ for all $x\in X$, 
+        \item $H(x,1)=f(x)$ for all $x\in X$, and
+        \item $H(-,t)$ is an embedding of $X$ onto $Y$ for all $t\in[0,1]$.
+    \end{enumerate}
+\end{definition}
+Evidently, isotopy defines a stronger and more broad notion of topological equivalence, which will be important in defining representations of the braid group.

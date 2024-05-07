@@ -1,0 +1,181 @@
+\chapter{An Introduction to Representation Theory}\label{ch:rep_background}
+
+Representation theory is a powerful tool that enables the algebraic properties of groups to be applied in contexts beyond group theory. In this chapter, we lay the foundation of representation theory for use in physical scenarios in later chapters. This is by no means a comprehensive treatment of the subject. There are a multitude of resources that cover representation theory in a variety of styles. One such resource that is particularly helpful in the context of mathematical physics is~\cite{Tung1985}. We start with the core definition.
+\begin{definition}[Representation of a group]
+    Let $G$ be a group. A \textit{representation} of $G$ is a homomorphism from $G$ to a group of operators on a linear vector space $V$. The dimension of $V$ is the \textit{dimension} or \textit{degree} of the representation.
+    % If there is a homomorphism from a group $G$ to a group of operators $X(G)$ on a linear vector space $V$, we say that $X(G)$ forms a \textit{representation} of $G$ with dimension $\dim V$.
+\end{definition}
+
+If $X$ is a representation of $G$ on $V$, then $X$ is a map
+\begin{equation}
+    g\in G\xrightarrow{X} X(g)
+\end{equation}
+in which $X(g)$ is an operator on the vector space $V$. For a set of basis vectors $\{\e_i,i=1,2,\dots,n\}$, we can realize each operator $X(g)$ as an $n\times n$ matrix:
+\begin{equation}
+    X(g)\e_i = \sum_{j=1}^n {{X(g)}^j}_i\e_j %= \e_j{{X(g)}^j}_i,
+\end{equation}
+where the first index $j$ is the row index and the second index $i$ is the column index.
+% We use the \textcolor{red}{Einstein summation convention (needed?)}, so repeated indices are summed over.
+The operator multiplication is defined as
+\begin{equation}
+    X(g_1)X(g_2) = X(g_1g_2),
+\end{equation}
+which satisfies the group multiplication rules. Since a representation is a group homomorphism, it follows that the operators $X(g)$ are invertible, and the inverse of $X(g)$ is $X(g^{-1})$.
+
+\begin{definition}
+    If the homomorphism defining the representation is an isomorphism, then the representation is \textit{faithful}. Otherwise, it is \textit{degenerate}.
+\end{definition}
+
+\begin{example}
+    The simplest representation of any group $G$ is the \textit{trivial} representation, in which every $g\in G$ is realized by $g\mapsto 1$. This representation is clearly degenerate.
+\end{example}
+
+\begin{remark}
+    A representation must map the group identity element to the identity operator.
+\end{remark}
+\begin{proof}
+    Let $X$ be a representation of a group $G$ on a vector space $V$. Since $X$ is a homomorphism, it must map the group identity element $e\in G$ to the identity operator $I$ on $V$. Explicitly, $X(g) = X(eg) = X(e)X(g)$ for all $g\in G$ implies that $X(e)$ is the identity operator in $V$.
+\end{proof}
+
+\begin{example}
+    Consider the symmetric group $S_n$. The \textit{defining} representation of $S_n$ encodes each $\sigma\in S_n$ by placing a 1 in the $j$-th row and $i$-th column of the matrix $D(\sigma)$ if $\sigma$ sends $i$ to $j$, and 0 otherwise. For example, in $S_3$, the permutation $(23)$ has the matrix representation
+    \begin{align*}
+        D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix},
+    \end{align*}
+    whereas the permutation $(123)$ is realized by the matrix
+    \begin{align*}
+        D\big((123)\big) = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}.
+    \end{align*}
+\end{example}
+
+The above example involves a finite group. Infinite groups can also have representations, as demonstrated in the following example.
+\begin{example}
+    Let $G$ be the group of continuous rotations in the $xy$-plane about the origin. We can write $G = \{R(\phi),0\leq\phi<2\pi\}$ with group operation $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$. Consider the 2-dimensional Euclidean vector space $V_2$. Then we define a representation of $G$ on $V_2$ by the familiar rotation operation
+    \begin{align}
+        \e_1' &= X(\phi)\e_1 = \e_1\cdot\cos\phi + \e_2\cdot\sin\phi\\
+        \e_2' &= X(\phi)\e_2 = -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi,
+    \end{align}
+    where $\e_1$ and $\e_2$ are orthonormal basis vectors of $V_2$. This gives the familiar rotation matrix representation
+    \begin{equation}
+        X(\phi) = \begin{bmatrix}
+            \cos\phi & -\sin\phi\\
+            \sin\phi & \cos\phi
+        \end{bmatrix}.
+    \end{equation}
+    % To further illuminate this representation, consider an arbitrary vector $\vec{x}\in V_2$. It follows that
+    % \begin{equation}
+    %     \vec{x}\,' = X(\phi)\vec{x} = \sum_{i,j}{{X(\phi)}^j}_i x_i \e_j = \sum_{i}x_i'\e_i.
+    % \end{equation}
+    % where ${x'}^j = {{X(\phi)}^j}_i x^i$.
+\end{example}
+
+\begin{definition}[Equivalence of Representations]
+    For a group $G$, two representations are \textit{equivalent} if they are related by a similarity transformation. Equivalent representations form an equivalence class.
+\end{definition}
+
+To determine whether two representations belong to the same equivalence class, we define the following.
+\begin{definition}[Characters of a Representation]
+    The \textit{character} $\chi(g)$ of an element $g\in G$ in a representation $X$ is defined as the trace of the matrix representation: $\chi(g) = \tr{X(g)}$.
+\end{definition}
+Since trace is independent of basis, the character serves as a class label.
+
+\section{Irreducibility and Invariant Subspaces}
+
+The structure of a representation vector space of a group can offer insight into the representations themselves.
+\begin{definition}[Invariant Subspace]
+    Let $X(G)$ denote a representation of $G$ on a vector space $V$, and let $W$ be a subspace of $V$ such that $X(g)\vec{x}\in W$ for all $\vec{x}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $X(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it contains no non-trivial invariant subspaces with respect to $X(G)$.
+\end{definition}
+
+The identification of invariant subspaces on vector space representations leads to the following distinction of the representations.
+\begin{definition}[Irreducible Representation]
+    A representation $X(G)$ on $V$ is \textit{irreducible} if there is no non-trivial invariant subspace in $V$ with respect to $X(G)$. Otherwise, it is \textit{reducible}. If $X(G)$ is reducible and its orthogonal complement to the invariant subspace is also invariant with respect to $X(G)$, then the representation is \textit{fully reducible}.
+\end{definition}
+
+A reducible representation can be decomposed into a direct sum of irreducible representations. This decomposition is unique up to equivalence.
+
+\begin{example}
+    Under the group of 2-dimensional rotations, consider the 1-dimensional subspace spanned by $\e_1$. This subspace is not invariant under 2-dimensional rotations, because a rotation of $\e_1$ by $\pi/2$ results in the vector $\e_2$ that is clearly not in the subspace spanned by $\e_1$. A similar argument shows that the subspace spanned by $\e_2$ is not invariant under 2-dimensional rotations.
+
+    However, if there are eigenvectors of the rotation operator, we then have invariant subspaces formed by the span of the eigenvectors.
+    % For example, the eigenvalues of the rotation operator $X(\phi)$ are such that
+    % \begin{align*}
+    %     \det\left( X(\phi)-\lambda I \right)
+    %         &= {\left( \cos\phi-1 \right)}^2 + \sin^2\phi\\
+    %         &= 2-2\cos\phi = 0 \\
+    %         &\iff \cos\phi = 1 \\
+    %         &\iff \phi = 2\pi n, n\in\mathbb{Z}.
+    % \end{align*}
+    % \begin{align*}
+    %     \begin{bmatrix}
+    %         \cos\phi & -\sin\phi\\
+    %         \sin\phi & \cos\phi
+    %     \end{bmatrix} \begin{bmatrix}
+    %         x_1\\x_2
+    %     \end{bmatrix} &= \begin{bmatrix}
+    %         x_1\cos\phi - x_2\sin\phi\\x_1\sin\phi + x_2\cos\phi
+    %     \end{bmatrix} = \lambda \begin{bmatrix}
+    %         x_1\\x_2
+    %     \end{bmatrix},
+    % \end{align*}
+    Consider the linear combination of basis vectors
+    \begin{equation*}
+        \e_\pm = \frac{1}{\sqrt{2}}\left( \mp\e_1 + i\e_2 \right),
+    \end{equation*}
+    where $i = \sqrt{-1}$. Then a rotation by angle $\phi$, denoted in operator form as $X(\phi)$, acts on $\e_\pm$ by
+    \begin{align*}
+        X(\phi)\e_+ &= X(\phi)\frac{1}{\sqrt{2}}(-\e_1 + i\e_2) \\
+        &= \frac{1}{\sqrt{2}}(-X(\phi)\e_1 + iX(\phi)\e_2) \\
+        &= \frac{1}{\sqrt{2}}\left( -\e_1\cos\phi + \e_2\sin\phi +i\e_1\sin\phi + i\e_2\cos\phi \right) \\
+        &= \frac{1}{\sqrt{2}}\left( -\e_1(\cos\phi - i\sin\phi) + i\e_2(\cos\phi-i\sin\phi) \right) \\
+        &= e^{-i\phi}\e_+,
+    \end{align*}
+    and similarly $X(\phi)\e_- = e^{i\phi}\e_-$.
+
+    Therefore, the span of each eigenvector of $X(\phi)$ is an invariant subspace of $V_2$ with respect to $X$. Since $X$ is a 2-dimensional representation, we can decompose it into the $\e_\pm$ basis to obtain a direct sum of two 1-dimensional irreducible representations:
+    \begin{align*}
+        X(\phi) = \begin{bmatrix}
+            e^{-i\phi} & 0\\
+            0 & e^{i\phi}
+        \end{bmatrix}.
+    \end{align*}
+\end{example}
+
+Irreducible decompositions of a representation often simplify the application. In the following results, we assume that the representation space is finite-dimensional so that the operators can be represented by matrices. The following lemmas are needed to arrive at a powerful result regarding the dimension of irreducible representations that will be exploited in later chapters.
+
+\begin{lemma}\label{th:irred_invertible}
+    Let $X$ and $Y$ be irreducible representations of some group $G$ such that $TX(g)=Y(g)T$ for all $g\in G$ and some fixed operator $T$. Then $T$ is either zero or invertible.
+\end{lemma}
+\begin{proof}
+    Let $V$ be the representation vector space with which $X$,$Y$, and $T$ operate on. Consider $\vec{v}\in\ker(T)$. Then $TX(g)\vec{v} = Y(g)T\vec{v} = Y(g)\vec{0}=\vec{0}$ for all $g\in G$. Thus, $\ker(T)$ is invariant under $X(G)$. Since $X$ is irreducible, there cannot be any non-trivial invariant subspaces, so either $\ker(T) = \left\{ \vec{0} \right\}$ or $\ker(T) = V$.
+
+    Similarly, the image of $T$ is invariant under $Y(G)$ since $Y(g)T\vec{v} = TX(g)\vec{v}\in\textrm{im}(T)$ for all $g\in G$ and $\vec{v}\in V$. The irreducibility of $Y$ implies that the $Y$-invariant subspace $\textrm{im}(T)\subseteq V$ is either $\left\{ \vec{0} \right\}$ or $V$.
+
+    By the rank-nullity theorem, $T$ is either zero or square and invertible.
+\end{proof}
+
+\begin{lemma}[Schur's Lemma]\label{th:schur}
+    Let $X$ be an irreducible representation of a group $G$ defined on a vector space $V$. Consider some operator $T$ on $V$ that commutes with all operators $X(g)$ for $g\in G$. Then $T$ is a scalar multiple of the identity matrix, $I$.
+\end{lemma}
+\begin{proof}
+    Let $\lambda$ be an eigenvalue of $T$. Then $\det(T-\lambda I)$ is not invertible. Since $T$ commutes with $X(G)$, it follows that
+    \begin{align*}
+        \det(T-\lambda I)X(g)=X(g)\det(T-\lambda I),
+    \end{align*}
+    for all $g\in G$. By \cref{th:irred_invertible}, $\det(T-\lambda I) = 0$ since $X(G)$ is irreducible. Thus, $T=\lambda I$.
+\end{proof}
+
+% \begin{theorem}\label{th:irred}
+%     Let $G$ be a finite group. The number of irreducible representations of $G$ is equal to the number of conjugacy classes in $G$. Moreover, the degree of each irreducible representation is equal to the size of the corresponding conjugacy class in $G$.
+% \end{theorem}
+% \begin{proof}
+%     \textcolor{red}{DO IT!!!}
+% \end{proof}
+
+\begin{theorem}\label{cor:abelian_irred}
+    Let $G$ be a finite abelian group. Then the irreducible representations of $G$ are one-dimensional.
+\end{theorem}
+\begin{proof}
+    Suppose $X(G)$ is an irreducible representation of the abelian group $G$. Fix $h\in G$. Since $X$ is a group homomorphism, we have $X(h)X(g)=X(hg)=X(gh)=X(g)X(h)$ for all $g\in G$. By \cref{th:schur}, $X(h) = \lambda_h I$ for some scalar $\lambda_h$. The choice of $h\in G$ was arbitrary, so $X(g) = \lambda_g I$ for all $g\in G$. Thus, the irreducible representations of $G$ are one-dimensional.
+    % Since $G$ is abelian, the conjugacy classes of $G$ are the elements of $G$ themselves. By \cref{th:irred}, the number of irreducible representations of $G$ is equal to the number of conjugacy classes of $G$, which is equal to the number of elements of $G$. Furthermore, the degree of each irreducible representation is equal to the size of the corresponding conjugacy class in $G$, which is always 1. Therefore, the irreducible representations of $G$ are one-dimensional.
+\end{proof}
+The basic content covered in this chapter is sufficient to proceed to studying specific groups and their representations in the context of physics. As it turns out, there is a plethora of useful information encoded in the groups of rotations and translations that can be extracted to gain insight into physical systems. This is the focus of the following chapter.

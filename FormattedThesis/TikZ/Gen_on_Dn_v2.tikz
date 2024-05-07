@@ -1,0 +1,29 @@
+% Suggested circle radius >= 3 cm
+% \usetikzlibrary{decorations.markings}
+\def\circleRadius{3cm}
+\def\sep{\circleRadius*0.175}
+
+\newcommand{\drawloop}[3]{\draw[ultra thick, postaction={decorate}] (0,-\circleRadius) .. controls #1 .. node[pos=#3, left] {#2} (.0*\sep,-\circleRadius);}
+
+\begin{tikzpicture}[decoration={markings, 
+	mark= at position 0.75 with {\arrow{latex},sloped}}
+] 
+        \node[anchor=north west, font=\Large] at (-\circleRadius, \circleRadius) {$\D_n$};
+
+        \draw[ultra thick] (0,0) circle (\circleRadius);
+        \filldraw [black] 
+                        (-\circleRadius + \sep,0) circle (2pt) node[above, yshift=.2*\sep] {$1$}
+                        (\circleRadius - \sep,0) circle (2pt) node[above, yshift=.2*\sep] {$n$}
+                        (0,0) circle (2pt) node[above, yshift=.2*\sep] {$i$};
+        \path (-\circleRadius/2 + \sep/2,0) node {$\scalebox{1.5}{$\cdots$}$};
+        \path (\circleRadius/2 - \sep/2,0) node {$\scalebox{1.5}{$\cdots$}$};
+
+        \drawloop{(-.35*\circleRadius,0.4*\circleRadius) and  (.35*\circleRadius,0.4*\circleRadius)}{$x_i$}{.2}
+
+        \drawloop{(-1.6*\circleRadius,0.37*\circleRadius) and  (-.65*\circleRadius,0.43*\circleRadius)}{$x_1$}{.1}
+        
+        \drawloop{(.65*\circleRadius,0.43*\circleRadius) and  (1.6*\circleRadius,0.37*\circleRadius)}{$x_n$}{.25}
+        
+        % base point for loop/arrow
+        \filldraw [red] (0,-\circleRadius) circle (2pt);
+\end{tikzpicture}

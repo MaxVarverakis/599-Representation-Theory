@@ -1,0 +1,90 @@
+\def\sep{.5cm}
+\def\corners{4*\sep}
+\def\hscale{.5}
+\def\g{.05cm}
+
+\begin{tikzpicture}
+    \begin{scope}[shift={(-\corners-2.5*\sep,0)}]
+        \coordinate (center) at (0,0);
+        \coordinate (1s) at (-\corners, \hscale*\corners);
+        \coordinate (ns) at (\corners, \hscale*\corners);
+        \coordinate (1e) at (-\corners, -\hscale*\corners);
+        \coordinate (ne) at (\corners, -\hscale*\corners);
+        \coordinate (is) at (-\sep, \hscale*\corners);
+        \coordinate (ip1s) at (\sep, \hscale*\corners);
+        \coordinate (ie) at (-\sep, -\hscale*\corners);
+        \coordinate (ip1e) at (\sep, -\hscale*\corners);
+        \coordinate (gap) at (\g,-\g);
+
+        \filldraw
+            (1s) circle (2pt) node[above, font=\footnotesize] {$1$}
+            (ns) circle (2pt) node[above, font=\footnotesize] {$n$}
+            (1e) circle (2pt)
+            (ne) circle (2pt)
+            (is) circle (2pt) node[above, font=\footnotesize] {$i$}
+            (ip1s) circle (2pt) node[above, font=\footnotesize] {$i+1$}
+            (ie) circle (2pt)
+            (ip1e) circle (2pt)
+            (is) circle (2pt)
+            (ip1s) circle (2pt)
+            % ($(center) + (gap)$) circle (.6pt)
+            % ($(center) - (gap)$) circle (.6pt)
+            ;
+            
+        \node at ($(1s)!0.5!(is) - (0,.4725pt)$) {$\cdots$};
+        \node at ($(ip1s)!0.5!(ns) - (0,.4725pt)$) {$\cdots$};
+        \node at ($(1e)!0.5!(ie) - (0,.47pt)$) {$\cdots$};
+        \node at ($(ip1e)!0.5!(ne) - (0,.47pt)$) {$\cdots$};
+        \node[below, yshift=-5*\g] at ($(ie)!.5!(ip1e)$) {$\sigma_i$};
+        
+        \draw[ultra thick]
+            (1s) -- (1e)
+            (ns) -- (ne)
+            [out=-90, in=130] (is) to ($(center) - (gap)$)
+            [out=-50, in=90] ($(center) + (gap)$) to (ip1e)
+            [out=-90, in=50] (ip1s) to (center)
+            [out=-130, in=90] (center) to (ie);
+    \end{scope}
+    
+    \begin{scope}[shift={(\corners+2.5*\sep,0)}]
+        \coordinate (center) at (0,0);
+        \coordinate (1s) at (-\corners, \hscale*\corners);
+        \coordinate (ns) at (\corners, \hscale*\corners);
+        \coordinate (1e) at (-\corners, -\hscale*\corners);
+        \coordinate (ne) at (\corners, -\hscale*\corners);
+        \coordinate (is) at (-\sep, \hscale*\corners);
+        \coordinate (ip1s) at (\sep, \hscale*\corners);
+        \coordinate (ie) at (-\sep, -\hscale*\corners);
+        \coordinate (ip1e) at (\sep, -\hscale*\corners);
+        \coordinate (gap) at (\g,\g);
+
+        \filldraw
+            (1s) circle (2pt) node[above, font=\footnotesize] {$1$}
+            (ns) circle (2pt) node[above, font=\footnotesize] {$n$}
+            (1e) circle (2pt)
+            (ne) circle (2pt)
+            (is) circle (2pt) node[above, font=\footnotesize] {$i$}
+            (ip1s) circle (2pt) node[above, font=\footnotesize] {$i+1$}
+            (ie) circle (2pt)
+            (ip1e) circle (2pt)
+            (is) circle (2pt)
+            (ip1s) circle (2pt)
+            % ($(center) + (gap)$) circle (.6pt)
+            % ($(center) - (gap)$) circle (.6pt)
+            ;
+            
+        \node at ($(1s)!0.5!(is) - (0,.4725pt)$) {$\cdots$};
+        \node at ($(ip1s)!0.5!(ns) - (0,.4725pt)$) {$\cdots$};
+        \node at ($(1e)!0.5!(ie) - (0,.47pt)$) {$\cdots$};
+        \node at ($(ip1e)!0.5!(ne) - (0,.47pt)$) {$\cdots$};
+        \node[below, yshift=-5*\g, xshift=1.75*\g] at ($(ie)!.5!(ip1e)$) {$\iv{\sigma_i}$};
+        
+        \draw[ultra thick]
+            (1s) -- (1e)
+            (ns) -- (ne)
+            [out=-90, in=50] (ip1s) to ($(center) + (gap)$)
+            [out=-130, in=90] ($(center) - (gap)$) to (ie)
+            [out=-90, in=130] (is) to (center)
+            [out=-50, in=90] (center) to (ip1e);
+    \end{scope}
+\end{tikzpicture}
