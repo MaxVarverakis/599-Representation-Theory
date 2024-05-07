@@ -60,7 +60,9 @@
 % \renewcommand{\bibname}{References}
 
 \includeonly{
-    chapters/introduction,
+    % abstract,
+    % acknowledgements,
+    % chapters/introduction,
     % chapters/Rep_Theory_Background,
     % chapters/Phys_applications,
     % chapters/The_Braid_Group,
@@ -81,6 +83,12 @@
 
 \tableofcontents
 \listoffigures % need short caption for each figure or something like that
+
+\begin{abstract}
+    \input{abstract}
+\end{abstract}
+
+\include{acknowledgements}
 
 \include{chapters/introduction}
 
