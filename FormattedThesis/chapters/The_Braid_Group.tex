@@ -26,7 +26,7 @@ A common visualization of pure braids is to plot the motion of the points in 3-d
 \begin{figure}[htbp]
     \centering
     \input{TikZ/C_pure_braid.tikz}
-    \caption[Pure braid]{A pure braid on three strands is visualized as the trajectory of three particles as they move in $\C$, plotted over an arbitrary (normalized) time period. Each point ends at the same relative starting position in $\C$.}\label{fig:C_pure_braid}
+    \mycaption{Pure braid}{A pure braid on three strands is visualized as the trajectory of three particles as they move in $\C$, plotted over an arbitrary (normalized) time period. Each point ends at the same relative starting position in $\C$.}\label{fig:C_pure_braid}
 \end{figure}
 
 For every $i\in\left\{ 1,\dots,n \right\}$, the motion of a single point starting at $(i,0)$ and ending at $(i,1)$ is known as the $i$-th \textit{strand} of the pure braid. This can also be described by the $i$-th projection of the $n$-tuple $\beta(t)$. Thus, two braids are equivalent under homotopy if, for every moment of a continuous deformation of the $n$ strands in $\C\times [0,1]$, the (fixed) endpoints $((1,0),(2,0),\dots,(n,0))$ and $((1,1),(2,1),\dots,(n,1))$ are connected by strands that are pairwise disjoint where each strand intersects the plane $\C\times\left\{ t \right\}$ exactly once for every $t\in[0,1]$.
@@ -46,7 +46,7 @@ The visualization of a braid is the same as in the case of pure braids, only now
 \begin{figure}[htbp]
     \centering
     \input{TikZ/C_braid.tikz}
-    \caption[General braid]{A general braid on five strands. The ending position of each particle is not necessarily in the same location of $\C$ as the starting position, which classifies this as a general braid.}\label{fig:C_general_braid}
+    \mycaption{General braid}{A general braid on five strands. The ending position of each particle is not necessarily in the same location of $\C$ as the starting position, which classifies this as a general braid.}\label{fig:C_general_braid}
 \end{figure}
 
 Note that for $n\geq 1$ there is a natural inclusion $\iota:B_n\hookrightarrow B_{n+1}$ in which we add a new strand to any $\beta\in B_n$ that does not interact with the other strands.
@@ -58,7 +58,7 @@ Originally proposed by Artin~\cite{Artin1947}, each braid can be decomposed into
 \begin{figure}[htbp]
     \centering
     \input{TikZ/sigma_i_strand.tikz}
-    \caption[Artin generators]{The action of $\sigma_i$ on $n$ strands. The $i$-th strand gets twisted behind the $(i+1)$-th strand when acted on by $\sigma_i$, and the opposite occurs for $\iv{\sigma_i}$. In that way, concatenating these two braids would result in no intertwining of strands, giving the identity braid.}\label{fig:Gen_on_Strands}
+    \mycaption{Artin generators}{The action of $\sigma_i$ on $n$ strands. The $i$-th strand gets twisted behind the $(i+1)$-th strand when acted on by $\sigma_i$, and the opposite occurs for $\iv{\sigma_i}$. In that way, concatenating these two braids would result in no intertwining of strands, giving the identity braid.}\label{fig:Gen_on_Strands}
 \end{figure}
 
 For instance, swapping the endpoints of the $i$-th and $(i+1)$-th strands can be written as applying $\sigma_i$ to the identity braid (i.e., the braid that starts without any crossings of strands). It must be noted that there are two distinct ways to swap the endpoints of two strands. From a top-down perspective looking at the plane $\C\times\left\{ t \right\}$ for some time $t$, $\sigma_i$ swaps $(i,t)$ and $(i+1,t)$ in a clockwise rotation. The reverse of this operation (i.e., twisting the endpoints around in the counterclockwise direction) is denoted $\sigma_i^{-1}$. Both of these operations are illustrated in \cref{fig:Gen_on_Strands}. The standard generators of the braid group $B_n$ are defined as the set $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$. An arbitrary braid can be constructed by concatenating (or stacking) the simple braids made from the standard generators before rescaling the time coordinate to $[0,1]$.
@@ -75,7 +75,7 @@ Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ in
 \begin{figure}[htbp]
     \centering
     \input{TikZ/Gen_on_Dn_v2.tikz}
-    \caption[Fundamental group of the punctured disk]{For each $i\in\left\{ 1,\dots,n \right\}$, the clockwise-directional loop encircling the $i$-th hole in $\D_n$ corresponds to the $i$-th free generator of $F_n$ (i.e., $x_i$). The red dot indicates the (arbitrary) base point for the loops in $\pi_1(\D_n)$.}\label{fig:Gen_on_Dn}
+    \mycaption{Fundamental group of the punctured disk}{For each $i\in\left\{ 1,\dots,n \right\}$, the clockwise-directional loop encircling the $i$-th hole in $\D_n$ corresponds to the $i$-th free generator of $F_n$ (i.e., $x_i$). The red dot indicates the (arbitrary) base point for the loops in $\pi_1(\D_n)$.}\label{fig:Gen_on_Dn}
 \end{figure}
 
 Each braid $\beta\in B_n$ is realized as an automorphism of $\pi_1(\D_n) = F_n$ (up to isotopy) where each loop $\gamma\in\pi_1(\D_n)$ is sent to another loop $\beta(\gamma)$. In other words, we have a representation of the braid group defined by
@@ -96,7 +96,7 @@ Note that there is not a widely accepted convention for the standard generators 
 \begin{figure}[htbp]
     \centering
     \input{TikZ/sigma_on_xi.tikz}
-    \caption[Artin generators realized on the punctured disk]{The action of $\sigma_i$ on the generators $x_i$ and $x_{i+1}$ as described by \cref{eq:rho_i,eq:rho_ip1,eq:rho_j}. The image of $x_i$ under $\sigma_i$ is verified visually in \cref{fig:sigma_on_x_i}}\label{fig:sigma_on_Dn}
+    \mycaption{Artin generators realized on the punctured disk}{The action of $\sigma_i$ on the generators $x_i$ and $x_{i+1}$ as described by \cref{eq:rho_i,eq:rho_ip1,eq:rho_j}. The image of $x_i$ under $\sigma_i$ is verified visually in \cref{fig:sigma_on_x_i}}\label{fig:sigma_on_Dn}
 \end{figure}
 
 The automorphism $\rho_\beta$ is most simply defined in terms of the action of the standard generators of $B_n$ on the generators $x_1,\dots,x_n$ of $F_n$ (visualized as loops in $\D_n$). For each $i$, it follows that
@@ -109,7 +109,7 @@ Clearly, any two loops that are separated by at least one puncture will not inte
 \begin{figure}[htbp]
     \centering
     \input{TikZ/rho_verification.tikz}
-    \caption[Graphical verification of \cref{eq:rho_i}]{Up to homotopy, the product $x_i x_{i+1} \iv{x_i}$ is visualized as the concatenation of the loops $x_i,x_{i+1},\iv{x_i}\in\pi_1(\D_n)$. In the top right diagram, small red dots are used indicate the (homotopically deformed) points of concatenation.}\label{fig:sigma_on_x_i}
+    \mycaption{Graphical verification of \cref{eq:rho_i}}{Up to homotopy, the product $x_i x_{i+1} \iv{x_i}$ is visualized as the concatenation of the loops $x_i,x_{i+1},\iv{x_i}\in\pi_1(\D_n)$. In the top right diagram, small red dots are used indicate the (homotopically deformed) points of concatenation.}\label{fig:sigma_on_x_i}
 \end{figure}
 
 For any $\sigma_i$, $\rho_{\iv{\sigma_i}}$ is well-defined. It follows that for any braid $\beta\in B_n$, we can decompose $\rho_\beta$ the composition of the automorphisms of the standard generators $\sigma_1,\dots,\sigma_{n-1}$ and their inverses that make up $\beta$. 
@@ -138,7 +138,7 @@ The first condition that the standard generators commute if $|i-j|>1$ is easily 
     \centering
     % \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
     \input{TikZ/YB_Braid_v2.tikz}
-    \caption[Graphical verification of \cref{eq:BnGenYangBaxter}]{Graphical verification of \cref{eq:BnGenYangBaxter}. All of the above braids are equivalent up to homotopy. The transformation between the middle two braid diagrams is known as a Reidmeister type-III move, in which the red strand (or string in the context of knot theory) is moved completely under the crossing of the blue and green strands. In these middle two diagrams, the red strand is slightly translucent to indicate that it is behind all other strands in the diagram.}\label{fig:YB_criterion_verification}
+    \mycaption{Graphical verification of \cref{eq:BnGenYangBaxter}}{Graphical verification of \cref{eq:BnGenYangBaxter}. All of the above braids are equivalent up to homotopy. The transformation between the middle two braid diagrams is known as a Reidmeister type-III move, in which the red strand (or string in the context of knot theory) is moved completely under the crossing of the blue and green strands. In these middle two diagrams, the red strand is slightly translucent to indicate that it is behind all other strands in the diagram.}\label{fig:YB_criterion_verification}
 \end{figure}
 
 \section[One-dimensional representations of $B_n$]{One-dimensional representations of $\mathbf{B_n}$}\label{sec:1D_rep}
@@ -202,7 +202,7 @@ We start this construction with a countably infinite stack of copies of $\D_n$. 
     \centering
     % \includegraphics[width=.3\textwidth]{D3_cuts.png}
     \input{TikZ/D3_cuts.tikz}
-    \caption[Punctured disk covering space]{
+    \mycaption{Punctured disk covering space}{
         % In the case of $\D_3$, this figure demonstrates how the cuts are applied across each of the three punctures for each sheet in the covering $\widetilde{\D}_3$. The power of $t$ in the base point label $t^j\xi$ indicates that we are on the $j$-th sheet of the covering.
         For the covering of $\D_3$, we observe the $i$-th sheet of $\widetilde{\D}_3$ with the cuts applied across each of the three punctures. The base point of the loop is indicated by the red dot, and labelled as $t^i\xi$. The power of $t$ indicates that we are on the $i$-th sheet of the covering. The portions of three different loops are drawn to illustrate the behavior of loops as they pass through various edges on $\sheet{\D}{3,i}$. The loop that would traditionally be $x_1$ is labeled by $t^i x_1$ to indicate that it's starting on the $i$-th sheet. When it passes through the left edge corresponding to this puncture labeled with a 1, it traverses up to the sheet $\sheet{\D}{3,i+1}$ and ends at base point $t^{i+1}\xi$. Similarly, the loop that starts on $\sheet{\D}{3,i-1}$ and passes through the left edge of puncture 2 ends up coming out of the right edge of puncture 2 on $\sheet{\D}{3,i}$ and ends at the base point $t^i\xi$. This loop is labeled by the starting sheet, so it is $t^{i-1}x_2$. Finally, the loop that starts on $\sheet{\D}{3,i+1}$ and passes through the right edge of puncture 3 ends up coming out of the left edge of puncture 3 on $\sheet{\D}{3,i}$. This loop is labeled by $-t^{i}x_3$ since it is the inverse of $t^i x_3$, with the negative sign indicating that the loop direction is reversed.
     }\label{fig:D3_cuts}
@@ -217,7 +217,7 @@ Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with
         \centering
         % \includegraphics[width = .3\textwidth]{Burau_D3.png}
         \input{TikZ/Abelianization_Covering.tikz}
-        \caption[Covering space loop]{The loop $\rho_{\sigma_1}(x_1) = \iv{x_1}x_2 x_1$ cast onto the covering space $\widetilde{\D}_3$. On the right, the loops are depicted on the corresponding sheets of the covering, and on the left is a simplified version. The order of loops is $x_1,tx_2,-tx_1$. The horizontal lines on the left indicate the edges taking each loop up/down a sheet.}\label{fig:Burau_D3}
+        \mycaption{Covering space loop}{The loop $\rho_{\sigma_1}(x_1) = \iv{x_1}x_2 x_1$ cast onto the covering space $\widetilde{\D}_3$. On the right, the loops are depicted on the corresponding sheets of the covering, and on the left is a simplified version. The order of loops is $x_1,tx_2,-tx_1$. The horizontal lines on the left indicate the edges taking each loop up/down a sheet.}\label{fig:Burau_D3}
     \end{figure}
 
     Now, we can express loop concatenation as an abelian operation, where \cref{eq:rho_i,eq:rho_ip1,eq:rho_j} become
@@ -622,4 +622,20 @@ is unitary.
             i & 0
         \end{bmatrix} = \mathcal{U}(\sigma_2)\mathcal{U}(\sigma_1)\mathcal{U}(\sigma_2).
     \end{align*}
+
+    For the permutation group, transpositions are their own inverse, and so the representation matrices for transpositions are involutory. The additional complexity of the braid group is highlighted by the fact that the representation matrices corresponding to $\iv{\sigma_1}$ and $\iv{\sigma_2}$ are not the same as those corresponding to $\sigma_1$ and $\sigma_2$. This is easily verified by obtaining the inverses of $\mathcal{U}(\sigma_1)$ and $\mathcal{U}(\sigma_2)$ through application of the Hermitian adjoint due to the unitarity of $\mathcal{U}$:
+    \begin{align*}
+        \mathcal{U}(\iv{\sigma_1}) &= {\mathcal{U}(\sigma_1)}^\dagger = \frac{1}{2}e^{i\frac{\pi}{6}}\begin{bmatrix}
+            \sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
+            \\
+            1 & -\sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}
+        \end{bmatrix} \\ 
+        \\
+        \mathcal{U}(\iv{\sigma_2}) &= {\mathcal{U}(\sigma_2)}^\dagger = \frac{1}{2}e^{i\frac{\pi}{6}}\begin{bmatrix}
+            -\sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
+            \\
+            1 & \sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}
+        \end{bmatrix}.
+    \end{align*}
+    Thus, $\sigma_1^2$ and $\sigma_2^2$ are not the identity braid, which is in contrast to the permutation group. This aspect of the braid group results in non-trivial consequences for permutations of objects that are governed by the braid group rather than the permutation group. This is the focus of the following chapter.
 \end{example}

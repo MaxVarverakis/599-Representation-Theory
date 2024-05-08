@@ -65,6 +65,11 @@ A.~Khare.
 \newblock {\em Fractional Statistics and Quantum Theory}.
 \newblock WORLD SCIENTIFIC, Feb. 2005.
 
+\bibitem{Ville2017}
+V.~Lahtinen and J.~K. Pachos.
+\newblock {A Short Introduction to Topological Quantum Computation}.
+\newblock {\em SciPost Phys.}, 3:021, 2017.
+
 \bibitem{Moriyasu1983}
 K.~Moriyasu.
 \newblock {\em An Elementary Primer for Gauge Theory}.
@@ -98,6 +103,11 @@ J.~R. Taylor.
 J.-L. Thiffeault.
 \newblock The burau representation of the braid group and its application to dynamics.
 \newblock Presentation given at Topological Methods in Mathematical Physics 2022, Seminar {GEOTOP}-{A}, September 2022.
+
+\bibitem{Trebst2008}
+S.~Trebst, M.~Troyer, Z.~Wang, and A.~W.~W. Ludwig.
+\newblock A short introduction to fibonacci anyon models.
+\newblock {\em Progress of Theoretical Physics Supplement}, 176:384–407, 2008.
 
 \bibitem{Tung1985}
 W.-K. Tung.

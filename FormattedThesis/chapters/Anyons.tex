@@ -34,7 +34,12 @@ More generally, if we have a set of $m\geq 2$ degenerate states in terms of $r_1
 \end{align*}
 where ${\left[ \Xi(\sigma_k) \right]}_{ij}$ is the $(i,j)$-th entry of the unitary matrix $\Xi(\sigma_k)$ for some representation $\Xi:B_n\to U(m)$.
 
-Now that we have established the braid group (representations) in a physical context, we can investigate the consequences of nontrivial braiding effects on a system of anyons, starting with the simplest nontrivial example of two non-interacting anyons.
+Just as with fermions, there are specific rules to follow when writing down the quantum state of multi-anyon systems. As established earlier in this section, the specific combination or \textit{fusion} rules of anyons depend on the specific braid group representation acting on the system. For one-dimensional representations, the corresponding anyons are known as \textit{abelian anyons}, in which the resulting action of the braid group is a phase shift on the quantum state. For higher-dimensional (nonabelian) representations, the anyons are known as \textit{nonabelian anyons}, and the action of the braid group is a nontrivial rotation in the Hilbert space of the quantum system as illustrated above.
+
+% The corresponding fusion rules for nonabelian anyons can result in useful physical consequences.
+The simplest cases of nonabelian anyon fusion rules are the \textit{Fibonacci anyons} and the \textit{Ising anyons}~\cite{Deshmukh,Trebst2008,Ville2017}. These fusion rules are useful in realizing fault-tolerant topological quantum computers due to the nontrivial braiding effects that arise from the nonabelian representations of the braid group~\cite{Ville2017,Bernard2018,Delaney2016}. More information on the fusion rules of anyons can be found at the aforementioned references.
+
+Now that the braid group (representations) have been established in a physical context, we can investigate the consequences of nontrivial braiding effects on a system of anyons, starting with the simplest nontrivial example of two non-interacting anyons.
 
 \section{Two Non-Interacting Anyons}\label{sec:non_int}
 
@@ -181,7 +186,7 @@ From a top-down perspective, trajectory \hyperref[traj:A]{A} involves a clockwis
 \begin{figure}[htbp]
     \centering
     \input{TikZ/anyon_trajectories.tikz}
-    \caption[Anyon trajectories]{Two possible trajectories of three anyons viewed from above (top) and represented as braids (bottom).}\label{fig:anyon_trajectores}
+    \mycaption{Anyon trajectories}{Two possible trajectories of three anyons viewed from above (top) and represented as braids (bottom).}\label{fig:anyon_trajectores}
 \end{figure}
 
 Even in the one-dimensional (abelian) representation of the braid group, the nontrivial braiding effects emerge for the trajectories depicted in \cref{fig:anyon_trajectores}. The braid representations for trajectory \hyperref[traj:A]{A} and trajectory \hyperref[traj:B]{B} are $\sigma_1\mapsto e^{i\theta}$ and $\sigma_2\sigma_1\sigma_2\mapsto e^{3i\theta}$, respectively. As long as the choice of $\theta$ is not an integer multiple of $\pi$, it follows that $e^{i\theta}\neq e^{3i\theta}$. This is precisely the nontrivial braiding effect.
