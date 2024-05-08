@@ -86,20 +86,20 @@ The commutator satisfies the following properties:
 \begin{align}
     [A,B] &= -[B,A] \label{eq:BA} \\
     [A,-B] &= -AB + BA = -[A,B].\label{eq:AmB} \\
-    \nonumber\\
+    % \nonumber\\
     [A,B+C] 
         &= A(B+C) - (B+C)A \nonumber\\
         &= AB + AC - BA - CA \nonumber\\
         &= AB - BA + AC - CA \nonumber\\
         &= [A,B] + [A,C]. \label{eq:ABpC} \\
-    \nonumber\\
+    % \nonumber\\
     [A^2,B] 
         &= [AA,B] \nonumber\\
         &= AAB - BAA \nonumber\\
         &= AAB - ABA + ABA - BAA \nonumber\\
         &= A(AB-BA) + (AB-BA)A \nonumber\\
         &= A[A,B] + [A,B]A.\label{eq:A2B}\\
-    \nonumber\\
+    % \nonumber\\
     [A,BC]
         &= ABC - BCA \nonumber\\
         &= ABC - BAC + BAC - BCA \nonumber\\
@@ -117,15 +117,15 @@ The commutator satisfies the following properties:
 This section includes various commutation relations that are used in \cref{ch:Phys_applications}. The definitions of the operators are given in the relevant section of said chapter.
 \begin{align*}
     [y,\hat{p}_y] &= y\hat{p}_y - \hat{p}_y y = \cancel{y\hat{p}_y} - \bigl(\overbrace{-i\hbar + \cancel{y\hat{p}_y}}^{\textrm{product rule}}\bigr) = i\hbar, \\
-    \\
+    % \\
     [\hat{L}_z,\hat{p}_z]
         &= [x\hat{p}_y - y\hat{p}_x, \hat{p}_z] = [x\hat{p}_y, \hat{p}_z] - [y\hat{p}_x, \hat{p}_z] = 0. \\
-    \\
+    % \\
     [\hat{L}_z, z] &= [x\hat{p}_y - y\hat{p}_x, z] = [x\hat{p}_y, z] - [y\hat{p}_x, z] = 0. \\
-    \\
+    % \\
     [\hat{L}_z,\hat{p}_y] 
         &= [x\hat{p}_y - y\hat{p}_x, \hat{p}_y] = \cancelto{0}{[x\hat{p}_y, \hat{p}_y]} - [y\hat{p}_x, \hat{p}_y] = -y\cancelto{0}{[\hat{p}_x, \hat{p}_y]} - [y, \hat{p}_y]\hat{p}_x = -i\hbar\hat{p}_x. \\
-    \\
+    % \\
     [\hat{L}_z, y] &= [x\hat{p}_y - y\hat{p}_x, y] = [x\hat{p}_y, y] - \cancelto{0}{[y\hat{p}_x, y]} = x[\hat{p}_y, y] + \cancelto{0}{[x, y]}\hat{p}_y = -i\hbar x.
 \end{align*}
 
@@ -165,7 +165,6 @@ This section includes various commutation relations that are used in \cref{ch:Ph
         % &= \frac{1}{i\hbar}\left( \bra{\psi}[\hat{H},J]\right)\ket{\psi} \\
     \end{align}
     % (linear in the second argument). (See Ehrenfest's theorem).
-
     Thus, if $[\hat{H},\hat{G}]=0$, it follows that
     \begin{align*}
         \hat{H}\hat{G}-\hat{G}\hat{H} = 0

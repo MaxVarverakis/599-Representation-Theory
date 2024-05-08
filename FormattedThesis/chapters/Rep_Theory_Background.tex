@@ -14,9 +14,7 @@ in which $X(g)$ is an operator on the vector space $V$. For a set of basis vecto
 \begin{equation}
     X(g)\e_i = \sum_{j=1}^n {{X(g)}^j}_i\e_j %= \e_j{{X(g)}^j}_i,
 \end{equation}
-where the first index $j$ is the row index and the second index $i$ is the column index.
-% We use the \textcolor{red}{Einstein summation convention (needed?)}, so repeated indices are summed over.
-The operator multiplication is defined as
+where the first index $j$ is the row index and the second index $i$ is the column index. Operator multiplication is defined as
 \begin{equation}
     X(g_1)X(g_2) = X(g_1g_2),
 \end{equation}
@@ -50,14 +48,14 @@ which satisfies the group multiplication rules. Since a representation is a grou
 
 The above example involves a finite group. Infinite groups can also have representations, as demonstrated in the following example.
 \begin{example}
-    Let $G$ be the group of continuous rotations in the $xy$-plane about the origin. We can write $G = \{R(\phi),0\leq\phi<2\pi\}$ with group operation $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$. Consider the 2-dimensional Euclidean vector space $V_2$. Then we define a representation of $G$ on $V_2$ by the familiar rotation operation
+    Let $G$ be the group of continuous rotations in the $xy$-plane about the origin. We can write $G = \{R(\phi),0\leq\phi<2\pi\}$ with group operation $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$. Consider the 2-dimensional Euclidean vector space $V_2$. Then we define a representation $X$ of $G$ on $V_2$ by the familiar rotation operation
     \begin{align}
         \e_1' &= X(\phi)\e_1 = \e_1\cdot\cos\phi + \e_2\cdot\sin\phi\\
         \e_2' &= X(\phi)\e_2 = -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi,
     \end{align}
     where $\e_1$ and $\e_2$ are orthonormal basis vectors of $V_2$. This gives the familiar rotation matrix representation
     \begin{equation}
-        X(\phi) = \begin{bmatrix}
+        R(\phi) \mapsto X(\phi) = \begin{bmatrix}
             \cos\phi & -\sin\phi\\
             \sin\phi & \cos\phi
         \end{bmatrix}.
@@ -74,7 +72,7 @@ The above example involves a finite group. Infinite groups can also have represe
 \end{definition}
 
 To determine whether two representations belong to the same equivalence class, we define the following.
-\begin{definition}[Characters of a Representation]
+\begin{definition}[Character of a Representation]
     The \textit{character} $\chi(g)$ of an element $g\in G$ in a representation $X$ is defined as the trace of the matrix representation: $\chi(g) = \tr{X(g)}$.
 \end{definition}
 Since trace is independent of basis, the character serves as a class label.
@@ -86,15 +84,15 @@ The structure of a representation vector space of a group can offer insight into
     Let $X(G)$ denote a representation of $G$ on a vector space $V$, and let $W$ be a subspace of $V$ such that $X(g)\vec{x}\in W$ for all $\vec{x}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $X(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it contains no non-trivial invariant subspaces with respect to $X(G)$.
 \end{definition}
 
-The identification of invariant subspaces on vector space representations leads to the following distinction of the representations.
+The identification of invariant subspaces on a representation space leads to the following distinction.
 \begin{definition}[Irreducible Representation]
     A representation $X(G)$ on $V$ is \textit{irreducible} if there is no non-trivial invariant subspace in $V$ with respect to $X(G)$. Otherwise, it is \textit{reducible}. If $X(G)$ is reducible and its orthogonal complement to the invariant subspace is also invariant with respect to $X(G)$, then the representation is \textit{fully reducible}.
 \end{definition}
 
-A reducible representation can be decomposed into a direct sum of irreducible representations. This decomposition is unique up to equivalence.
+A reducible representation can be decomposed into a direct sum of irreducible representations. This decomposition is unique up to similarity.
 
 \begin{example}
-    Under the group of 2-dimensional rotations, consider the 1-dimensional subspace spanned by $\e_1$. This subspace is not invariant under 2-dimensional rotations, because a rotation of $\e_1$ by $\pi/2$ results in the vector $\e_2$ that is clearly not in the subspace spanned by $\e_1$. A similar argument shows that the subspace spanned by $\e_2$ is not invariant under 2-dimensional rotations.
+    Under the group of 2-dimensional rotations, consider the 1-dimensional subspace spanned by $\e_1$. This subspace is not invariant under 2-dimensional rotations because a rotation of $\e_1$ by $\pi/2$ results in the vector $\e_2$ that is clearly not in the subspace spanned by $\e_1$. A similar argument shows that the subspace spanned by $\e_2$ is not invariant under 2-dimensional rotations.
 
     However, if there are eigenvectors of the rotation operator, we then have invariant subspaces formed by the span of the eigenvectors.
     % For example, the eigenvalues of the rotation operator $X(\phi)$ are such that
@@ -125,17 +123,17 @@ A reducible representation can be decomposed into a direct sum of irreducible re
     \begin{align*}
         X(\phi)\e_+ &= X(\phi)\frac{1}{\sqrt{2}}(-\e_1 + i\e_2) \\
         &= \frac{1}{\sqrt{2}}(-X(\phi)\e_1 + iX(\phi)\e_2) \\
-        &= \frac{1}{\sqrt{2}}\left( -\e_1\cos\phi + \e_2\sin\phi +i\e_1\sin\phi + i\e_2\cos\phi \right) \\
-        &= \frac{1}{\sqrt{2}}\left( -\e_1(\cos\phi - i\sin\phi) + i\e_2(\cos\phi-i\sin\phi) \right) \\
-        &= e^{-i\phi}\e_+,
+        &= \frac{1}{\sqrt{2}}\left( -\e_1\cos\phi - \e_2\sin\phi -i\e_1\sin\phi + i\e_2\cos\phi \right) \\
+        &= \frac{1}{\sqrt{2}}\left( -\e_1(\cos\phi + i\sin\phi) + i\e_2(\cos\phi+i\sin\phi) \right) \\
+        &= e^{i\phi}\e_+,
     \end{align*}
-    and similarly $X(\phi)\e_- = e^{i\phi}\e_-$.
+    and similarly $X(\phi)\e_- = e^{-i\phi}\e_-$.
 
-    Therefore, the span of each eigenvector of $X(\phi)$ is an invariant subspace of $V_2$ with respect to $X$. Since $X$ is a 2-dimensional representation, we can decompose it into the $\e_\pm$ basis to obtain a direct sum of two 1-dimensional irreducible representations:
+    Therefore, the span of each eigenvector of $X(\phi)$ is an invariant subspace of $V_2$ with respect to $X$. Since $X$ is a 2-dimensional representation, we can decompose it into the $\e_\pm$ basis to obtain a direct sum of the two 1-dimensional irreducible representations:
     \begin{align*}
         X(\phi) = \begin{bmatrix}
-            e^{-i\phi} & 0\\
-            0 & e^{i\phi}
+            e^{i\phi} & 0\\
+            0 & e^{-i\phi}
         \end{bmatrix}.
     \end{align*}
 \end{example}
@@ -146,7 +144,7 @@ Irreducible decompositions of a representation often simplify the application. I
     Let $X$ and $Y$ be irreducible representations of some group $G$ such that $TX(g)=Y(g)T$ for all $g\in G$ and some fixed operator $T$. Then $T$ is either zero or invertible.
 \end{lemma}
 \begin{proof}
-    Let $V$ be the representation vector space with which $X$,$Y$, and $T$ operate on. Consider $\vec{v}\in\ker(T)$. Then $TX(g)\vec{v} = Y(g)T\vec{v} = Y(g)\vec{0}=\vec{0}$ for all $g\in G$. Thus, $\ker(T)$ is invariant under $X(G)$. Since $X$ is irreducible, there cannot be any non-trivial invariant subspaces, so either $\ker(T) = \left\{ \vec{0} \right\}$ or $\ker(T) = V$.
+    Let $V$ be the representation vector space with which $X$,$Y$, and $T$ operate. Consider $\vec{v}\in\ker(T)$. Then $TX(g)\vec{v} = Y(g)T\vec{v} = Y(g)\vec{0}=\vec{0}$ for all $g\in G$. Thus, $\ker(T)$ is invariant under $X(G)$. Since $X$ is irreducible, there cannot exist non-trivial invariant subspaces, so either $\ker(T) = \left\{ \vec{0} \right\}$ or $\ker(T) = V$.
 
     Similarly, the image of $T$ is invariant under $Y(G)$ since $Y(g)T\vec{v} = TX(g)\vec{v}\in\textrm{im}(T)$ for all $g\in G$ and $\vec{v}\in V$. The irreducibility of $Y$ implies that the $Y$-invariant subspace $\textrm{im}(T)\subseteq V$ is either $\left\{ \vec{0} \right\}$ or $V$.
 
@@ -157,11 +155,11 @@ Irreducible decompositions of a representation often simplify the application. I
     Let $X$ be an irreducible representation of a group $G$ defined on a vector space $V$. Consider some operator $T$ on $V$ that commutes with all operators $X(g)$ for $g\in G$. Then $T$ is a scalar multiple of the identity matrix, $I$.
 \end{lemma}
 \begin{proof}
-    Let $\lambda$ be an eigenvalue of $T$. Then $\det(T-\lambda I)$ is not invertible. Since $T$ commutes with $X(G)$, it follows that
+    Let $\lambda$ be an eigenvalue of $T$. Then $T-\lambda I$ is not invertible. Since $T$ commutes with $X(G)$, it follows that
     \begin{align*}
-        \det(T-\lambda I)X(g)=X(g)\det(T-\lambda I),
+        (T-\lambda I)X(g)=X(g)(T-\lambda I),
     \end{align*}
-    for all $g\in G$. By \cref{th:irred_invertible}, $\det(T-\lambda I) = 0$ since $X(G)$ is irreducible. Thus, $T=\lambda I$.
+    for all $g\in G$. By \cref{th:irred_invertible}, $T-\lambda I = 0$ since $X(G)$ is irreducible. Thus, $T=\lambda I$.
 \end{proof}
 
 % \begin{theorem}\label{th:irred}
