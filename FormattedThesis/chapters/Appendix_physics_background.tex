@@ -5,11 +5,12 @@
 
 More information on physics notation and conventions can be found in~\cite{Hall2013,Griffiths2018,Tung1985}.
 
-For quantum mechanics, the physical state of the system is often represented by an abstract vector belonging to some Hilbert space. The convention is to assume that the Hilbert space is complex and separable. In this context, the inner product is typically defined to be linear in the second argument. For instance, for two vectors $\phi,\psi$ and a scalar $\lambda$, we have
+For quantum mechanics, the physical state of the system is often represented by an abstract vector belonging to some Hilbert space. The convention is to assume that the Hilbert space is complex and separable. In this context, the inner product is typically defined to be linear in the second argument. For instance, for two vectors $\phi,\psi$ and a scalars $\lambda,\alpha$, we have
 \begin{align*}
-    \langle \phi,\lambda\psi\rangle=\overline{\lambda}\langle \phi,\psi\rangle,
+    \langle \phi,\lambda\psi\rangle&=\lambda\langle \phi,\psi\rangle, \\
+    \langle \alpha\phi,\psi\rangle&=\overline{\alpha}\langle \phi,\psi\rangle,
 \end{align*}
-where the bar denotes complex conjugation.
+where the overline denotes complex conjugation.
 
 A linear operator on the Hilbert space is said to be \textit{Hermitian} if it is self-adjoint under the inner product. The Hermitian conjugate or adjoint (conjugate transpose) of an operator $A$ is denoted by $A^\dagger$.
 
@@ -164,6 +165,7 @@ This section includes various commutation relations that are used in \cref{ch:Ph
         % &= \frac{1}{i\hbar}\left( \bra{\psi}\hat{H}J - \bra{\psi}J\hat{H} \right)\ket{\psi} \\
         % &= \frac{1}{i\hbar}\left( \bra{\psi}[\hat{H},J]\right)\ket{\psi} \\
     \end{align}
+    This is often referred to as Ehrenfest's theorem~\cite{Griffiths2018}.
     % (linear in the second argument). (See Ehrenfest's theorem).
     Thus, if $[\hat{H},\hat{G}]=0$, it follows that
     \begin{align*}

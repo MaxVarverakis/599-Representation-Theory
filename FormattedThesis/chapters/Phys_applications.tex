@@ -54,21 +54,21 @@ We define the group of continuous rotations in a plane by letting $R(0) = I$ be 
 % Now we can find a generator of SO(2) by considering
 Consider an infinitesimal rotation labelled by some infinitesimal angle $d\phi$. This is equivalent to the identity plus some small rotation, which can be written as
 \begin{equation}
-    R(d\phi) = I + i d\phi J \label{eq:dphi}
+    R(d\phi) = I - i d\phi J \label{eq:dphi}
 \end{equation}
-where the scalar quantity $i$ is introduced for later convenience and $J$ is some quantity independent of the rotation angle. If we consider the rotation $R(\phi + d\phi)$, then there are two equivalent ways to interpret this rotation. Namely,
+where the scalar quantity $-i$ is introduced for later convenience and $J$ is some quantity independent of the rotation angle. If we consider the rotation $R(\phi + d\phi)$, then there are two equivalent ways to interpret this rotation. Namely,
 \begin{align}
-    R(\phi + d\phi) &= R(\phi)R(d\phi) = R(\phi)(I + i d\phi J) = R(\phi) + i d\phi R(\phi)J,\label{eq:dphi1} \\
+    R(\phi + d\phi) &= R(\phi)R(d\phi) = R(\phi)(I - i d\phi J) = R(\phi) - i d\phi R(\phi)J,\label{eq:dphi1} \\
     R(\phi + d\phi) &= R(\phi) + d\phi\frac{dR(\phi)}{d\phi},\label{eq:dphi2}
     % R(\phi) + dR(\phi) =
 \end{align}
-where the second equation can be thought of as a Taylor expansion of $R(\phi + d\phi)$ about $\phi$. Equating the two expressions for $R(\phi + d\phi)$ yields
+where the \cref{eq:dphi2} can be thought of as a Taylor expansion of $R(\phi + d\phi)$ about $\phi$. Equating the two expressions for $R(\phi + d\phi)$ yields
 \begin{equation}
-    dR(\phi) = id\phi R(\phi)J.
+    dR(\phi) = -id\phi R(\phi)J.
 \end{equation}
 Solving this differential equation (with boundary condition $R(0)=I$) provides us with an equation for any group element involving $J$:
 \begin{equation}
-    R(\phi) = e^{i\phi J},
+    R(\phi) = e^{-i\phi J},
 \end{equation}
 where $J$ is called the \textit{generator} of the group.
 
@@ -81,68 +81,70 @@ The explicit form of $J$ is found as follows. To first order in $d\phi$, we have
 \end{align*}
 Comparing to \cref{eq:dphi},
 \begin{align*}
-    I + i d\phi J &= \begin{bmatrix}
+    I - i d\phi J &= \begin{bmatrix}
         1 & -d\phi \\
         d\phi & 1
     \end{bmatrix} \implies J = \begin{bmatrix}
-        0 & i \\
-        -i & 0
+        0 & -i \\
+        i & 0
     \end{bmatrix}.
 \end{align*}
 
-Notice that $J^2 = I$, which implies that even powers of $J$ equal the identity matrix and odd powers of $J$ equal $J$. Taylor expanding $e^{iJ\phi }$ gives
+Notice that $J^2 = I$, which implies that even powers of $J$ equal the identity matrix and odd powers of $J$ equal $J$. Taylor expanding $e^{-iJ\phi }$ gives
 \begin{align*}
-    R(\phi) = e^{iJ\phi} &= I + iJ\phi - I \frac{\phi^2}{2!} - iJ\frac{\phi^3}{3!} + \cdots \\
-    &= I\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n}}{(2n)!} \right) + iJ\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n+1}}{(2n+1)!} \right) \\
-    &= I\cos\phi + iJ\sin\phi \\
+    R(\phi) = e^{-iJ\phi} &= I - iJ\phi - I \frac{\phi^2}{2!} + iJ\frac{\phi^3}{3!} + \cdots \\
+    &= I\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n}}{(2n)!} \right) - iJ\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n+1}}{(2n+1)!} \right) \\
+    &= I\cos\phi - iJ\sin\phi \\
     &= \begin{bmatrix}
         \cos\phi & -\sin\phi \\
         \sin\phi & \cos\phi
     \end{bmatrix}.
 \end{align*}
-Therefore, the generator $J$ can be used to recover the rotation matrix for an arbitrary angle $\phi$. Clearly, the map $R(\phi)\mapsto e^{iJ\phi}$ is a valid homomorphism that respects the periodic nature of SO(2).
+Therefore, the generator $J$ can be used to recover the rotation matrix for an arbitrary angle $\phi$.
+% Moreover, the corresponding map $R(\phi)\mapsto e^{iJ\phi}$ is a valid homomorphism that respects the periodic nature of SO(2).
 
 \subsection{Irreducible representations of SO(2)}\label{sub:irr_so2}
 
 Equipped with the generator $J$, we can construct the irreducible representations of SO(2). First, consider a representation $U$ of SO(2) defined on a finite dimensional vector space $V$. Then $U(\phi)$ is the corresponding representation of $R(\phi)$. The same argument as in \cref{sub:inf_rot} can be applied to an infinitesimal rotation to give
 \begin{align*}
-    U(\phi) = e^{iJ\phi},
+    U(\phi) = e^{-iJ\phi},
 \end{align*}
 which is an operator on $V$ (for convenience, the same symbol $J$ is used to denote the generator of the representation).
 % As seen in \cref{sub:inf_rot}, a one-dimensional representation of SO(2) is given by $R(\phi)\mapsto e^{-iJ\phi}$, where $J$ is the generator of the group. This representation is clearly irreducible, as there are no non-trivial invariant subspaces of a one-dimensional vector space.
 
-Since $U$ is a representation of rotations that preserves the length of vectors for all angles $\phi$, we have
+Since $U$ is a representation of rotations, it preserves the length of vectors for all angles $\phi$. Thus, for all vectors $\vec{a}$ (alternatively expressed as $\ket{a}$) in $V$ and $\phi\in[0,2\pi)$, we have
 \begin{align*}
-    \size{\vec{a}}^2 = \size{U(\phi)\vec{a}}^2, \, \forall\, \vec{a}=\ket{a}\in V &\iff \braket{a|a} = \braket{U(\phi)a|U(\phi)a} = \braket{a|{U(\phi)}^\dagger U(\phi)|a} \\
+    \size{\vec{a}}^2 = \size{U(\phi)\vec{a}}^2
+    &\iff \braket{a|a} = \braket{U(\phi)a|U(\phi)a} = \braket{a|{U(\phi)}^\dagger U(\phi)|a} \\
     &\iff U(\phi)^\dagger U(\phi) = I \\
-    &\iff e^{-iJ^\dagger\phi}e^{iJ\phi} = e^{i(J^\dagger-J)\phi} = 1 \\
-    &\iff J^\dagger = J.
+    &\iff e^{iJ^\dagger\phi}e^{-iJ\phi} = e^{-i(J-J^\dagger)\phi} = 1 \\
+    &\iff J = J^\dagger,
 \end{align*}
-Therefore, not only must $U$ be unitary, but the generator $J$ must be Hermitian. This fact becomes especially important in the physical interpretation of the representations of 3-dimensional rotations in \cref{sec:phys_SO3}.
+where $\dagger$ is the conjugate transpose. Additionally, \textit{Dirac notation} is adopted for the above calculations. More information on Dirac notation can be found in \cref{ch:physics_background}. As a result of this calculation, not only must $U$ be unitary, but the generator $J$ must be Hermitian. This fact becomes especially important in the physical interpretation of the representations of 3-dimensional rotations in \cref{sec:phys_SO3}.
 
 According to \cref{cor:abelian_irred}, the abelian nature of SO(2) implies that all of its irreducible representations are one-dimensional. Then for any $\ket{\alpha}\in V$, the minimal subspace containing $\ket{\alpha}$ that is invariant under SO(2) is one-dimensional. Hence,
 \begin{align*}
     J\ket{\alpha} &= \alpha\ket{\alpha}, \\
-    U(\phi)\ket{\alpha} &= e^{iJ\phi}\ket{\alpha} = e^{i\alpha\phi}\ket{\alpha},
+    U(\phi)\ket{\alpha} &= e^{-iJ\phi}\ket{\alpha} = e^{-i\alpha\phi}\ket{\alpha},
 \end{align*}
-where the (real) number $\alpha$ is used as a label for the eigenvector of $J$ with eigenvalue $\alpha$. The periodicity conditions of SO(2) imply that $\ket{\alpha} = U(2\pi)\ket{\alpha}$, or equivalently, $e^{i2\pi\alpha} = 1$. This implies that $\alpha$ must be an integer, as $e^{i2\pi m} = 1$ for $m\in\mathbb{Z}$. Then $U$ has a corresponding 1-dimensional representation for an integer $m$, defined by
+where the (real) number $\alpha$ is used as a label for the eigenvector of $J$ with eigenvalue $\alpha$. The periodicity conditions of SO(2) imply that $\ket{\alpha} = U(2\pi)\ket{\alpha}$, or equivalently, $e^{-i2\pi\alpha} = 1$. This implies that $\alpha$ must be an integer, as $e^{-i2\pi m} = 1$ for $m\in\mathbb{Z}$. Then $U$ has a corresponding 1-dimensional representation for an integer $m$, defined by
 \begin{align*}
     J\ket{m} = m\ket{m}, \\
-    U^m(\phi)\ket{m} = e^{im\phi}\ket{m}.
+    U^m(\phi)\ket{m} = e^{-im\phi}\ket{m}.
 \end{align*}
 Though already true by \cref{cor:abelian_irred}, these representations are clearly irreducible, as there is no way to reduce the dimension of a 1-dimensional representation.
 
 In general, the \textit{single-valued irreducible representations of SO(2)} are defined as
 \begin{equation}
-    U^m(\phi) = e^{im\phi},
+    U^m(\phi) = e^{-im\phi},
 \end{equation}
 for $m\in\Z$.
 
-If $m=0$, then $R(\phi)\mapsto U^0(\phi) = 1$, which corresponds to the trivial representation. If instead $m=1$, then $R(\phi)\mapsto U^1(\phi) = e^{i\phi}$, which maps rotations in SO(2) to distinct points on the unit circle in the complex plane. The $m=1$ representation is faithful because each rotation by $\phi$ has a unique image under $U^1(\phi)$, which is clear when interpreting rotations of unit vectors geometrically. As $\phi$ ranges from 0 to $2\pi$, $U^1$ traces over the unit circle in $\C$ in the counterclockwise direction. Similarly, $U^{-1}$ traces over the unit circle in the clockwise direction because $U^{-1}(\phi)=e^{-i\phi}$. The $m=-1$ case is therefore faithful as well. In general, $U^n$ covers the unit circle $\size{n}$ times as $\phi$ ranges from 0 to $2\pi$, and is not faithful for $n\neq\pm1$.
+If $m=0$, then $R(\phi)\mapsto U^0(\phi) = 1$, which corresponds to the trivial representation. If instead $m=1$, then $R(\phi)\mapsto U^1(\phi) = e^{-i\phi}$, which maps rotations in SO(2) to distinct points on the unit circle in the complex plane. The $m=1$ representation is faithful because each rotation by $\phi$ has a unique image under $U^1(\phi)$, which is clear when interpreting rotations of unit vectors geometrically. As $\phi$ ranges from 0 to $2\pi$, $U^1$ traces over the unit circle in $\C$ in the clockwise direction. Similarly, $U^{-1}$ traces over the unit circle in the counterclockwise direction because $U^{-1}(\phi)=e^{i\phi}$. The $m=-1$ case is therefore faithful as well. In general, $U^n$ covers the unit circle $\size{n}$ times as $\phi$ ranges from 0 to $2\pi$, and is not faithful for $n\neq\pm1$.
 
 The irreducible representations of SO(2) are orthonormal in the sense that
 \begin{align*}
-    \frac{1}{2\pi}\int_{0}^{2\pi}{\bigl(U^n(\phi)\bigr)}^\dagger U^m(\phi) \,d\phi = \frac{1}{2\pi}\int_{0}^{2\pi} e^{i(m-n)\phi} \,d\phi = \delta_{mn},
+    \frac{1}{2\pi}\int_{0}^{2\pi}{\bigl(U^m(\phi)\bigr)}^\dagger U^n(\phi) \,d\phi = \frac{1}{2\pi}\int_{0}^{2\pi} e^{-i(n-m)\phi} \,d\phi = \delta_{nm},
 \end{align*}
 where $\delta_{nm}$ is the Kronecker delta.
 % and complete:
@@ -154,22 +156,22 @@ where $\delta_{nm}$ is the Kronecker delta.
 \subsection{Multivalued representations}\label{sub:multi_so2}
 If we relax the periodic condition on $U$ to $U(2n\pi) = I$ for some $n\in\Z$, then the resulting 1-dimensional irreducible representations of SO(2) become multivalued. Consider the same construction of $U^m$ in \cref{sub:irr_so2}, but now with $m\in\Q$. For $m=\frac{1}{2}$, we have
 \begin{align*}
-    U^{1/2}(2\pi + \phi) &= e^{i\pi + i\frac{\phi}{2}} = -e^{i\frac{\phi}{2}} = -U^{1/2}(\phi).
+    U^{1/2}(2\pi + \phi) &= e^{-i\pi - i\frac{\phi}{2}} = -e^{-i\frac{\phi}{2}} = -U^{1/2}(\phi).
 \end{align*}
-Hence, the rotation $R(\phi)$ is assigned to both $\pm e^{i\frac{\phi}{2}}$ in the $U^{1/2}$ representation. For this reason, it can be said that $U^{1/2}$ is a \textit{two-valued} representation of SO(2).
+Hence, the rotation $R(\phi)$ is assigned to both $\pm e^{-i\frac{\phi}{2}}$ in the $U^{1/2}$ representation. For this reason, it can be said that $U^{1/2}$ is a \textit{two-valued} representation of SO(2).
 
-Despite this ambiguity in the realization of rotations in SO(2), the modified periodicity condition is still satisfied, as $U^{1/2}(4\pi) = e^{i2\pi} = 1$. In other words, the double-valued representation of SO(2) traverses the unit circle twice before returning to the identity. In general, $U^{n/m}$ is an $m$-valued representation of SO(2) for $\frac{n}{m}\in\Q$ and $\gcd(n,m)=1$.
+Despite this ambiguity in the realization of rotations in SO(2), the modified periodicity condition is still satisfied, as $U^{1/2}(4\pi) = e^{-i2\pi} = 1$. In other words, the double-valued representation of SO(2) traverses the unit circle twice before returning to the identity. In general, $U^{n/m}$ is an $m$-valued representation of SO(2) for $\frac{n}{m}\in\Q$ and $\gcd(n,m)=1$.
 
-The physical implications of these irreducible representations will become clear when generalizing to rotations in 3-dimensional space in \cref{sec:phys_SO3}.
+The physical importance of these irreducible representations will be discussed when generalizing to rotations in 3-dimensional space in \cref{sec:phys_SO3}.
 
 \subsection{State vector decomposition}\label{sub:SO2_decomp}
 The concept of $J$ generating 2-dimensional rotations is summarized in the following example. Consider a particle in a plane with polar coordinates $(r,\phi)$. The state vector of this particle is $\ket{\phi}$, where the coordinate $r$ is suppressed in the vector notation, as the action of SO(2) preserves vector lengths. Note that the state vector $\ket{\phi}$ belongs to some Hilbert space $V$ that is not necessarily the same as the physical space of the particle.
 
-In general, we have $U(\theta)\ket{\phi} = \ket{\theta+\phi}$, as expected. Then $\ket{\phi}$ can be decomposed as
+In this angle-basis, we have $U(\theta)\ket{\phi} = \ket{\theta+\phi}$. Then $\ket{\phi}$ can be decomposed as
 \begin{align*}
-    \ket{\phi} = U(\phi)\ket{\mathcal{O}} = e^{iJ\phi}\ket{\mathcal{O}},
+    \ket{\phi} = U(\phi)\ket{\mathcal{O}} = e^{-iJ\phi}\ket{\mathcal{O}},
 \end{align*}
-where $\ket{\mathcal{O}}$ is a ``standard'' state vector aligned with a pre-selected $x$-axis. The triviality of this result must not be overlooked, for it is important to note that any arbitrary state vector can be decomposed into $e^{iJ\phi}$ acting on $\ket{\mathcal{O}}$~\cite{Tung1985}. This notion generalizes beyond the 2-dimensional case, and will be revisited in the more general case of rotations in 3 spatial dimensions in \cref{sec:SO3}.
+where $\ket{\mathcal{O}}$ is a ``standard'' state vector aligned with a pre-selected axis. The triviality of this result must not be overlooked, for it is important to note that any arbitrary state vector can be decomposed into $e^{-iJ\phi}$ acting on $\ket{\mathcal{O}}$~\cite{Tung1985}. This notion generalizes beyond the 2-dimensional case, and will be revisited in the case of rotations in 3 spatial dimensions in \cref{sec:SO3}.
 
 Since the set of eigenvectors of $J$ form a basis for $V$, an arbitrary state $\ket{\phi}$ can be decomposed into a linear combination of the eigenvectors of $J$:
 \begin{align*}
@@ -177,7 +179,7 @@ Since the set of eigenvectors of $J$ form a basis for $V$, an arbitrary state $\
 \end{align*}
 where
 \begin{align*}
-    \braket{m|\phi} = \braket{m|U(\phi)|\mathcal{O}} = \braket{U^\dagger(\phi)m|\mathcal{O}} = e^{-im\phi}\braket{m|\mathcal{O}}
+    \braket{m|\phi} = \braket{m|U(\phi)|\mathcal{O}} = \braket{U^\dagger(\phi)m|\mathcal{O}} = \braket{e^{im\phi}m|\mathcal{O}} = e^{-im\phi}\braket{m|\mathcal{O}}
 \end{align*}
 is the projection of $\ket{\phi}$ onto the eigenvector $\ket{m}$ of $J$. Note that $m$ is left unspecified, as the allowable values of $m$ depend on the representation of SO(2) and thus the vector space $V$.
 
@@ -195,9 +197,9 @@ As a result, the action of $J$ on the state $\ket{\phi}$ can be written as
 For fixed $m$, multiplying \cref{eq:phi2m} by $\frac{1}{2\pi} e^{im\phi}$ and integrating over $\phi$, we obtain
 \begin{align*}
     \frac{1}{2\pi}\int_{0}^{2\pi} e^{im\phi}\ket{\phi} \,d\phi 
-        &= \sum_n \left( \frac{1}{2\pi}\int_{0}^{2\pi}e^{i(m-n)\phi}\,d\phi \right)\ket{n} \\
-        &= \sum_n \left( \frac{1}{2\pi}\int_{0}^{2\pi}{(U^n(\phi))}^\dagger U^m(\phi)\,d\phi \right)\ket{n} \\
-        &= \sum_n \delta_{mn}\ket{n} = \ket{m}.
+        &= \sum_n \left( \frac{1}{2\pi}\int_{0}^{2\pi}e^{-i(n-m)\phi}\,d\phi \right)\ket{n} \\
+        &= \sum_n \left( \frac{1}{2\pi}\int_{0}^{2\pi}{(U^m(\phi))}^\dagger U^n(\phi)\,d\phi \right)\ket{n} \\
+        &= \sum_n \delta_{nm}\ket{n} = \ket{m}.
 \end{align*}
 
 Then for an arbitrary state $\ket{\psi}\in V$, it follows that
@@ -216,11 +218,12 @@ where $\braket{\phi|\psi}$ is written as the \textit{wavefunction} $\psi(\phi)$ 
 
 % \textcolor{red}{Add wavefunction description for uncountably infinite-dim Hilbert space. How you can write $\braket{x|\Psi}$ as just the \textit{wavefunction} $\Psi(x)$ since $x$ is a continuous variable.}
 
-Then the action of $J$ generalizes to
+Then the action of $J$ in the $\phi$-basis generalizes to
 \begin{align*}
-    \braket{\phi|J|\psi} = \braket{J^\dagger \phi|\psi} = -i\frac{\partial}{\partial\phi}\braket{\phi|\psi} = -i\frac{\partial}{\partial\phi}\psi(\phi),
+    \braket{\phi|J|\psi} = \braket{J^\dagger \phi|\psi} = -i\frac{\partial}{\partial\phi}\braket{\phi|\psi} = -i\frac{\partial}{\partial\phi}\psi(\phi).
 \end{align*}
-where we have projected $J\ket{\psi}$ onto the $\phi$-basis. If we let $x$ and $y$ be the Cartesian coordinates of the plane, then
+% where we have projected $J\ket{\psi}$ onto the $\phi$-basis. 
+If we let $x$ and $y$ be the Cartesian coordinates of the plane, then
 \begin{align*}
     \phi = \arctan\left(\frac{y}{x}\right) \implies \frac{\partial}{\partial\phi} 
         &= \frac{\partial x}{\partial \phi}\frac{\partial}{\partial x} + \frac{\partial y}{\partial \phi}\frac{\partial}{\partial y} \\
@@ -260,33 +263,33 @@ The operator $T(x)$ has the expected group properties
 
 Consider an infinitesimal translation $T(dx)$. This derivation is identical to finding the generator $J$ for SO(2) in \cref{sub:inf_rot}. Thus, we rewrite
 \begin{align*}
-    T(dx) &= I + i dx P,
+    T(dx) &= I - i dx P,
 \end{align*}
 where, for the moment, $P$ is an arbitrary quantity. \cref{eq:dphi1,eq:dphi2} apply to $T(x)$ with $P$ replacing $J$, $T$ replacing $R$, and $x$ replacing $\phi$. This yields the familiar differential equation
 \begin{equation}
-    \frac{dT(x)}{T(x)} = iP dx,
+    \frac{dT(x)}{T(x)} = -iP dx,
 \end{equation}
 along with the boundary condition \cref{eq:P_BC}, which implies
 \begin{equation}
-    T(x) = e^{iPx}.
+    T(x) = e^{-iPx}.
 \end{equation}
-The exponential form of $T(x)$ satisfies the group properties of $T_1$ and is a valid representation of the group. Therefore, $P$ generates $T_1$. A similar decomposition of state vectors as in \cref{sub:SO2_decomp} can be done for $T_1$. Specifically, for $\ket{x}\in V$, we have
+The exponential form of $T(x)$ satisfies the group properties of $T_1$ and is a valid formulation of the group. Therefore, $P$ generates $T_1$. A similar decomposition of state vectors as in \cref{sub:SO2_decomp} can be done for $T_1$. Specifically, for $\ket{x}\in V$, we have
 \begin{align*}
-    \ket{x} = T(x)\ket{\mathcal{O}} = e^{iPx}\ket{\mathcal{O}},
+    \ket{x} = T(x)\ket{\mathcal{O}} = e^{-iPx}\ket{\mathcal{O}},
 \end{align*}
 where $\ket{\mathcal{O}}$ is the standard state in $V$.
 
 \subsection{Irreducible representations of $T_1$}
-Consider a unitary representation $U$ of $T_1$ on a finite dimensional vector space $V$. As before, $U$ can be reduced to $U(x) = e^{iPx}$, where $P$ is the generator of the representation. The unitarity of $U$ requires that $P$ be Hermitian, as in the case of $J$ for SO(2). It follows that the eigenvalues of $P$, labeled by $p$, are real. Since $T_1$ is abelian, \cref{cor:abelian_irred} implies that the irreducible representations of $T_1$ are all 1-dimensional. Similar to \cref{sub:irr_so2}, the irreducible representation $U^p(x)$ of $T(x)$ is given by
+Consider a unitary representation $U$ of $T_1$ on a finite dimensional vector space $V$. As before, $U$ can be reduced to $U(x) = e^{-iPx}$, where $P$ is the generator of the representation. The unitarity of $U$ requires that $P$ be Hermitian, as in the case of $J$ for SO(2). It follows that the eigenvalues of $P$, labeled by $p$, are real. Since $T_1$ is abelian, \cref{cor:abelian_irred} implies that the irreducible representations of $T_1$ are all 1-dimensional. Similar to \cref{sub:irr_so2}, the irreducible representation $U^p(x)$ of $T(x)$ is given by
 \begin{align*}
     P\ket{p} &= p\ket{p}, \\
-    U^p(x)\ket{p} &= e^{iPx}\ket{p} = e^{ip x}\ket{p}.
+    U^p(x)\ket{p} &= e^{-iPx}\ket{p} = e^{-ip x}\ket{p}.
 \end{align*}
 The above description satisfies \cref{eq:P_BC,eq:P_inv,eq:P_add} with no further restrictions on $p$. 
 
 Notice that the eigenvalues of $P$ are continuous, in contrast to the discrete eigenvalues of $J$ for SO(2) which were a result of the periodicity condition. The resulting orthonomality of the irreducible representations of $T_1$ are given by
 \begin{align*}
-    \frac{1}{2\pi}\int_{-\infty}^{\infty} {(U^p(x))}^\dagger U^{p'}(x) \,dx = \int_{-\infty}^{\infty} e^{i(p'-p)x} \,dx = \delta(p'-p)
+    \frac{1}{2\pi}\int_{-\infty}^{\infty} {\bigl(U^p(x)\bigr)}^\dagger U^{p'}(x) \,dx = \int_{-\infty}^{\infty} e^{-i(p'-p)x} \,dx = \delta(p'-p)
 \end{align*}
 where the normalization by $2\pi$ is chosen by convention.
 
@@ -299,8 +302,8 @@ Performing the same arguments as in \cref{sub:SO2_decomp} for $T_1$, we can expa
 where the sums from \cref{sub:SO2_decomp} are replaced by integrals due to the continuous and unbounded nature of $p$. Multiplying by $e^{ipx}$ for some fixed $p$ and integrating over $x$, we obtain an expression of $\ket{p}$ in terms of $\ket{x}$:
 \begin{align*}
     \int_{-\infty}^{\infty} e^{ipx}\ket{x} \,dx
-        &= \int_{-\infty}^{\infty} \left(\frac{1}{2\pi} \int_{-\infty}^{\infty} e^{i(p-p')x}\ket{p'} \,dx \right)\,dp' \\
-        &= \int_{-\infty}^{\infty} \delta(p-p') \ket{p'} \,dp' = \ket{p}.
+        &= \int_{-\infty}^{\infty} \left(\frac{1}{2\pi} \int_{-\infty}^{\infty} e^{-i(p'-p)x}\ket{p'} \,dx \right)\,dp' \\
+        &= \int_{-\infty}^{\infty} \delta(p'-p) \ket{p'} \,dp' = \ket{p}.
 \end{align*}
 The relationship between $\ket{p}$ and $\ket{x}$ is the familiar Fourier transform, where the state $\ket{p}$ is the momentum space representation of the state $\ket{x}$, which corresponds to position space.
 
@@ -310,7 +313,7 @@ The action of $P$ on $\ket{x}$ can then be written as
 \end{align*}
 Therefore, an arbitrary state $\ket{\psi}$ can be expressed in either the position or momentum basis:
 \begin{align*}
-    \ket{\psi} = \frac{1}{2\pi}\int_{-\infty}^{\infty} \psi(x)\ket{x} \,dx = \frac{1}{2\pi}\int_{-\infty}^{\infty} \psi(p)\ket{p} \,dp,
+    \ket{\psi} = \int_{-\infty}^{\infty} \psi(x)\ket{x} \,dx = \frac{1}{2\pi}\int_{-\infty}^{\infty} \psi(p)\ket{p} \,dp,
 \end{align*}
 where again $\psi(\cdot) = \braket{\cdot|\psi}$ is the wavefunction of the state $\ket{\psi}$ projected onto the relevant basis.
 
@@ -332,18 +335,18 @@ subject to the equivalent group properties of $T_1$ in \cref{eq:P_BC,eq:P_inv,eq
 
 \sloppy Notice that $T_3\iso T_1 \oplus T_1 \oplus T_1$, where the group operation is defined as $T(x_1,y_1,z_1)T(x_2,y_2,z_2) = T(x_1+x_2,y_1+y_2,z_1+z_2)$. In other words, $T_3$ can be decomposed into independent 1-dimensional translations along each axis (or more generally along the span of each basis vector in 3-space). Thus, following the same procedure as in \cref{sub:inf_rot}, an infinitesimal translation
 \begin{align*}
-    T(d\vec{r}) = I + i dx P_x\e_x + idy P_y\e_y + idz P_z\e_z
+    T(d\vec{r}) = I - i dx P_x\e_x - idy P_y\e_y - idz P_z\e_z
 \end{align*}
 produces the following relations:
 \begin{align*}
-    dT(x_j) = idx_j T(x_j)P_j,
+    dT(x_j) = -idx_j T(x_j)P_j,
 \end{align*}
 for $j=1,2,3$ and $(x_1,x_2,x_3) = (x,y,z)$.
 This gives the expected result, namely
 \begin{align*}
-    T(\vec{r}) = e^{iP_x x}e^{iP_y y}e^{iP_z z} = e^{i\vec{P}\cdot\vec{r}},
+    T(\vec{r}) = e^{-iP_x x}e^{-iP_y y}e^{-iP_z z} = e^{-i\vec{P}\cdot\vec{r}}.
 \end{align*}
-where the generator of 3-dimensional translations is the vector $\vec{P}=(P_x,P_y,P_z)$. The consequences of the separability of $T_3$ allows the results from \cref{sub:explicit_P} to be applied independently to each axis of translation. The intuitive generalization of $T_1$ to $T_3$ lets us immediately write down the explicit form of the generator for 3-dimensional translations. Since
+Hence, the generator of 3-dimensional translations is the vector $\vec{P}=(P_x,P_y,P_z)$. The consequences of the separability of $T_3$ allows the results from \cref{sub:explicit_P} to be applied independently to each axis of translation. The intuitive generalization of $T_1$ to $T_3$ lets us immediately write down the explicit form of the generator for 3-dimensional translations. Since
 \begin{equation}
     P_j = -i\frac{\partial}{\partial x_j},
 \end{equation}
@@ -358,11 +361,11 @@ Again, up to $\hbar$, \cref{eq:P_3D} is precisely the quantum mechanical linear 
 
 % Armed with the linear and angular momentum operators $\vh{p}$ and $\hat{L}_z$, we can now discuss the physical implications of the representations of $T_3$ and SO(2). 
 % The generators $\vec{P}$ and $J$ correspond to Hermitian operators that act on the state vectors of a quantum system. Physically, $\vec{P}$ and $J$ perform their respective transformations to the system, which  
-Physically, the generators $\vec{P}$ and $J$ alter a (quantum) system by translation and rotation. These transformations correspond to the Hermitian operators $\vh{p}$ and $\hat{L}_z$ that act on the state vectors belonging to the Hilbert space describing the system. Hence, the (real) eigenvalues of $P$ and $J$ correspond to the physical observables (measurable quantities) of linear and angular momentum, respectively. Armed with the explicit forms of these operators, the physical ramifications of the irreducible representations of $T_3$ and SO(2) can now be demonstrated.
+Physically, the generators $\vec{P}$ and $J$ alter a (quantum) system by translation and rotation. These transformations correspond to the Hermitian operators $\vh{p}$ and $\hat{L}_z$ that act on the state vectors belonging to the Hilbert space describing the system. Hence, the (real) eigenvalues of $\vec{P}$ and $J$ (thus $\vh{p}$ and $\hat{L}_z$) correspond to the physical observables (measurable quantities) of linear and angular momentum, respectively. Armed with the explicit forms of these operators, the physical ramifications of the irreducible representations of $T_3$ and SO(2) can now be demonstrated.
 
-According to Ehrenfest's theorem (see \cref{sec:conserved_quantities}), if a physical system represented by a Hamiltonian $\hat{H}$ is invariant under a transformation generated by an operator $\hat{A}$, then the physical observable corresponding to $\hat{A}$ is conserved. In other words, the expectation value of $\hat{A}$ is constant in time if the commutator $[\hat{H},\hat{A}] = \hat{H}\hat{A} - \hat{A}\hat{H} = 0$.
+According to Ehrenfest's theorem (see \cref{sec:conserved_quantities}), if a physical system represented by a Hamiltonian $\hat{H}$ is invariant under a time-independent transformation generated by an operator $\hat{A}$, then the physical observable corresponding to $\hat{A}$ is conserved. In other words, the expectation value of $\hat{A}$ is constant in time if the commutator $[\hat{H},\hat{A}] = \hat{H}\hat{A} - \hat{A}\hat{H} = 0$.
 
-The generators obtained in previous sections fit this framework. If a Hamiltonian $\hat{H}$ is invariant under translations or rotations, then $[\hat{H}, \vec{P}] = [\hat{H},\vh{p}] = 0$ or $[\hat{H}, J] = [\hat{H}, \hat{L}_z] = 0$, respectively. Therefore, the physical observables of linear and angular momentum are conserved in systems with translational and rotational symmetry, respectively. The following are examples of physical systems that exhibit these symmetries and the conserved quantities that result from them.
+The generators obtained in previous sections fit this framework. If a Hamiltonian $\hat{H}$ is invariant under translations or rotations, then $[\hat{H}, \vec{P}] = [\hat{H},\vh{p}] = 0$ or $[\hat{H}, J] = [\hat{H}, \hat{L}_z] = 0$, respectively. Therefore, the physical observables of linear and angular momentum are conserved in systems with translational and rotational symmetry. The following are examples of physical systems that exhibit these symmetries and the conserved quantities that result from them.
 
 \subsection{Conservation of linear momentum}
 Consider a free particle in three spatial dimensions. The Hamiltonian of this system is given by
@@ -428,16 +431,16 @@ since $V(\vec{r})$ does not have $\phi$-dependence.
 
 Recall that we can express $\hat{L}_z$ in Cartesian coordinates as
 \begin{align}\label{eq:Lz_cartesian}
-    \hat{L}_z = -i\hbar \left( \vh{r}\times\vh{p} \right)\cdot\e_z = -i\hbar\left( -y\frac{\partial}{\partial x} + x\frac{\partial}{\partial y} \right) =  -y \hat{p}_x + x \hat{p}_y,
+    \hat{L}_z = -i\hbar \left( \vh{r}\times\vh{p} \right)\cdot\e_z = -i\hbar\left(x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}\right) = x \hat{p}_y - y \hat{p}_x,
 \end{align}
 where the \textit{position operator} is defined as $\hat{\vec{r}}\ket{\vec{r}} = \vec{r}\ket{\vec{r}}$. To reduce clutter, the components $\hat{x}, \hat{y}, \hat{z}$ of $\vh{r}$ are written without the hats.
 
 First, we can reduce the commutator $[\vh{p}^2,\hat{L}_z]$ to a simpler form:
 \begin{align*}
     [\vh{p}^2,\hat{L}_z]
-        &= \left[ \hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2, -y \hat{p}_x + x \hat{p}_y \right] \\
-        &= \left[ \hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2, -y \hat{p}_x \right] + \left[ \hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2, x \hat{p}_y \right] \\
-        &= \left[ \hat{p}_y^2, -y \hat{p}_x \right] + \left[ \hat{p}_x^2, x \hat{p}_y \right],
+        &= \left[ \hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2, x \hat{p}_y - y \hat{p}_x\right] \\
+        &= \left[ \hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2, x \hat{p}_y \right] + \left[ \hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2, -y \hat{p}_x \right] \\
+        &= \left[ \hat{p}_x^2, x \hat{p}_y \right] + \left[ \hat{p}_y^2, -y \hat{p}_x \right],
     % &= -\hbar^2\left[ \nabla^2, \left( -y\e_x\frac{\partial}{\partial x} + x\e_y\frac{\partial}{\partial y} \right) \right]\ket{\psi} \\
 \end{align*}
 since the components of $\vh{p}$ commute with each other. Further simplification is done using \cref{eq:BA,eq:AmB,eq:A2B,eq:ABC}:
@@ -484,13 +487,13 @@ The profound connection between symmetries and conserved quantities is a fundame
 % \subsection{Application of SO(2) to quantum mechanics}\label{sec:phys_SO3}
 % The generalization of the SO(2) group to quantum mechanics is the unitary group U(1), which is the group of continuous phase transformations. The group elements of U(1) are complex numbers of unit modulus, similar to that of the irreducible representations of SO(2) found in \cref{sub:irr_so2}. The requirement of unitary matrices in quantum mechanics is a consequence of the fact that physical transformations, such as rotations and translations, must preserve probabilities. In quantum mechanics, probabilities are encoded in the norm of the state vectors. By definition, unitary transformations preserve the norm of vectors, which is why they represent physical transformations in quantum mechanics. \textcolor{red}{Move that second half to appendix and combine with discussion of braket notation et al.?}
 \section{3D rotations and the group SO(3)}\label{sec:SO3}
-As was done for translations in \cref{sub:3D_translations}, we can generalize SO(2) to rotations in 3-dimensional space, albeit with less triviality. The group of rotations in Euclidean 3-space, which is synonymous with 3-dimensional linear operators that fix the length of vectors, is a \textit{special orthogonal group in 3D}, denoted by SO(3).
+As was done for translations in \cref{sub:3D_translations}, we can generalize SO(2) to rotations in 3-dimensional space, albeit with less triviality. The group of rotations in Euclidean 3-space, which corresponds to 3-dimensional linear operators that fix the length of vectors, is the \textit{special orthogonal group in 3D}, denoted by SO(3).
 
-Consider a rotation in three dimensions about an axis (vector) $\vec{n}$ by an angle $\theta$. The rotation $R_{\vec{n}}(\theta)$ is a linear transformation that maps a vector $\vec{v}$ to a new vector $\vec{v}'$ such that $\size{\vec{v}}=\size{\vec{v}'}$. The rotation angle $\theta\in[0,2\pi)$ is a continuous parameter, and every one-parameter subgroup of SO(3) can be written as $\left\{ R_{\vec{n}}(\theta) \st \theta\in[0,2\pi) \right\}$ for fixed $\vec{n}$.
+Consider a rotation in three dimensions about an axis (unit vector) $\vec{n}$ by an angle $\theta$. The rotation $R_{\vec{n}}(\theta)$ is a linear transformation that maps a vector $\vec{v}$ to a new vector $\vec{v}'$ such that $\size{\vec{v}}=\size{\vec{v}'}$. The rotation angle $\theta\in[0,2\pi)$ is a continuous parameter, and every one-parameter subgroup of SO(3) can be written as $\left\{ R_{\vec{n}}(\theta) \st \theta\in[0,2\pi) \right\}$ for fixed $\vec{n}$.
 
-The set of rotations in a plane perpendicular $\vec{n}$ is clearly isomorphic to SO(2). Thus, for a fixed axis of rotation $\vec{n}$, an infinitesimal rotation $R_{\vec{n}}(d\theta)$ can be used to obtain a generator of rotations about $\vec{n}$. The derivation is identical to that of $J$ for SO(2) in \cref{sub:inf_rot} since the group of rotations about $\vec{n}$ is isomorphic to SO(2). Hence, we can label the generator of rotations about $\vec{n}$ as $J_{\vec{n}}$, and the corresponding results from \cref{sec:SO2} can be applied to $J_{\vec{n}}$. Most notably, for arbitrary $\theta$, we can write
+The set of rotations in a plane perpendicular $\vec{n}$ is clearly isomorphic to SO(2). Thus, for a fixed axis of rotation $\vec{n}$, an infinitesimal rotation $R_{\vec{n}}(d\theta)$ can be used to obtain a generator of rotations about $\vec{n}$. The derivation is identical to that of $J$ for SO(2) in \cref{sub:inf_rot}. Hence, we can label the generator of rotations about $\vec{n}$ as $J_{\vec{n}}$, and the corresponding results from \cref{sec:SO2} can be applied to $J_{\vec{n}}$. Most notably, for arbitrary $\theta$, we can write
 \begin{align*}
-    R_{\vec{n}}(\theta) = e^{i\theta J_{\vec{n}}}.
+    R_{\vec{n}}(\theta) = e^{-i\theta J_{\vec{n}}}.
 \end{align*}
 
 Consider the standard basis vectors $\e_x,\e_y,\e_z$ in 3-dimensional Euclidean space. The generators of rotations about the $x,y,z$ axes are denoted by $J_x,J_y,J_z$, respectively. With some work~\cite{Tung1985}, it can be shown that the generator $J_{\vec{n}}$ is decomposable into $J_x,J_y,J_z$ for any $\vec{n}$ by projection onto the standard basis:
@@ -500,13 +503,13 @@ Consider the standard basis vectors $\e_x,\e_y,\e_z$ in 3-dimensional Euclidean 
 where $n_\mu = \vec{n}\cdot\e_\mu$ for $\mu=x,y,z$.
 The general rotation operator about $\vec{n}$ becomes
 \begin{align*}
-    R_{\vec{n}}(\theta) = e^{i\theta(n_x J_x + n_y J_y + n_z J_z)}.
+    R_{\vec{n}}(\theta) = e^{-i\theta(n_x J_x + n_y J_y + n_z J_z)}.
 \end{align*}
 As in \cref{sub:irr_so2}, the unitarity of the rotation operator requires that the generators $J_x,J_y,J_z$ be Hermitian and therefore have real eigenvalues.
 
-Therefore, the set $\left\{ J_x,J_y,J_z \right\}$ forms a basis for the generators of the one-parameter abelian subgroups of SO(3). As a result, we have a representation of SO(3) defined by the generator $\vec{J} = (J_x,J_y,J_z)$. Namely, for an arbitrary rotation $R_{\vec{n}}(\theta)$, we can write
+Therefore, the set $\left\{ J_x,J_y,J_z \right\}$ forms a basis for the generators of the one-parameter abelian subgroups of SO(3). As a result, we can express SO(3) in terms of the generator $\vec{J} = (J_x,J_y,J_z)$. Namely, for an arbitrary rotation $R_{\vec{n}}(\theta)$, we can write
 \begin{align*}
-    R_{\vec{n}}(\theta) = e^{i\theta\,\vec{n}\cdot\vec{J}}.
+    R_{\vec{n}}(\theta) = e^{-i\theta\,\vec{n}\cdot\vec{J}}.
 \end{align*}
 
 \subsection{Explicit form of $\vec{J}$}\label{sec:SO3_J}
@@ -522,7 +525,7 @@ where $\phi_\mu$ is the polar angle in the plane perpendicular to $\e_\mu$. This
 which, up to $\hbar$, is the quantum mechanical angular momentum operator in 3 dimensions~\cite{Hall2013}, often written as $\vh{L}=(\hat{L}_x,\hat{L}_y,\hat{L}_z)$.
 
 \subsection{Commutation relations of SO(3) generators}\label{sub:SO3_comms}
-The algebraic structure of the representation of SO(3) in terms of $\vec{J}$ is defined by the commutation relations of the basis generators $J_x,J_y,J_z$. By studying the underlying algebraic relationships between the generators, we can gain insight into the irreducible representations of SO(3) and the physical implications of these representations.
+The algebraic structure of the generators of SO(3) is defined by the commutation relations of the basis generators $J_x,J_y,J_z$. By studying the underlying algebraic relationships between the generators, we can gain insight into the irreducible representations of SO(3) and the corresponding physical implications.
 
 A consequence of the correspondence found in \cref{sec:SO3_J} is that the commutation relations of the generators $J_x,J_y,J_z$ are identical to those of the angular momentum operators $\hat{L}_x,\hat{L}_y,\hat{L}_z$ up to $\hbar$. First, note that \cref{eq:Lz_cartesian} can be generalized to each component of $\vec{L}$:
 \begin{align}
