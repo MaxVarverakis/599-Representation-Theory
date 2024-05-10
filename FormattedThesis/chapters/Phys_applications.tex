@@ -143,13 +143,17 @@ for $m\in\Z$.
 If $m=0$, then $R(\phi)\mapsto U^0(\phi) = 1$, which corresponds to the trivial representation. If instead $m=1$, then $R(\phi)\mapsto U^1(\phi) = e^{-i\phi}$, which maps rotations in SO(2) to distinct points on the unit circle in the complex plane. The $m=1$ representation is faithful because each rotation by $\phi$ has a unique image under $U^1(\phi)$, which is clear when interpreting rotations of unit vectors geometrically. As $\phi$ ranges from 0 to $2\pi$, $U^1$ traces over the unit circle in $\C$ in the clockwise direction. Similarly, $U^{-1}$ traces over the unit circle in the counterclockwise direction because $U^{-1}(\phi)=e^{i\phi}$. The $m=-1$ case is therefore faithful as well. In general, $U^n$ covers the unit circle $\size{n}$ times as $\phi$ ranges from 0 to $2\pi$, and is not faithful for $n\neq\pm1$.
 
 The irreducible representations of SO(2) are orthonormal in the sense that
-\begin{align*}
-    \frac{1}{2\pi}\int_{0}^{2\pi}{\bigl(U^m(\phi)\bigr)}^\dagger U^n(\phi) \,d\phi = \frac{1}{2\pi}\int_{0}^{2\pi} e^{-i(n-m)\phi} \,d\phi = \delta_{nm},
-\end{align*}
+\begin{align}
+    \frac{1}{2\pi}\int_{0}^{2\pi}{\bigl(U^m(\phi)\bigr)}^\dagger U^n(\phi) \,d\phi = \frac{1}{2\pi}\int_{0}^{2\pi} e^{-i(n-m)\phi} \,d\phi = \delta_{nm},\label{eq:orthogonality}
+\end{align}
 where $\delta_{nm}$ is the Kronecker delta.
-% and complete:
+Moreover, the irreducible representations satisfy the completeness relation:
+\begin{align}
+    \sum_{n\in\Z} U^n(\phi){(U^n(\phi'))}^\dagger = \sum_{n=-\infty}^\infty e^{-in(\phi-\phi')} = 2\sum_{n=0}^{\infty}\cos(n(\phi-\phi')) = \delta(\phi-\phi'),\label{eq:completeness}
+\end{align}
+where the last equality comes from the fact that the Fourier series of the Dirac delta is a sum over all frequencies of cosines (since it is an even distribution). The factor of $2\pi$ is omitted since it will vanish when integrating over $\phi$ with the appropriate normalization. These relations will be exploited in \cref{sub:SO2_decomp}.
 % \begin{align*}
-%     \sum_{n} U^n(\phi){(U^n(\phi'))}^\dagger = \sum_{n} e^{-in(\phi-\phi')}
+%     \sum_{n}\frac{1}{2\pi}\int_{-\infty}^{\infty} e^{-in(\phi-\phi')} f(\phi) \,d\phi
 % \end{align*}
 % Since SO(2) is a continuous group where the group elements are labelled by the continuous parameter $\phi$, we must integrate over all possible values of $\phi$ to obtain such relations. 
 
@@ -173,7 +177,11 @@ In this angle-basis, we have $U(\theta)\ket{\phi} = \ket{\theta+\phi}$. Then $\k
 \end{align*}
 where $\ket{\mathcal{O}}$ is a ``standard'' state vector aligned with a pre-selected axis. The triviality of this result must not be overlooked, for it is important to note that any arbitrary state vector can be decomposed into $e^{-iJ\phi}$ acting on $\ket{\mathcal{O}}$~\cite{Tung1985}. This notion generalizes beyond the 2-dimensional case, and will be revisited in the case of rotations in 3 spatial dimensions in \cref{sec:SO3}.
 
-Since the set of eigenvectors of $J$ form a basis for $V$, an arbitrary state $\ket{\phi}$ can be decomposed into a linear combination of the eigenvectors of $J$:
+The orthogonality and completeness relations given in \cref{eq:orthogonality,eq:completeness} imply that
+\begin{align*}
+    \sum_{m} \ket{m}\bra{m} = I.
+\end{align*}
+Thus, the state $\ket{\phi}$ can be decomposed into a linear combination of the eigenvectors of $J$:
 \begin{align*}
     \ket{\phi} = \left( \sum_{m} \ket{m}\bra{m} \right)\ket{\phi} = \sum_{m} \braket{m|\phi}\ket{m},
 \end{align*}
@@ -287,15 +295,16 @@ Consider a unitary representation $U$ of $T_1$ on a finite dimensional vector sp
 \end{align*}
 The above description satisfies \cref{eq:P_BC,eq:P_inv,eq:P_add} with no further restrictions on $p$. 
 
-Notice that the eigenvalues of $P$ are continuous, in contrast to the discrete eigenvalues of $J$ for SO(2) which were a result of the periodicity condition. The resulting orthonomality of the irreducible representations of $T_1$ are given by
-\begin{align*}
-    \frac{1}{2\pi}\int_{-\infty}^{\infty} {\bigl(U^p(x)\bigr)}^\dagger U^{p'}(x) \,dx = \int_{-\infty}^{\infty} e^{-i(p'-p)x} \,dx = \delta(p'-p)
-\end{align*}
+Notice that the eigenvalues of $P$ are continuous, in contrast to the discrete eigenvalues of $J$ for SO(2) which were a result of the periodicity condition. The orthonormality and completeness relations of the irreducible representations of $T_1$ are given by
+\begin{align}
+    \frac{1}{2\pi}\int_{-\infty}^{\infty} {\bigl(U^p(x)\bigr)}^\dagger U^{p'}(x) \,dx &= \frac{1}{2\pi}\int_{-\infty}^{\infty} e^{-i(p'-p)x} \,dx = \delta(p'-p) \label{eq:orthogonality_P}, \\
+    \frac{1}{2\pi}\int_{-\infty}^{\infty} U^{p}(x){\bigl(U^p(x')\bigr)}^\dagger \,dp &= \frac{1}{2\pi}\int_{-\infty}^{\infty} e^{-ip(x-x')} \,dp = \delta(x-x'), \label{eq:completeness_P}
+\end{align}
 where the normalization by $2\pi$ is chosen by convention.
 
 \subsection{Explicit form of $P$}\label{sub:explicit_P}
 
-Performing the same arguments as in \cref{sub:SO2_decomp} for $T_1$, we can expand a localized state $\ket{x}$  in terms of the eigenvectors of $P$:
+Armed with \cref{eq:orthogonality_P,eq:completeness_P}, we can perform the same arguments as in \cref{sub:SO2_decomp} for $T_1$ to expand a localized state $\ket{x}$ in terms of the eigenvectors of $P$:
 \begin{align*}
     \ket{x} = \frac{1}{2\pi}\int_{-\infty}^{\infty} \braket{p|x}\ket{p} \,dp = \frac{1}{2\pi}\int_{-\infty}^{\infty} e^{-ipx}\ket{p} \,dp,
 \end{align*}
@@ -559,7 +568,7 @@ These commutation relations are identical to those of the generators $J_x,J_y,J_
 \subsection{Irreducible representations of SO(3)}\label{sub:irr_SO3}
 Due to the nontrivial interaction between $J_x,J_y,J_z$, the irreducible representations of SO(3) are not as straightforward to determine as those of SO(2). However, the commutation relations in \cref{eq:comLz,eq:comLx,eq:comLy} provide the necessary foundation to proceed with the following analysis.
 
-Let $V$ be a finite-dimensional vector space corresponding to a representation of SO(3). The generators $J_x,J_y,J_z$ act on $V$ as linear operators, and the $J$-analogue of \cref{eq:comLz,eq:comLx,eq:comLy} must be satisfied. To obtain an irreducible representation of SO(3), we seek a subspace of $V$ that is invariant under SO(3) rotations. Equivalently, a subspace of $V$ that is invariant under the action of $J_x,J_y,J_z$ will be invariant under SO(3).
+Let $V$ be a vector space corresponding to a representation of SO(3). The generators $J_x,J_y,J_z$ act on $V$ as linear operators, and the $J$-analogue of \cref{eq:comLz,eq:comLx,eq:comLy} must be satisfied. To obtain an irreducible representation of SO(3), we seek a subspace of $V$ that is invariant under SO(3) rotations. Equivalently, a subspace of $V$ that is invariant under the action of $J_x,J_y,J_z$ will be invariant under SO(3).
 
 The most straightforward procedure for constructing an invariant subspace of $V$ is by choosing a ``standard'' vector that is an eigenvector of one of the generators, and then applying SO(3) operations to generate the rest of the basis~\cite{Tung1985}. As is customary in physics, we choose the $z$-axis as the standard axis of rotation.
 
