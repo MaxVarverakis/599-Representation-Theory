@@ -94,6 +94,11 @@ C.~C. Squier.
 \newblock The burau representation is unitary.
 \newblock {\em Proceedings of the American Mathematical Society}, 90(2):199–202, 1984.
 
+\bibitem{Strang2006}
+G.~Strang.
+\newblock {\em Linear Algebra and Its Applications}.
+\newblock Thomson, Brooks/Cole, 2006.
+
 \bibitem{Taylor2005}
 J.~R. Taylor.
 \newblock {\em Classical Mechanics}.
@@ -118,5 +123,10 @@ W.-K. Tung.
 F.~Wilczek.
 \newblock Quantum mechanics of fractional-spin particles.
 \newblock {\em Physical Review Letters}, 49(14):957–959, Oct. 1982.
+
+\bibitem{Zwiebach2022}
+B.~Zwiebach.
+\newblock {\em Mastering Quantum Mechanics: Essentials, Theory, and Applications}.
+\newblock MIT Press, 2022.
 
 \end{thebibliography}
