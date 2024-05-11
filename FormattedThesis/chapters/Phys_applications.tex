@@ -120,7 +120,9 @@ Since $U$ is a representation of rotations, it preserves the length of vectors f
     &\iff e^{iJ^\dagger\phi}e^{-iJ\phi} = e^{-i(J-J^\dagger)\phi} = 1 \\
     &\iff J = J^\dagger,
 \end{align*}
-where $\dagger$ is the conjugate transpose. Additionally, \textit{Dirac notation} is adopted for the above calculations. More information about Dirac notation can be found in \cref{ch:physics_background}. As a result of this calculation, not only must $U$ be unitary, but the generator $J$ must be Hermitian. In particular, we will be leveraging the fact that Hermitian operators have real eigenvalues. This fact becomes especially important in the physical interpretation of the representations of 3-dimensional rotations in \cref{sec:phys_SO3}
+where $\dagger$ is the conjugate transpose. Note, the above calculations involve \textit{Dirac notation}, which is described in more detail in \cref{ch:physics_background}.
+
+Thus, not only must $U$ be unitary, but the generator $J$ must be Hermitian. As a result, we know that $V$ has an orthonormal basis of eigenvectors of $J$~\cite{Axler2024}. Moreover, note that Hermitian operators have real eigenvalues. This fact becomes especially important in the physical interpretation of the representations of 3-dimensional rotations in \cref{sec:phys_SO3}
 
 According to \cref{cor:abelian_irred}, the abelian nature of SO(2) implies that all of its irreducible representations are one-dimensional. Then for any $\ket{\alpha}\in V$, the minimal subspace containing $\ket{\alpha}$ that is invariant under SO(2) is one-dimensional. Hence,
 \begin{align*}
@@ -528,7 +530,7 @@ The general rotation operator about $\vec{n}$ becomes
 \end{align*}
 As in \cref{sub:irr_so2}, the unitarity of the rotation operator requires that the generators $J_x,J_y,J_z$ be Hermitian and therefore have real eigenvalues.
 
-Therefore, the set $\left\{ J_x,J_y,J_z \right\}$ forms a basis for the generators of the one-parameter abelian subgroups of SO(3). As a result, we can express SO(3) in terms of the generator $\vec{J} = (J_x,J_y,J_z)$. Namely, for an arbitrary rotation $R_{\vec{n}}(\theta)$, we can write
+Therefore, the set $\left\{ J_x,J_y,J_z \right\}$ forms a basis for the generators of the one-parameter abelian subgroups of SO(3). As a result, we can express SO(3) in terms of the Hermitian generator $\vec{J} = [J_x,J_y,J_z]^\top$. Namely, for an arbitrary rotation $R_{\vec{n}}(\theta)$, we can write
 \begin{align*}
     R_{\vec{n}}(\theta) = e^{-i\theta\,\vec{n}\cdot\vec{J}}.
 \end{align*}
@@ -580,7 +582,7 @@ These commutation relations are identical to those of the generators $J_x,J_y,J_
 \subsection{Irreducible representations of SO(3)}\label{sub:irr_SO3}
 Due to the nontrivial interaction between $J_x,J_y,J_z$, the irreducible representations of SO(3) are not as straightforward to determine as those of SO(2). However, the commutation relations in \cref{eq:comLz,eq:comLx,eq:comLy} provide the necessary foundation to proceed with the following analysis.
 
-Let $V$ be a vector space corresponding to a representation of SO(3). The generators $J_x,J_y,J_z$ act on $V$ as linear operators, and the $J$-analogue of \cref{eq:comLz,eq:comLx,eq:comLy} must be satisfied. To obtain an irreducible representation of SO(3), we seek a subspace of $V$ that is invariant under SO(3) rotations. Equivalently, a subspace of $V$ that is invariant under the action of $J_x,J_y,J_z$ will be invariant under SO(3).
+Let $V$ be a finite dimensional vector space corresponding to a representation of SO(3). The generators $J_x,J_y,J_z$ act on $V$ as linear operators, and the $J$-analogue of \cref{eq:comLz,eq:comLx,eq:comLy} must be satisfied. To obtain an irreducible representation of SO(3), we seek a subspace of $V$ that is invariant under SO(3) rotations. Equivalently, a subspace of $V$ that is invariant under the action of $J_x,J_y,J_z$ will be invariant under SO(3).
 
 The most straightforward procedure for constructing an invariant subspace of $V$ is by choosing a ``standard'' vector that is an eigenvector of one of the generators, and then applying SO(3) operations to generate the rest of the basis~\cite{Tung1985}. As is customary in physics, we choose the $z$-axis as the standard axis of rotation.
 
@@ -602,13 +604,13 @@ Appropriate permutations of variables yields identical results. Since $J^2$ comm
 \end{align*}
 so $J^2$ is Hermitian.
 
-Note that commuting Hermitian operators are simultaneously diagonalizable, so they have a common set of eigenvectors~\cite{Zwiebach2022}. In this case, we choose the simultaneous eigenvectors of $J^2$ and $J_z$ as the basis vectors of the invariant subspace of $V$. At this point, we have one eigenvector $\ket{m}$ of $J_z$ and $J^2$. To obtain the other eigenvectors that span the invariant subspace, we first define two more operators. Let
+Note that commuting Hermitian operators are simultaneously diagonalizable, so they have a common set of eigenvectors~\cite{Zwiebach2022}. In this case, we choose the simultaneous eigenvectors of $J^2$ and $J_z$ as the basis vectors of the invariant subspace of $V$. At this point, we have one eigenvector $\ket{m}$ of $J_z$, and it is not currently known to be an eigenvector of $J^2$. To obtain the other eigenvectors that span the invariant subspace, we first define two more operators. Let
 \begin{equation}
     J_\pm = J_x \pm i J_y.
 \end{equation}
 These operators have the following properties~\cite{Tung1985,Griffiths2018,Hall2013}:
 \begin{align*}
-    [J_z, J_\pm] &= [J_z, J_x] \pm i[J_z, J_y] = i J_y \pm i(-i J_x) = J_\pm, \\
+    [J_z, J_\pm] &= [J_z, J_x] \pm i[J_z, J_y] = i J_y \pm i(-i J_x) = \pm(J_x \pm iJ_y) = \pm J_\pm, \\
     [J_+, J_-] &= [J_x + i J_y, J_x - i J_y] = i[J_x, J_y] - i[J_y, J_x] = 2i J_z, \\
     J^2 
         &=  J_x^2 + J_y^2 + J_z^2 \\
@@ -627,7 +629,7 @@ Notice that
 \end{align*}
 Therefore, $J_\pm\ket{m}$ are either eigenstates of $J_z$ with eigenvalue $m\pm 1$ or zero. The name of $J_\pm$ as the \textit{ladder operators} is justified by the fact that they raise or lower the eigenvalue of $J_z$ by one unit as if climbing the rungs of a ladder. Assume that $J_+\ket{m}\neq 0$. Then the eigenvector $J_+\ket{m}$ can be normalized and written as $\ket{m+1}$. Similarly, $\ket{m-1}$ can be defined as $J_-\ket{m}$, assuming it is nonzero.
 
-With the ladder operators, we can generate a set of eigenvectors of $J_z$ (and $J^2$) by repeated application on the standard eigenvector $\ket{m}$. Since $V$ is assumed to be finite, this process must terminate at some point. Let $j$ denote the largest eigenvalue of $J_z$ in the invariant subspace, and similarly let $l$ denote the lowest. In other words, we have
+With the ladder operators, we can generate a set of eigenvectors of $J_z$ by repeated application on the standard eigenvector $\ket{m}$. Since $V$ is assumed to be finite, this process must terminate at some point. Let $j$ denote the largest eigenvalue of $J_z$ in the invariant subspace, and similarly let $l$ denote the lowest. In other words, we have
 \begin{align*}
     J_+\ket{j} = 0, \quad J_-\ket{l} = 0,
 \end{align*}
@@ -635,7 +637,7 @@ so that any further application of the corresponding ladder operator returns zer
 
 The span of eigenvectors $\left\{ \ket{l}, \ket{l+1}, \dots, \ket{j-1}, \ket{j} \right\}$ is indeed an invariant subspace of $V$ under SO(3) rotations. Since $J_x = \frac{1}{2}(J_+ + J_-)$ and $J_y = \frac{1}{2i}(J_+ - J_-)$, it follows that their action on $\left\{ \ket{l}, \ket{l+1}, \dots, \ket{j-1}, \ket{j} \right\}$ is closed within the subspace.
 
-Additionally, for the eigenvector $\ket{j}$, we know specifically that
+Additionally, for the eigenvector $\ket{j}$, it follows that
 \begin{align*}
     J^2\ket{j} &= (J_- J_+ + J_z + J_z^2 )\ket{j} \\
     &= (0 + j + j^2)\ket{j} \\
@@ -645,7 +647,7 @@ Since $J^2$ commutes with all SO(3) rotations, for any $\ket{m}\!\in\left\{ \ket
 \begin{align*}
     J^2\ket{m} = J^2 J_-^{(j-m)}\ket{j} = J_-^{(j-m)} J^2\ket{j} = j(j+1)\ket{m}.
 \end{align*}
-Therefore, for every eigenvector of $J_z$, the eigenvalue of $J^2$ is $j(j+1)$. We gain further insight into this invariant subspace by noting that
+Therefore, every eigenvector of $J_z$ is simultaneously an eigenvector of $J^2$ with degenerate eigenvalue $j(j+1)$. We gain further insight into this invariant subspace by noting that
 \begin{align}
     0 = \braket{0|0}
         &= \braket{l|J_-^\dagger J_-|l} \nonumber \\
@@ -665,38 +667,40 @@ which implies that $2j+1$ is a positive integer. Therefore,
 
 Therefore, each irreducible representation of SO(3) is characterized by the value of $j$, which is nonnegative and either an integer or a half-integer. The orthonormal basis of eigenvectors corresponding to the invariant space have two labels, one for the value of $j$ which specifies the irreducible representation, and one for the value of $m\in\left\{ -j,-j+1,\dots,j-1,j \right\}$, which identifies the specific eigenvector. The results obtained above can be summarized by the following equations:
 \begin{align}
-    J^2\ket{jm} &= j(j+1)\ket{jm}, \\
-    J_z\ket{jm} &= m\ket{jm}, \\
-    J_\pm\ket{jm} &= \sqrt{j(j+1)-m(m\pm 1)}\ket{j,m\pm 1},
+    J^2\ket{j,m} &= j(j+1)\ket{j,m}, \\
+    J_z\ket{j,m} &= m\ket{j,m}, \\
+    J_\pm\ket{j,m} &= \sqrt{j(j+1)-m(m\pm 1)}\ket{j,m\pm 1},
 \end{align}
 where the normalization constant of the ladder operators results from a calculation similar to \cref{eq:ladder_eig}.
 
 \section{Physical implications of SO(3)}\label{sec:phys_SO3}
-First and foremost, any physical system that is invariant under rotations in 3D space is subject to conservation of angular momentum, which follows the same arguments as in \cref{sub:cons_ang_mom}. Thus, the process of deriving the commutator of a Hamiltonian with the angular momentum operator generalizes to the 3D case and has the same physical consequences. The case of SO(2) versus SO(3) is similar enough that the results obtained in \cref{sub:cons_ang_mom} can be extended to SO(3) with minimal effort. Hence, we reserve the following discussion for new insights that arise from the 3D case.
+First and foremost, any physical system that is invariant under rotations in 3D space is subject to conservation of angular momentum, which follows the same arguments as in \cref{sub:cons_ang_mom}. Thus, the process of deriving the commutator of a Hamiltonian with the angular momentum operator generalizes to the 3D case and has the same physical consequences. The case of SO(2) versus SO(3) is similar enough that the results obtained in \cref{sub:cons_ang_mom} can be extended to SO(3) with minimal effort. We therefore reserve the following discussion for new insights that arise from the 3D case.
 
-The irreducible representations of SO(3) give rise to highly fundamental results in quantum mechanics. As discussed in \cref{sec:PJ_physical}, the eigenvalues of the components of $\vec{J}$ and thus $\vh{L}$ correspond to physical observables. Recall that the components of $\vh{L}$ act on the Hilbert space of a quantum system, where each state vector describes a particular physical state of the system. With this in mind, the eigenvalues of $\hat{L}_x, \hat{L}_y, \hat{L}_z$ correspond to the physically measurable values of orbital angular momentum projected along the appropriate axis of rotation.
+The irreducible representations of SO(3) give rise to highly fundamental results in quantum mechanics. As discussed in \cref{sec:PJ_physical}, the eigenvalues of the components of $\vec{J}$ and thus $\vh{L}$ correspond to physical observables. Recall that the components of $\vh{L}$ act on the Hilbert space of a quantum system where each state vector describes a particular physical state of the system. With this in mind, the eigenvalues of $\hat{L}_x, \hat{L}_y, \hat{L}_z$ correspond to the physically measurable values of orbital angular momentum projected along the appropriate axis of rotation.
 
-In quantum physics, there are multiple types of angular momentum. Up to this point, we have discussed the abstract generators of SO(3) ($\vec{J}$) and the corresponding orbital angular momentum operators ($\vh{L}$). However, there is a second type of angular momentum that is intrinsic to particles, known as spin angular momentum, or plainly \textit{spin}. Though not actually spinning, particles with intrinsic spin behave as if they are spinning about an axis, as there is nonzero angular momentum and hence the name.
+In quantum physics, there are multiple types of angular momentum. Up to this point, we have discussed the abstract generators of SO(3) ($\vec{J}$) and the corresponding orbital angular momentum operators ($\vh{L}$). However, there is a second type of angular momentum that is intrinsic to particles, known as spin angular momentum, or plainly \textit{spin}. Though not actually spinning, particles with intrinsic spin behave as if they are spinning about an axis resulting in nonzero angular momentum.
 
-The standard generators of spin are denoted by $\vh{S} = (\hat{S}_x,\hat{S}_y,\hat{S}_z)$, which satisfy the same commutation relations as $\vh{L}$ and $\vec{J}$ (\cref{eq:comLz,eq:comLx,eq:comLy}). The \textit{total angular momentum} of a quantum system is then given by the sum of the orbital and spin angular momenta, $\vh{J} = \vh{L} + \vh{S}$, where here $\vh{J}$ is the total angular momentum operator.
+The standard generators of spin are denoted by $\vh{S} = [\hat{S}_x,\hat{S}_y,\hat{S}_z]^\top$, which satisfy the same commutation relations as $\vh{L}$ and $\vec{J}$ (\cref{eq:comLz,eq:comLx,eq:comLy}). The \textit{total angular momentum} of a quantum system is then given by the sum of the orbital and spin angular momenta, $\vh{J} = \vh{L} + \vh{S}$, where here $\vh{J}$ is the total angular momentum operator.
 
-A defining result of quantum theory is that continuous measurables in classical mechanics become discretized (or quantized) when applied to quantum systems. For example, in the classical regime, the angular momentum of an object is equal to the product of its moment of inertia and angular velocity. There are no physical restrictions on the value of angular velocity, and so the angular momentum can take on any real value.
+A defining result of quantum theory is that continuous measurables in classical mechanics become discretized (or quantized) when applied to quantum systems. For example, in the classical regime, the angular momentum of an object is equal to the product of its moment of inertia and angular velocity. There are no physical restrictions of angular velocity, so the angular momentum can take on any real value. Of course, one can place an upper bound on angular momentum by means of relativity, but that is beyond the scope of this discussion and does not affect the comparisons made here.
 
-In quantum mechanics, the intuition in the classical sense breaks down. For example, the angular momentum of an electron, which is governed by quantum mechanics, can only be integer multiples of $\hbar/2$ rather than a continuum of values~\cite{Griffiths2018,Hall2013}. The lack of physical intuition behind these properties is troubling for many. However, the representation theory of SO(3) provides an avenue to understand the emergence of discretization of observables in quantum mechanics.
+% Of course, angular velocity cannot exceed the speed of light which then places an upper bound on angular momentum, but relativity is beyond the scope of classical physics and does not affect the intermediate values of angular momentum.
+
+In quantum physics, classical intuition breaks down. For example, the angular momentum of an electron, which is governed by quantum mechanics, can only be integer multiples of $\hbar/2$ rather than a continuum of values~\cite{Griffiths2018,Hall2013}. The lack of physical intuition behind these properties is troubling for many. However, the representation theory of SO(3) provides an avenue to understand the emergence of discretization of observables in quantum mechanics.
 
 \subsection{Quantization of observables}
 Though not offering physical intuition, the irreducible representations of SO(3) provide a mathematical framework to describe the discretization of angular momentum in quantum mechanics.
 
 \sloppy Consider an arbitrary representation of SO(3). Recall that the eigenvectors $\left\{ \ket{j,m}\st m=-j,-j+1,\dots j+1,j \right\}$ of $J_z$ and $J^2$ (derived in \cref{sub:irr_SO3}) form a basis for the invariant subspace of the representation space of SO(3). The corresponding irreducible representation of SO(3) is characterized by the value of $j$, which is nonnegative and either an integer or half-integer.
 
-By construction, the eigenvalues of $J_z$ are discrete. Consequently, the measurable values of orbital, spin, and total angular momentum are quantized in the same manner. The discretization of observables arises from the mathematics of the irreducible representations of SO(3), which did not require physical intuition to derive. This fact illustrates the power of representation theory in physics, as we have obtained one of the most fundamental and defining attributes of quantum mechanics without ever invoking physical principles.
+By construction, the eigenvalues of $J_z$ are discrete. Consequently, the measurable values of orbital, spin, and total angular momentum are quantized in the same manner. The discretization of observables arises from the mathematics of the irreducible representations of SO(3) which does not require physical intuition to derive. This fact illustrates the power of representation theory in physics, as we have obtained one of the most fundamental and defining attributes of quantum mechanics without ever invoking physical principles.
 % For instance, the eigenvalues of $\hat{L}_z$ are $m\hbar$ for $m=-j,-j+1,\dots,j-1,j$, and the eigenvalues of $\hat{L}^2$ are $j(j+1)\hbar^2$. Other than the factor of $\hbar$, this result is identical to the eigenvalues of $J^2$ and $J_z$.
 
-The irreducible representations of SO(3) fall into two distinct categories: integer values of $j$ and half-integer values. If we restrict our attention to the spin states of particles, the representations with integer values of $j$ correspond to integer-spin particles, such as bosons or gravitons. Conversely, the representations with half-integer values of $j$ correspond to half-integer-spin particles, such as fermions. The characteristics of integer-spin and half-integer-spin particles emerges from the underlying irreducible representation of SO(3).
+The irreducible representations of SO(3) fall under two distinct classifications: integer values of $j$ and half-integer values. If we restrict our attention to the spin states of particles, the representations with integer values of $j$ correspond to integer-spin particles, such as bosons or gravitons. Conversely, the representations with half-integer values of $j$ correspond to half-integer-spin particles, such as fermions. The characteristics of integer-spin and half-integer-spin particles emerges from the underlying irreducible representation of SO(3).
 
-The first case to look at is spin-1 particles, which includes exchange bosons such as the photon for electromagnetism. The representation of SO(3) with $j=1$ has eigenvectors $\left\{ \ket{1,1}, \ket{1,0}, \ket{1,-1} \right\}$, which correspond to the possible spin states of a spin-1 particle. The measurable spin values of a spin-1 particle are thus $m=-1,0,1$ (normalized to $\hbar$), which comes directly from the eigenvalues of the generators of the irreducible representation of SO(3). One can use the ladder operators obtained in \cref{sub:irr_SO3} to jump between the spin states of a spin-1 particle. As discussed in \cref{sub:irr_so2} for SO(2), the single-valued representations (integer-$j$ representations) are faithful, and thus the global periodicity condition of SO(3) (rotations by $2\pi$ are equivalent to the identity) is satisfied. This periodicity condition is a defining property of integer-spin particles, and will be exploited in \cref{ch:anyons}.
+The first case we investigate is spin-1 particles, which includes force carriers such as the photon for electromagnetism. The representation of SO(3) with $j=1$ has eigenvectors $\left\{ \ket{1,1}, \ket{1,0}, \ket{1,-1} \right\}$, which correspond to the possible spin states of a spin-1 particle. Thus, the measurable spin values of a spin-1 particle are $m=-1,0,1$ (normalized to $\hbar$), which comes directly from the eigenvalues of the generators of the irreducible representation of SO(3). One can use the ladder operators obtained in \cref{sub:irr_SO3} to jump between the spin states of a spin-1 particle. As discussed in \cref{sub:irr_so2} for SO(2), the single-valued representations (integer-$j$ representations) are faithful, and thus the global periodicity condition of SO(3) (rotations by $2\pi$ are equivalent to the identity) is satisfied. This periodicity condition is a defining property of integer-spin particles, and will be exploited in \cref{ch:anyons}.
 
-As discussed in \cref{sub:multi_so2}, the irreducible representations of SO(3) corresponding to half-integer values of $j$ are double-valued. This fact has profound implications for the behavior of \textit{spinors} under coordinate rotations. A spinor is a 2-component complex-valued vector that describes the spin state of a half-integer-spin particle, such as an electron~\cite{Griffiths2018}. A non-intuitive property of electrons, and thus spinors, is that a rotation by $2\pi$ results in a change of sign of the spinor. This antisymmetric behavior is a direct consequence of the double-valued representations of SO(3), as was seen in the $m=1/2$ case of SO(2) in \cref{sub:multi_so2}.
+Identical to the conclusions of \cref{sub:multi_so2}, the irreducible representations of SO(3) corresponding to half-integer values of $j$ are double-valued. This fact has profound implications for the behavior of \textit{spinors} under coordinate rotations. A spinor is a 2-component complex-valued vector that describes the spin state of a half-integer-spin particle, such as an electron~\cite{Griffiths2018}. A non-intuitive property of electrons, and thus spinors, is that a rotation by $2\pi$ results in a change of sign of the spinor. This antisymmetric behavior is a direct consequence of the double-valued representations of SO(3), as was seen in the $m=1/2$ case of SO(2) in \cref{sub:multi_so2}.
 
 For the case of electrons, we can understand the possible spin states by investigating the eigenvectors corresponding to the $j=1/2$ irreducible representation of SO(3). According to \cref{sub:irr_SO3}, we have a 2-dimensional invariant space with eigenbasis $\ket{\frac{1}{2},\pm \frac{1}{2}}$. In physics, these two states are often referred to as the spin-up ($m=+1/2$) and spin-down ($m=-1/2$) states. From these vectors, one can derive the matrix forms of the spin operators $\hat{S}_x,\hat{S}_y,\hat{S}_z$, which give the familiar Pauli-spin matrices~\cite{Griffiths2018}. These matrices are unitary, which agrees with the fact that physical transformations must preserve probabilities (\cref{sec:basics}).
 
@@ -711,6 +715,7 @@ We have merely scratched the surface of the physical ramifications of the irredu
 \begin{enumerate}
     \item As with SO(2), if a system is invariant under 3D rotations (radially symmetric), then angular momentum is conserved. For each axis of rotation, one can directly calculate the commutator with the Hamiltonian as was done previously for SO(2) rotations. The same arguments in \cref{sub:cons_ang_mom} can be applied to spin, orbital, and total angular momentum and will give the familiar results.
     \item In a radially symmetric system, one has eigenvectors $\ket{E,l,m}$, which are simultaneous eigenvectors of $\hat{H},J^2,J_z$. In position space, the eigenfunctions corresponding to these eigenvectors are separable into a radial component and a spherical harmonic. This is a classic result in undergraduate quantum physics.
+    % \item By examining the commutator of the appropriate operators obtained in this chapter, one can calculate the uncertainty of simultaneous observables.
     \item The analysis of linear and angular momentum and the corresponding operators can be combined by finding simultaneous eigenvectors to construct a subspace invariant under both translations and rotations. The related group is known as the Euclidean group, which is the group of translations and rotations.
     \item Multi-particle systems can be described by tensor products of the irreducible representations of SO(3). One such example is a 2-electron state, which results in the classification of singlet and triplet states. Taking this further, one arrives at the Clebsch-Gordan coefficients, which relate the individual angular momentum basis to the total angular momentum basis.
     \item In the case of spin-1/2 particles, one can apply statistical mechanics to arrive at the renowned Pauli exclusion principle. Though not formally derived, the Pauli exclusion principle will emerge from the antisymmetric nature of fermions in \cref{ch:anyons}.
