@@ -2,9 +2,9 @@
 
 \section{Braiding action on a quantum system}
 As discussed in~\cite{Deshmukh}, each of the standard generators of the braid group can be realized as unitary operators on a quantum system. For the one-dimensional representations of the braid group (\cref{sec:1D_rep}), the action on a quantum system is merely a phase shift by $e^{ik\theta}$ for some $\theta\in\R$ and $k\in\Z$ the degree of the braid. We can see this explicitly by considering the action of $\beta\in B_n$ on a wavefunction $\psi(r_1,\dots,r_n)$ by permuting the identical particles fixed at nondegenerate positions $r_1,r_2,\dots,r_n$:
-\begin{align*}
+\begin{align}
     \psi(r_{1'},r_{2'},\dots,r_{n'}) &= p_\theta(\beta)\psi(r_1,r_2,\dots,r_n) = e^{ik\theta}\psi(r_1,r_2,\dots,r_n),
-\end{align*}
+\end{align}
 where $r_{i'}$ denotes particle $i$'s position after the braid $\beta$ has been applied. 
 
 Physically, we can think of each $\sigma_i$ as a clockwise exchange of identical particles $i$ and $i+1$ that live in 2 spatial dimensions. Using a third axis for time, the spacetime trajectories of the particles can be realized as a braid. In general, particles that obey the braid group permutation rules are known as \textit{anyons}~\cite{Wilczek1982}, and their statistics are determined by the braid group representation that describes the system.
@@ -22,19 +22,19 @@ For the unitary representation $\mathcal{U}$ constructed in \cref{ex:unitary}, t
 \end{align}
 Similarly, the action of $\sigma_2$ gives resulting basis states
 \begin{align}
-    \ket{1'} &= \mathcal{U}(\sigma_2)_{1,1}\ket{1} + \mathcal{U}(\sigma_1)_{1,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
-    \ket{2'} &= \mathcal{U}(\sigma_2)_{2,1}\ket{1} + \mathcal{U}(\sigma_1)_{2,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} + \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
+    \ket{1'} &= \mathcal{U}(\sigma_2)_{1,1}\ket{1} + \mathcal{U}(\sigma_2)_{1,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
+    \ket{2'} &= \mathcal{U}(\sigma_2)_{2,1}\ket{1} + \mathcal{U}(\sigma_2)_{2,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} + \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
 \end{align}
 
 As a result of this nonabelian representation, we can see that the action of the braid group on this system corresponds to nontrivial rotations in the many-particle Hilbert space that describes the quantum system~\cite{Nayak2008,Deshmukh}. This differs from the one-dimensional representations of the braid group, where the action on the Hilbert space is merely a phase shift on every basis state.
 
 More generally, if we have a set of $m\geq 2$ degenerate states in terms of $r_1,\dots,r_n$ with orthonormal basis $\psi_1,\psi_2,\dots,\psi_m$, then the basis states transform under the action of $\sigma_k\in B_n$ as
-\begin{align*}
+\begin{align}
     \psi_i' &= \sum_{j}{\left[ \Xi(\sigma_k) \right]}_{ij}\psi_j,
-\end{align*}
-where ${\left[ \Xi(\sigma_k) \right]}_{ij}$ is the $(i,j)$-th entry of the unitary matrix $\Xi(\sigma_k)$ for some nonabelian representation $\Xi:B_n\to U(m)$.
+\end{align}
+where ${\left[ \Xi(\sigma_k) \right]}_{ij}$ is the $(i,j)$-th entry of the $m\times m$ unitary matrix $\Xi(\sigma_k)$ for some nonabelian representation $\Xi:B_n\to U(m)$.
 
-Just as with fermions, there are specific rules to follow when writing down the quantum state of multi-anyon systems. As established earlier in this section, the specific combination or \textit{fusion} rules of anyons depend on the specific braid group representation acting on the system. For one-dimensional (abelian) representations, the corresponding anyons are known as \textit{abelian anyons}, in which the resulting action of the braid group is a phase shift on the quantum state. For higher-dimensional (nonabelian) representations, the anyons are known as \textit{nonabelian anyons}, and the action of the braid group is a nontrivial rotation in the Hilbert space of the quantum system as illustrated above.
+Just as with fermions, there are specific rules to follow when writing down the quantum state of multi-anyon systems. The types of combinations or \textit{fusion rules} of anyons depend on the specific braid group representation acting on the system. For one-dimensional (abelian) representations, the corresponding anyons are known as \textit{abelian anyons}, in which the resulting action of the braid group is a phase shift on the quantum state. For higher-dimensional (nonabelian) representations, the anyons are known as \textit{nonabelian anyons}, and the action of the braid group is a nontrivial rotation in the Hilbert space of the quantum system as illustrated above.
 
 % The corresponding fusion rules for nonabelian anyons can result in useful physical consequences.
 The simplest cases of nonabelian anyon fusion rules are the \textit{Fibonacci anyons} and the \textit{Ising anyons}~\cite{Deshmukh,Trebst2008,Ville2017}. These fusion rules are useful in realizing fault-tolerant topological quantum computers due to the nontrivial braiding effects that arise from the nonabelian representations of the braid group~\cite{Ville2017,Bernard2018,Delaney2016}. More information on the fusion rules of anyons can be found at the aforementioned references.
@@ -45,7 +45,7 @@ Now that the braid group representations have been established in a physical con
 
 In classical mechanics, the physics of a system is encapsulated in the Lagrangian and/or Hamiltonian of the system, which describe the system in terms of generalized coordinates and momenta~\cite{Taylor2005}. For this reason, the most efficient method to study the dynamics of anyons is to construct the corresponding Lagrangian and Hamiltonian. This approach will lead to a clear understanding of the complexity of anyons and their braiding statistics as compared to traditional particles such as bosons and fermions.
 
-Though not directly interacting, the braiding of anyons must be recorded. This requires us to invoke a coupling term in the Lagrangian. In particular, the statistical interaction term for two anyons due to the braiding of the anyons is given by
+For two non-interacting anyons, the braiding action must be recorded. This requires us to invoke a coupling term in the Lagrangian. In particular, the statistical interaction term for two anyons due to their braiding is given by
 \begin{equation}
     \mathcal{L}_{\text{int}} = \hbar\alpha\dot{\phi},
 \end{equation}
@@ -95,10 +95,12 @@ Recall that the classical relative angular momentum can be described by:
 \end{equation}
 Now, the Hamiltonian for this system can be constructed:
 \begin{align}
+    \begin{split}        
     \mathcal{H} 
-    &= \vec{P}\vd{R} + p_r\dot{r} + p_\phi\dot{\phi} - \mathcal{L} \nonumber \\
-    &= \frac{\vec{P}^2}{4m} + \frac{p_r^{2}}{m} + \frac{mr^2}{4} {p_\phi}^2 \nonumber \\
+    &= \vec{P}\vd{R} + p_r\dot{r} + p_\phi\dot{\phi} - \mathcal{L} \\
+    &= \frac{\vec{P}^2}{4m} + \frac{p_r^{2}}{m} + \frac{mr^2}{4} {p_\phi}^2 \\
     &= \frac{\vec{P}^2}{4m} + \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2}.
+    \end{split}
 \end{align}
 Once again, the center-of-mass component of the Hamiltonian is independent of $\alpha$, and so we can focus on the relative component of the Hamiltonian, which is
 \begin{equation}
@@ -123,13 +125,15 @@ Note that we can generalize \cref{eq:basic_Lr} (now omitting the subscript $r$) 
 where $\phi_{ij} = \arctan\left( \frac{y_i-y_j}{x_i-x_j} \right)$ is the relative angle between anyons $i$ and $j$. For brevity, we use $x_{ij} = x_i-x_j$ and $y_{ij} = y_i-y_j$ to denote the relative coordinates between the anyons.
 
 More generally, let $\vec{r}_{ij} = \vec{r}_i - \vec{r}_j$ be the relative coordinate between anyons $i$ and $j$, and define $r_{ij}^2 = \size{{\vec{r}_{ij}}}^2$. Then we can solve directly for $\dot{\phi}_{ij}$ as follows:
-\begin{align*}
+\begin{align}
+    \begin{split}        
     \dot{\phi}_{ij} = \frac{d\phi_{ij}}{dt} = \frac{d}{dt}\arctan\left( \frac{y_{ij}}{x_{ij}} \right)
         &= \frac{\frac{d}{dt}\left( \frac{y_{ij}}{x_{ij}} \right)}{1+{\left( \frac{y_{ij}}{x_{ij}} \right)}^2} \\
         &= \frac{x_{ij}\dot{y}_{ij} - \dot{x}_{ij}y_{ij}}{x_{ij}^2\left[ 1+{\left( \frac{y_{ij}}{x_{ij}} \right)}^2 \right]} \\
         &= \frac{x_{ij}\dot{y}_{ij} - \dot{x}_{ij}y_{ij}}{x_{ij}^2 + y_{ij}^2} \\
         &= \frac{\vec{r}_{ij}\times\vd{r}_{ij}}{r_{ij}^2}.
-\end{align*}
+    \end{split}
+\end{align}
 Setting $\hbar=1$, we can rewrite the Lagrangian as~\cite{Date2003}
 \begin{equation}
     \mathcal{L} = \frac{m}{2}\sum_{i=1}^{N}\left[ \vd{r}^{2} - \omega^2\vec{r}_i^{2} \right] + \alpha\sum_{i<j}^{N}\frac{\vec{r}_{ij}\times\vd{r}_{ij}}{{r}_{ij}^{2}},\label{eq:compact_L}
@@ -190,18 +194,18 @@ Even in the one-dimensional (abelian) representations of the braid group, the no
 If there were some wavefunction $\psi(r_1,r_2,r_3)$ that described the system, then the action of the braid group on $\psi$ would yield different phase changes for the two trajectories.
 Despite the fact that both trajectories involve the same exchange of anyons 1 and 2, the relative position of anyon 3 significantly impacts the outcome of the exchange. It is then evident that for a system of $N$ anyons, every particle exchange must also simultaneously consider the relative positions of all other anyons in the system in order to properly encode the braiding action.
 
-Clearly, nontrivial braiding affects must be accounted for when studying a system that obeys braiding statistics. In fact, nontrivial braiding is already encoded into the Hamiltonian found \cref{sec:mult_harmonic}. For a 2-anyon system, the long-range interaction term manifests in a familiar form. 
+Clearly, nontrivial braiding effects must be accounted for when studying a system that obeys braiding statistics. In fact, nontrivial braiding is already encoded into the Hamiltonian found \cref{sec:mult_harmonic}. For a 2-anyon system, the long-range interaction term manifests in a familiar form. 
 
 Isolating the last term in \cref{eq:full_H} for $N=2$ anyons, we see that
-\begin{align*}
+\begin{align}
     \frac{\alpha^2}{2m}\left( \frac{\vec{r}_{12}\cdot\vec{r}_{12}}{r_{12}^2r_{12}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{21}}{r_{21}^2r_{21}^2} \right)  = \frac{\alpha^2}{mr_{12}^2},
-\end{align*}
+\end{align}
 which is analogous to the Coulombic interaction between two charged particles.
 %  The nontrivial braiding effects are not present in the 2-anyon system.
 Only when we have $N\geq 3$ anyons will the nontrivial braiding effects truly present themselves in the long-range interaction term of the Hamiltonian. For example, if we take $N=3$, the last term in \cref{eq:full_H} becomes
-\begin{align*}
+\begin{align}
     \frac{\alpha^2}{m}\biggl( \underbrace{\frac{1}{r_{12}^2} + \frac{1}{r_{13}^2} + \frac{1}{r_{23}^2}}_{\textrm{Coulomb-like interaction}} + \underbrace{\frac{\vec{r}_{12}\cdot\vec{r}_{13}}{r_{12}^2r_{13}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{23}}{r_{21}^2r_{23}^2} + \frac{\vec{r}_{31}\cdot\vec{r}_{32}}{r_{31}^2r_{32}^2}}_\textrm{Nontrivial braiding} \biggr).
-\end{align*}
+\end{align}
 
 With three anyons, the nontriviality of the long-range interaction becomes clear, as there are now cross terms that involve the positions of all three anyons. This result is similar to the observations made in \cref{fig:anyon_trajectores}. The consequence of these three-body interaction terms is that the system is no longer separable into independent 2-anyon systems, which greatly complicates the quantum mechanics and statistical analysis of the system~\cite{Khare2005}. The nontrivial braiding effects of anyonic systems highlights the rich complexity of the braid group and its physical implications.
 

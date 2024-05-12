@@ -36,26 +36,26 @@ which satisfies the group multiplication rules. Since a representation is a grou
 \end{proof}
 
 \begin{example}
-    A straightforward nontrivial representation of the symmetric group $S_n$ is known as the \textit{sign representation}. Recall that every $\sigma\in S_n$ can be decomposed into a product of transpositions, and the sign of a permutation is equal to ${(-1)}^{(\textrm{\# of transpositions})}$. The sign representation is then defined by the map $\sigma\mapsto\textrm{sign}(\sigma)$. For example, the permutation $(12)$ is mapped to $-1$, and the permutation $(123) = (13)(12)$ is sent to $+1$. Since the identity permutation is even, it gets mapped to $+1$, as required.
+    A straightforward nontrivial representation of the symmetric group $S_n$ is known as the \textit{sign representation}. Recall that every $\sigma\in S_n$ can be decomposed into a product of transpositions, and the sign of a permutation is equal to ${(-1)}^{(\textrm{\# of transpositions})}$. The sign representation is then defined by the map $\sigma\mapsto\textrm{sgn}(\sigma)$. For example, the permutation $(12)$ is mapped to $-1$, and the permutation $(123) = (13)(12)$ is sent to $+1$. Since the identity permutation is even, it gets mapped to $+1$, as required.
 \end{example}
 
 \begin{example}
     Consider the symmetric group $S_n$. The \textit{defining representation} of $S_n$ encodes each $\sigma\in S_n$ by placing a 1 in the $j$-th row and $i$-th column of the matrix $D(\sigma)$ if $\sigma$ sends $i$ to $j$, and 0 otherwise. For example, in $S_3$, the permutation $(23)$ has the matrix representation
-    \begin{align*}
+    \begin{align}
         D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix},
-    \end{align*}
+    \end{align}
     whereas the permutation $(123)$ is realized by the matrix
-    \begin{align*}
+    \begin{align}
         D\big((123)\big) = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}.
-    \end{align*}
+    \end{align}
 \end{example}
 
 The above example involves a finite group. Infinite groups can also have representations, as demonstrated in the following example.
 \begin{example}
     Let $G$ be the group of continuous rotations in the $xy$-plane about the origin. We can write $G = \{R(\phi),0\leq\phi<2\pi\}$ with group operation $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$. Consider the 2-dimensional Euclidean vector space $V_2$. Then we define a representation $X$ of $G$ on $V_2$ by the familiar rotation operation
     \begin{align}
-        \e_1' &= X(\phi)\e_1 = \e_1\cdot\cos\phi + \e_2\cdot\sin\phi\\
-        \e_2' &= X(\phi)\e_2 = -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi,
+        X(\phi)\e_1 &= \e_1\cdot\cos\phi + \e_2\cdot\sin\phi, \\
+        X(\phi)\e_2 &= -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi,
     \end{align}
     where $\e_1$ and $\e_2$ are orthonormal basis vectors of $V_2$. This gives the familiar rotation matrix representation
     \begin{equation}
@@ -81,11 +81,11 @@ To determine whether two representations belong to the same equivalence class, w
 \end{definition}
 Since trace is independent of basis, the character serves as a class label.
 
-\section{Irreducibility and Invariant Subspaces}
+\section{Irreducibility and invariant subspaces}
 
 The structure of a representation vector space of a group can offer insight into the representations themselves.
 \begin{definition}[Invariant Subspace]
-    Let $X(G)$ denote a representation of $G$ on a vector space $V$, and let $W$ be a subspace of $V$ such that $X(g)\vec{x}\in W$ for all $\vec{x}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $X(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it contains no non-trivial invariant subspaces with respect to $X(G)$.
+    Let $X(G)$ denote a representation of $G$ on a vector space $V$, and let $W$ be a subspace of $V$ such that $X(g)\vec{w}\in W$ for all $\vec{w}\in W$ and $g\in G$. Then $W$ is an \textit{invariant subspace} of $V$ with respect to $X(G)$. An invariant subspace is \textit{minimal} or \textit{proper} if it contains no non-trivial invariant subspaces with respect to $X(G)$.
 \end{definition}
 
 The identification of invariant subspaces on a representation space leads to the following distinction.
@@ -120,26 +120,28 @@ A reducible representation can be decomposed into a direct sum of irreducible re
     %     \end{bmatrix},
     % \end{align*}
     Consider the linear combination of basis vectors
-    \begin{equation*}
+    \begin{equation}
         \e_\pm = \frac{1}{\sqrt{2}}\left( \mp\e_1 + i\e_2 \right),
-    \end{equation*}
+    \end{equation}
     where $i = \sqrt{-1}$. Then a rotation by angle $\phi$, denoted in operator form as $X(\phi)$, acts on $\e_\pm$ by
-    \begin{align*}
+    \begin{align}
+        \begin{split}            
         X(\phi)\e_+ &= X(\phi)\frac{1}{\sqrt{2}}(-\e_1 + i\e_2) \\
         &= \frac{1}{\sqrt{2}}(-X(\phi)\e_1 + iX(\phi)\e_2) \\
         &= \frac{1}{\sqrt{2}}\left( -\e_1\cos\phi - \e_2\sin\phi -i\e_1\sin\phi + i\e_2\cos\phi \right) \\
         &= \frac{1}{\sqrt{2}}\left( -\e_1(\cos\phi + i\sin\phi) + i\e_2(\cos\phi+i\sin\phi) \right) \\
         &= e^{i\phi}\e_+,
-    \end{align*}
+        \end{split}
+    \end{align}
     and similarly $X(\phi)\e_- = e^{-i\phi}\e_-$.
 
     Therefore, the span of each eigenvector of $X(\phi)$ is an invariant subspace of $V_2$ with respect to $X$. Since $X$ is a 2-dimensional representation, we can decompose it into the $\e_\pm$ basis to obtain a direct sum of the two 1-dimensional irreducible representations:
-    \begin{align*}
+    \begin{align}
         X(\phi) = \begin{bmatrix}
             e^{i\phi} & 0\\
             0 & e^{-i\phi}
         \end{bmatrix}.
-    \end{align*}
+    \end{align}
 \end{example}
 
 Irreducible decompositions of a representation often simplify the application. In the following results, we assume that the representation space is finite-dimensional so that the operators can be represented by matrices. The following lemmas are needed to arrive at a powerful result regarding the dimension of irreducible representations that will be exploited in later chapters.
@@ -160,10 +162,10 @@ Irreducible decompositions of a representation often simplify the application. I
 \end{lemma}
 \begin{proof}
     Let $\lambda$ be an eigenvalue of $T$. Then $T-\lambda I$ is not invertible. Since $T$ commutes with $X(G)$, it follows that
-    \begin{align*}
+    \begin{align}
         (T-\lambda I)X(g)=X(g)(T-\lambda I),
-    \end{align*}
-    for all $g\in G$. By \cref{th:irred_invertible}, $T-\lambda I = 0$ since $X(G)$ is irreducible. Thus, $T=\lambda I$.
+    \end{align}
+    for all $g\in G$. By \cref{th:irred_invertible}, $T-\lambda I = 0$ since $X$ is irreducible. Thus, $T=\lambda I$.
 \end{proof}
 
 % \begin{theorem}\label{th:irred}
@@ -177,7 +179,7 @@ Irreducible decompositions of a representation often simplify the application. I
     Let $G$ be a finite abelian group. Then the irreducible representations of $G$ are one-dimensional.
 \end{theorem}
 \begin{proof}
-    Suppose $X(G)$ is an irreducible representation of the abelian group $G$. Fix $h\in G$. Since $X$ is a group homomorphism, we have $X(h)X(g)=X(hg)=X(gh)=X(g)X(h)$ for all $g\in G$. By \cref{th:schur}, $X(h) = \lambda_h I$ for some scalar $\lambda_h$. The choice of $h\in G$ was arbitrary, so $X(g) = \lambda_g I$ for all $g\in G$. Thus, the irreducible representations of $G$ are one-dimensional.
+    Suppose $X(G)$ is an irreducible representation of the abelian group $G$. Fix $h\in G$. Since $X$ is a group homomorphism, we have $X(h)X(g)=X(hg)=X(gh)=X(g)X(h)$ for all $g\in G$. By \cref{th:schur}, $X(h) = \lambda_h I$ for some scalar $\lambda_h$. The choice of $h\in G$ was arbitrary, so $X(g) = \lambda_g I$ for all $g\in G$. Thus, $X(G)$ is equivalent to the representation $g\mapsto \lambda_g$ for all $g\in G$. Therefore, the irreducible representations of $G$ are one-dimensional.
     % Since $G$ is abelian, the conjugacy classes of $G$ are the elements of $G$ themselves. By \cref{th:irred}, the number of irreducible representations of $G$ is equal to the number of conjugacy classes of $G$, which is equal to the number of elements of $G$. Furthermore, the degree of each irreducible representation is equal to the size of the corresponding conjugacy class in $G$, which is always 1. Therefore, the irreducible representations of $G$ are one-dimensional.
 \end{proof}
 The basic content covered in this chapter is sufficient to proceed to studying specific groups and their representations in the context of physics. As it turns out, there is a plethora of useful information encoded in the groups of rotations and translations that can be extracted to gain insight into physical systems. This is the focus of the following chapter.

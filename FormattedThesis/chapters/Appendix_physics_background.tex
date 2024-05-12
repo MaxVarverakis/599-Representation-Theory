@@ -6,76 +6,76 @@
 More information on physics notation and conventions can be found in~\cite{Hall2013,Griffiths2018,Tung1985,Zwiebach2022}.
 
 For quantum mechanics, the physical state of the system is often represented by an abstract vector belonging to some Hilbert space. The convention is to assume that the Hilbert space is complex and separable. In this context, the inner product is typically defined to be linear in the second argument. For instance, for two vectors $\phi,\psi$ and a scalars $\lambda,\alpha$, we have
-\begin{align*}
+\begin{align}
     \langle \phi,\lambda\psi\rangle&=\lambda\langle \phi,\psi\rangle, \\
     \langle \alpha\phi,\psi\rangle&=\overline{\alpha}\langle \phi,\psi\rangle,
-\end{align*}
+\end{align}
 where the overline denotes complex conjugation.
 
 A linear operator on the Hilbert space is said to be \textit{Hermitian} if it is self-adjoint under the inner product. The Hermitian conjugate or adjoint (conjugate transpose) of an operator $A$ is denoted by $A^\dagger$.
 
 Let $\mathbf{H}$ denote a quantum Hilbert space. The term ``quantum'' here is used to identify the vectors of $\mathbf{H}$ as representing quantum states of a system. A \textit{ket} is a vector belonging to $\mathbf{H}$. For some vector $\psi$ in $\mathbf{H}$, we write $\ket{\psi}$. A \textit{bra} is the dual of a ket, and is denoted by $\bra{\psi}$. For any $\phi\in \mathbf{H}$, the bra is defined by
-\begin{align*}
+\begin{align}
     \bra{\phi}(\psi) = \langle \phi,\psi\rangle.
-\end{align*}
+\end{align}
 However, this notation is not standard in the literature. Instead, a \textit{bracket} or \textit{bra-ket} is the inner product of a bra and a ket, and is denoted by $\braket{\phi|\psi}$.
 
 For a linear operator $\hat{A}$ on $\mathbf{H}$, the action of $\hat{A}$ on a ket $\ket{\psi}$ is denoted by $\ket{\hat{A}\psi} = \hat{A}\ket{\psi}$. Moreover, for a bra $\bra{\phi}$, we have a corresponding linear functional $\bra{\phi}\hat{A}$ defined by
-\begin{align*}
+\begin{align}
     \bra{\phi}\hat{A}(\psi) = \bra{\phi}\hat{A}\ket{\psi}.
-\end{align*}
+\end{align}
 This inner product can either be thought of as the application of $\bra{\phi}\hat{A}$ to $\ket{\psi}$ or as the application of $\bra{\phi}$ to the vector $\hat{A}\ket{\psi}$. The notion of an adjoint is given by
-\begin{align*}
+\begin{align}
     \bra{\phi}\hat{A} = \bra{\hat{A}^\dagger\phi}.
-\end{align*}
+\end{align}
 
 One defines an outer product of two vectors $\ket{\psi}$ and $\ket{\phi}$ as the linear operator $\ket{\psi}\bra{\phi}$, which acts on a vector $\ket{\chi}$ as
-\begin{align*}
+\begin{align}
     (\ket{\psi}\bra{\phi})(\chi) = \ket{\psi}\braket{\phi|\chi} = \braket{\phi|\chi}\ket{\psi}.
-\end{align*}
+\end{align}
 
 For a set of orthonormal basis vectors $\{\ket{n}\}$, one can expand an arbitrary vector $\ket{\psi}$ as
-\begin{align*}
+\begin{align}
     \ket{\psi} = \left( \sum_n \ket{n}\bra{n} \right)\ket{\psi} = \sum_n \ket{n}\braket{n|\psi},
-\end{align*}
+\end{align}
 where $\braket{n|\psi}$ are the components of $\ket{\psi}$ in the basis $\{\ket{n}\}$. This is simply a change of basis, and $\sum_n \ket{n}\bra{n}$ is equivalent to the identity operator. This fact is analogous to the basis vectors satisfying orthonormality and completeness conditions.
 
 For a continuous basis labelled by $\ket{x}$ where $x$ is a continuous parameter, the \textit{wavefunction} $\psi(x)$ is used to express $\ket{\psi}$ in terms of the orthonormal states $\ket{x}$. The wavefunction is the projection of $\ket{\psi}$ onto $\ket{x}$:
-\begin{align*}
+\begin{align}
     \braket{x|\psi} = \psi(x).
-\end{align*}
+\end{align}
 
 Suppose we have a quantum mechanical object that exists in the superposition of orthonormal states $\ket{1}$ and $\ket{2}$. The state of the object is given by the wavefunction $\Psi(x,t)$ whose square magnitude gives the probability density of the object being at position $x$ at time $t$. The wavefunction $\Psi(x,t)$ must be normalized and thus square integrable.
 
 For some physically measurable quantity $A$, often called an \textit{observable}, the \textit{expectation value} of $A$ with the associated operator $\hat{A}$ is given by
-\begin{align*}
+\begin{align}
     \braket{A} = \int dx\; \overline{\Psi}(x,t)\hat{A}\Psi(x,t) = \bra{\Psi}\hat{A}\ket{\Psi}.
-\end{align*}
+\end{align}
 % which can be rewritten in bra-ket notation as
-% \begin{align*}
+% \begin{align}
 %     \braket{A} = \bra{\Psi}\hat{A}\ket{\Psi}.
-% \end{align*}
+% \end{align}
 % The fact that $\hat{A}$ is Hermitian guarantees that the expectation value is real.
 Since the expectation value corresponds to a physical measurement, it must be real. Therefore,
-\begin{align*}
+\begin{align}
     \braket{A} = \overline{\braket{A}} \iff \braket{\Psi|\hat{A}\Psi} = \braket{\hat{A}\Psi|\Psi}.
-\end{align*}
+\end{align}
 This is only true if $\hat{A}$ is Hermitian. Hermitian operators are significant to quantum physics because they correspond to physical observables. 
 
 We can decompose the state of the object into a superposition of the orthonormal states $\ket{1}$ and $\ket{2}$:
-\begin{align*}
+\begin{align}
     \ket{\Psi} = \alpha\ket{1} + \beta\ket{2},
-\end{align*}
+\end{align}
 where $\alpha,\beta\in\C$ and $\alpha^2+\beta^2=1$. The \textit{probability} of measuring the object in state $\ket{1}$ is given by
-\begin{align*}
+\begin{align}
     \size{\braket{1|\psi}}^2 = \size{\alpha}^2,
-\end{align*}
+\end{align}
 and similarly for state $\ket{2}$.
 
 With this in mind, consider some operator $\hat{U}$ that does not change the probabilities of measuring the object in states $\ket{1}$ and $\ket{2}$. Then $\hat{U}$ must preserve the inner product on the relevant Hilbert space. In particular, we have
-\begin{align*}
+\begin{align}
     \braket{\Psi|\Psi} = \braket{\hat{U}\Psi|\hat{U}\Psi} = \braket{\Psi|\hat{U}^\dagger\hat{U}|\Psi},
-\end{align*}
+\end{align}
 which is only true if $\hat{U}^\dagger\hat{U}=\hat{I}$, where $\hat{I}$ is the identity operator. In other words, we must have $U^\dagger = \iv{U}$. Such operators are called \textit{unitary}. Thus, one can describe unitary operators as probability-preserving transformations.
 
 \section{Commutator Identities}
@@ -88,23 +88,29 @@ The commutator satisfies the following properties:
     [A,B] &= -[B,A] \label{eq:BA} \\
     [A,-B] &= -AB + BA = -[A,B].\label{eq:AmB} \\
     % \nonumber\\
+    \begin{split}        
     [A,B+C] 
-        &= A(B+C) - (B+C)A \nonumber\\
-        &= AB + AC - BA - CA \nonumber\\
-        &= AB - BA + AC - CA \nonumber\\
-        &= [A,B] + [A,C]. \label{eq:ABpC} \\
+        &= A(B+C) - (B+C)A \\
+        &= AB + AC - BA - CA \\
+        &= AB - BA + AC - CA \\
+        &= [A,B] + [A,C]. \label{eq:ABpC}
+    \end{split}\\
     % \nonumber\\
+    \begin{split}    
     [AB,C] 
-        &= [AB,C] \nonumber\\
-        &= ABC - CAB \nonumber\\
-        &= ABC - ACB + ACB - CAB \nonumber\\
-        &= A(BC-CB) + (AC-CA)B \nonumber\\
-        &= A[B,C] + [A,C]B.\label{eq:A2B}\\
+        &= [AB,C] \\
+        &= ABC - CAB \\
+        &= ABC - ACB + ACB - CAB \\
+        &= A(BC-CB) + (AC-CA)B \\
+        &= A[B,C] + [A,C]B.\label{eq:A2B}
+    \end{split}\\
     % \nonumber\\
+    \begin{split}    
     [A,BC]
-        &= ABC - BCA \nonumber\\
-        &= ABC - BAC + BAC - BCA \nonumber\\
+        &= ABC - BCA \\
+        &= ABC - BAC + BAC - BCA \\
         &= (AB - BA)C + B(AC - CA).\label{eq:ABC}
+    \end{split}
     %     \\
     % [A,B^2] 
     %     &= [A,BB] \nonumber\\
@@ -116,7 +122,7 @@ The commutator satisfies the following properties:
 
 \section{Commutation relations for SO(3)}\label{sec:SO3_comms}
 This section includes various commutation relations that are used in \cref{ch:Phys_applications}. The definitions of the operators are given in the relevant section of said chapter.
-\begin{align*}
+\begin{align}
     [y,\hat{p}_y] &= y\hat{p}_y - \hat{p}_y y = \cancel{y\hat{p}_y} - \bigl(\overbrace{-i\hbar + \cancel{y\hat{p}_y}}^{\textrm{product rule}}\bigr) = i\hbar, \\
     % \\
     [\hat{L}_z,\hat{p}_z]
@@ -124,11 +130,15 @@ This section includes various commutation relations that are used in \cref{ch:Ph
     % \\
     [\hat{L}_z, z] &= [x\hat{p}_y - y\hat{p}_x, z] = [x\hat{p}_y, z] - [y\hat{p}_x, z] = 0. \\
     % \\
+    \begin{split}        
     [\hat{L}_z,\hat{p}_y] 
-        &= [x\hat{p}_y - y\hat{p}_x, \hat{p}_y] = \cancelto{0}{[x\hat{p}_y, \hat{p}_y]} - [y\hat{p}_x, \hat{p}_y] = -y\cancelto{0}{[\hat{p}_x, \hat{p}_y]} - [y, \hat{p}_y]\hat{p}_x = -i\hbar\hat{p}_x. \\
+        &= [x\hat{p}_y - y\hat{p}_x, \hat{p}_y] \\
+        &= \cancelto{0}{[x\hat{p}_y, \hat{p}_y]} - [y\hat{p}_x, \hat{p}_y] \\
+        &= -y\cancelto{0}{[\hat{p}_x, \hat{p}_y]} - [y, \hat{p}_y]\hat{p}_x = -i\hbar\hat{p}_x.
+    \end{split}\\
     % \\
     [\hat{L}_z, y] &= [x\hat{p}_y - y\hat{p}_x, y] = [x\hat{p}_y, y] - \cancelto{0}{[y\hat{p}_x, y]} = x[\hat{p}_y, y] + \cancelto{0}{[x, y]}\hat{p}_y = -i\hbar x.
-\end{align*}
+\end{align}
 
 \section{Conserved quantities in quantum mechanics}\label{sec:conserved_quantities}
 
@@ -150,38 +160,38 @@ This section includes various commutation relations that are used in \cref{ch:Ph
     \begin{align}
         \frac{d\psi}{dt} = \frac{1}{i\hbar}\hat{H}\psi,
     \end{align}
-    where $\hat{H}$ is the Hamiltonian operator. Since the eigenvalues of $\hat{H}$ correspond to the energy observables of the system, $\hat{H}$ must be Hermitian.
+    where $\hat{H}$ is the Hamiltonian operator. Since the eigenvalues of $\hat{H}$ correspond to the observable energy of the system, $\hat{H}$ must be Hermitian.
 
     Then if $\hat{G}$ is time-independent we have
     \begin{align}
-        \frac{d\braket{G}}{dt} &= \frac{d}{dt}\braket{\psi|\hat{G}|\psi} \nonumber \\
-        &= \Braket{\frac{d\psi}{dt}\biggl|\hat{G}\biggr|\psi} + \Braket{\psi\biggl|\hat{G}\biggr|\frac{d\psi}{dt}} + \cancelto{0}{\Braket{\psi|\frac{\partial \hat{G}}{\partial t}|\psi}} \nonumber \\
-        &= \Braket{\frac{1}{i\hbar}\hat{H}\psi\biggl|\hat{G}\biggr|\psi} + \Braket{\psi\biggl|\hat{G}\biggr|\frac{1}{i\hbar}\hat{H}\psi} \nonumber \\
-        &= \frac{i}{\hbar}\left( \braket{\hat{H}\psi|\hat{G}|\psi} - \braket{\psi|\hat{G}|\hat{H}\psi} \right) \nonumber \\
-        &= \frac{i}{\hbar}\left( \braket{\psi|\hat{H}^\dagger \hat{G}|\psi} - \braket{\psi|\hat{G}\hat{H}|\psi} \right) \nonumber \\
-        &= \frac{i}{\hbar}\left( \braket{\psi|\hat{H}\hat{G}|\psi} - \braket{\psi|\hat{G}\hat{H}|\psi} \right) \textrm{ because }\hat{H}\textrm{ is Hermitian} \nonumber \\
-        &= \frac{i}{\hbar}\bra{\psi}(\hat{H}\hat{G} - \hat{G}\hat{H})\ket{\psi} \nonumber \\
+        \begin{split}
+        \frac{d\braket{G}}{dt} &= \frac{d}{dt}\braket{\psi|\hat{G}|\psi} \\
+        &= \Braket{\frac{d\psi}{dt}\biggl|\hat{G}\biggr|\psi} + \Braket{\psi\biggl|\hat{G}\biggr|\frac{d\psi}{dt}} + \cancelto{0}{\Braket{\psi|\frac{\partial \hat{G}}{\partial t}|\psi}} \\
+        &= \Braket{\frac{1}{i\hbar}\hat{H}\psi\biggl|\hat{G}\biggr|\psi} + \Braket{\psi\biggl|\hat{G}\biggr|\frac{1}{i\hbar}\hat{H}\psi} \\
+        &= \frac{i}{\hbar}\left( \braket{\hat{H}\psi|\hat{G}|\psi} - \braket{\psi|\hat{G}|\hat{H}\psi} \right) \\
+        &= \frac{i}{\hbar}\left( \braket{\psi|\hat{H}^\dagger \hat{G}|\psi} - \braket{\psi|\hat{G}\hat{H}|\psi} \right) \\
+        &= \frac{i}{\hbar}\left( \braket{\psi|\hat{H}\hat{G}|\psi} - \braket{\psi|\hat{G}\hat{H}|\psi} \right) \textrm{ because }\hat{H}\textrm{ is Hermitian} \\
+        &= \frac{i}{\hbar}\bra{\psi}(\hat{H}\hat{G} - \hat{G}\hat{H})\ket{\psi} \\
         &= \frac{i}{\hbar}\bra{\psi}[\hat{H},\hat{G}]\ket{\psi} = 0 \iff [\hat{H},\hat{G}] = 0. \label{eq:cons}
-        % &= \frac{1}{i\hbar}\left( \bra{\psi}\hat{H}J - \bra{\psi}J\hat{H} \right)\ket{\psi} \\
-        % &= \frac{1}{i\hbar}\left( \bra{\psi}[\hat{H},J]\right)\ket{\psi} \\
+        \end{split}
     \end{align}
     This is often referred to as Ehrenfest's theorem~\cite{Griffiths2018}.
     % (linear in the second argument). (See Ehrenfest's theorem).
     Thus, if $[\hat{H},\hat{G}]=0$, it follows that
-    \begin{align*}
+    \begin{align}
         \hat{H}\hat{G}-\hat{G}\hat{H} = 0
             &\iff \hat{H}\hat{G} = \hat{G}\hat{H} \\
             &\iff \iv{\hat{G}}\hat{H}\hat{G} = \hat{H}.
             % &\iff G^\dagger\hat{H}G = \hat{H},
             % &\iff \iv{G}\hat{H}G\ket{\psi} = \hat{H}\ket{\psi},
             % &\iff G^\dagger\hat{H}G\ket{\psi} = \hat{H}\ket{\psi}
-    \end{align*}
+    \end{align}
     Therefore, $\iv{\hat{G}}\hat{H}\hat{G}$ and $\hat{H}$ share the same eigenvalues (observables), which is only true if $\hat{H}$ is invariant under $\hat{G}$.
     % Alternatively, it is known that commuting matrices share a common set of eigenvectors, so they are simultaneously diagonalizable in that eigenbasis. Then in this diagonal basis clearly $\iv{G}\hat{H}G = \hat{H}$, which implies that the eigenvalues are the same.
     If $G$ (corresponding to the operator $\hat{G}$) generates a group of transformations, then $\hat{H}$ is invariant under the group of transformations generated by $G$. If $\hat{G}$ is unitary, this invariance is often expressed as 
-    \begin{align*}
+    \begin{align}
         \hat{G}^\dagger\hat{H}\hat{G} = \hat{H}.
-    \end{align*}
+    \end{align}
     % where the last line ensures that the resulting transformation of $\hat{G}$ by $G$ is Hermitian, and thus corresponds to physical observables. The Hermiticity of $\hat{H}$ is preserved under $G$ if and only if $\hat{H}$ is invariant under the transformations generated by $G$.
     Running the argument in reverse, if $\hat{H}$ (hence the physical system) is invariant under the transformations generated by $G$, then $[\hat{H},\hat{G}]=0$, which by \cref{eq:cons} implies that $\braket{G}$ is conserved (for time-independent $\hat{G}$).
 
@@ -191,7 +201,7 @@ This section includes various commutation relations that are used in \cref{ch:Ph
     % \end{theorem}
     % \begin{proof}
     %     To prove this, consider some $\ket{a}$ such that $\hat{A}\ket{a} = a\ket{a}$. By assumption, we have
-    %     \begin{align*}
+    %     \begin{align}
     %         \hat{A}\hat{B}\ket{a} = \hat{B}\hat{A}\ket{a} = a\hat{B}\ket{a} \implies 
-    %     \end{align*}
+    %     \end{align}
     % \end{proof}
