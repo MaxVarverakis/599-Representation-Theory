@@ -1,30 +1,30 @@
 \chapter{Anyons: A Consequence of Braiding Particles}\label{ch:anyons}
 
 \section{Braiding action on a quantum system}
-As discussed in~\cite{Deshmukh}, each of the standard generators of the braid group can be realized as unitary operators on a quantum system. For the one-dimensional representations of the braid group (\cref{sec:1D_rep}), the action on a quantum system is merely a phase shift by $e^{ik\theta}$ for some $\theta\in\R$ and $k\in\Z$ the degree of the braid. We can see this explicitly by considering the action of $\beta\in B_n$ on a wavefunction $\psi(r_1,\dots,r_n)$ by permuting the identical particles fixed at positions $r_1,r_2,\dots,r_n$:
+As discussed in~\cite{Deshmukh}, each of the standard generators of the braid group can be realized as unitary operators on a quantum system. For the one-dimensional representations of the braid group (\cref{sec:1D_rep}), the action on a quantum system is merely a phase shift by $e^{ik\theta}$ for some $\theta\in\R$ and $k\in\Z$ the degree of the braid. We can see this explicitly by considering the action of $\beta\in B_n$ on a wavefunction $\psi(r_1,\dots,r_n)$ by permuting the identical particles fixed at nondegenerate positions $r_1,r_2,\dots,r_n$:
 \begin{align*}
     \psi(r_{1'},r_{2'},\dots,r_{n'}) &= p_\theta(\beta)\psi(r_1,r_2,\dots,r_n) = e^{ik\theta}\psi(r_1,r_2,\dots,r_n),
 \end{align*}
 where $r_{i'}$ denotes particle $i$'s position after the braid $\beta$ has been applied. 
 
-Physically, we can think of each $\sigma_i$ as a clockwise exchange of identical particles $i$ and $i+1$ that live in 2 spatial dimensions. Using a third time dimension, the spacetime trajectories of the particles can be realized as a braid. In general, particles that obey the braid group permutation rules are known as \textit{anyons}~\cite{Wilczek1982}, and their statistics are determined by the braid group representation that describes the system.
+Physically, we can think of each $\sigma_i$ as a clockwise exchange of identical particles $i$ and $i+1$ that live in 2 spatial dimensions. Using a third axis for time, the spacetime trajectories of the particles can be realized as a braid. In general, particles that obey the braid group permutation rules are known as \textit{anyons}~\cite{Wilczek1982}, and their statistics are determined by the braid group representation that describes the system.
 
 Higher degree representations of the braid group are generally nonabelian. Thus, the action of the braid group on a quantum system will not always be as straightforward as a phase shift. This is a direct result of the ``omniscience'' the braid group, in the sense that a braid is only well-defined if all particle trajectories are known. As will be investigated later, a permutation of just two anyons requires the knowledge of the positions of all other anyons in the system. 
 % This global property of the braid group contrasts with the locality of symmetric group when dealing with a system of particles.
-These so-called \textit{nontrivial braiding effects} of the braid group are a key feature of anyons and distinguish them from bosons and fermions.
+These so-called \textit{nontrivial braiding effects} of the braid group are a key feature of anyons and distinguish them from the familiar bosons and fermions.
 
-Before studying the consequences of nontrivial braiding effects, it is instructive to first consider the action of the braid group on a quantum system with only two anyons. In \cref{ex:unitary}, a 2-dimensional, nonabelian, unitary representation of $B_3$ was constructed. Consider a degenerate set of two quantum states with orthonormal basis $\psi_1(r_1,r_2,r_3)$ and $\psi_2(r_1,r_2,r_3)$. Each basis state can be thought of a column vector, written as $\ket{1}$ and $\ket{2}$, for $\psi_1$ and $\psi_2$ respectively.
+Before studying the consequences of nontrivial braiding effects, it is instructive to first consider the action of the braid group on a quantum system with only two anyons. In \cref{ex:unitary}, a 2-dimensional, nonabelian, unitary representation of $B_3$ was constructed. Consider a degenerate set of two quantum states with orthonormal basis $\psi_1(r_1,r_2,r_3)$ and $\psi_2(r_1,r_2,r_3)$. Each basis state can be thought of as a column vector, written as $\ket{1}$ and $\ket{2}$ for $\psi_1$ and $\psi_2$ respectively.
 
-For the unitary representation $\mathcal{U}$ constructed in \cref{ex:unitary}, the action of $\sigma_1$ on the basis states is given by
-\begin{align*}
-    \mathcal{U}(\sigma_1)\ket{1} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
-    \mathcal{U}(\sigma_1)\ket{2} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} - \sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
-\end{align*}
-Similarly, the action of $\sigma_2$ on the basis states yields
-\begin{align*}
-    \mathcal{U}(\sigma_2)\ket{1} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
-    \mathcal{U}(\sigma_2)\ket{2} &= \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} + \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
-\end{align*}
+For the unitary representation $\mathcal{U}$ constructed in \cref{ex:unitary}, the transformed basis states due to the action of $\sigma_1$ are
+\begin{align}
+    \ket{1'} &= \mathcal{U}(\sigma_1)_{1,1}\ket{1} + \mathcal{U}(\sigma_1)_{1,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
+    \ket{2'} &= \mathcal{U}(\sigma_1)_{2,1}\ket{1} + \mathcal{U}(\sigma_1)_{2,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} - \sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
+\end{align}
+Similarly, the action of $\sigma_2$ gives resulting basis states
+\begin{align}
+    \ket{1'} &= \mathcal{U}(\sigma_2)_{1,1}\ket{1} + \mathcal{U}(\sigma_1)_{1,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
+    \ket{2'} &= \mathcal{U}(\sigma_2)_{2,1}\ket{1} + \mathcal{U}(\sigma_1)_{2,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} + \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
+\end{align}
 
 As a result of this nonabelian representation, we can see that the action of the braid group on this system corresponds to nontrivial rotations in the many-particle Hilbert space that describes the quantum system~\cite{Nayak2008,Deshmukh}. This differs from the one-dimensional representations of the braid group, where the action on the Hilbert space is merely a phase shift on every basis state.
 
@@ -32,43 +32,41 @@ More generally, if we have a set of $m\geq 2$ degenerate states in terms of $r_1
 \begin{align*}
     \psi_i' &= \sum_{j}{\left[ \Xi(\sigma_k) \right]}_{ij}\psi_j,
 \end{align*}
-where ${\left[ \Xi(\sigma_k) \right]}_{ij}$ is the $(i,j)$-th entry of the unitary matrix $\Xi(\sigma_k)$ for some representation $\Xi:B_n\to U(m)$.
+where ${\left[ \Xi(\sigma_k) \right]}_{ij}$ is the $(i,j)$-th entry of the unitary matrix $\Xi(\sigma_k)$ for some nonabelian representation $\Xi:B_n\to U(m)$.
 
-Just as with fermions, there are specific rules to follow when writing down the quantum state of multi-anyon systems. As established earlier in this section, the specific combination or \textit{fusion} rules of anyons depend on the specific braid group representation acting on the system. For one-dimensional representations, the corresponding anyons are known as \textit{abelian anyons}, in which the resulting action of the braid group is a phase shift on the quantum state. For higher-dimensional (nonabelian) representations, the anyons are known as \textit{nonabelian anyons}, and the action of the braid group is a nontrivial rotation in the Hilbert space of the quantum system as illustrated above.
+Just as with fermions, there are specific rules to follow when writing down the quantum state of multi-anyon systems. As established earlier in this section, the specific combination or \textit{fusion} rules of anyons depend on the specific braid group representation acting on the system. For one-dimensional (abelian) representations, the corresponding anyons are known as \textit{abelian anyons}, in which the resulting action of the braid group is a phase shift on the quantum state. For higher-dimensional (nonabelian) representations, the anyons are known as \textit{nonabelian anyons}, and the action of the braid group is a nontrivial rotation in the Hilbert space of the quantum system as illustrated above.
 
 % The corresponding fusion rules for nonabelian anyons can result in useful physical consequences.
 The simplest cases of nonabelian anyon fusion rules are the \textit{Fibonacci anyons} and the \textit{Ising anyons}~\cite{Deshmukh,Trebst2008,Ville2017}. These fusion rules are useful in realizing fault-tolerant topological quantum computers due to the nontrivial braiding effects that arise from the nonabelian representations of the braid group~\cite{Ville2017,Bernard2018,Delaney2016}. More information on the fusion rules of anyons can be found at the aforementioned references.
 
-Now that the braid group (representations) have been established in a physical context, we can investigate the consequences of nontrivial braiding effects on a system of anyons, starting with the simplest nontrivial example of two non-interacting anyons.
+Now that the braid group representations have been established in a physical context, we can investigate the consequences of nontrivial braiding effects on a system of anyons, starting with the simplest nontrivial example of two non-interacting anyons.
 
-\section{Two Non-Interacting Anyons}\label{sec:non_int}
+\section{Two non-interacting anyons}\label{sec:non_int}
 
 In classical mechanics, the physics of a system is encapsulated in the Lagrangian and/or Hamiltonian of the system, which describe the system in terms of generalized coordinates and momenta~\cite{Taylor2005}. For this reason, the most efficient method to study the dynamics of anyons is to construct the corresponding Lagrangian and Hamiltonian. This approach will lead to a clear understanding of the complexity of anyons and their braiding statistics as compared to traditional particles such as bosons and fermions.
 
-The interaction term in the Lagrangian for two anyons due to the braiding of the anyons is given by
+Though not directly interacting, the braiding of anyons must be recorded. This requires us to invoke a coupling term in the Lagrangian. In particular, the statistical interaction term for two anyons due to the braiding of the anyons is given by
 \begin{equation}
     \mathcal{L}_{\text{int}} = \hbar\alpha\dot{\phi},
 \end{equation}
-where a dot indicates a total time derivative $\frac{d}{dt}$ and $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ is the relative angle between the two anyons with positions $\vec{r}_1=(x_1,y_1)$ and $\vec{r}_2=(x_2,y_2)$. As in the previous section, $\alpha\in\left[ 0,1 \right]$ is the \textit{winding angle} or braiding statistic of the anyons. The parameter $\alpha$ can also be thought of as an angle modulo $\pi$. Though the relative angle $\phi$ is ambiguous for identical particles, the derivative $\frac{d\phi}{dt}=\dot{\phi}$ is well-defined.
+where a dot indicates a total time derivative $\frac{d}{dt}$ and $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ is the relative angle between the two anyons with positions $\vec{r}_1=(x_1,y_1)$ and $\vec{r}_2=(x_2,y_2)$~\cite{Khare2005,Wilczek1982}. The parameter $\alpha\in\left[ 0,1 \right]$ is the \textit{winding angle} or braiding statistic of the anyons. Alternatively, $\alpha$ can be thought of as an angle modulo $\pi$. Though the relative angle $\phi$ is ambiguous for identical particles, the derivative $\frac{d\phi}{dt}=\dot{\phi}$ is well-defined.
 
-Notice that if we take $\alpha\to 0$, the interaction term vanishes as expected for bosons. Similarly, for $\alpha>0$, $\phi$ becomes singular if $\vec{r}_1 = \vec{r_2}$, which motivates the Pauli exclusion principle for fermions. In fact, this means that for any $\alpha>0$, the corresponding anyons exhibit some form of the Pauli exclusion principle.
+Notice that if we take $\alpha\to 0$, the interaction term vanishes, as expected for bosons. Similarly, for $\alpha>0$, $\phi$ becomes singular if $\vec{r}_1 = \vec{r_2}$, which motivates the Pauli exclusion principle for fermions. In fact, this means that for any $\alpha>0$, the corresponding anyons exhibit some form of the Pauli exclusion principle.
 
 The classical kinetic energy of this system is
 \begin{equation}
-    T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right),
+    T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right).
 \end{equation}
-as expected. Then the Lagrangian for this system is
+Then the Lagrangian for this system is
 \begin{align}
     \mathcal{L}\left( \vd{r}_1,\vd{r}_2, \dot{\phi} \right) &= T + \mathcal{L}_{\text{int}} = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi},
 \end{align}
-which can also be viewed as the Lagrangian for 2 interacting bosons/fermions.
-
-We can redefine the Lagrangian in terms of the relative and center-of-mass coordinates
+which can also be viewed as the Lagrangian for 2 interacting bosons/fermions. We can redefine the Lagrangian in terms of the relative and center-of-mass coordinates
 \begin{align}
     \vec{R} &= \frac{\vec{r}_1+\vec{r}_2}{2}, \\
     \vec{r} &= \vec{r}_1-\vec{r}_2,
 \end{align}
-where $\vec{r}$ is the relative position vector and $\vec{R}$ is the center-of-mass position vector of the two anyons. Note that we are assuming that the mass of the two particles are equal ($m_1=m_2$). Classically, the momentum of a particle is given by the product of its mass and velocity. Then the corresponding center-of-mass and relative momenta:
+where $\vec{r}$ is the relative position vector and $\vec{R}$ is the center-of-mass position vector of the two anyons. Note that we are assuming that the mass of the two particles are equal ($m_1=m_2$). Classically, the momentum of a particle is given by the product of its mass and velocity. The corresponding center-of-mass and relative momenta are then given by:
 \begin{align}
     \vec{P} &= 2m\vd{R} = 2m \frac{\vec{r}_1+\vec{r}_2}{2} = m\vd{r}_1 + m\vd{r}_2 = \vec{p}_1 + \vec{p}_2, \\
     \vec{p} &= \mu\vd{r} = \frac{m}{2}\left( \vd{r}_1-\vd{r}_2 \right) = \frac{\vec{p}_1 - \vec{p}_2}{2},
@@ -81,49 +79,48 @@ With this in mind, we derive the following identity:
 \end{align}
 Thus, the Lagrangian decomposes into relative and center-of-mass components upon making the substitution from the above identity:
 \begin{align}
-    \mathcal{L} = \underbrace{m\vd{R}^2}_{\mathcal{L}_R} + \underbrace{\frac{m{\vd{r}}^{\;2}}{4} + \hbar\alpha\dot{\phi}}_{\mathcal{L}_r},
+    \mathcal{L} = \underbrace{m\vd{R}^2}_{\mathcal{L}_R} + \underbrace{\frac{m{\vd{r}}^{2}}{4} + \hbar\alpha\dot{\phi}}_{\mathcal{L}_r},
 \end{align}
-where the squared velocities indicate magnitude squared. Observe that the center-of-mass component of the Lagrangian, $\mathcal{L}_R$, is independent of the braiding parameter $\alpha$. We can further simplify the relative component of the Lagrangian, $\mathcal{L}_r$, by noting that we can briefly write the coordinate $\vec{r}$ in polar form by representing it as a complex number $\vec{r} =r e^{i\phi}$. It follows that
+where the squared velocity vectors indicate magnitude squared. Observe that the center-of-mass component of the Lagrangian, $\mathcal{L}_R$, is independent of the braiding parameter $\alpha$. We can further simplify the relative component of the Lagrangian, $\mathcal{L}_r$, by noting that we can briefly write the coordinate $\vec{r}$ in polar form by representing it as a complex number $\vec{r} =r e^{i\phi}$. It follows that
 \begin{align}
-    \size{\vd{r}(r,\phi)}^2 = \size{\frac{d}{dt}\vec{r}(r,\phi)}^2 = \size{\left( \dot{r} + ir\dot{\phi} \right)e^{i\phi}}^2 = \dot{r}^2 + r^2\dot{\phi}^2.
+    \size{\vd{r}(r,\phi)}^2 = \size{\frac{d}{dt}\vec{r}(r,\phi)}^2 = \size{\frac{d}{dt}(r e^{i\phi})}^2 = \size{\left( \dot{r} + ir\dot{\phi} \right)e^{i\phi}}^2 = \dot{r}^2 + r^2\dot{\phi}^2.
 \end{align}
 Hence, we rewrite the relative component of the Lagrangian as
 \begin{align}
     \mathcal{L}_r = \frac{m\left( \dot{r}^2 + r^2\dot{\phi}^2 \right)}{4} + \hbar\alpha\dot{\phi}.\label{eq:basic_Lr}
 \end{align}
-
 Recall that the classical relative angular momentum can be described by:
 \begin{equation}
     p_\phi = \frac{d\mathcal{L}}{d\dot{\phi}} = \frac{mr^2}{2}\dot{\phi} + \hbar\alpha.
 \end{equation}
-
 Now, the Hamiltonian for this system can be constructed:
 \begin{align}
     \mathcal{H} 
-    &= P\dot{R} + p_r\dot{r} + p_\phi\dot{\phi} - \mathcal{L} \nonumber \\
-    &= \frac{P^2}{4m} + \frac{p_r^{2}}{m} + \frac{mr^2}{4} {p_\phi}^2 \nonumber \\
-    &= \frac{P^2}{4m} + \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2}.
+    &= \vec{P}\vd{R} + p_r\dot{r} + p_\phi\dot{\phi} - \mathcal{L} \nonumber \\
+    &= \frac{\vec{P}^2}{4m} + \frac{p_r^{2}}{m} + \frac{mr^2}{4} {p_\phi}^2 \nonumber \\
+    &= \frac{\vec{P}^2}{4m} + \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2}.
 \end{align}
 Once again, the center-of-mass component of the Hamiltonian is independent of $\alpha$, and so we can focus on the relative component of the Hamiltonian, which is
 \begin{equation}
     \mathcal{H}_r = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2}.\label{eq:basic_Hr}
 \end{equation}
-For the purposes of this work, we need not carry out to find the energy eigenstates corresponding to the quantum operator of this relative Hamiltonian. More about this is found in~\cite{Khare2005}.
+For our purposes, we need not carry out to find the energy eigenstates corresponding to the quantum operator of this relative Hamiltonian. More about this is found in~\cite{Khare2005}. Instead, we now turn our attention to a more complicated system.
 
 
-\section{Anyons in Harmonic Potential}\label{sec:mult_harmonic}
+\section{Anyons in harmonic potential}\label{sec:mult_harmonic}
 
 Placing anyons in a harmonic potential alters the Hamiltonian obtained in \cref{sec:non_int}. The potential energy of a 2-anyon system is given by
 \begin{equation}
-    V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{\;2} + {\vec{r}_2}^{\;2} \right) = m\omega^2\left( {\vec{R}}^2 + \frac{1}{4}{\vec{r}}^{\;2} \right),
+    V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right) = m\omega^2\left( {\vec{R}}^2 + \frac{1}{4}{\vec{r}}^{2} \right),
 \end{equation}
-where $\omega$ is the angular frequency of the harmonic potential. We can make the same substitution as in \cref{sec:non_int} to write the potential in terms of the relative and center-of-mass coordinates. As is a recurring theme, the center-of-mass component of the potential has no dependence on the braiding parameter $\alpha$, and corresponds to a 2-dimensional quantum harmonic oscillator problem for a particle of mass $2m$.
+where $\omega$ is the angular frequency of the harmonic potential. We make the same substitution as in \cref{sec:non_int} to write the potential in terms of the relative and center-of-mass coordinates. As is a recurring theme, the center-of-mass component of the potential has no dependence on the braiding parameter $\alpha$, and corresponds to a 2-dimensional quantum harmonic oscillator problem for a particle of mass $2m$. For this reason, the center-of-mass contributions will be omitted in the following discussion.
+% Due to the separability of the relative and center-of-mass coordinates, we ignore the center-of-mass contributions to the Lagrangian and Hamiltonian.
 
 Note that we can generalize \cref{eq:basic_Lr} (now omitting the subscript $r$) to an $N$-anyon system in a harmonic potential by writing
 \begin{equation}
-    \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{\;2} + \hbar\alpha\sum_{\substack{i=1\\j\neq i}}^N\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{\;2},
+    \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{2} + \hbar\alpha\sum_{\substack{i<j}}^N\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{2},
 \end{equation}
-where $\phi_{ij} = \arctan\left( \frac{y_i-y_j}{x_i-x_j} \right)$ is the relative angle between anyons $i$ and $j$. For brevity, we write $x_{ij} = x_i-x_j$ and $y_{ij} = y_i-y_j$ to denote the relative coordinates between the anyons.
+where $\phi_{ij} = \arctan\left( \frac{y_i-y_j}{x_i-x_j} \right)$ is the relative angle between anyons $i$ and $j$. For brevity, we use $x_{ij} = x_i-x_j$ and $y_{ij} = y_i-y_j$ to denote the relative coordinates between the anyons.
 
 More generally, let $\vec{r}_{ij} = \vec{r}_i - \vec{r}_j$ be the relative coordinate between anyons $i$ and $j$, and define $r_{ij}^2 = \size{{\vec{r}_{ij}}}^2$. Then we can solve directly for $\dot{\phi}_{ij}$ as follows:
 \begin{align*}
@@ -133,21 +130,20 @@ More generally, let $\vec{r}_{ij} = \vec{r}_i - \vec{r}_j$ be the relative coord
         &= \frac{x_{ij}\dot{y}_{ij} - \dot{x}_{ij}y_{ij}}{x_{ij}^2 + y_{ij}^2} \\
         &= \frac{\vec{r}_{ij}\times\vd{r}_{ij}}{r_{ij}^2}.
 \end{align*}
-
 Setting $\hbar=1$, we can rewrite the Lagrangian as~\cite{Date2003}
 \begin{equation}
-    \mathcal{L} = \frac{m}{2}\sum_{i=1}^{N}\left[ \vd{r}^{\;2} - \omega^2\vec{r}_i^{\;2} \right] + \alpha\sum_{i<j}^{N}\frac{\vec{r}_{ij}\times\vd{r}_{ij}}{{r}_{ij}^{\;2}},\label{eq:compact_L}
+    \mathcal{L} = \frac{m}{2}\sum_{i=1}^{N}\left[ \vd{r}^{2} - \omega^2\vec{r}_i^{2} \right] + \alpha\sum_{i<j}^{N}\frac{\vec{r}_{ij}\times\vd{r}_{ij}}{{r}_{ij}^{2}},\label{eq:compact_L}
 \end{equation}
 which can be expanded as
 \begin{align}
-    \mathcal{L} &= \frac{m}{2}\sum_{i=1}^{N}\left[ \vd{r}^{\;2} - \omega^2\vec{r}_i^{\;2} \right] + \alpha\sum_{i<j}^{N}\vd{r}_{ij}\cdot\frac{\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2}.\label{eq:L_with_A}
+    \mathcal{L} &= \frac{m}{2}\sum_{i=1}^{N}\left[ \vd{r}^{2} - \omega^2\vec{r}_i^{2} \right] + \alpha\sum_{i<j}^{N}\vd{r}_{ij}\cdot\frac{\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2}.\label{eq:L_with_A}
 \end{align}
 
 % To obtain the general Hamiltonian for $N$ anyons in a harmonic well, we need to better characterize the anyons~\cite{Date2003,Khare2005}. First, suppose that each (identical) anyon has 
 
 % Now the Hamiltonian includes the potential energy:
 % \begin{align}
-%     % \mathcal{H} = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2} + V(\vec{r}) = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2} + \frac{m\omega^2}{4}\vec{r}^{\;2}.\label{eq:HO_Hr}
+%     % \mathcal{H} = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2} + V(\vec{r}) = \frac{p_r^{2}}{m} + \frac{{\left( p_\phi - \hbar\alpha \right)}^2}{mr^2} + \frac{m\omega^2}{4}\vec{r}^{2}.\label{eq:HO_Hr}
 % \end{align}
 
 The last term in \cref{eq:L_with_A} is of similar form to the vector (gauge) potential associated with the $i$-th anyon~\cite{Khare2005,Date2003,Moriyasu1983}:
@@ -162,7 +158,7 @@ For the $i$-th anyon, the contribution to the Hamiltonian can be written as
 \begin{align}
     \mathcal{H}_i = \frac{1}{2m}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2},
 \end{align}
-where $p_i - A_i(\vec{r}_i)$ is known as the \textit{canonical momentum} of the system. This is a required modification since we must account for the motion of the anyons in the presence of the gauge potential in addition to their mechanical momentum.
+where $\vec{p}_i - \vec{A}_i(\vec{r}_i)$ is known as the \textit{canonical momentum} of the system. This is a required modification since we must account for the motion of the anyons in the presence of the gauge potential in addition to their mechanical momentum.
 
 More generally, a gauge potential is added to the Lagrangian and thus Hamiltonian such that the equations of motion are invariant under the relevant gauge transformation. In the case of electromagnetism, the prescription of invariance under local changes in electric and magnetic potentials leads to the introduction of the gauge potential in the Lagrangian~\cite{Griffiths2018,Moriyasu1983,Griffiths2017}.
 
@@ -189,7 +185,7 @@ From a top-down perspective, trajectory \hyperref[traj:A]{A} involves a clockwis
     \mycaption{Anyon trajectories}{Two possible trajectories of three anyons viewed from above (top) and represented as braids (bottom).}\label{fig:anyon_trajectores}
 \end{figure}
 
-Even in the one-dimensional (abelian) representation of the braid group, the nontrivial braiding effects emerge for the trajectories depicted in \cref{fig:anyon_trajectores}. The braid representations for trajectory \hyperref[traj:A]{A} and trajectory \hyperref[traj:B]{B} are $\sigma_1\mapsto e^{i\theta}$ and $\sigma_2\sigma_1\sigma_2\mapsto e^{3i\theta}$, respectively. As long as the choice of $\theta$ is not an integer multiple of $\pi$, it follows that $e^{i\theta}\neq e^{3i\theta}$. This is precisely the nontrivial braiding effect.
+Even in the one-dimensional (abelian) representations of the braid group, the nontrivial braiding effects emerge for the trajectories depicted in \cref{fig:anyon_trajectores}. The braid representations for trajectory \hyperref[traj:A]{A} and trajectory \hyperref[traj:B]{B} are $\sigma_1\mapsto e^{i\theta}$ and $\sigma_2\sigma_1\sigma_2\mapsto e^{3i\theta}$, respectively. As long as the choice of $\theta$ is not an integer multiple of $\pi$, it follows that $e^{i\theta}\neq e^{3i\theta}$. This is precisely the nontrivial braiding effect.
 
 If there were some wavefunction $\psi(r_1,r_2,r_3)$ that described the system, then the action of the braid group on $\psi$ would yield different phase changes for the two trajectories.
 Despite the fact that both trajectories involve the same exchange of anyons 1 and 2, the relative position of anyon 3 significantly impacts the outcome of the exchange. It is then evident that for a system of $N$ anyons, every particle exchange must also simultaneously consider the relative positions of all other anyons in the system in order to properly encode the braiding action.
@@ -207,10 +203,10 @@ Only when we have $N\geq 3$ anyons will the nontrivial braiding effects truly pr
     \frac{\alpha^2}{m}\biggl( \underbrace{\frac{1}{r_{12}^2} + \frac{1}{r_{13}^2} + \frac{1}{r_{23}^2}}_{\textrm{Coulomb-like interaction}} + \underbrace{\frac{\vec{r}_{12}\cdot\vec{r}_{13}}{r_{12}^2r_{13}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{23}}{r_{21}^2r_{23}^2} + \frac{\vec{r}_{31}\cdot\vec{r}_{32}}{r_{31}^2r_{32}^2}}_\textrm{Nontrivial braiding} \biggr).
 \end{align*}
 
-With three anyons, the nontriviality of the long-range interaction becomes clear, as there are now cross terms that involve the relative positions of all three anyons. This result is similar to the observations made in \cref{fig:anyon_trajectores}. The consequence of these three-body interaction terms is that the system is no longer separable into independent 2-anyon systems, which greatly complicates the quantum mechanics and statistical analysis of the system~\cite{Khare2005}. The nontrivial braiding effects of anyonic systems highlights the rich complexity of the braid group and its physical implications.
+With three anyons, the nontriviality of the long-range interaction becomes clear, as there are now cross terms that involve the positions of all three anyons. This result is similar to the observations made in \cref{fig:anyon_trajectores}. The consequence of these three-body interaction terms is that the system is no longer separable into independent 2-anyon systems, which greatly complicates the quantum mechanics and statistical analysis of the system~\cite{Khare2005}. The nontrivial braiding effects of anyonic systems highlights the rich complexity of the braid group and its physical implications.
 
 \section{Conclusion}
 
 In this chapter, we have seen how the permutation of particles according to the braid group adds additional structure to the physical system as compared to the symmetric group. The study of anyons has emerged as an area of interest in condensed matter physics, such as in the fractional quantum Hall effect~\cite{Bolotin2009}. Arguably the largest area of study involving anyons is in the field of topological quantum computation, where the nontrivial braiding effects of anyons are the key ingredient towards realizing a fault-tolerant quantum computer~\cite{Bernard2018,Delaney2016}.
 
-The braid group is but one example of the rich mathematical structure that underlies the physical world. As demonstrated in this thesis, representation theory serves as a bridge between abstract mathematics and the physical world, and offers unique insight into the fundamental nature of our universe.
+The braid group is but one example of the rich mathematical structure that underlies the physical world. As demonstrated in this thesis, representation theory serves as a bridge between abstract mathematics and the physical world, and offers unique insight into the fundamental nature of the universe.

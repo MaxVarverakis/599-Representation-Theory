@@ -3,7 +3,7 @@
 \section{Physics conventions and Dirac notation}\label{sec:basics}
 % \textbf{Bra-ket notation, ``Hilbert space'', inner product, why unitary, why Hermitian, etc.}
 
-More information on physics notation and conventions can be found in~\cite{Hall2013,Griffiths2018,Tung1985}.
+More information on physics notation and conventions can be found in~\cite{Hall2013,Griffiths2018,Tung1985,Zwiebach2022}.
 
 For quantum mechanics, the physical state of the system is often represented by an abstract vector belonging to some Hilbert space. The convention is to assume that the Hilbert space is complex and separable. In this context, the inner product is typically defined to be linear in the second argument. For instance, for two vectors $\phi,\psi$ and a scalars $\lambda,\alpha$, we have
 \begin{align*}
@@ -18,9 +18,9 @@ Let $\mathbf{H}$ denote a quantum Hilbert space. The term ``quantum'' here is us
 \begin{align*}
     \bra{\phi}(\psi) = \langle \phi,\psi\rangle.
 \end{align*}
-However, this notation is not standard in the literature. Instead, a \textit{bra-ket} is the inner product of a bra and a ket, and is denoted by $\braket{\phi|\psi}$.
+However, this notation is not standard in the literature. Instead, a \textit{bracket} or \textit{bra-ket} is the inner product of a bra and a ket, and is denoted by $\braket{\phi|\psi}$.
 
-For a linear operator $\hat{A}$ on $\mathbf{H}$, the action of $\hat{A}$ on a ket $\ket{\psi}$ is denoted by $\hat{A}\ket{\psi}$. Moreover, for a bra $\bra{\phi}$, we have a corresponding linear functional $\bra{\phi}\hat{A}$ defined by
+For a linear operator $\hat{A}$ on $\mathbf{H}$, the action of $\hat{A}$ on a ket $\ket{\psi}$ is denoted by $\ket{\hat{A}\psi} = \hat{A}\ket{\psi}$. Moreover, for a bra $\bra{\phi}$, we have a corresponding linear functional $\bra{\phi}\hat{A}$ defined by
 \begin{align*}
     \bra{\phi}\hat{A}(\psi) = \bra{\phi}\hat{A}\ket{\psi}.
 \end{align*}
@@ -38,29 +38,29 @@ For a set of orthonormal basis vectors $\{\ket{n}\}$, one can expand an arbitrar
 \begin{align*}
     \ket{\psi} = \left( \sum_n \ket{n}\bra{n} \right)\ket{\psi} = \sum_n \ket{n}\braket{n|\psi},
 \end{align*}
-where $\braket{n|\psi}$ are the components of $\ket{\psi}$ in the basis $\{\ket{n}\}$. This is simply a change of basis, and $\sum_n \ket{n}\bra{n}$ is equivalent to the identity operator.
+where $\braket{n|\psi}$ are the components of $\ket{\psi}$ in the basis $\{\ket{n}\}$. This is simply a change of basis, and $\sum_n \ket{n}\bra{n}$ is equivalent to the identity operator. This fact is analogous to the basis vectors satisfying orthonormality and completeness conditions.
 
 For a continuous basis labelled by $\ket{x}$ where $x$ is a continuous parameter, the \textit{wavefunction} $\psi(x)$ is used to express $\ket{\psi}$ in terms of the orthonormal states $\ket{x}$. The wavefunction is the projection of $\ket{\psi}$ onto $\ket{x}$:
 \begin{align*}
     \braket{x|\psi} = \psi(x).
 \end{align*}
 
-Suppose we have a quantum mechanical object that exists in the super position of orthonormal states $\ket{1},\ket{2}$. The state of the object is given by the wavefunction $\Psi(x,t)$ whose square magnitude gives the probability density of the object being at position $x$ at time $t$. The wavefunction $\Psi(x,t)$ must be normalized and thus square integrable.
+Suppose we have a quantum mechanical object that exists in the superposition of orthonormal states $\ket{1}$ and $\ket{2}$. The state of the object is given by the wavefunction $\Psi(x,t)$ whose square magnitude gives the probability density of the object being at position $x$ at time $t$. The wavefunction $\Psi(x,t)$ must be normalized and thus square integrable.
 
 For some physically measurable quantity $A$, often called an \textit{observable}, the \textit{expectation value} of $A$ with the associated operator $\hat{A}$ is given by
 \begin{align*}
-    \braket{A} = \int dx\; \overline{\Psi}(x,t)\hat{A}\Psi(x,t),
+    \braket{A} = \int dx\; \overline{\Psi}(x,t)\hat{A}\Psi(x,t) = \bra{\Psi}\hat{A}\ket{\Psi}.
 \end{align*}
-which can be rewritten in terms of the operator $\hat{A}$ as
-\begin{align*}
-    \braket{A} = \bra{\Psi}\hat{A}\ket{\Psi},
-\end{align*}
-and so $A$ must be Hermitian. In general, we care about Hermitian operators because they correspond to physical observables.
-
+% which can be rewritten in bra-ket notation as
+% \begin{align*}
+%     \braket{A} = \bra{\Psi}\hat{A}\ket{\Psi}.
+% \end{align*}
+% The fact that $\hat{A}$ is Hermitian guarantees that the expectation value is real.
 Since the expectation value corresponds to a physical measurement, it must be real. Therefore,
 \begin{align*}
     \braket{A} = \overline{\braket{A}} \iff \braket{\Psi|\hat{A}\Psi} = \braket{\hat{A}\Psi|\Psi}.
 \end{align*}
+This is only true if $\hat{A}$ is Hermitian. Hermitian operators are significant to quantum physics because they correspond to physical observables. 
 
 We can decompose the state of the object into a superposition of the orthonormal states $\ket{1}$ and $\ket{2}$:
 \begin{align*}
@@ -80,9 +80,9 @@ which is only true if $\hat{U}^\dagger\hat{U}=\hat{I}$, where $\hat{I}$ is the i
 
 \section{Commutator Identities}
 For linear operators $A$ and $B$, the commutator is defined as
-\begin{align*}
+\begin{align}
     [A,B] = AB - BA.
-\end{align*}
+\end{align}
 The commutator satisfies the following properties:
 \begin{align}
     [A,B] &= -[B,A] \label{eq:BA} \\
@@ -94,12 +94,12 @@ The commutator satisfies the following properties:
         &= AB - BA + AC - CA \nonumber\\
         &= [A,B] + [A,C]. \label{eq:ABpC} \\
     % \nonumber\\
-    [A^2,B] 
-        &= [AA,B] \nonumber\\
-        &= AAB - BAA \nonumber\\
-        &= AAB - ABA + ABA - BAA \nonumber\\
-        &= A(AB-BA) + (AB-BA)A \nonumber\\
-        &= A[A,B] + [A,B]A.\label{eq:A2B}\\
+    [AB,C] 
+        &= [AB,C] \nonumber\\
+        &= ABC - CAB \nonumber\\
+        &= ABC - ACB + ACB - CAB \nonumber\\
+        &= A(BC-CB) + (AC-CA)B \nonumber\\
+        &= A[B,C] + [A,C]B.\label{eq:A2B}\\
     % \nonumber\\
     [A,BC]
         &= ABC - BCA \nonumber\\
@@ -139,18 +139,18 @@ This section includes various commutation relations that are used in \cref{ch:Ph
     % Possible reference here~\cite{Hall2013}!
     
     Suppose $\hat{G}$ is an operator on a quantum Hilbert space of states. The quantity $\braket{G}$ is conserved if
-    \begin{align*}
+    \begin{align}
         \frac{d\braket{G}}{dt} = 0.
-    \end{align*}
+    \end{align}
     The time-dependent Schr\"odinger equation is given by
-    \begin{align*}
+    \begin{align}
         \hat{H}\psi = i\hbar\frac{d\psi}{dt},
-    \end{align*}
+    \end{align}
     which implies
-    \begin{align*}
+    \begin{align}
         \frac{d\psi}{dt} = \frac{1}{i\hbar}\hat{H}\psi,
-    \end{align*}
-    where $\hat{H}$ is the Hamiltonian operator. Since the eigenvalues of $\hat{H}$ correspond to the energy of the system, $\hat{H}$ must be Hermitian.
+    \end{align}
+    where $\hat{H}$ is the Hamiltonian operator. Since the eigenvalues of $\hat{H}$ correspond to the energy observables of the system, $\hat{H}$ must be Hermitian.
 
     Then if $\hat{G}$ is time-independent we have
     \begin{align}
@@ -182,8 +182,8 @@ This section includes various commutation relations that are used in \cref{ch:Ph
     \begin{align*}
         \hat{G}^\dagger\hat{H}\hat{G} = \hat{H}.
     \end{align*}
-    % where the last line ensures that the resulting transformation of $\hat{G}$ by $G$ is Hermitian, and thus corresponds to physical observables. The Hermiticity of $\hat{H}$ is preserved under $G$ if and only if $\hat{H}$ is invariant under the transformations generated by $G$. 
-    Running the argument in reverse, if $\hat{H}$ is invariant under the transformations generated by $G$, then $[\hat{H},\hat{G}]=0$, which by \cref{eq:cons} implies that $\braket{G}$ is conserved (for time-independent $\hat{G}$).
+    % where the last line ensures that the resulting transformation of $\hat{G}$ by $G$ is Hermitian, and thus corresponds to physical observables. The Hermiticity of $\hat{H}$ is preserved under $G$ if and only if $\hat{H}$ is invariant under the transformations generated by $G$.
+    Running the argument in reverse, if $\hat{H}$ (hence the physical system) is invariant under the transformations generated by $G$, then $[\hat{H},\hat{G}]=0$, which by \cref{eq:cons} implies that $\braket{G}$ is conserved (for time-independent $\hat{G}$).
 
     % An alternative description of commuting operators is presented as a theorem.
     % \begin{theorem}\label{thm:commuting_ops}

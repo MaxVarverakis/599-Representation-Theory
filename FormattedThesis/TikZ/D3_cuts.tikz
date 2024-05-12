@@ -95,5 +95,5 @@
         }
 
         % base point for loop/arrow
-        \filldraw [red] (\b) circle (2pt) node[below] {$t^i\zeta$};
+        \filldraw [red] (\b) circle (2pt) node[below] {$t^i\xi$};
 \end{tikzpicture}

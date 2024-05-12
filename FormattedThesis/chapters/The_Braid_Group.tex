@@ -1,25 +1,23 @@
 \chapter{The Braid Group}\label{ch:braid_group}
 
-The study of the braid group has far-reaching implications from knot theory to quantum computation~\cite{Artin1947,Date2003,Delaney2016,Deshmukh,Kassel2008,Khare2005}. A basic understanding of topology is assumed in the following discussions. The necessary topological definitions are provided in \cref{ch:top_background}.
 
+From knot theory to quantum computation, the braid group has far-reaching implications~\cite{Artin1947,Date2003,Delaney2016,Deshmukh,Kassel2008,Khare2005}. A basic understanding of topology is assumed in the following discussions. The necessary topological definitions are provided in \cref{ch:top_background}, and additional information on braids can be found in~\cite{Artin1947,Kassel2008,Gonzalez2010,Rolfsen2010,Fulton1997}.
 \begin{definition}
-    The \textit{configuration space} of $n$ ordered distinct points in the complex plane $\C$ is defined as $M_n = \left\{ \left( z_1,\dots,z_n \right)\in\C ; z_i\neq z_j,\forall i\neq j \right\}$. Alternatively, consider $\mathcal{D}$ to be the collection of all hyperplanes $H_{i,j}=\left\{ z_i=z_j \right\}\in\C^n$ for $1\leq i < j \leq n$. Then we can define $M_n = \C^n \setminus \mathcal{D}$.
+    The \textit{configuration space} of $n$ ordered distinct points in the complex plane $\C$ is defined as $M_n = \left\{ \left( z_1,\dots,z_n \right)\in\C^n ; z_i\neq z_j,\forall i\neq j \right\}$. Alternatively, consider $\mathcal{D}$ to be the collection of all hyperplanes $H_{i,j}=\left\{ z_i=z_j \right\}\in\C^n$ for $1\leq i < j \leq n$. Then we can define $M_n = \C^n \setminus \mathcal{D}$.
 \end{definition}
-
-Note that $\left( z_1,z_2,z_3,\dots,z_n \right)$ and $\left( z_2,z_1,z_3,\dots,z_n \right)$ are different points in the configuration space $M_n$. Before studying the various interpretations of the braid group, we first define the braid group itself.
-
+Note that $\left( z_1,z_2,z_3,\dots,z_n \right)$ and $\left( z_2,z_1,z_3,\dots,z_n \right)$ are different points in the configuration space $M_n$. This leads to the following definition.
 \begin{definition}
     The \textit{pure braid group} on $n$ strands, denoted $PB_n$, is the fundamental group of $M_n$. One can write $PB_n = \pi_1(M_n)$.
 \end{definition}
 
 \section{Visualization of pure braids}
 
-We can think of a pure braid as a loop in $M_n$:
+We can think of a pure braid in $\pi_1(M_n)$ as a loop:
 \begin{align*}
     \beta : \left[ 0,1 \right] &\to M_n \\
-    t &\mapsto \beta(t) = \left( \beta_1(t),\beta_2(t),\dots,\beta_n(t) \right),
+    t &\mapsto \beta(t) = \bigl( \beta_1(t),\beta_2(t),\dots,\beta_n(t) \bigr),
 \end{align*}
-with some base point. Conventionally, we define the base point as the $n$-tuple of integers $(1,2,3,\dots,n)\in \C^n$. Then a pure braid can be though of the motion of these points in the complex plane as $t$ ranges from 0 to 1 in which $\beta_i(t)$ is defined and $\beta_i(t)\neq \beta_j(t)$ for every $t\in[0,1]$ and $i\neq j\in\left\{ 1,2,\dots,n \right\}$. Because each $\beta_i$ is a loop, it must start and end at the point $i$ (e.g., $\beta_i(0)=\beta_i(1)=i$). Recall that the loops are actually equivalence classes of loops under homotopy. As a result, we can continuously deform the motion of the $n$ points while maintaining the same pure braid (up to equivalence) so long as we preserve the pairwise distinction of the points for all time $t\in[0,1]$.
+with some base point. Conventionally, we define the base point as the $n$-tuple of integers $(1,2,3,\dots,n)\in \C^n$. Then a pure braid can be though of the motion of these points in the complex plane as $t$ ranges from 0 to 1 in which $\beta_i(t)$ is defined and $\beta_i(t)\neq \beta_j(t)$ for every $t\in[0,1]$ and $i\neq j\in\left\{ 1,2,\dots,n \right\}$. Because each $\beta_i$ is a loop, it must start and end at the point $i$ (e.g., $\beta_i(0)=\beta_i(1)=i$). Moreover, since $PB_n$ is the fundamental group of $M_n$, the loops are really equivalence classes of loops under homotopy. As a result, we can continuously deform the motion of the $n$ points while maintaining the same pure braid (up to equivalence) so long as we preserve the pairwise distinction of the points for all time $t\in[0,1]$.
 
 A common visualization of pure braids is to plot the motion of the points in 3-dimensional space. For each $t\in [0,1]$, we draw the points $\left( \beta_i(t),t \right)$ in $\C\times[0,1]$ for every $i\in\left\{ 1,\dots,n \right\}$. The space $\C\times[0,1]$ can be thought of as a spacetime diagram, where the motion of the points is plotted in the complex plane at each time $t$, with the time being the vertical axis. The convention is to have $\C\times\left\{ 0 \right\}$ placed above $\C\times\left\{ 1 \right\}$, so that the motion of the points is plotted from top to bottom, as in \cref{fig:C_pure_braid}.
 
@@ -31,7 +29,7 @@ A common visualization of pure braids is to plot the motion of the points in 3-d
 
 For every $i\in\left\{ 1,\dots,n \right\}$, the motion of a single point starting at $(i,0)$ and ending at $(i,1)$ is known as the $i$-th \textit{strand} of the pure braid. This can also be described by the $i$-th projection of the $n$-tuple $\beta(t)$. Thus, two braids are equivalent under homotopy if, for every moment of a continuous deformation of the $n$ strands in $\C\times [0,1]$, the (fixed) endpoints $((1,0),(2,0),\dots,(n,0))$ and $((1,1),(2,1),\dots,(n,1))$ are connected by strands that are pairwise disjoint where each strand intersects the plane $\C\times\left\{ t \right\}$ exactly once for every $t\in[0,1]$.
 
-As pure braids are members of the pure braid group, multiplication is a well-defined operation. In the context of $M_n$, multiplication of pure braids involves the concatenation of loops. Visually, this is the process of stacking braids on top of each other, and then rescaling the time dimension so that $t$ ranges from 0 to 1.
+As pure braids are members of the pure braid group, multiplication is a well-defined operation. In the context of $\pi_1(M_n)$, multiplication of pure braids involves the concatenation of loops. Visually, this is the process of stacking braids on top of each other and rescaling the time component so that $t$ ranges from 0 to 1.
 
 \section{General braids}
 In the previous section, we defined pure braids in which the endpoints of each strand are identical at the beginning and end of the motion. This notion generalizes to define (non-pure) braids. First, we define a more general configuration space than $M_n$. The symmetric group $S_n$ permutes the $n$ distinct points in $\C$. Then the \textit{configuration space of n unordered points in $\C$} is the quotient space $N_n = M_n/S_n$.
@@ -40,7 +38,7 @@ In the previous section, we defined pure braids in which the endpoints of each s
     The braid group on $n$ strands is the fundamental group of $N_n$, denoted $B_n = \pi_1(N_n)$.
 \end{definition}
 
-The visualization of a braid is the same as in the case of pure braids, only now the endpoints of each strand do not necessarily match the starting points, as illustrated \cref{fig:C_general_braid}. For example, the $i$-th strand may start at the point $(i,0)$ but end at the point $(j,1)$ for $i,j\in\left\{ 1,\dots,n \right\}$. The equivalence of strands is still defined as before under the homotopy of loops. Loop concatenation defines the multiplication of braids, as before.
+The visualization of a braid is the same as in the case of pure braids, only now the endpoints of each strand do not necessarily match the starting points, as illustrated \cref{fig:C_general_braid}. For example, the $i$-th strand may start at the point $(i,0)$ but end at the point $(j,1)$ for $i,j\in\left\{ 1,\dots,n \right\}$. The equivalence of braids is still defined as before under the homotopy of loops. Loop concatenation defines the multiplication of braids, as before.
 
 % \missingfigure[figwidth=6cm]{Gonzalez Figure 1}
 \begin{figure}[htbp]
@@ -70,7 +68,7 @@ A general braid can be written as a product of the standard generators and their
 
 \section{Automorphisms of the free group}\label{sec:Aut_Fn}
 
-Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ involves loops that start and end at the same (fixed) base point in $\partial\D_n$. Up to homotopy, a clockwise-directional loop that encompasses the $i$-th hole in $\D_n$ corresponds to the $i$-th generator of the free group $F_n$ of rank $n$, which is illustrated in \cref{fig:Gen_on_Dn}. In fact, $\pi_1\left( \D_n \right) = F_n$. This equality allows us to define a representation of the braid group on $n$ strands as automorphisms of $F_n$.
+Consider the $n$-times punctured disk $\D_n$. The fundamental group of $\D_n$ involves loops that start and end at the same (fixed) base point in $\partial\D_n$. Up to homotopy, a clockwise-directional loop that encompasses the $i$-th hole in $\D_n$ corresponds to the $i$-th generator of the free group $F_n$ of rank $n$, which is illustrated in \cref{fig:Gen_on_Dn}. In fact, $\pi_1\left( \D_n \right) = F_n$. This equality allows us to interpret the braid group on $n$ strands as automorphisms of $F_n$.
 
 \begin{figure}[htbp]
     \centering
@@ -128,34 +126,34 @@ In this interpretation of the braid group, we can express $B_n$ in terms of the 
 \begin{equation}\label{eq:BnGenYangBaxter}
     B_n = \left\langle \sigma_1,\dots,\sigma_{n-1} \;\middle|\;
     \begin{aligned}
-        \sigma_i\sigma_j &= \sigma_j\sigma_i, & |i-j|&>1 \\
-        \sigma_i\sigma_{i+1}\sigma_i &= \sigma_{i+1}\sigma_i\sigma_{i+1}, & |i-j|&=1
+        \sigma_i\sigma_j = \sigma_j\sigma_i,\ |i-j|>1 \\
+        \sigma_i\sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i\sigma_{i+1}\ 
     \end{aligned}
     \right\rangle.
 \end{equation}
-The first condition that the standard generators commute if $|i-j|>1$ is easily verified by thinking about the action of the generators on $\pi_1(\D_n)$ as in \cref{fig:sigma_on_Dn} and as automorphisms in \cref{eq:rho_j}. This follows from the fact that if punctures $i$ and $j$ are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in \cref{fig:YB_criterion_verification} by looking at the corresponding braids in $\R\times[0,1]$ (here, the distinction between $\R$ and $\C$ is only a matter of choosing to show the starting and ending complex planes in traditional braid visualizations).
+The first condition that the standard generators commute if $|i-j|>1$ is easily verified by thinking about the action of the generators on $\pi_1(\D_n)$ as in \cref{fig:sigma_on_Dn} and as automorphisms in \cref{eq:rho_j}. This follows from the fact that if punctures $i$ and $j$ are non-adjacent, then the actions of $\sigma_i$ and $\sigma_j$ are mutually exclusive and thus commutative. The second condition on the standard generators is most easily verified in \cref{fig:YB_criterion_verification} by visualizing the corresponding braids in $\R\times[0,1]$ (here, the distinction between $\R$ and $\C$ is only a matter of choosing to show the starting and ending complex planes in traditional braid visualizations).
 \begin{figure}[htbp]
     \centering
     % \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
     \input{TikZ/YB_Braid_v2.tikz}
-    \mycaption{Graphical verification of \cref{eq:BnGenYangBaxter}}{Graphical verification of \cref{eq:BnGenYangBaxter}. All of the above braids are equivalent up to homotopy. The transformation between the middle two braid diagrams is known as a Reidmeister type-III move, in which the red strand (or string in the context of knot theory) is moved completely under the crossing of the blue and green strands. In these middle two diagrams, the red strand is slightly translucent to indicate that it is behind all other strands in the diagram.}\label{fig:YB_criterion_verification}
+    \mycaption{Graphical verification of \cref{eq:BnGenYangBaxter}}{Graphical verification of \cref{eq:BnGenYangBaxter}. All of the above braids are equivalent up to homotopy. The transformation between the middle two braid diagrams is known as a Reidmeister type-III move, in which the red strand (or string in the context of knot theory) is moved completely under the crossing of the blue and green strands.}\label{fig:YB_criterion_verification}
 \end{figure}
 
 \section[One-dimensional representations of $B_n$]{One-dimensional representations of $\mathbf{B_n}$}\label{sec:1D_rep}
-A straightforward nontrivial representation of the braid is defined on the standard generators of $B_n$ and is given by:
+A straightforward nontrivial representation of the braid group is defined on the standard generators of $B_n$ and is given by:
 \begin{align}
     p_\theta: B_n&\to \C_{\size{z}=1} \\
     \sigma_i &\mapsto e^{i\theta},
 \end{align}
 for $\theta\in\R$~\cite{Deshmukh}. Clearly, $p_\theta$ is a homomorphism, and it is unitary because
 \begin{equation}
-    {p_\theta(\sigma_i)}^\dagger = {\left( e^{i\theta} \right)}^\dagger = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_i)},
+    {p_\theta(\sigma_i)}^\dagger = {\left( e^{i\theta} \right)}^\dagger = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_i)}.
 \end{equation}
-where $^\dagger$ denotes the conjugate transpose of a matrix. 
+% where $^\dagger$ denotes the conjugate transpose of a matrix. 
 
 Due to the abelian nature of the one-dimensional representations, we are free to simplify products of braids. For example,
 \begin{align*}
-    p_\theta(\sigma_1\sigma_{2}\iv{\sigma_i}\sigma_2) &= p_\theta(\sigma_1)p_\theta(\sigma_{2})p_\theta(\iv{\sigma_i})p_\theta(\sigma_2) \\
+    p_\theta(\sigma_1\sigma_{2}\iv{\sigma_1}\sigma_2) &= p_\theta(\sigma_1)p_\theta(\sigma_{2})p_\theta(\iv{\sigma_1})p_\theta(\sigma_2) \\
     &= e^{i\theta_1}e^{i\theta_2}e^{-i\theta_{1}}e^{i\theta_2} \\
     &= e^{i\left( \theta_1-\theta_1 + \theta_2 + \theta_2 \right)} \\
     &= e^{i\cdot 2\theta_2} = p_\theta(\sigma_2^2),
@@ -164,14 +162,15 @@ where the subscripts on $\theta$ are only used to keep track of the contributing
 \begin{align*}
     p_\theta(\beta) = p_\theta(\sigma_{1}^{m_1}\sigma_{2}^{m_2}\cdots\sigma_{n-1}^{m_{n-1}}) = e^{i\theta(m_1+m_2+\cdots+m_{n-1})} = e^{ik\theta},
 \end{align*}
-where $k$ can be thought of as the degree of the braid.
+where $k$ is the degree of the braid.
 
-Notice that with a choice of $\theta=2\pi n$ for $n\in\Z$, we recover the trivial representation of $B_n$. Similarly, $p_{\pi n}$ is a restriction of the sign representation of $S_n$, where the sign of a permutation is defined as the parity of the number of transpositions in its decomposition into a product of transpositions.
+Notice that with a choice of $\theta=2\pi n$ for $n\in\Z$, we recover the trivial representation of $B_n$. Moreover, $p_{\pi n}$ is equivalent to the sign representation of $S_n$.
+% , where the sign of a permutation is defined as the parity of the number of transpositions in its decomposition into a product of transpositions.
 
 % The degree 1 representations of $B_n$ will be revisited in \cref{sec:Anyons}.
 
-\section{The Burau Representation}
-In \cref{sec:Aut_Fn}, we defined a representation of the braid group $B_n$ as automorphisms of the free group $F_n$. This representation is clearly nonabelian. Likewise, the Artin generators of $B_n$ are nonabelian. Suppose we wish to abelianize the braid group. The details of the abelianization of $B_n$ would require a quotient by the commutator $\left[ a,b \right]=ab\iv{a}\iv{b}$.
+\section{The Burau representation}
+In \cref{sec:Aut_Fn}, we defined a representation of the braid group $B_n$ as automorphisms of the free group $F_n$. This representation is nonabelian. Likewise, the Artin generators of $B_n$ are nonabelian. Suppose we wish to abelianize the braid group. The details of the abelianization of $B_n$ would require a quotient by the commutator $\left[ a,b \right]=ab\iv{a}\iv{b}$.
 
 Sparing the details, let $B_{n,ab} = B_n/\left[ B_n,B_n \right]$ be the abelianization of $B_n$, where $\left[ B_n,B_n \right]=\left\{ \left[ \beta_1,\beta_2 \right]\st\beta_1,\beta_2\in B_n \right\}$ is the commutator subgroup of $B_n$. Then, under the representation $\rho$ from \cref{sec:Aut_Fn}, the abelianization of \cref{eq:rho_i,eq:rho_ip1,eq:rho_j} become
 \begin{align}
@@ -179,9 +178,9 @@ Sparing the details, let $B_{n,ab} = B_n/\left[ B_n,B_n \right]$ be the abeliani
     x_{i+1} &\xmapsto{\sigma_i} x_i, \\
     x_j &\xmapsto{\sigma_i} x_j, \textrm{ for } j\neq i,i-1,
 \end{align}
-for each $i$. Thus, the generator $\sigma_i=\iv{\sigma_i}$, and corresponds to a transposition permutation in the symmetric group $S_n$. It follows that $B_{n,ab}\iso S_n$. In this current construction, the abelianization of the braid group results in a loss of complexity. This raises the question whether there exists such a reframing of the braid group that allows an abelian operation on the free generators while preserving the inequivalence of the Artin generators with their inverses.
+for each $i$. Thus, $\sigma_i=\iv{\sigma_i}$, which corresponds to a transposition in the symmetric group $S_n$. It follows that $B_{n,ab}\iso S_n$. In this current construction, the abelianization of the braid group results in a loss of complexity. This raises the question whether there exists such a reframing of the braid group that allows an abelian operation on the free generators while preserving the inequivalence of the Artin generators with their inverses.
 
-First, we define a topological space that will aid in the desired construction.
+First, we define a topological space that will aid in the desired construction~\cite{Thiffeault2022,Fulton1997,Burau1935}.
 \begin{definition}
     Let $X$ be a topological space. A \textit{covering} of $X$ is a space $\widetilde{X}$ together with a continuous map $p:\widetilde{X}\to X$ such that, for every $x\in X$, there exists a path-connected open neighborhood $U$ containing $x$ such that $\iv{p}(U)$ is a disjoint union of open sets in $\widetilde{X}$ where each component of $\iv{p}(U)$ is mapped homeomorphically onto $U$ by $p$. Each component of $\iv{p}(U)$ is called a \textit{sheet} of the covering, where the $i$-th sheet is denoted by $\sheet{X}{i}$, and total the number of sheets in $\iv{p}(U)$ is called the \textit{degree} of the covering.
 \end{definition}
@@ -208,7 +207,9 @@ We start this construction with a countably infinite stack of copies of $\D_n$. 
     }\label{fig:D3_cuts}
 \end{figure}
 
-Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with base point $\tilde{\xi}_0$ passes through a cut from the left, it traverses up to the next sheet, and ends at the base point $\tilde{\xi}_1$. Similarly, a loop passing through a cut from the right ends at the base point $\tilde{\xi}_{-1}$, on the sheet $\sheet{\D}{n,-1}$ below $\sheet{\D}{n,0}$. To keep track of the various loops, we use a free parameter $t$. For example, a loop $\gamma$ that starts on $\sheet{\D}{n,j}$ would be written $t^j \gamma$, for $j\in\Z$. Notice that the substitution of a complex number for the free parameter $t$ results in a possibly finite degree covering. As an example, if we set $t$ to an $n$-th root of unity, then we obtain an $n$-th degree covering of $\D_n$. For the purposes of this construction, we will keep $t$ as a free parameter for now.{ }\cref{fig:D3_cuts} demonstrates how loops interact with the cuts on different sheets. The following example describes the action of the standard generators of $B_3$ on the covering space $\widetilde{\D}_3$.
+Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with base point $\tilde{\xi}_0$ passes through a cut from the left, it traverses up to the next sheet, and ends at the base point $\tilde{\xi}_1$. Similarly, a loop passing through a cut from the right ends at the base point $\tilde{\xi}_{-1}$, on the sheet $\sheet{\D}{n,-1}$ below $\sheet{\D}{n,0}$. To keep track of the various loops, we use a free parameter $t$. For example, we can label the base point on the $j$-th sheet by $t^j\xi$, and a (clockwise) loop $\gamma$ that starts on $\sheet{\D}{n,j}$ would be written $t^j \gamma$, for $j\in\Z$.
+
+Notice that the substitution of a complex number for the free parameter $t$ results in a possibly finite degree covering. As an example, if we set $t$ to an $n$-th root of unity, then we obtain an $n$-th degree covering of $\D_n$. For the purposes of this construction, we will keep $t$ as a free parameter for now.{ }\cref{fig:D3_cuts} demonstrates how loops interact with the cuts on different sheets. The following example describes the action of the standard generators of $B_3$ on the covering space $\widetilde{\D}_3$.
 
 \begin{example}\label{ex:Burau_D3}
     Consider the case when $n=3$. Then we have the corresponding covering space $\widetilde{\D}_3$ of $\D_3$. See \cref{fig:D3_cuts} for the view of a single sheet with various loops interacting with the cuts on the sheet. The actions of the standard generators of $B_3$ in $\pi_1(\D_3)$ are known, and can be visually understood in \cref{fig:sigma_on_Dn}. In the context of the covering space $\widetilde{\D}_3$, the action of the generators $\sigma_1$ and $\sigma_2$ is observed by reducing the visualization to only the base points on each sheet and the loops themselves. This can be seen in \cref{fig:Burau_D3} for the case of $\sigma_1$.
@@ -226,9 +227,7 @@ Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with
         x_{2} &\xmapsto{\sigma_1} x_1, \\
         x_3 &\xmapsto{\sigma_1} x_3.
     \end{align}
-    Consider the vector $\begin{bmatrix}
-        x_1 \\ x_2 \\ x_3
-    \end{bmatrix}$. Then the action of $\sigma_1$ on the loops $x_1,x_2,x_3$ is realized by the matrix $\begin{bmatrix}
+    Consider the vector $[x_1, x_2, x_3]^\top$. Then the action of $\sigma_1$ on the loops $x_1,x_2,x_3$ is realized by the matrix $\begin{bmatrix}
         1-t & t & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1
     \end{bmatrix}$ since
     \begin{equation}
@@ -257,7 +256,7 @@ The result from \cref{ex:Burau_D3} generalizes to the case of braids on $n$ stra
 \end{equation} 
 For $i\in\left\{ 1,\dots,n-1 \right\}$, the action of $\sigma_i$ on $\pi_1\bigl( \widetilde{\D}_n \bigr)$ is realized as an $n\times n$ matrix with entries in $\Lambda = \Z[t,\iv{t}]$. 
 
-The Burau representation of $B_n$ is then defined by:
+The \textit{Burau representation} of $B_n$ is then defined by:
 \begin{align}
     \psi_n:B_n&\to\textrm{GL}_n(\Lambda) \\
     \sigma_i &\mapsto \begin{bmatrix}
@@ -269,7 +268,7 @@ The Burau representation of $B_n$ is then defined by:
 
 The Burau representation need only be defined on the standard generators, since any braid $\beta\in B_n$ decomposes into a product of $\sigma_1,\dots,\sigma_{n-1}$ and their inverses. Notice that if we set $t = 1$, we recover the defining representation of $S_n$, as expected when we use a degree 1 covering space of $\D_n$ and force the action of the generators to be abelian.
 
-By the Cayley-Hamilton, it follows that~\cite{Kassel2008}
+By the Cayley-Hamilton Theorem, it follows that~\cite{Kassel2008}
 \begin{align}
     U^2 - \tr{U}U - \det(U)I_2 &= U^2 - (1-t)U - tI_2 = 0.
 \end{align}
@@ -294,7 +293,7 @@ The block structure of the matrix representation of $\sigma_i$ results in
 Furthermore, by direct computation~\cite{Kassel2008}, it follows that
 \begin{align}
     \psi_n(\sigma_i)\psi_n(\sigma_j) &= \psi_n(\sigma_j)\psi_n(\sigma_i) \textrm{ for } |i-j|>1, \\
-    \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \textrm{ for } |i-j|=1.
+    \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \textrm{ for } i\in\left\{ 1,\dots,n-2 \right\}.
 \end{align}
 
 Moreover, the Burau representation is compatible with the natural inclusion map $\iota:B_n\hookrightarrow B_{n+1}$ for $n\geq 1$ and $\beta\in B_n$:
@@ -305,43 +304,63 @@ Moreover, the Burau representation is compatible with the natural inclusion map 
     \end{bmatrix}.
 \end{equation}
 
-\section{The Reduced Burau Representation}
-Recall that in \cref{sec:Aut_Fn}, every braid in $B_n$ is described by an automorphism of the free group $F_n$. Equivalently, we thought of each generator $\sigma_i$ as a clockwise rearrangement of adjacent punctures of $\D_n$ and recorded the resulting transformation of the $n$ free generators of $F_n = \pi_1(\D_n)$, which were the loops around the punctures. It is intuitive to understand why the loop $\ell=x_1\cdots x_n$ is invariant under any braid-realized automorphism, as the loop  encompasses all $n$ punctures in $\D_n$. This was discussed in \cref{sec:Aut_Fn}, and was formalized in \cref{thm:autFn} as a necessary and sufficient condition for the realization of braids as automorphisms on the free group.
+\section{The reduced Burau representation}
+In \cref{sec:Aut_Fn}, recall that every braid in $B_n$ is described by an automorphism of the free group $F_n$. Equivalently, we thought of each generator $\sigma_i$ as a clockwise rearrangement of adjacent punctures of $\D_n$ and recorded the resulting transformation of the $n$ free generators of $F_n = \pi_1(\D_n)$, which were the loops around the punctures. It is intuitive to understand why the loop $\ell=x_1\cdots x_n$ is invariant under any braid-realized automorphism, as the loop  encompasses all $n$ punctures in $\D_n$. This was discussed in \cref{sec:Aut_Fn}, and was formalized in \cref{thm:autFn} as a necessary and sufficient condition for the realization of braids as automorphisms on the free group.
 
-The invariant loop $\ell$ gives insight into the Burau representation. As was done with the generators $x_1,\dots,x_n$ when constructing the Burau representation from $\pi_1(\D_n)$, the loop $\ell$ is written as an element of the free $\Lambda$-module of rank $n$, denoted $\Lambda^n$, when cast onto the covering space $\widetilde{\D}_n$:
-\begin{equation}
-    x_1\cdots x_n\in F_n\mapsto x_1+t x_2 + t^2 x_3 + \cdots + t^{n-1}x_n = \sum_{i=1}^{n}t^{i-1}x_i\in\Lambda^n.\label{eq:invLoop}
-\end{equation}
+% The invariant loop $\ell$ gives insight into the Burau representation. As was done with the generators $x_1,\dots,x_n$ when constructing the Burau representation from $\pi_1\bigl(\widetilde{\D}_n\bigr)$, the loop $\ell$ is written as an element of the free $\Lambda$-module of rank $n$, denoted $\Lambda^n$, when cast onto the covering space $\widetilde{\D}_n$:
+% \begin{equation}
+%     x_1\cdots x_n\in F_n\mapsto x_1+t x_2 + t^2 x_3 + \cdots + t^{n-1}x_n = \sum_{i=1}^{n}t^{i-1}x_i\in\Lambda^n.\label{eq:invLoop}
+% \end{equation}
 
-The right-hand side of \cref{eq:invLoop} manifests as a vector $\vec{\nu}={\left[ 1,t,t^2,\dots,t^{n-1} \right]}^\top$, where the vector components correspond to the coefficients of the free generators $x_1,\dots,x_n$. Note that this vector comes from the coordinate representation of $\Lambda^n$ rather than directly from a vector space since $\Lambda$ is not a field, but this serves as useful way to describe the elements of $\Lambda^n$. The coordinate description of $\Lambda^n$ is useful in constructing a non-trivial invariant vector space with respect to the Burau representation.
+% The right-hand side of \cref{eq:invLoop} manifests as a vector $\vec{w}={\left[ 1,t,t^2,\dots,t^{n-1} \right]}^\top$, where the vector components correspond to the coefficients of the free generators $x_1,\dots,x_n$. Note that this vector comes from the coordinate description of $\Lambda^n$ rather than directly from a vector space since $\Lambda$ is not a field, but this serves as useful way to describe the elements of $\Lambda^n$. The coordinate description of $\Lambda^n$ will aid in constructing a non-trivial invariant vector subspace with respect to the Burau representation.
 
-In particular, notice that for any $\sigma_i\in B_n$, the matrix representation $\psi_n(\sigma_i)$ leaves $\vec{\nu}$ invariant. This can be verified directly by computing the matrix multiplication:
+A similar concept is now applied to the Burau representation~\cite{Delaney2016}. For the purposes of this argument, consider the vector space in question to be the space that the Burau representation operates on. Notice that
 \begin{align*}
-    \psi_n(\sigma_i)\vec{\nu} &= \begin{bmatrix}
-        I_{i-1} & 0 & 0 \\
-        0 & U & 0 \\
-        0 & 0 & I_{n-i-1}
-    \end{bmatrix}\begin{bmatrix}
-        1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
-    \end{bmatrix} \\
-    &= \begin{bmatrix}
-        I_{i-1} & 0 & 0 & 0 \\
-        0 & 1-t & t & 0 \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 0 & I_{n-i-1}
-    \end{bmatrix}\begin{bmatrix}
-        1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
-    \end{bmatrix} \\
-    &= \begin{bmatrix}
-        1 \\ \vdots \\ t^{i-1} - {t^i} + {t^i} \\ t^{i} \\ \vdots \\ t^{n-1}
-        % 1 \\ \vdots \\ t^{i-1} - \cancel{t^i} + \cancel{t^i} \\ t^{i} \\ \vdots \\ t^{n-1}
+    U\begin{bmatrix}
+        1\\1
     \end{bmatrix} = \begin{bmatrix}
-        1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
-    \end{bmatrix} = \vec{\nu},
+        1-t & t \\ 1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        1\\1
+    \end{bmatrix} = \begin{bmatrix}
+        1-t+t \\ 1
+    \end{bmatrix} = \begin{bmatrix}
+        1 \\ 1
+    \end{bmatrix}.
 \end{align*}
-for $i=1,2,\dots,n-1$. Since $\vec{\nu}$ is invariant under the generators of $B_n$, it is also invariant under any arbitrary braid in $B_n$. Therefore, we have a non-trivial $\psi_n$-invariant subspace defined by $\textrm{span}\left\{ \vec{\nu} \right\}$, which implies that $\psi_n$ is reducible (provided $n>1$).
+Due to the block structure of $\psi_n(\sigma_i)$, it follows that $\vec{1}=[1,1,\dots,1]^\top$ is invariant under $\psi_n(\sigma_i)$ for all $i=1,2,\dots,n-1$. We then have $\psi_n(\beta)\vec{1}=\vec{1}$ for all $\beta\in B_n$. The invariance of $\vec{1}$ under the Burau representation implies that it is reducible. The details of arriving at this invariant vector are not essential to the main results in this section, but are somewhat related to $\ell$ discussed above. The interested reader can find a more detailed discussion in~\cite{Delaney2016}.
 
-The goal of the following procedure is to obtain an irreducible representation of $B_n$ from the Burau representation. First, given the invariance of $\vec{\nu}$ under $\psi_n$, we find a basis for a $\psi_n$-invariant vector space by looking for eigenvalues of $\psi_n(\sigma_i)$ for $i=1,2,\dots,n-1$~\cite{Delaney2016}.
+% To connect this discussion the invariant loop $\ell$ described before, notice that for all $\beta\in B_n$:
+% \begin{align*}
+%     \det\bigl((\psi_n(\beta)-I_n)\bigr) = 0 \implies \det\bigl((\psi_n(\beta)-I_n)^\top\bigr) &= \det\bigl((\psi_n(\beta)^\top-I_n)\bigr)=0,
+% \end{align*}
+% which implies that there exists a vector $\vec{v}$ such that $\psi_n(\beta)^\top\vec{v} = \vec{v}$. Transposing, this implies $\vec{v}^\top\psi_n(\beta) = \vec{v}^\top$ for all braids $\beta\in B_n$. In particular, notice that for any $\sigma_i\in B_n$, the matrix representation $\psi_n(\sigma_i)$ leaves $\vec{w}^\top$ invariant. This can be verified directly by computing the matrix multiplication:
+% \begin{align*}
+%     \psi_n(\sigma_i)\vec{w} &= \begin{bmatrix}
+%         I_{i-1} & 0 & 0 \\
+%         0 & U & 0 \\
+%         0 & 0 & I_{n-i-1}
+%     \end{bmatrix}\begin{bmatrix}
+%         1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
+%     \end{bmatrix} \\
+%     &= \begin{bmatrix}
+%         I_{i-1} & 0 & 0 & 0 \\
+%         0 & 1-t & t & 0 \\
+%         0 & 1 & 0 & 0 \\
+%         0 & 0 & 0 & I_{n-i-1}
+%     \end{bmatrix}\begin{bmatrix}
+%         1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
+%     \end{bmatrix} \\
+%     &= \begin{bmatrix}
+%         1 \\ \vdots \\ t^{i-1} - {t^i} + {t^i} \\ t^{i} \\ \vdots \\ t^{n-1}
+%         % 1 \\ \vdots \\ t^{i-1} - \cancel{t^i} + \cancel{t^i} \\ t^{i} \\ \vdots \\ t^{n-1}
+%     \end{bmatrix} = \begin{bmatrix}
+%         1 \\ \vdots \\ t^{i-1} \\ t^{i} \\ \vdots \\ t^{n-1}
+%     \end{bmatrix} = \vec{w},
+% \end{align*}
+% for $i=1,2,\dots,n-1$. Since $\vec{w}$ is invariant under the generators of $B_n$, it is also invariant under any arbitrary braid in $B_n$. Therefore, we have a non-trivial $\psi_n$-invariant subspace defined by $\textrm{span}\left\{ \vec{w} \right\}$, which implies that $\psi_n$ is reducible (provided $n>1$).
+
+The goal of the following procedure is to obtain an irreducible representation of $B_n$ from the Burau representation. First, we find a basis for a $\psi_n$-invariant vector subspace by looking for eigenvectors of $\psi_n(\sigma_i)$ for $i=1,2,\dots,n-1$.
 
 Let $\vec{v}_i$ be defined as the vector with $i$-th component $-t$, $(i+1)$-th component equal to 1, and all other components equal to zero, for $i=1,2,\dots,n-1$. Again, by direct computation, we can verify that $\vec{v}_i$ is an eigenvector of $\psi_n(\sigma_i)$ with eigenvalue $-t$:
 \begin{align*}
@@ -372,7 +391,7 @@ Let $\vec{v}_i$ be defined as the vector with $i$-th component $-t$, $(i+1)$-th 
     Define $\vec{v}_i$ as above. Then $\textrm{span}\left\{ \vec{v}_i \right\} = \textrm{span}\left\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_{n-1}\right\}$ form a non-trivial $(n-1)$-dimensional $\psi_n$-invariant vector space.
 \end{proposition}
 \begin{proof}
-    The vectors $\vec{v}_i$ are eigenvectors of $\psi_n(\sigma_i)$ with eigenvalue $-t$ for each $i=1,2,\dots,n-1$. These eigenvectors are clearly linearly independent, and so $\textrm{span}\left\{ \vec{v}_1,\vec{v}_2,\dots,\vec{v}_{n-1} \right\}$ is a non-trivial $(n-1)$-dimensional vector space. Clearly $\psi_n(\sigma_i)\vec{v}_j = \vec{v}_j$ for $|i-j|>1$, which is easily verified due to the block diagonal structure of $\psi_n$. Leveraging this block structure of $\psi_n(\sigma_i)$ also allows the following calculations
+    The vectors $\vec{v}_i$ are eigenvectors of $\psi_n(\sigma_i)$ with eigenvalue $-t$ for each $i=1,2,\dots,n-1$. These eigenvectors are linearly independent by construction, so $\textrm{span}\left\{ \vec{v}_1,\vec{v}_2,\dots,\vec{v}_{n-1} \right\}$ is a non-trivial $(n-1)$-dimensional vector space. Clearly $\psi_n(\sigma_i)\vec{v}_j = \vec{v}_j$ for $|i-j|>1$, which is easily verified due to the block diagonal structure of $\psi_n$. Leveraging this block structure of $\psi_n(\sigma_i)$ also allows the following calculations
     \begin{align*}
         \begin{bmatrix}
             1 & 0 & 0 \\
@@ -446,14 +465,14 @@ Then the reduced Burau representation matrices are given by
 \end{align}
 for $i=2,3,\dots,n-2$ and $n\geq 3$~\cite{Kassel2008}. The exact form of the above matrices may differ by a transpose in some sources, but the results are equivalent.
 
-The Burau representation has been shown to be faithful for $n\leq 3$ and degenerate for $n \geq 5$~\cite{Kassel2008}. Whether the Burau representation is faithful for $n=4$ remains an open problem, but has been shown to be faithful almost everywhere~\cite{Datta2022}.
+There is no loss of information when swapping between the unreduced and the reduced Burau representation. This reduction is useful in showing the Burau representation to be faithful for $n\leq 3$ and degenerate for $n \geq 5$~\cite{Kassel2008}. Whether the Burau representation is faithful for $n=4$ remains an open problem, but has been shown to be faithful almost everywhere~\cite{Datta2022}. For our purposes, we will use the reduced Burau representation to construct a unitary representation of $B_n$.
 
-\section{Unitary Representation Matrices}
+\section{Unitary representation matrices}
 As explained in~\cite{Delaney2016}, we can use $U$ from the construction of the (unreduced) Burau representation to show that there are no choices of the parameter $t$ such that the representation matrices are directly unitary. However, we can use the reduced Burau representation matrices to construct a new representation of $B_n$ that is in fact unitary~\cite{Delaney2016,Squier1984}.
 
 % However, we can use the reduced Burau representation matrices to construct a unitary representation of $B_n$.
 
-First, let $t=s^2$ for some $s\in\C^*$. In other words, we are restricting $t$ to be a square of a nonzero complex number. Define the $(n-1)\times (n-1)$ matrices
+First, let $t=s^2$ for some $s\in\C^\times$. In other words, we are restricting $t$ to be a square of a nonzero complex number. Define the $(n-1)\times (n-1)$ matrices
 \begin{align}
     P_{n-1} &= \textrm{diag}(s,s^2,\dots,s^{n-1}), \\
     J_{n-1} &= \begin{bmatrix}
@@ -508,14 +527,14 @@ where diag denotes the diagonal matrix with the given diagonal entries. Furtherm
 
 
 
-Suppose that for specific choices of $s\in\C^*$, we can decompose $J_{n-1}(s) = X^\dagger X$ for some $(n-1)\times(n-1)$ matrix $X$. Then
+Suppose that for specific choices of $s\in\C^\times$, we can decompose $J_{n-1}(s) = X^\dagger X$ for some $(n-1)\times(n-1)$ matrix $X$. Then
 \begin{align*}
     {\left( J_{n-1}(s) \right)}^\dagger = {\left( X^\dagger X \right)}^\dagger = X^\dagger {\left( X^\dagger \right)}^\dagger = X^\dagger X = J_{n-1}(s),
     % = X^\dagger X &\iff X J_{n-1}(s) = X X^\dagger X = {\left( X^\dagger X \right)}^\dagger X \\
     % &\iff X J_{n-1}(s) = J_{n-1}(s) X \\
     % &\iff [X,J_{n-1}(s)] = 0.
 \end{align*}
-which implies that $J_{n-1}(s)$ is Hermitian. In general, $J_{n-1}(s)$ is Hermitian if $s+\iv{s}\in\R$. In other words, either $s\in\R^*$, or if $s\in\C^*$, then
+which implies that $J_{n-1}(s)$ is Hermitian. In general, $J_{n-1}(s)$ is Hermitian if $s+\iv{s}\in\R$. In other words, either $s\in\R^\times$, or if $s\in\C^\times$, then
 \begin{align*}
     s+\iv{s} = \overline{s}+\overline{\iv{s}} &\iff s+\frac{\overline{s}}{\size{s}^2} = \overline{s}+\frac{s}{\size{s}^2} \\
     &\iff s-\overline{s} = \frac{s-\overline{s}}{\size{s}^2} \\
@@ -523,19 +542,21 @@ which implies that $J_{n-1}(s)$ is Hermitian. In general, $J_{n-1}(s)$ is Hermit
 \end{align*}
 where $s\overline{s}=\size{s}^2$. 
 
-Thus, $s\in\R^*\cup\C_{\size{z}=1}$, which gives a more specific description of the diagonals of $J_{n-1}(s)$:
+Thus, $s\in\R^\times\cup\C_{\size{z}=1}$, which gives a more specific description of the diagonals of $J_{n-1}(s)$:
 \begin{equation}
     s+\iv{s} = s+\overline{s} = 2\textrm{Re}(s),
 \end{equation}
-where $\textrm{Re}(z)$ denotes the real part of $z\in\C$. However, if $J_{n-1}$ is to be decomposed into $X^\dagger X$, then we can further restrict the allowable values of $s$. Let $x_{i,j}$ denote the $(i,j)$-th entry of $X$. Then it must be that
+where $\textrm{Re}(s)$ denotes the real part of $s$. However, if $J_{n-1}$ is to be decomposed into $X^\dagger X$, then we can further restrict the allowable values of $s$. Let $x_{i,j}$ denote the $(i,j)$-th entry of $X$. Then it must be that
 \begin{align*}
     2\textrm{Re}(s) &= \sum_{i=1}^{n-1}\overline{x}_{i,j} x_{i,j} = \sum_{i=1}^{n-1}\size{x_{i,j}}^2 \geq 0,
 \end{align*}
-for all $j=1,2,\dots,n-1$. Since $X$ is not the zero matrix, $\textrm{Re}(s) > 0$. Furthermore, we place a restriction on $X$ by observing that
-\begin{align*}
-    {\left( X^\dagger X \right)}_{i,j} &= \sum_{k=1}^{n-1} \overline{x}_{k,i}x_{k,j} = -\delta_{i,j\pm 1},
-\end{align*}
-where $\delta_{ij}$ is the Kronecker delta.
+for all $j=1,2,\dots,n-1$.
+% Since $X$ is not the zero matrix, $\textrm{Re}(s) > 0$.
+% Furthermore, we place a restriction on $X$ by observing that
+% \begin{align*}
+%     {\left( X^\dagger X \right)}_{i,j} &= \sum_{k=1}^{n-1} \overline{x}_{k,i}x_{k,j} = -\delta_{i,j\pm 1},
+% \end{align*}
+% where $\delta_{ij}$ is the Kronecker delta.
 
 For such a choice of $s$ (hence $X$ and $t$) and any braid $\beta\in B_n$, the corresponding matrix
 \begin{align*}
@@ -590,7 +611,8 @@ is unitary.
     Notice that the involution $\eta_n:\textrm{GL}_n(\C)\to\textrm{GL}_n(\C)$ defined by $A \mapsto A^\dagger$ is an automorphism of $\textrm{GL}_n(\C)$. Then $\eta_2\circ\psi_3^\textbf{r}$ is a homomorphism and thus a representation of $B_3$. In other words, applying the hermitian adjoint to the reduced Burau representation matrices results in a new representation.
 
     Finally, traditional conjugation of $\eta_2\circ\psi_3^\textbf{r}$ by the matrix $XP_{n-1}$ gives a representation $\mathcal{U}:B_3\to U(2)$ defined by
-    \begin{align*}
+    \begin{align}
+        \begin{split}    
         \mathcal{U}(\sigma_1) &= \left( X P_{n-1} \right){\left( \psi_n^\mathbf{r} (\sigma_1)\right)}^\dagger\iv{\left( X P_{n-1} \right)} \\
         % &= \begin{bmatrix}
         %     \frac{1}{4}\left(\sqrt{3} - i \right)\left( \sqrt{2} + i \right) & \frac{1}{2}e^{-i\frac{\pi}{6}} \\
@@ -601,8 +623,9 @@ is unitary.
             \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
             \\
             1 & -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}
-        \end{bmatrix} \\ 
-        \\
+        \end{bmatrix},\end{split} \\ 
+        \nonumber \\
+        \begin{split}
         \mathcal{U}(\sigma_2) &= \left( X P_{n-1} \right){\left( \psi_n^\mathbf{r} (\sigma_2)\right)}^\dagger\iv{\left( X P_{n-1} \right)} \\
         % &= \begin{bmatrix}
         %     \frac{1}{4} \left(\sqrt{3}-i\right)\left(-\sqrt{2}+i\right) & \frac{1}{2}e^{-i\frac{\pi}{6}} \\
@@ -614,7 +637,8 @@ is unitary.
             \\
             1 & \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}
         \end{bmatrix},
-    \end{align*}
+        \end{split}
+    \end{align}
     where $U(2)$ is the group of $2\times 2$ unitary matrices. The unitarity of $\mathcal{U}(\sigma_1)$ and $\mathcal{U}(\sigma_2)$ can be verified by direct computation. Additionally, $\mathcal{U}$ satisfies the braid relation:
     \begin{align*}
         \mathcal{U}(\sigma_1)\mathcal{U}(\sigma_2)\mathcal{U}(\sigma_1) &= \begin{bmatrix}
@@ -622,20 +646,21 @@ is unitary.
             i & 0
         \end{bmatrix} = \mathcal{U}(\sigma_2)\mathcal{U}(\sigma_1)\mathcal{U}(\sigma_2).
     \end{align*}
-
+    A straightforward calculation shows that $[\mathcal{U}(\sigma_1),\mathcal{U}(\sigma_2)]\neq0$, which implies that this representation is nonabelian.
+    
     For the permutation group, transpositions are their own inverse, and so the representation matrices for transpositions are involutory. The additional complexity of the braid group is highlighted by the fact that the representation matrices corresponding to $\iv{\sigma_1}$ and $\iv{\sigma_2}$ are not the same as those corresponding to $\sigma_1$ and $\sigma_2$. This is easily verified by obtaining the inverses of $\mathcal{U}(\sigma_1)$ and $\mathcal{U}(\sigma_2)$ through application of the Hermitian adjoint due to the unitarity of $\mathcal{U}$:
-    \begin{align*}
+    \begin{align}
         \mathcal{U}(\iv{\sigma_1}) &= {\mathcal{U}(\sigma_1)}^\dagger = \frac{1}{2}e^{i\frac{\pi}{6}}\begin{bmatrix}
             \sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
             \\
             1 & -\sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}
-        \end{bmatrix} \\ 
-        \\
+        \end{bmatrix}, \\ 
+        \nonumber\\
         \mathcal{U}(\iv{\sigma_2}) &= {\mathcal{U}(\sigma_2)}^\dagger = \frac{1}{2}e^{i\frac{\pi}{6}}\begin{bmatrix}
             -\sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
             \\
             1 & \sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}
         \end{bmatrix}.
-    \end{align*}
-    Thus, $\sigma_1^2$ and $\sigma_2^2$ are not the identity braid, which is in contrast to the permutation group. This aspect of the braid group results in non-trivial consequences for permutations of objects that are governed by the braid group rather than the permutation group. This is the focus of the following chapter.
+    \end{align}
+    Thus, $\sigma_1^2$ and $\sigma_2^2$ are not the identity braid, which is in contrast to the permutation group. This aspect of the braid group results in nontrivial consequences for permutations of objects that are governed by the braid group rather than the permutation group. This is the focus of the following chapter.
 \end{example}

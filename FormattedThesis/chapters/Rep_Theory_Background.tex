@@ -25,7 +25,7 @@ which satisfies the group multiplication rules. Since a representation is a grou
 \end{definition}
 
 \begin{example}
-    The simplest representation of any group $G$ is the \textit{trivial} representation, in which every $g\in G$ is realized by $g\mapsto 1$. This representation is clearly degenerate.
+    The simplest representation of any group $G$ is the \textit{trivial representation}, in which every $g\in G$ is realized by $g\mapsto 1$. This representation is clearly degenerate.
 \end{example}
 
 \begin{remark}
@@ -36,7 +36,11 @@ which satisfies the group multiplication rules. Since a representation is a grou
 \end{proof}
 
 \begin{example}
-    Consider the symmetric group $S_n$. The \textit{defining} representation of $S_n$ encodes each $\sigma\in S_n$ by placing a 1 in the $j$-th row and $i$-th column of the matrix $D(\sigma)$ if $\sigma$ sends $i$ to $j$, and 0 otherwise. For example, in $S_3$, the permutation $(23)$ has the matrix representation
+    A straightforward nontrivial representation of the symmetric group $S_n$ is known as the \textit{sign representation}. Recall that every $\sigma\in S_n$ can be decomposed into a product of transpositions, and the sign of a permutation is equal to ${(-1)}^{(\textrm{\# of transpositions})}$. The sign representation is then defined by the map $\sigma\mapsto\textrm{sign}(\sigma)$. For example, the permutation $(12)$ is mapped to $-1$, and the permutation $(123) = (13)(12)$ is sent to $+1$. Since the identity permutation is even, it gets mapped to $+1$, as required.
+\end{example}
+
+\begin{example}
+    Consider the symmetric group $S_n$. The \textit{defining representation} of $S_n$ encodes each $\sigma\in S_n$ by placing a 1 in the $j$-th row and $i$-th column of the matrix $D(\sigma)$ if $\sigma$ sends $i$ to $j$, and 0 otherwise. For example, in $S_3$, the permutation $(23)$ has the matrix representation
     \begin{align*}
         D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix},
     \end{align*}

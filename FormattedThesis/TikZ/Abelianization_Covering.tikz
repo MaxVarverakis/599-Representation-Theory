@@ -28,7 +28,7 @@
         \draw[out=-135, in=135, ultra thick, decoration={markings, mark= at position 0.5 with {\arrow{latex},sloped}}, postaction={decorate}, Mulberry] (t2) to node[left, pos=.4] {$-tx_1$} (t1);
 
         \foreach \i in {0,...,2} {
-                \filldraw [red] (t\i) circle (2pt) node[right] {\footnotesize $t^\i\zeta$};
+                \filldraw [red] (t\i) circle (2pt) node[right] {\footnotesize $t^\i\xi$};
         }
 
         \begin{scope}[shift={(3*\circleRadius,-\vSep)}]
@@ -88,7 +88,7 @@
                 }
 
                 % base point for loop/arrow
-                \filldraw [red] (\b) circle (2pt) node[below] {$t^0\zeta$};
+                \filldraw [red] (\b) circle (2pt) node[below] {$t^0\xi$};
         \end{scope}
 
         \begin{scope}[shift={(3*\circleRadius,0)}]
@@ -144,7 +144,7 @@
                 }
 
                 % base point for loop/arrow
-                \filldraw [red] (\b) circle (2pt) node[below] {$t^1\zeta$};
+                \filldraw [red] (\b) circle (2pt) node[below] {$t^1\xi$};
         \end{scope}
 
         \begin{scope}[shift={(3*\circleRadius,\vSep)}]
@@ -198,7 +198,7 @@
                 }
 
                 % base point for loop/arrow
-                \filldraw [red] (\b) circle (2pt) node[below] {$t^2\zeta$};
+                \filldraw [red] (\b) circle (2pt) node[below] {$t^2\xi$};
         \end{scope}
 
 
