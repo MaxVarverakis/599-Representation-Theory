@@ -1,0 +1,566 @@
+\documentclass[compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
+
+\mode<presentation>
+
+% \setbeamertemplate{theorems}[numbered]
+% \setbeamertemplate{blocks}[rounded][shadow=true]
+
+\setbeamercolor{block title example}{use=structure,fg=CPwhite,bg=CPgreen} % Example title color
+\setbeamercolor{block body example}{use=structure,fg=black,bg=CPbeige} % Example body color
+
+\usetheme{CalPoly2023}
+
+% use if you want greyed out steps rather than invisible
+% \setbeamercovered{transparent}
+
+%Path relative to the main .tex file 
+\graphicspath{ {../FormattedThesis/TikZ} }
+
+\usepackage{graphicx, amsmath, amsthm, amssymb, enumerate, esint, mathtools,multirow, braket}
+\usepackage{amsfonts,mathrsfs,float,array}
+%\usepackage{xypic}
+%\usepackage{tikz-cd}
+\usepackage{tikz}
+\usetikzlibrary{arrows, shapes, decorations}
+%\usepackage{pgfplots}
+%\usepackage{rotating}
+%\usepackage[shortlabels]{enumitem}
+\usepackage{subfigure}
+\usepackage{multicol}
+%\usepackage{amsmath}
+%\usepackage{epsfig}
+%\usepackage{graphicx}
+%\usepackage[all,knot]{xy}
+%\xyoption{arc}
+\usepackage{url}
+\usepackage{multimedia}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% \newcommand{\twobytwo}[4]{\left(\begin{array}{cc}
+% #1 & #2  \\
+% #3 & #4 \end{array} \right)}
+% \newcommand{\threebythree}[9]{\left( \begin{array}{ccc}
+% #1 & #2 & #3 \\
+% #4 & #5 & #6 \\
+% #7 & #8 & #9 \end{array} \right)}
+% \newcommand{\fourbyfour}[9]{\left( \begin{array}{cccc}
+% #1 & #2 & \cdots & #3 \\
+% #4 & #5 & \cdots & #6\\
+% \vdots & \vdots & \cdots  & \vdots \\
+% #7 & #8 & \cdots & #9 \end{array} \right)}
+% \newcommand{\ip}[2]{\left<  #1, #2 \right> }
+
+\input{../FormattedThesis/commands.tex}
+
+%\theoremstyle{plain}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{conj}[theorem]{Conjecture}
+
+%https://tex.stackexchange.com/questions/237949/theorem-and-proposition-with-arbitrary-number-in-beamer
+%\newcommand{\propnumber}{} % initialize
+%\newtheorem*{prop}{Proposition \propnumber}
+%\newenvironment{propc}[1]
+%  {\renewcommand{\propnumber}{#1}%
+%   \begin{shaded}\begin{prop}}
+%  {\end{prop}\end{shaded}}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    {\footnotesize \insertframenumber/\inserttotalframenumber}
+}
+
+\title[Defense]{Representation Theory and its Applications in Physics \\ \;}
+\author[Max Varverakis (mvarvera@calpoly.edu)]{Max Varverakis (mvarvera@calpoly.edu)}
+\institute[Cal Poly]{}%{California Polytechnic State University} 
+\date{June 5, 2024}
+\setbeamercolor{section}{use=structure,fg=CPwhite,bg=CPgreen}
+\setbeamercolor{section in head/foot}{use=structure,fg=CPwhite,bg=CPgreen}
+\setbeamercolor{block title}{use=structure,fg=CPwhite,bg=CPgreen}
+\setbeamercolor{block body}{use=structure,fg=black,bg=CPbeige}
+
+\useoutertheme[subsection=false]{smoothbars}
+%\setbeamertemplate{footline}[text line]{} % makes the footer EMPTY
+
+\usepackage{beamerouterthemesmoothbars}
+% outer themes include default, infolines, miniframes, shadow, sidebar, smoothbars, smoothtree, split, tree
+
+%%%%%%%%%%%%%%THIS WAS A ~XX MINUTE PRESENTATION WITH ALL VISIBLE SLIDES AND NO QUESTIONS DURING THE TALK
+
+
+\listfiles
+\begin{document}
+
+\begin{frame}
+\titlepage
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+\begin{frame}
+\textbf{Outline:}
+\begin{enumerate}
+  % \item Preliminaries
+	\item Introduction to Representation Theory
+	\item Examples in Physics
+	\item The Braid Group
+	\item Physical Applications of the Braid Group
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \section{Preliminaries}
+% \begin{frame}
+%   \sectionpage
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Introduction to Representation Theory}
+\begin{frame}
+  \sectionpage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Definition of a Representation}
+
+\vfill
+
+\begin{definition}
+  Let $G$ be a group. A \textit{representation} of $G$ is a homomorphism from $G$ to a group of operators on a linear vector space $V$. The dimension of $V$ is the \textit{dimension} or \textit{degree} of the representation.
+\end{definition}
+
+\vfill
+
+\onslide<2->
+If $X$ is a representation of $G$ on a vector space $V$, then $X$ is a map
+\vspace*{-.5em}
+\begin{equation*}
+    g\in G\xrightarrow{X} X(g),
+\end{equation*}
+where $X(g)$ is an operator on the $V$.
+
+\vfill
+
+\onslide<3->
+\begin{block}{Remark}
+  If $V$ is finite-dimensional with basis $\left\{ \e_1,\e_2,\dots,\e_n \right\}$, then $X$ can be realized as an $n\times n$ matrix.
+\end{block}
+
+\vfill
+
+%\begin{center}
+%%set up to be used in the 16:9 aspect ratio
+%\begin{overlayarea}{11cm}{4cm}
+%\begin{center}
+%\includegraphics<1>[width=0.73\textwidth]{InitialSystem0}
+%\includegraphics<2>[width=0.73\textwidth]{InitialSystem1}
+%\includegraphics<3>[width=0.73\textwidth]{InitialSystem2}
+%\includegraphics<4>[width=0.73\textwidth]{InitialSystem3}
+%\includegraphics<5>[width=0.73\textwidth]{InitialSystem4}
+%\end{center}
+%\end{overlayarea}
+%\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Properties of Representations}
+
+\setbeamercovered{transparent}
+
+\begin{block}<2->{Group Multiplication}
+  Representations are group morphisms, so they satisfy the group multiplication rule:
+  \begin{equation*}
+      X(gh) = X(g)X(h), \quad \forall g,h\in G.
+  \end{equation*}
+\end{block}
+
+\vfill
+
+\begin{block}<3->{Invertibility}
+  If $X$ is a representation of $G$, then $X(g)^{-1} = X(g^{-1}),\ \forall g\in G$.
+\end{block}
+
+\vfill
+
+\setbeamercovered{invisible}
+\onslide<4->
+\underline{\bfseries Consequences:}
+% \setbeamercovered{transparent}
+\begin{enumerate}
+  \item<5-> $X(e) = I$, where $e$ is the identity element of the group and $I$ is the identity operator.
+  \item<6-> In the matrix presentation of $X$, $X(g)$ is invertible for all $g\in G$.
+\end{enumerate} 
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example: The Trivial Representation}
+
+\begin{block}<1->{Trivial Representation of a Group}
+  For any group $G$, the trivial representation takes $g\mapsto 1$ for all $g\in G$.
+\end{block}
+
+% \vfill
+
+\onslide<2->
+\underline{\bfseries Comments:}
+
+\begin{itemize}
+  \item<2-> The trivial representation is always one-dimensional.
+  \item<3-> For groups with more than one element, the trivial representation is not invertible, so we call it a \textcolor{CPgold}{\textit{degenerate representation}}.
+  \item<4-> If a representation is an isomorphism, then it is a \textcolor{CPgold}{\textit{faithful representation}}.
+\end{itemize}
+
+\vfill
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example: A Faithful Representation of $S_n$}
+\vfill
+
+\begin{block}<1->{Defining representation of $S_n$}
+The defining representation $D$ of $S_n$ encodes the action of the symmetric group on the standard basis of $\R^n$. If a permutation sends $i$ to $j$, then place a 1 the $i$-th column and $j$-th row of the representation matrix.
+\end{block}
+\vfill
+
+\onslide<2->
+E.g., in $S_3$:
+
+\setbeamercovered{transparent}
+\begin{align*}
+  \onslide<3,5->{D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}} \qquad
+  \onslide<4->{D\big((123)\big) = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}}
+\end{align*}
+\vfill
+
+\setbeamercovered{invisible}
+\begin{itemize}
+  \item<5-> The defining representation of $S_n$ is $n$-dimensional.
+  \item<6-> This representation is faithful.
+\end{itemize}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example: An Intuitive Representation of 2D Rotations}
+
+\begin{enumerate}
+  \item Note that representations work for continuous groups too!
+  \item Define rotation group.
+  \item Obtain familiar 2D rotation matrix.
+  \item Can you think of other ways to represent 2D rotations? What about $e^{i\phi}$ parameterization? How many ways to do this? How many ways are unique? What does it mean to be unique?
+\end{enumerate}
+
+\vfill
+
+\begin{block}<2->{Question}
+  How do we classify representations of a group?
+\end{block}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Character of a Representation}
+
+\begin{enumerate}
+  \item Basics of characters.
+  \item Similar representations have the same character.
+  \item Lead into uniqueness of representations.
+\end{enumerate}
+
+\vfill
+
+\begin{block}<2->{Question}
+  How many representations does a group have?
+\end{block}
+\onslide<3->{\textcolor{CPgold}{\textbf{Answer:}} Something to lead into irreducibility.}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Decomposing Representations}
+
+\begin{enumerate}
+  \item Define irreducibility.
+  \item Relate to invariant subspaces.
+  \item Schur's Lemmas?
+  \item Note the consequence of abelian groups and one-dimensional representations. Will be useful later\dots
+\end{enumerate}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example: Irreducible Representation of 2D Rotations}
+
+\begin{enumerate}
+  \item Back to our rotation group example\dots
+  \item Span of $\e_1$ or $\e_2$ not invariant under rotations.
+  \item Define $\e_{\pm}$.
+  \item Show each is invariant.
+  \item Decompose previous representation into direct sum of these two.
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{A Note About Irreducibility}
+
+\begin{enumerate}
+  \item Irreducible representations are the building blocks of all representations.
+  \item Different ways to construct representations from the irreducibles.
+  \item The irreducibles offer insight into the structure of the group.
+  \item As for applications in physics, we can use irreps to describe the symmetries of physical systems and understand their consequences.
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Examples in Physics}
+\begin{frame}
+  \sectionpage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Preliminaries}
+
+\textbf{Outline:}
+\begin{enumerate}
+  \item Dirac notation.
+  \item Basic quantum mechanics.
+  \item Quantum Hilbert space.
+  \item The commutator.
+\end{enumerate}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Preliminaries: Dirac Notation}
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Preliminaries: Basic Quantum Mechanics}
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{2D Rotations and SO(2)}
+
+\vfill
+
+\begin{enumerate}
+  \item The group of 2D rotations is SO(2).
+  \item General properties of SO(2).
+\end{enumerate}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Infinitesimal Rotations}
+
+\begin{itemize}
+    \item Go through the derivation of the generator of SO(2) in an appropriate level of detail.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Recovering the Rotation Matrix from $J$}
+
+\begin{itemize}
+    \item Do Taylor expansion thing to get the rotation matrix from $J$ (looks familiar phys majors?)
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Irreducible Representations of SO(2)}
+
+\begin{itemize}
+  \item Rep generated by $J$ is unitary, $J$ is Hermitian.
+  \item SO(2) abelian implies 1D irreps (reference previous thm's).
+  \item Construct 1D invariant subspaces, obtain 1D irreps.
+  \item Get result about $m\in\Z$ for irrep label.
+  \item Mention ortho/completeness relations?
+  \item State vector decomposition. Probably don't have time to delve into detailed derivations but would be great to show part of the argument for getting explicit differential form of $J$.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Conservation of Angular Momentum}
+
+\begin{itemize}
+  \item Do commutator example with Hamiltonian and $J$.
+  \item Discuss implications.
+  \item We can do the same thing for translation group which gives us the familiar $\hat{p}$ operator and conservation of linear momentum!
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Generalization to 3 Spatial Dimensions}
+
+\begin{itemize}
+  \item Show but don't derive $R_{\vec{n}}(\theta)$ decomposition into $\vec{J}$ components.
+  \item We have basis from the components of $\vec{J}$.
+  \item Ladies and gentlemen, we got SO(3)\dots
+  \item $\vec{J}$ component differential forms?
+  \item Commutation relations, in some form talk about $J_{\pm},J^2$ and final eigenvalue results.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Connection to Quantum Mechanics}
+
+\begin{itemize}
+  \item Discuss connection between generators and quantum operators, eigenvalues and classical observables, discretization (!), etc.
+  \item This is the kicker. I will get very excited here probably.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Multi-valued Irreducible Representations and Spinors}
+\textcolor{red}{Not sure where to put this\dots}
+  
+\begin{itemize}
+  \item Let's come back to SO(2) for a second\dots
+  \item Show $m=1/2$ irreps.
+  \item Discuss implications, spinors, etc\dots
+\end{itemize}
+
+\end{frame}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{The Braid Group}
+\begin{frame}
+  \sectionpage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Basic Definitions}
+
+\vfill
+
+\begin{itemize}
+  \item Formal definitions.
+  \item Physical/intuitive visualization and interpretation.
+  \item Standard generators.
+  \item Automorphisms of $\pi_1(\D_n)$.
+  \item Braid relations in this picture.
+  \item 1D Reps.
+  \item Burau representation.
+  \item Note on faithfulness.
+  \item Unitary representation from reduced Burau.
+\end{itemize}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Physical Applications of the Braid Group}
+\begin{frame}
+  \sectionpage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Rotations of Quantum Hilbert Space}
+
+\vfill
+
+\begin{itemize}
+  \item 1D action on Hilbert space, permuting particles, compare/contrast to bosons/fermions.
+  \item Talk about nontrivial braiding effects.
+  \item Example of unitary braid rep acting on Hilbert space.
+\end{itemize}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Anyons: A Consequence of Braiding}
+
+\begin{itemize}
+  \item Introduce anyons.
+  \item Discuss how anyons are described by the braid group.
+  \item Fusion rules, abelian vs nonabelian anyons.
+  \item Non-interacting anyons.
+  \item Non-interacting anyons in harmonic potential.
+  \item Nontrivial braiding effects anyone?
+  \item Applications of anyons! (quantum computing, topological quantum field theory, FQHE, etc.)
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Summary/Conclusion}
+
+Acknowledgements, questions, references (?)
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

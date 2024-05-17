@@ -1,0 +1,98 @@
+%--------------------------------------------------------------------
+%                           Introduction
+%--------------------------------------------------------------------
+% This is the colour theme file for the an unofficial Cal Poly 
+% LaTeX Beamer theme "CalPoly20023" for the School of Mathematics and Statistics.
+
+% Created by: Sean Gasiorek
+% Version: 0.1
+% Updated: 21 October 2023
+
+% GitHub repo: https://github.com/samanthalclarke/USYD-Beamer-Theme
+
+% Please see GitHub repo for current version, README.md, licence.md, and 
+% other theme & template files. 
+
+% This file can be redistributed and/or modified under the terms of the GNU
+% Public License, version 3.
+
+%--------------------------------------------------------------------
+%                           Licence
+%--------------------------------------------------------------------
+% Copyright (c) 2023 Sean Gasiorek
+
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+%--------------------------------------------------------------------
+
+\RequirePackage{tikz}
+\RequirePackage[scaled]{helvet}
+
+%define some pictures
+\pgfdeclareimage[height=\paperheight,width=\paperwidth]{titlebackground}{CPTitlePage169}
+\pgfdeclareimage[height=\paperheight,width=\paperwidth]{sectiondivider}{CPSectionPage169}
+
+
+\setbeamertemplate{title page}%
+{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south west,inner sep=0,text opacity=1]
+    (image) at (current page.south west)
+    {\pgfuseimage{titlebackground}};
+  \end{tikzpicture}
+  \begin{columns}
+  \begin{column}{0.08\textwidth}
+  \end{column}
+    \begin{column}{0.55\textwidth}
+      {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}%
+      {\usebeamerfont{subtitle}\usebeamercolor[bg]{title}\insertsubtitle\par}%
+      {\usebeamerfont{date in titlepage}\usebeamercolor[bg]{title}\insertdate\par}
+      \ifx\insertauthor\@empty%
+      {\usebeamerfont{author in titlepage}\usebeamercolor[bg]{title}\par}
+      \vskip 3ex%
+      \insertinstitute\par%
+      \else%
+      \vskip 3ex%
+      {\usebeamerfont{subtitle}\usebeamercolor[bg]{title}Presented~by\par}%
+      {\usebeamerfont{author in titlepage}\usebeamercolor[bg]{title}
+      \insertauthor\par%
+      \insertinstitute\par}%
+      \fi
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \end{column}
+  \end{columns}
+}
+
+% Correct symbols to be inserted [COMING SOON]
+
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+
+
+\setbeamertemplate{section page}
+{%
+  \begin{tikzpicture}[remember picture,overlay]%
+    \node[anchor=south west,inner sep=0,text opacity=1]
+    (image) at (current page.south west)
+    {\pgfuseimage{sectiondivider}};
+  \end{tikzpicture}%
+  {\usebeamerfont{subtitle}\usebeamercolor[fg]{section}\insertsectionnumber~\insertsection\par}
+  }
