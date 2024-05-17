@@ -8,6 +8,14 @@
 \setbeamercolor{block title example}{use=structure,fg=CPwhite,bg=CPgreen} % Example title color
 \setbeamercolor{block body example}{use=structure,fg=black,bg=CPbeige} % Example body color
 
+\newenvironment<>{pfsketch}{%
+  \setbeamercolor{block title}{use=structure,fg=CPwhite,bg=CPblack!90}%
+  \setbeamercolor{block body}{use=structure,fg=black,bg=CPblack!5}%
+  \begin{block}#1{Proof (sketch)}\let\qed\relax%
+}{%
+  \end{block}%
+}
+
 \usetheme{CalPoly2023}
 
 % use if you want greyed out steps rather than invisible
@@ -16,7 +24,7 @@
 %Path relative to the main .tex file 
 \graphicspath{ {../FormattedThesis/TikZ} }
 
-\usepackage{graphicx, amsmath, amsthm, amssymb, enumerate, esint, mathtools,multirow, braket}
+\usepackage{graphicx, amsmath, amsthm, amssymb, enumerate, esint, mathtools,multirow, braket, empheq}
 \usepackage{amsfonts,mathrsfs,float,array}
 %\usepackage{xypic}
 %\usepackage{tikz-cd}
@@ -133,30 +141,30 @@
 
 \begin{frame}{Definition of a Representation}
 
-\vfill
+  \vfill
 
-\begin{definition}
-  Let $G$ be a group. A \textit{representation} of $G$ is a homomorphism from $G$ to a group of operators on a linear vector space $V$. The dimension of $V$ is the \textit{dimension} or \textit{degree} of the representation.
-\end{definition}
+  \begin{definition}
+    Let $G$ be a group. A \textit{representation} of $G$ is a homomorphism from $G$ to a group of operators on a linear vector space $V$. The dimension of $V$ is the \textit{dimension} or \textit{degree} of the representation.
+  \end{definition}
 
-\vfill
+  \vfill
 
-\onslide<2->
-If $X$ is a representation of $G$ on a vector space $V$, then $X$ is a map
-\vspace*{-.5em}
-\begin{equation*}
-    g\in G\xrightarrow{X} X(g),
-\end{equation*}
-where $X(g)$ is an operator on the $V$.
+  \onslide<2->
+  If $X$ is a representation of $G$ on a vector space $V$, then $X$ is a map
+  \vspace*{-.5em}
+  \begin{equation*}
+      g\in G\xrightarrow{X} X(g),
+  \end{equation*}
+  where $X(g)$ is an operator on the $V$.
 
-\vfill
+  \vfill
 
-\onslide<3->
-\begin{block}{Remark}
-  If $V$ is finite-dimensional with basis $\left\{ \e_1,\e_2,\dots,\e_n \right\}$, then $X$ can be realized as an $n\times n$ matrix.
-\end{block}
+  \onslide<3->
+  \begin{block}{Remark}
+    If $V$ is finite-dimensional with basis $\left\{ \e_1,\e_2,\dots,\e_n \right\}$, then $X$ can be realized as an $n\times n$ matrix.
+  \end{block}
 
-\vfill
+  \vfill
 
 %\begin{center}
 %%set up to be used in the 16:9 aspect ratio
@@ -177,33 +185,33 @@ where $X(g)$ is an operator on the $V$.
 
 \begin{frame}{Properties of Representations}
 
-\setbeamercovered{transparent}
+  \setbeamercovered{transparent}
 
-\begin{block}<2->{Group Multiplication}
-  Representations are group morphisms, so they satisfy the group multiplication rule:
-  \begin{equation*}
-      X(gh) = X(g)X(h), \quad \forall g,h\in G.
-  \end{equation*}
-\end{block}
+  \begin{block}<2->{Group Multiplication}
+    Representations are group morphisms, so they satisfy the group multiplication rule:
+    \begin{equation*}
+        X(gh) = X(g)X(h), \quad \forall g,h\in G.
+    \end{equation*}
+  \end{block}
 
-\vfill
+  \vfill
 
-\begin{block}<3->{Invertibility}
-  If $X$ is a representation of $G$, then $X(g)^{-1} = X(g^{-1}),\ \forall g\in G$.
-\end{block}
+  \begin{block}<3->{Invertibility}
+    If $X$ is a representation of $G$, then $X(g)^{-1} = X(g^{-1}),\ \forall g\in G$.
+  \end{block}
 
-\vfill
+  \vfill
 
-\setbeamercovered{invisible}
-\onslide<4->
-\underline{\bfseries Consequences:}
-% \setbeamercovered{transparent}
-\begin{enumerate}
-  \item<5-> $X(e) = I$, where $e$ is the identity element of the group and $I$ is the identity operator.
-  \item<6-> In the matrix presentation of $X$, $X(g)$ is invertible for all $g\in G$.
-\end{enumerate} 
+  \setbeamercovered{invisible}
+  \onslide<4->
+  \underline{\bfseries Consequences:}
+  % \setbeamercovered{transparent}
+  \begin{enumerate}
+    \item<5-> $X(e) = I$, where $e$ is the identity element of the group and $I$ is the identity operator.
+    \item<6-> In the matrix presentation of $X$, $X(g)$ is invertible for all $g\in G$.
+  \end{enumerate} 
 
-\vfill
+  \vfill
 
 \end{frame}
 
@@ -211,22 +219,22 @@ where $X(g)$ is an operator on the $V$.
 
 \begin{frame}{Example: The Trivial Representation}
 
-\begin{block}<1->{Trivial Representation of a Group}
-  For any group $G$, the trivial representation takes $g\mapsto 1$ for all $g\in G$.
-\end{block}
+  \begin{block}<1->{Trivial Representation of a Group}
+    For any group $G$, the trivial representation takes $g\mapsto 1$ for all $g\in G$.
+  \end{block}
 
-% \vfill
+  % \vfill
 
-\onslide<2->
-\underline{\bfseries Comments:}
+  \onslide<2->
+  \underline{\bfseries Comments:}
 
-\begin{itemize}
-  \item<2-> The trivial representation is always one-dimensional.
-  \item<3-> For groups with more than one element, the trivial representation is not invertible, so we call it a \textcolor{CPgold}{\textit{degenerate representation}}.
-  \item<4-> If a representation is an isomorphism, then it is a \textcolor{CPgold}{\textit{faithful representation}}.
-\end{itemize}
+  \begin{itemize}
+    \item<2-> The trivial representation is always one-dimensional.
+    \item<3-> For groups with more than one element, the trivial representation is not injective, so we call it a \textcolor{CPgold}{\textit{degenerate representation}}.
+    \item<4-> If a representation is injective, then it is a \textcolor{CPgold}{\textit{faithful representation}}.
+  \end{itemize}
 
-\vfill
+  \vfill
 
 
 
@@ -235,101 +243,318 @@ where $X(g)$ is an operator on the $V$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Example: A Faithful Representation of $S_n$}
-\vfill
 
-\begin{block}<1->{Defining representation of $S_n$}
-The defining representation $D$ of $S_n$ encodes the action of the symmetric group on the standard basis of $\R^n$. If a permutation sends $i$ to $j$, then place a 1 the $i$-th column and $j$-th row of the representation matrix.
-\end{block}
-\vfill
+  \vfill
 
-\onslide<2->
-E.g., in $S_3$:
+  \begin{block}<1->{Defining representation of $S_n$}
+  The defining representation $D$ of $S_n$ encodes the action of the symmetric group on the standard basis of $\R^n$. If a permutation sends $i$ to $j$, then place a 1 the $i$-th column and $j$-th row of the representation matrix.
+  \end{block}
+  
+  \vfill
 
-\setbeamercovered{transparent}
-\begin{align*}
-  \onslide<3,5->{D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}} \qquad
-  \onslide<4->{D\big((123)\big) = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}}
-\end{align*}
-\vfill
+  \onslide<2->
+  E.g., in $S_3$:
+  \vspace*{-.75em}
+  \setbeamercovered{transparent}
+  \begin{align*}
+    \onslide<3,5->{D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}} \qquad
+    \onslide<4->{D\big((123)\big) = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}}
+  \end{align*}
+  
+  \vfill
 
-\setbeamercovered{invisible}
-\begin{itemize}
-  \item<5-> The defining representation of $S_n$ is $n$-dimensional.
-  \item<6-> This representation is faithful.
-\end{itemize}
+  \setbeamercovered{invisible}
+  \begin{itemize}
+    \item<5-> The defining representation of $S_n$ is $n$-dimensional.
+    \item<6-> This representation is faithful.
+  \end{itemize}
 
-\vfill
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Example: An Intuitive Representation of 2D Rotations}
-
-\begin{enumerate}
-  \item Note that representations work for continuous groups too!
-  \item Define rotation group.
-  \item Obtain familiar 2D rotation matrix.
-  \item Can you think of other ways to represent 2D rotations? What about $e^{i\phi}$ parameterization? How many ways to do this? How many ways are unique? What does it mean to be unique?
-\end{enumerate}
-
-\vfill
-
-\begin{block}<2->{Question}
-  How do we classify representations of a group?
-\end{block}
-
-\vfill
+  \vfill
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Character of a Representation}
+% \begin{frame}{Next!}
 
-\begin{enumerate}
-  \item Basics of characters.
-  \item Similar representations have the same character.
-  \item Lead into uniqueness of representations.
-\end{enumerate}
+%   \begin{enumerate}
+%     \item Note that representations work for continuous groups too!
+%     \item Define rotation group.
+%     \item Obtain familiar 2D rotation matrix.
+%     \item Can you think of other ways to represent 2D rotations? What about $e^{i\phi}$ parameterization? How many ways to do this? How many ways are unique? What does it mean to be unique?
+%   \end{enumerate}
 
-\vfill
+%   \vfill
 
-\begin{block}<2->{Question}
-  How many representations does a group have?
-\end{block}
-\onslide<3->{\textcolor{CPgold}{\textbf{Answer:}} Something to lead into irreducibility.}
+%   \begin{block}{Question}
+%     How do we classify representations of a group?
+%   \end{block}
 
-\vfill
+%   \vfill
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example: Representation of Continuous Rotation Group}
+
+  % \vfill
+
+  \underline{\textit{Representations also work for continuous groups!}}
+  
+  \vfill
+
+  \onslide<2->
+  Let $G = \{R(\phi),0\leq\phi<2\pi\}$ be the group of continuous rotations in the $xy$-plane ($V_2$) about the origin.
+  
+  \vfill
+
+  \onslide<3->
+  \textbf{Group operation}: $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$.
+  
+  \vfill
+  
+  \onslide<4->
+  \footnote<4->{$\e_1$ and $\e_2$ are orthonormal basis vectors of $V_2$.}\textbf{Definition:} Let $X$ be a representation of $R$ on $V_2$ with
+  % \begin{onlyenv}<4>
+  %   \begin{align*}
+  %     X(\phi)\e_1 &= \e_1\cdot\cos\phi + \e_2\cdot\sin\phi \\
+  %     X(\phi)\e_2 &= -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi
+  %   \end{align*}
+  % \end{onlyenv}
+  \onslide<4->
+  \begin{empheq}[right=\onslide<5>{\empheqrbrace\implies \boxed{X(\phi) = \begin{bmatrix}\cos\phi & -\sin\phi\\\sin\phi & \cos\phi\end{bmatrix}}}]{align*}
+    &\begin{aligned}
+        X(\phi)\e_1 &= \e_1\cdot\cos\phi + \e_2\cdot\sin\phi \\
+        X(\phi)\e_2 &= -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi
+    \end{aligned}
+  \end{empheq}
+  
+  \vfill
 
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Thoughts}
+
+  % \vfill
+  \begin{itemize}
+    \item<2-> Can you think of other ways to represent 2D rotations?
+    \item<3-> What about $e^{i\phi}$ parameterization?
+    \item<4-> How many ways can we represent 2D rotations? 
+    \item<5->Are certain representations equivalent?
+    \item<6-> What does it mean for representations to be equivalent? Unique?
+  \end{itemize}
+  
+  \vfill
+
+  \begin{block}<7->{Question}
+    How do we classify representations of a group?
+  \end{block}
+
+  \vfill
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}{Character Outline}
+
+%   \begin{enumerate}
+%     \item Basics of characters.
+%     \item Similar representations have the same character.
+%     \item Lead into uniqueness of representations.
+%   \end{enumerate}
+
+%   \vfill
+
+%   \begin{block}{Question}
+%     How many representations does a group have?
+%   \end{block}
+%   % \onslide<3->
+%   {\textcolor{CPgold}{\textbf{Answer:}} Something to lead into irreducibility.}
+
+%   \vfill
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Equivalent Representations}
+  
+  \begin{definition}<1->
+    Two representations are \textit{equivalent} if they are related by a similarity transformation.
+  \end{definition}
+  
+  % \vfill
+
+  \begin{itemize}
+    \item<2-> If two representations are equivalent, then their matrix forms have the same \textcolor{CPgold}{\textit{trace}}.
+    \item<3-> Equivalent representations form an equivalence class.
+  \end{itemize}
+  
+  \begin{definition}<4->
+    The \textcolor{CPgold}{\textit{character}} of a representation is the trace of the representation matrix.
+  \end{definition}
+  
+  \onslide<5->
+  E.g., if $g\in G$ and $X$ is a representation of $G$, then the character of $X(g)$ is $\chi(g) = \tr{X(g)}$.
+  
+  \vfill
+  
+  \begin{itemize}
+    \item<6-> If two representations have the same character for all $g\in G$, then they are equivalent.
+    \item<7-> We can use characters to classify representations.
+  \end{itemize}
+
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}{Irrep Outline}
+
+%   \begin{enumerate}
+%     \item Define irreducibility.
+%     \item Relate to invariant subspaces.
+%     \item Schur's Lemmas?
+%     \item Note the consequence of abelian groups and one-dimensional representations. Will be useful later\dots
+%   \end{enumerate}
+
+%   \vfill
+
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Decomposing Representations}
+  
+  \vfill
+  
+  \begin{definition}<1->
+    A representation $X(G)$ on $V$ is \textit{irreducible} if there is no non-trivial invariant subspace\footnote<1->{Invariant subspace $W\subset V$: $X(g)\vec{w}\in W, \, \forall \, \vec{w}\in W$} in $V$ with respect to $X(G)$. Otherwise, $X(G)$ is \textit{reducible}.
+  \end{definition}
+  
+  \vfill
 
-\begin{enumerate}
-  \item Define irreducibility.
-  \item Relate to invariant subspaces.
-  \item Schur's Lemmas?
-  \item Note the consequence of abelian groups and one-dimensional representations. Will be useful later\dots
-\end{enumerate}
-
-\vfill
+  \onslide<2->
+  \underline{\textbf{Comments:}}
+  \begin{itemize}
+    \item<3-> Irreducible representations are the building blocks of all representations.
+    \item<4-> A reducible representation can be decomposed into a direct sum of irreducible representations.
+    \item<5-> The decomposition of a representation into irreducibles is unique up to equivalence.
+  \end{itemize}
+  
+  \vfill
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Example: Irreducible Representation of 2D Rotations}
+% \begin{frame}{2D Rotation Irreps Outline}
 
-\begin{enumerate}
-  \item Back to our rotation group example\dots
-  \item Span of $\e_1$ or $\e_2$ not invariant under rotations.
-  \item Define $\e_{\pm}$.
-  \item Show each is invariant.
-  \item Decompose previous representation into direct sum of these two.
-\end{enumerate}
+%   \begin{enumerate}
+%     \item Back to our rotation group example\dots
+%     \item Span of $\e_1$ or $\e_2$ not invariant under rotations.
+%     \item Define $\e_{\pm}$.
+%     \item Show each is invariant.
+%     \item Decompose previous representation into direct sum of these two.
+%   \end{enumerate}
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Example: Irreducible Representation of 2D Rotations}
+  
+  % \vfill
+  % \onslide<1->
+  \textbf{Note:} The subspace spanned by $\e_1$ (or $\e_2$) is \textit{not} invariant under rotations!
+
+  \begin{block}<2->{Invariance of $\e_{\pm}$}
+    Let $\e_{\pm} = \frac{1}{\sqrt{2}}\left(\mp\e_1 + i\e_2\right)$. Then, $X(\phi)\e_{\pm} = e^{\pm i\phi}\e_{\pm}$.
+  \end{block}
+  
+  \vfill
+
+  \onslide<3->
+  \begin{block}{Decomposition of $X$}
+    The span of each $\e_{\pm}$ is an $X$-invariant subspace of $V_2$. In this basis, we rewrite $X$ as a direct sum of the 1D irreducible representations\footnote<3->{1-dimensional representations are always irreducible!}:
+    \begin{equation*}
+      X(\phi) = \begin{bmatrix} e^{i\phi} & 0 \\ 0 & e^{-i\phi} \end{bmatrix}.
+    \end{equation*}
+  \end{block}
+  
+  % Say something about block diagonal matrix form in general?
+
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Schur's Lemmas (pt. 1)}
+
+  \begin{lemma}<1->
+    Let $X:G\to V$ and $Y:G\to W$ be irreducible representations of a group $G$. If there exists a fixed linear transformation $T:V\to W$ such that $TX(g) = Y(g)T$ for all $g\in G$, then $T$ is either the zero map or invertible.
+  \end{lemma}
+
+  \begin{pfsketch}<2->
+    \begin{enumerate}
+      \item<3-> The kernel of $T$ is invariant under $X(G)$.
+      \item<4-> The image of $T$ is invariant under $Y(G)$.
+      \item<5-> Since $X$ and $Y$ are irreducible, $\ker(T) = \left\{ \vec{0} \right\}$ and $\text{im}(T) = V$ or $\ker(T) = V$ and $\text{im}(T) = \left\{ 0 \right\}$.
+      \item<6-> By the rank-nullity theorem, conclude that $T$ is either the zero map or invertible.
+    \end{enumerate}
+  \end{pfsketch}
+  
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Schur's Lemma's (pt. 2)}
+
+  \begin{lemma}
+    Let $X$ be an irreducible representation of a group $G$ and $T$ a linear operator that commutes with all $X(g)$ for $g\in G$. Then $T$ is a scalar multiple of the identity operator.
+  \end{lemma}
+
+  \begin{pfsketch}<2->
+    \begin{enumerate}
+      \item<3-> Consider $\lambda$ to be an eigenvalue of $T$.
+      \item<4-> Then $T - \lambda I$ is not invertible.
+      \item<5-> By assumption, $(T-\lambda I)X(g)=X(g)(T-\lambda I)$ for all $g\in G$.
+      \item<6-> By previous lemma, $T-\lambda I = 0 \implies T = \lambda I$.
+    \end{enumerate}
+  \end{pfsketch}
+
+  \vfill
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Consequence of Schur's Lemmas}
+  
+  \begin{corollary}
+    If $G$ is a finite abelian group, then the irreducible representations of $G$ are one-dimensional.
+  \end{corollary}
+
+  \begin{pfsketch}<2->
+    \begin{enumerate}
+      \item<3-> Fix $h\in G$.
+      \item<4-> Since $G$ is abelian, $X(h)X(g) = X(g)X(h)$ for all $g\in G$.
+      \item<5-> Schur's second lemma implies $X(h)=\lambda_h I$ for some scalar $\lambda_h$.
+      \item<6-> The element $h$ was arbitrary, so $X(g) = \lambda_g I$ for all $g\in G$.
+      \item<7-> $X(G)$ is equivalent to the representation $g\mapsto \lambda_g$ for all $g\in G$.
+      \item<8-> One-dimensional representation are irreducible.
+    \end{enumerate}
+  \end{pfsketch}
+
+  \vfill
 
 \end{frame}
 
@@ -337,13 +562,27 @@ E.g., in $S_3$:
 
 \begin{frame}{A Note About Irreducibility}
 
-\begin{enumerate}
-  \item Irreducible representations are the building blocks of all representations.
-  \item Different ways to construct representations from the irreducibles.
-  \item The irreducibles offer insight into the structure of the group.
-  \item As for applications in physics, we can use irreps to describe the symmetries of physical systems and understand their consequences.
-\end{enumerate}
+  \begin{itemize}
+    \item<2-> Irreducible representations are the building blocks of all representations.
+    \vspace{1em}
+    \item<3-> Irreducible representations can be combined/modified to create new representations, such as:
+    \begin{itemize}
+      \item<4-> Direct sums
+      \item<5-> Tensor products
+      \item<6-> Complex conjugation\footnote<6->{If the representation matrices have entries in $\C$.}
+      \item<7-> Similarity transforms
+    \end{itemize}
+  \end{itemize}
 
+  \vfill
+
+  \begin{block}<8->{How does this help in physics?}
+    Irreducible representations can describe symmetries of physical systems with remarkably fundamental implications.
+  \end{block}
+
+  % \onslide<4-> \textbf{Physics perspective:} irreducible representations can describe symmetries of physical systems and have important consequences.
+
+  \vfill
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -358,13 +597,13 @@ E.g., in $S_3$:
 
 \begin{frame}{Preliminaries}
 
-\textbf{Outline:}
-\begin{enumerate}
-  \item Dirac notation.
-  \item Basic quantum mechanics.
-  \item Quantum Hilbert space.
-  \item The commutator.
-\end{enumerate}
+  \textbf{Outline:}
+  \begin{enumerate}
+    \item Dirac notation.
+    \item Basic quantum mechanics.
+    \item Quantum Hilbert space.
+    \item The commutator.
+  \end{enumerate}
 
 \end{frame}
 
@@ -388,14 +627,14 @@ E.g., in $S_3$:
 
 \begin{frame}{2D Rotations and SO(2)}
 
-\vfill
+  \vfill
 
-\begin{enumerate}
-  \item The group of 2D rotations is SO(2).
-  \item General properties of SO(2).
-\end{enumerate}
+  \begin{enumerate}
+    \item The group of 2D rotations is SO(2).
+    \item General properties of SO(2).
+  \end{enumerate}
 
-\vfill
+  \vfill
 
 \end{frame}
 
@@ -403,9 +642,9 @@ E.g., in $S_3$:
 
 \begin{frame}{Infinitesimal Rotations}
 
-\begin{itemize}
-    \item Go through the derivation of the generator of SO(2) in an appropriate level of detail.
-\end{itemize}
+  \begin{itemize}
+      \item Go through the derivation of the generator of SO(2) in an appropriate level of detail.
+  \end{itemize}
 
 \end{frame}
 
@@ -413,9 +652,9 @@ E.g., in $S_3$:
 
 \begin{frame}{Recovering the Rotation Matrix from $J$}
 
-\begin{itemize}
-    \item Do Taylor expansion thing to get the rotation matrix from $J$ (looks familiar phys majors?)
-\end{itemize}
+  \begin{itemize}
+      \item Do Taylor expansion thing to get the rotation matrix from $J$ (looks familiar phys majors?)
+  \end{itemize}
 
 \end{frame}
 
@@ -423,14 +662,14 @@ E.g., in $S_3$:
 
 \begin{frame}{Irreducible Representations of SO(2)}
 
-\begin{itemize}
-  \item Rep generated by $J$ is unitary, $J$ is Hermitian.
-  \item SO(2) abelian implies 1D irreps (reference previous thm's).
-  \item Construct 1D invariant subspaces, obtain 1D irreps.
-  \item Get result about $m\in\Z$ for irrep label.
-  \item Mention ortho/completeness relations?
-  \item State vector decomposition. Probably don't have time to delve into detailed derivations but would be great to show part of the argument for getting explicit differential form of $J$.
-\end{itemize}
+  \begin{itemize}
+    \item Rep generated by $J$ is unitary, $J$ is Hermitian.
+    \item SO(2) abelian implies 1D irreps (reference previous thm's).
+    \item Construct 1D invariant subspaces, obtain 1D irreps.
+    \item Get result about $m\in\Z$ for irrep label.
+    \item Mention ortho/completeness relations?
+    \item State vector decomposition. Probably don't have time to delve into detailed derivations but would be great to show part of the argument for getting explicit differential form of $J$.
+  \end{itemize}
 
 \end{frame}
 
@@ -438,11 +677,11 @@ E.g., in $S_3$:
 
 \begin{frame}{Conservation of Angular Momentum}
 
-\begin{itemize}
-  \item Do commutator example with Hamiltonian and $J$.
-  \item Discuss implications.
-  \item We can do the same thing for translation group which gives us the familiar $\hat{p}$ operator and conservation of linear momentum!
-\end{itemize}
+  \begin{itemize}
+    \item Do commutator example with Hamiltonian and $J$.
+    \item Discuss implications.
+    \item We can do the same thing for translation group which gives us the familiar $\hat{p}$ operator and conservation of linear momentum!
+  \end{itemize}
 
 \end{frame}
 
@@ -450,13 +689,13 @@ E.g., in $S_3$:
 
 \begin{frame}{Generalization to 3 Spatial Dimensions}
 
-\begin{itemize}
-  \item Show but don't derive $R_{\vec{n}}(\theta)$ decomposition into $\vec{J}$ components.
-  \item We have basis from the components of $\vec{J}$.
-  \item Ladies and gentlemen, we got SO(3)\dots
-  \item $\vec{J}$ component differential forms?
-  \item Commutation relations, in some form talk about $J_{\pm},J^2$ and final eigenvalue results.
-\end{itemize}
+  \begin{itemize}
+    \item Show but don't derive $R_{\vec{n}}(\theta)$ decomposition into $\vec{J}$ components.
+    \item We have basis from the components of $\vec{J}$.
+    \item Ladies and gentlemen, we got SO(3)\dots
+    \item $\vec{J}$ component differential forms?
+    \item Commutation relations, in some form talk about $J_{\pm},J^2$ and final eigenvalue results.
+  \end{itemize}
 
 \end{frame}
 
@@ -464,10 +703,10 @@ E.g., in $S_3$:
 
 \begin{frame}{Connection to Quantum Mechanics}
 
-\begin{itemize}
-  \item Discuss connection between generators and quantum operators, eigenvalues and classical observables, discretization (!), etc.
-  \item This is the kicker. I will get very excited here probably.
-\end{itemize}
+  \begin{itemize}
+    \item Discuss connection between generators and quantum operators, eigenvalues and classical observables, discretization (!), etc.
+    \item This is the kicker. I will get very excited here probably.
+  \end{itemize}
 
 \end{frame}
 
@@ -476,11 +715,11 @@ E.g., in $S_3$:
 \begin{frame}{Multi-valued Irreducible Representations and Spinors}
 \textcolor{red}{Not sure where to put this\dots}
   
-\begin{itemize}
-  \item Let's come back to SO(2) for a second\dots
-  \item Show $m=1/2$ irreps.
-  \item Discuss implications, spinors, etc\dots
-\end{itemize}
+  \begin{itemize}
+    \item Let's come back to SO(2) for a second\dots
+    \item Show $m=1/2$ irreps.
+    \item Discuss implications, spinors, etc\dots
+  \end{itemize}
 
 \end{frame}
   
@@ -496,21 +735,21 @@ E.g., in $S_3$:
 
 \begin{frame}{Basic Definitions}
 
-\vfill
+  \vfill
 
-\begin{itemize}
-  \item Formal definitions.
-  \item Physical/intuitive visualization and interpretation.
-  \item Standard generators.
-  \item Automorphisms of $\pi_1(\D_n)$.
-  \item Braid relations in this picture.
-  \item 1D Reps.
-  \item Burau representation.
-  \item Note on faithfulness.
-  \item Unitary representation from reduced Burau.
-\end{itemize}
+  \begin{itemize}
+    \item Formal definitions.
+    \item Physical/intuitive visualization and interpretation.
+    \item Standard generators.
+    \item Automorphisms of $\pi_1(\D_n)$.
+    \item Braid relations in this picture.
+    \item 1D Reps.
+    \item Burau representation.
+    \item Note on faithfulness.
+    \item Unitary representation from reduced Burau.
+  \end{itemize}
 
-\vfill
+  \vfill
 
 \end{frame}
 
@@ -526,15 +765,15 @@ E.g., in $S_3$:
 
 \begin{frame}{Rotations of Quantum Hilbert Space}
 
-\vfill
+  \vfill
 
-\begin{itemize}
-  \item 1D action on Hilbert space, permuting particles, compare/contrast to bosons/fermions.
-  \item Talk about nontrivial braiding effects.
-  \item Example of unitary braid rep acting on Hilbert space.
-\end{itemize}
+  \begin{itemize}
+    \item 1D action on Hilbert space, permuting particles, compare/contrast to bosons/fermions.
+    \item Talk about nontrivial braiding effects.
+    \item Example of unitary braid rep acting on Hilbert space.
+  \end{itemize}
 
-\vfill
+  \vfill
 
 \end{frame}
 
@@ -542,15 +781,15 @@ E.g., in $S_3$:
 
 \begin{frame}{Anyons: A Consequence of Braiding}
 
-\begin{itemize}
-  \item Introduce anyons.
-  \item Discuss how anyons are described by the braid group.
-  \item Fusion rules, abelian vs nonabelian anyons.
-  \item Non-interacting anyons.
-  \item Non-interacting anyons in harmonic potential.
-  \item Nontrivial braiding effects anyone?
-  \item Applications of anyons! (quantum computing, topological quantum field theory, FQHE, etc.)
-\end{itemize}
+  \begin{itemize}
+    \item Introduce anyons.
+    \item Discuss how anyons are described by the braid group.
+    \item Fusion rules, abelian vs nonabelian anyons.
+    \item Non-interacting anyons.
+    \item Non-interacting anyons in harmonic potential.
+    \item Nontrivial braiding effects anyone?
+    \item Applications of anyons! (quantum computing, topological quantum field theory, FQHE, etc.)
+  \end{itemize}
 
 \end{frame}
 
@@ -558,7 +797,7 @@ E.g., in $S_3$:
 
 \begin{frame}{Summary/Conclusion}
 
-Acknowledgements, questions, references (?)
+  Acknowledgements, questions, references (?)
 
 \end{frame}
 
