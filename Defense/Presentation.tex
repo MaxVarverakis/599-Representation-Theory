@@ -1,12 +1,16 @@
-\documentclass[compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
+\documentclass[draft,compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
 
 \mode<presentation>
 
 % \setbeamertemplate{theorems}[numbered]
 % \setbeamertemplate{blocks}[rounded][shadow=true]
 
-\setbeamercolor{block title example}{use=structure,fg=CPwhite,bg=CPgreen} % Example title color
-\setbeamercolor{block body example}{use=structure,fg=black,bg=CPbeige} % Example body color
+% \setbeamercolor{block title example}{use=structure,fg=CPwhite,bg=CPgreen} % Example title color
+% \setbeamercolor{block body example}{use=structure,fg=black,bg=CPbeige} % Example body color
+
+\usetheme{CalPoly2023}
+
+% \setbeamercolor{block body}{use=structure,fg=black,bg=CPbeige!25} % change block body color opacity
 
 \newenvironment<>{pfsketch}{%
   \setbeamercolor{block title}{use=structure,fg=CPwhite,bg=CPblack!90}%
@@ -15,8 +19,6 @@
 }{%
   \end{block}%
 }
-
-\usetheme{CalPoly2023}
 
 % use if you want greyed out steps rather than invisible
 % \setbeamercovered{transparent}
@@ -296,7 +298,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Example: Representation of Continuous Rotation Group}
+\begin{frame}[t]{Example: Representation of Continuous Rotation Group}
 
   % \vfill
 
@@ -310,20 +312,35 @@
   \vfill
 
   \onslide<3->
-  \textbf{Group operation}: $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2)$.
+  \textbf{Group operation:} $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2) = R(\phi_2)R(\phi_1)$.
   
   \vfill
   
   \onslide<4->
-  \footnote<4->{$\e_1$ and $\e_2$ are orthonormal basis vectors of $V_2$.}\textbf{Definition:} Let $X$ be a representation of $R$ on $V_2$ with
+  \textbf{Identity Element:} $R(0) = I$.
+  
+  \vfill
+  
+  \onslide<5->
+  \textbf{Inverses:} $\iv{R(\phi)} = R(-\phi) = R(2\pi-\phi)$.
+  
+  \vfill
+  
+  \onslide<6->
+  \textbf{Periodicity Condition:} $R(\phi \pm 2\pi) = R(\phi)$.
+  
+  \vfill
+  
+  \onslide<7->
+  \textbf{Representation:} Let $X$ be a representation of $R$ on $V_2$ with\footnote<7->{$\e_1$ and $\e_2$ are orthonormal basis vectors of $V_2$.}
   % \begin{onlyenv}<4>
   %   \begin{align*}
   %     X(\phi)\e_1 &= \e_1\cdot\cos\phi + \e_2\cdot\sin\phi \\
   %     X(\phi)\e_2 &= -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi
   %   \end{align*}
   % \end{onlyenv}
-  \onslide<4->
-  \begin{empheq}[right=\onslide<5>{\empheqrbrace\implies \boxed{X(\phi) = \begin{bmatrix}\cos\phi & -\sin\phi\\\sin\phi & \cos\phi\end{bmatrix}}}]{align*}
+  \onslide<7->
+  \begin{empheq}[right=\onslide<8>{\empheqrbrace\implies \boxed{X(\phi) = \begin{bmatrix}\cos\phi & -\sin\phi\\\sin\phi & \cos\phi\end{bmatrix}}}]{align*}
     &\begin{aligned}
         X(\phi)\e_1 &= \e_1\cdot\cos\phi + \e_2\cdot\sin\phi \\
         X(\phi)\e_2 &= -\e_1\cdot\sin\phi + \e_2\cdot\cos\phi
@@ -479,13 +496,16 @@
   
   \vfill
 
-  \onslide<3->
-  \begin{block}{Decomposition of $X$}
+  \onslide<3->{
+    \underline{\textbf{Decomposition of $X$}}
+    
+    \vspace{.5em}
+    
     The span of each $\e_{\pm}$ is an $X$-invariant subspace of $V_2$. In this basis, we rewrite $X$ as a direct sum of the 1D irreducible representations\footnote<3->{1-dimensional representations are always irreducible!}:
     \begin{equation*}
       X(\phi) = \begin{bmatrix} e^{i\phi} & 0 \\ 0 & e^{-i\phi} \end{bmatrix}.
     \end{equation*}
-  \end{block}
+  }
   
   % Say something about block diagonal matrix form in general?
 
@@ -597,54 +617,192 @@
 
 \begin{frame}{Preliminaries}
 
-  \textbf{Outline:}
-  \begin{enumerate}
-    \item Dirac notation.
-    \item Basic quantum mechanics.
-    \item Quantum Hilbert space.
-    \item The commutator.
-  \end{enumerate}
+  \textcolor{red}{\textbf{Skip preliminaries?}}
+
+  % \textbf{Outline:}
+  % \begin{enumerate}
+  %   \item Dirac notation.
+  %   \item Basic quantum mechanics.
+  %   \item Quantum Hilbert space.
+  %   \item The commutator.
+  % \end{enumerate}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Preliminaries: Dirac Notation}
+\begin{frame}[t]{Preliminaries: Physics Conventions}
+  
+  \begin{enumerate}
+    \item<2-> The quantum state of a system is described by a vector in a complex Hilbert space.
+    \item<3-> The corresponding vectors are often called \textit{\textcolor{CPgold}{state vectors}}.
+    \item<4-> The inner product defined on the Hilbert space is linear in the second argument:
+    \setbeamercovered{transparent}
+    \begin{equation*}
+      \onslide<5,7->{(1)\ \ \langle \phi,\lambda\psi\rangle=\lambda\langle \phi,\psi\rangle} \onslide<6->{\qquad (2)\ \ \langle \alpha\phi,\psi\rangle=\overline{\alpha}\langle \phi,\psi\rangle}
+    \end{equation*}
+    \setbeamercovered{invisible}
+    \item<7-> The \textcolor{CPgold}{\textit{Hermitian conjugate}} or \textcolor{CPgold}{\textit{adjoint}} of an operator $A$ is denoted $A^{\dagger}$, and is thought of as complex conjugation and transposition in matrix form.
+    \item<8-> Operators that are self-adjoint are called \textcolor{CPgold}{\textit{Hermitian}}.
+  \end{enumerate}
+  
+  \vfill
 
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Preliminaries: Dirac notation}
+  
+  \begin{itemize}
+    \item<2-> \textit{Dirac} or \textit{bra-ket} notation is a convenient way to represent vectors and operators in quantum mechanics.
+    \item<3-> A \textcolor{CPgold}{\textit{ket}} is a column (state) vector, denoted $\ket{\psi}$.
+    \item<4-> A \textcolor{CPgold}{\textit{bra}} is a row vector, $\bra{\psi}$. This can be thought of as a linear functional on the relevant Hilbert space:
+    \begin{equation*}
+      \bra{\phi}(\psi) = \langle \phi,\psi\rangle.
+    \end{equation*}
+    \item<5-> \textbf{Inner product:} $\braket{\phi|\psi}$
+    \item<6-> \textbf{Outer product:} $\ket{\phi}\bra{\psi}$
+    \item<7-> The action of an operator $A$ on a vector $\ket{\psi}$ is written as $\ket{A\psi} = A\ket{\psi}$.
+    \item<8-> Equivalent ways to write the same thing:
+    \begin{align*}
+      \braket{A^\dagger\phi|\psi} = \bra{\phi}A\ket{\psi} = \braket{\phi|A\psi}.
+    \end{align*}
+  \end{itemize}
+  
+  \vfill
+  % \textit{``It's like playing with LEGOs.''}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Orthonormality, Completeness, and Wavefunctions}
+  
+  \begin{definition}<1->
+    Let $\left\{ \ket{1},\ket{2},\ket{3},\dots \right\}$ be an orthonormal basis for some quantum Hilbert space. In the context of physics, the \textcolor{CPgold}{orthonormality} and \textcolor{CPgold}{completeness} relations of the basis vectors allow any state vector $\ket{\psi}$ to be written as a linear combination of the basis vectors:
+    \begin{align*}
+      \ket{\psi} = \left( \sum_n \ket{n}\bra{n} \right)\ket{\psi} = \sum_n \ket{n}\braket{n|\psi},
+    \end{align*}
+    where $\sum_n \ket{n}\bra{n}$ is the identity operator.
+  \end{definition}
+  \onslide<2->\textit{This is just a fancy change of basis!}
+
+  \begin{definition}<3->
+    For a continuous basis labelled by $\ket{x}$ where $x$ is a continuous parameter, the \textcolor{CPgold}{\textit{wavefunction}} $\psi(x)$ is the projection: $\braket{x|\psi} = \psi(x)$.
+  \end{definition}
+  
+  \vfill
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Preliminaries: Basic Quantum Mechanics}
 
-
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{2D Rotations and SO(2)}
-
-  \vfill
-
-  \begin{enumerate}
-    \item The group of 2D rotations is SO(2).
-    \item General properties of SO(2).
-  \end{enumerate}
-
-  \vfill
+  \begin{itemize}
+    \item Talk about probabilities and whatnot? Eigenvalues = observables? Or just mention when connecting later stuff to physics?
+  \end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Infinitesimal Rotations}
+\begin{frame}{Properties of 2D Rotations}
+
+  % \vfill
+  Let $R$ denote the familiar rotation matrix representation from before.
+  
+  \begin{block}<2->{Definition}
+    An \textcolor{CPgold}{\textit{orthogonal matrix}} $O$ satisfies $O^{\top} = \iv{O}$.
+  \end{block}
+  
+  \vfill
+  
+  \onslide<3->{
+    \textbf{Rotation matrices are orthogonal:}
+    \begin{equation*}
+      R(\phi)R^\top(\phi) = \begin{bmatrix}\cos\phi & -\sin\phi\\\sin\phi & \cos\phi\end{bmatrix}\begin{bmatrix}\cos\phi & \sin\phi\\-\sin\phi & \cos\phi\end{bmatrix} = \begin{bmatrix}
+        1 & 0 \\ 0 & 1
+      \end{bmatrix} = I
+    \end{equation*}
+  }
+
+  \onslide<4->{
+    \textbf{Rotations preserve vector lengths:}
+    % \begin{align*}
+    %   |R(\phi)\vec{x}|^2
+    %     &= \left|\left( x_1\cos\phi - x_2\sin\phi \right)\e_1 + \left( x_1\sin\phi + x_2\cos\phi \right)\e_2\right|^2 \\
+    %     &= {\left( x_1\cos\phi - x_2\sin\phi \right)}^2 + {\left( x_1\sin\phi + x_2\cos\phi \right)}^2 \\
+    %     &= \left( \cos^2\phi + \sin^2\phi \right)x_1^2 + \left( \sin^2\phi + \cos^2\phi \right)x_2^2 \\
+    %     &= x_1^2 + x_2^2 = |\vec{x}|^2.
+    % \end{align*}
+    \begin{align*}
+      R(\phi)\vec{x} &= \begin{bmatrix}\cos\phi & -\sin\phi\\\sin\phi & \cos\phi\end{bmatrix}\begin{bmatrix}
+        x_1 \\ x_2
+      \end{bmatrix} = \begin{bmatrix}
+        x_1\cos\phi - x_2\sin\phi \\ x_1\sin\phi + x_2\cos\phi
+      \end{bmatrix} \implies \size{R(\phi)\vec{x}}^2 = \size{\vec{x}}^2.
+    \end{align*}
+  }
+  \onslide<5->{
+    This \textcolor{CPgold}{special} property is summarized by noting $\det R(\phi) = 1$ for all $\phi\in[0,2\pi)$.
+  }
+
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{The SO(2) Group}
+
+  \begin{block}<1->{Definition}
+    The \textcolor{CPgold}{\textit{special orthogonal group}} in two dimensions, denoted SO(2), is the group of all $2\times 2$ orthogonal matrices with determinant equal to  $+1$.\footnote<1->{For all intents and purposes, SO(2) is $R$ from before.}
+  \end{block}
+
+  \vfill
+
+  \onslide<2->\underline{\textbf{Properties of SO(2):}}
+  \begin{itemize}
+    \item<3-> The \textit{periodicity condition} $R(\phi+2\pi) = R(\phi)$ is satisfied.
+    \item<4-> The \textit{identity element} is $R(0) = I$.
+    \item<5-> SO(2) is \textit{abelian}: $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2) = R(\phi_2)R(\phi_1)$.
+    \item<6-> SO(2) is \textit{reducible} (earlier example with $\e_{\pm}$).
+  \end{itemize}
+  
+  \vfill
+  
+  % \begin{block}<7->{Question}
+  %   Why are we talking about rotations again?
+  % \end{block}
+  % \onslide<7->\textcolor{CPgold}{\textbf{Answer:}} \textit{The irreducible representations of SO(2) will provide powerful insights in quantum mechanics. But first, a slight detour is in order\dots}
+  
+  % \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Infinitesimal Rotations}
 
   \begin{itemize}
-      \item Go through the derivation of the generator of SO(2) in an appropriate level of detail.
+    \item<1-> Consider an \textit{infinitesimal rotation} labelled by some infinitesimal angle $d\phi$.
+    \item<2-> This is equivalent to the identity plus some small rotation, which can be written as\footnote<2->{The constant $-i$ is introduced for later convenience, and $J$ is a quantity independent of $\phi$.}
+    \begin{equation*}
+        R(d\phi) = I - i \, d\phi J
+    \end{equation*}
+    \item<3-> There are two ways to interpret $R(\phi_d\phi)$:
+    \begin{align*}
+      R(\phi + d\phi) &= R(\phi)R(d\phi) = R(\phi)(I - i d\phi J) = R(\phi) - i d\phi R(\phi)J, \\
+      R(\phi + d\phi) &= R(\phi) + d\phi\frac{dR(\phi)}{d\phi}
+    \end{align*}
+    \item<4-> Equating the two expressions gives the differential equation $dR(\phi) = -id\phi R(\phi)J$.
+    \item <5-> With $R(0)=I$ boundary condition: $\boxed{R(\phi) = e^{-i\phi J}}$.
+    \item<6-> We call $J$ the \textcolor{CPgold}{\textit{generator}} of SO(2) rotations.
   \end{itemize}
+
+  \vfill
 
 \end{frame}
 
@@ -652,37 +810,106 @@
 
 \begin{frame}{Recovering the Rotation Matrix from $J$}
 
-  \begin{itemize}
-      \item Do Taylor expansion thing to get the rotation matrix from $J$ (looks familiar phys majors?)
-  \end{itemize}
+  To first order in $d\phi$: $R(d\phi) = \begin{bmatrix}
+      1 & -d\phi \\
+      d\phi & 1
+  \end{bmatrix}$
+  % \begin{align*}
+  %     R(d\phi) &= \begin{bmatrix}
+  %         1 & -d\phi \\
+  %         d\phi & 1
+  %     \end{bmatrix}.
+  % \end{align*}
+  
+  \vfill
+
+  \onslide<2->{
+    From before: $I - i d\phi J = \begin{bmatrix}
+      1 & -d\phi \\
+      d\phi & 1
+    \end{bmatrix} \implies J = \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix}\implies J^2=I$
+    % \begin{align*}
+    %   I - i d\phi J &= \begin{bmatrix}
+    %     1 & -d\phi \\
+    %     d\phi & 1
+    %   \end{bmatrix} \implies J = \begin{bmatrix}
+    %       0 & -i \\
+    %       i & 0
+    %   \end{bmatrix}
+    % \end{align*}
+  }
+
+  \vfill
+
+  \onslide<3->{
+    Taylor expand:\vspace{-.5em}
+    \begin{align*}
+      R(\phi) = e^{-iJ\phi} &= I - iJ\phi - I \frac{\phi^2}{2!} + iJ\frac{\phi^3}{3!} + \cdots \\
+      \onslide<4->{&= I\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n}}{(2n)!} \right) - iJ\left( \sum_{n=0}^{\infty} {(-1)}^n \frac{\phi^{2n+1}}{(2n+1)!} \right) \\}
+      \onslide<5->{&= I\cos\phi - iJ\sin\phi \\}
+      \onslide<6->{&= \begin{bmatrix}
+          \cos\phi & -\sin\phi \\
+          \sin\phi & \cos\phi
+      \end{bmatrix}.}
+    \end{align*}
+  }
+
+  \vfill
 
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}{SO(2) Irreps Outline}
+
+%   \begin{itemize}
+%     \item Rep generated by $J$ is unitary, $J$ is Hermitian.
+%     \item SO(2) abelian implies 1D irreps (reference previous thm's).
+%     \item Construct 1D invariant subspaces, obtain 1D irreps.
+%     \item Get result about $m\in\Z$ for irrep label.
+%     \item Mention ortho/completeness relations?
+%     \item State vector decomposition. Probably don't have time to delve into detailed derivations but would be great to show part of the argument for getting explicit differential form of $J$.
+%   \end{itemize}
+
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Irreducible Representations of SO(2)}
+  
+  \textbf{Process to obtaining irreducibles:}
+  \begin{enumerate}
+    \item<1-> Let $U$ be any representation of SO(2).
+    \item<2-> Same argument as before: $U(\phi) = e^{-iJ\phi}$, where $J$ is not necessarily the same as before.
+  %   \item<3-> Rotations preserve vector lengths\footnote<3->{$\braket{a|b}$ is a fancy inner product that's linear in the \textit{second} argument.}:
+  %   \begin{align*}
+  %     \size{\vec{a}}^2 = \size{U(\phi)\vec{a}}^2
+  %     &\iff \braket{a|a} = \braket{U(\phi)a|U(\phi)a} = \braket{a|{U(\phi)}^\dagger U(\phi)|a} \\
+  %     &\iff U(\phi)^\dagger U(\phi) = I \\
+  %     &\iff e^{iJ^\dagger\phi}e^{-iJ\phi} = e^{-i(J-J^\dagger)\phi} = 1 \\
+  %     &\iff J = J^\dagger \quad (J\text{ is \textit{Hermitian}!})
+  %   \end{align*}
+  \item<3-> SO(2) is abelian: Schur's Lemmas $\implies$ all irreducible representations are 1D.
+  \item<4-> Each invariant subspace is spanned by an eigenvector of $J$:
+  \begin{align*}
+    J\ket{m} &= m\ket{m}, \\
+    U(\phi)\ket{m} &= e^{-iJ\phi}\ket{m} = e^{-im\phi}\ket{m}.
+  \end{align*}
+  \item<5-> Periodicity of SO(2) $\implies e^{-i2\pi m} = 1 \implies m\in\Z$.
+  \end{enumerate}
 
-  \begin{itemize}
-    \item Rep generated by $J$ is unitary, $J$ is Hermitian.
-    \item SO(2) abelian implies 1D irreps (reference previous thm's).
-    \item Construct 1D invariant subspaces, obtain 1D irreps.
-    \item Get result about $m\in\Z$ for irrep label.
-    \item Mention ortho/completeness relations?
-    \item State vector decomposition. Probably don't have time to delve into detailed derivations but would be great to show part of the argument for getting explicit differential form of $J$.
-  \end{itemize}
+  \begin{theorem}<6->
+    The \textit{single-valued irreducible representations of SO(2)} are defined as
+  \begin{equation*}
+      U^m(\phi) = e^{-im\phi}, \ \forall\, m\in\Z.
+  \end{equation*}
+  \end{theorem}
 
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Conservation of Angular Momentum}
-
-  \begin{itemize}
-    \item Do commutator example with Hamiltonian and $J$.
-    \item Discuss implications.
-    \item We can do the same thing for translation group which gives us the familiar $\hat{p}$ operator and conservation of linear momentum!
-  \end{itemize}
-
+  \vfill
+  
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -696,6 +923,25 @@
     \item $\vec{J}$ component differential forms?
     \item Commutation relations, in some form talk about $J_{\pm},J^2$ and final eigenvalue results.
   \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Conservation of Angular Momentum}
+  \textcolor{red}{I think it makes most sense to do this after generalizing to 3D\dots}
+  
+  Let $V$ be the vector space that $U^m$ acts on.
+  \begin{itemize}
+    \item<1-> The Hermiticity of $J$ allows us to obtain an eigenbasis of $V$
+  \end{itemize}
+
+  % \begin{itemize}
+  %   \item Introduce the commutator.
+  %   \item Do commutator example with Hamiltonian and $J$.
+  %   \item Discuss implications.
+  %   \item We can do the same thing for translation group which gives us the familiar $\hat{p}$ operator and conservation of linear momentum!
+  % \end{itemize}
 
 \end{frame}
 
