@@ -58,34 +58,36 @@
 \headcommand {\beamer@framepages {120}{125}}
 \headcommand {\slideentry {2}{0}{11}{126/131}{}{0}}
 \headcommand {\beamer@framepages {126}{131}}
-\headcommand {\slideentry {2}{0}{12}{132/132}{}{0}}
-\headcommand {\beamer@framepages {132}{132}}
-\headcommand {\slideentry {2}{0}{13}{133/133}{}{0}}
-\headcommand {\beamer@framepages {133}{133}}
-\headcommand {\slideentry {2}{0}{14}{134/134}{}{0}}
-\headcommand {\beamer@framepages {134}{134}}
-\headcommand {\slideentry {2}{0}{15}{135/135}{}{0}}
-\headcommand {\beamer@framepages {135}{135}}
-\headcommand {\beamer@sectionpages {81}{135}}
-\headcommand {\beamer@subsectionpages {81}{135}}
-\headcommand {\sectionentry {3}{The Braid Group}{136}{The Braid Group}{0}}
-\headcommand {\slideentry {3}{0}{1}{136/136}{}{0}}
-\headcommand {\beamer@framepages {136}{136}}
-\headcommand {\slideentry {3}{0}{2}{137/137}{}{0}}
-\headcommand {\beamer@framepages {137}{137}}
-\headcommand {\beamer@sectionpages {136}{137}}
-\headcommand {\beamer@subsectionpages {136}{137}}
-\headcommand {\sectionentry {4}{Physical Applications of the Braid Group}{138}{Physical Applications of the Braid Group}{0}}
-\headcommand {\slideentry {4}{0}{1}{138/138}{}{0}}
-\headcommand {\beamer@framepages {138}{138}}
-\headcommand {\slideentry {4}{0}{2}{139/139}{}{0}}
-\headcommand {\beamer@framepages {139}{139}}
-\headcommand {\slideentry {4}{0}{3}{140/140}{}{0}}
-\headcommand {\beamer@framepages {140}{140}}
-\headcommand {\slideentry {4}{0}{4}{141/141}{}{0}}
-\headcommand {\beamer@framepages {141}{141}}
-\headcommand {\beamer@partpages {1}{141}}
-\headcommand {\beamer@subsectionpages {138}{141}}
-\headcommand {\beamer@sectionpages {138}{141}}
-\headcommand {\beamer@documentpages {141}}
-\headcommand {\gdef \inserttotalframenumber {37}}
+\headcommand {\slideentry {2}{0}{12}{132/136}{}{0}}
+\headcommand {\beamer@framepages {132}{136}}
+\headcommand {\slideentry {2}{0}{13}{137/142}{}{0}}
+\headcommand {\beamer@framepages {137}{142}}
+\headcommand {\slideentry {2}{0}{14}{143/146}{}{0}}
+\headcommand {\beamer@framepages {143}{146}}
+\headcommand {\slideentry {2}{0}{15}{147/152}{}{0}}
+\headcommand {\beamer@framepages {147}{152}}
+\headcommand {\slideentry {2}{0}{16}{153/157}{}{0}}
+\headcommand {\beamer@framepages {153}{157}}
+\headcommand {\beamer@sectionpages {81}{157}}
+\headcommand {\beamer@subsectionpages {81}{157}}
+\headcommand {\sectionentry {3}{The Braid Group}{158}{The Braid Group}{0}}
+\headcommand {\slideentry {3}{0}{1}{158/158}{}{0}}
+\headcommand {\beamer@framepages {158}{158}}
+\headcommand {\slideentry {3}{0}{2}{159/159}{}{0}}
+\headcommand {\beamer@framepages {159}{159}}
+\headcommand {\beamer@sectionpages {158}{159}}
+\headcommand {\beamer@subsectionpages {158}{159}}
+\headcommand {\sectionentry {4}{Physical Applications of the Braid Group}{160}{Physical Applications of the Braid Group}{0}}
+\headcommand {\slideentry {4}{0}{1}{160/160}{}{0}}
+\headcommand {\beamer@framepages {160}{160}}
+\headcommand {\slideentry {4}{0}{2}{161/161}{}{0}}
+\headcommand {\beamer@framepages {161}{161}}
+\headcommand {\slideentry {4}{0}{3}{162/162}{}{0}}
+\headcommand {\beamer@framepages {162}{162}}
+\headcommand {\slideentry {4}{0}{4}{163/163}{}{0}}
+\headcommand {\beamer@framepages {163}{163}}
+\headcommand {\beamer@partpages {1}{163}}
+\headcommand {\beamer@subsectionpages {160}{163}}
+\headcommand {\beamer@sectionpages {160}{163}}
+\headcommand {\beamer@documentpages {163}}
+\headcommand {\gdef \inserttotalframenumber {38}}
