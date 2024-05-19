@@ -1,5 +1,5 @@
-\documentclass[compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
-% \documentclass[draft,compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
+% \documentclass[compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
+\documentclass[draft,compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
 
 \mode<presentation>
 
@@ -579,7 +579,7 @@
       \item<5-> Schur's second lemma implies $X(h)=\lambda_h I$ for some scalar $\lambda_h$.
       \item<6-> The element $h$ was arbitrary, so $X(g) = \lambda_g I$ for all $g\in G$.
       \item<7-> $X(G)$ is equivalent to the representation $g\mapsto \lambda_g$ for all $g\in G$.
-      \item<8-> One-dimensional representation are irreducible.
+      \item<8-> One-dimensional representations are irreducible.
     \end{enumerate}
   \end{pfsketch}
 
@@ -801,7 +801,7 @@
     \begin{equation*}
         R(d\phi) = I - i \, d\phi J
     \end{equation*}
-    \item<3-> There are two ways to interpret $R(\phi_d\phi)$:
+    \item<3-> There are two ways to interpret $R(\phi+d\phi)$:
     \begin{align*}
       R(\phi + d\phi) &= R(\phi)R(d\phi) = R(\phi)(I - i d\phi J) = R(\phi) - i d\phi R(\phi)J, \\
       R(\phi + d\phi) &= R(\phi) + d\phi\frac{dR(\phi)}{d\phi}
@@ -1060,15 +1060,15 @@
     \item<2-> The $j=1/2$ irreducible representation of SO(3) describes \textit{fermions}. A modified periodicity condition due to the half-integer representation leads to \textit{spinors}!
     \item<3-> We can take tensor products of the irreducibles of SO(3) to obtain multi-particle states, arriving at results such as:
     \begin{itemize}
-      \item<3-> Clebsch-Gordan coefficients
-      \item<4-> singlet versus triplet states
-      \item<5-> the Pauli exclusion principle
+      \item<4-> Clebsch-Gordan coefficients
+      \item<5-> singlet versus triplet states
+      \item<6-> the Pauli exclusion principle
     \end{itemize}
   \end{enumerate}
   
   \vfill
   
-  \textit{This is the tip of the iceberg!}
+  \onslide<7->{\textit{This is the tip of the iceberg!}}
 
   \vfill
 
@@ -1084,23 +1084,133 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Basic Definitions}
+% \begin{frame}{Braid Group Outline}
 
+%   \vfill
+
+%   \begin{itemize}
+%     \item Formal definitions.
+%     \item Physical/intuitive visualization and interpretation.
+%     \item Standard generators.
+%     \item Automorphisms of $\pi_1(\D_n)$.
+%     \item Braid relations in this picture.
+%     \item 1D Reps.
+%     \item Burau representation.
+%     \item Note on faithfulness.
+%     \item Unitary representation from reduced Burau.
+%   \end{itemize}
+
+%   \vfill
+
+% \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Braid Group}
+  
+  \begin{itemize}
+    \item Definition: config space and standard visualization
+  \end{itemize}
+  
   \vfill
 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Standard Generators}
+
   \begin{itemize}
-    \item Formal definitions.
-    \item Physical/intuitive visualization and interpretation.
-    \item Standard generators.
+    \item $\sigma_i$ generators.
+    \item Define \textcolor{CPgold}{\textit{degree}}?
+    \item Braid relations.
+    \item Skip YBE verification?
+  \end{itemize}
+  
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Automorphisms of the Free Group}
+
+  \begin{itemize}
     \item Automorphisms of $\pi_1(\D_n)$.
     \item Braid relations in this picture.
-    \item 1D Reps.
-    \item Burau representation.
-    \item Note on faithfulness.
-    \item Unitary representation from reduced Burau.
   \end{itemize}
 
   \vfill
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{One-Dimensional Representations of the Braid Group}
+
+  \begin{itemize}
+    \item Define 1D reps.
+    \item Show the abelian-ness of these reps
+  \end{itemize}
+
+  For $\theta\in\R$:
+  \begin{align*}      
+    p_\theta: B_n&\to \C_{\size{z}=1} \\
+    \sigma_i &\mapsto e^{i\theta},
+  \end{align*}
+
+  Clearly, $p_\theta$ is a homomorphism, and it is unitary because
+  \begin{equation*}
+      {p_\theta(\sigma_i)}^\dagger = {\left( e^{i\theta} \right)}^\dagger = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_i)}.
+  \end{equation*}
+
+  \vfill
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{The Burau Representation}
+  
+  \begin{itemize}
+    \item Go through arguments/motivation for Burau?
+    \item Show covering space picture/diagrams?
+    \item Define Burau representation.
+    \item Note on faithfulness!
+    \item Quickly show it's reducible with the $\mathbf{1}$ eigenvector?
+  \end{itemize}
+
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Unitary Representation of the Braid Group}
+
+  \begin{itemize}
+    \item Define reduced Burau representation.
+    \item Obtain unitary representation from reduced Burau. (Not sure how much detail to go into here.)
+    \item Maybe just jump right to defining the unitary reps in the $2\times 2$ case?
+    \item Comment on why we want a unitary rep!
+  \end{itemize}
+
+  \vfill
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Nonabelian Characteristics of the Unitary Representation}
+  
+  \begin{itemize}
+    \item Compare and contrast $\mathcal{U}(\sigma_{1,2})$ to their inverses.
+    \item Note that $[\mathcal{U}(\sigma_{1,2}),\mathcal{U}(\sigma_{2,1})]\neq 0$ to highlight nonabelian-ness.
+  \end{itemize}
+
+  \begin{block}{Question}
+    What are the physical implications of this nonabelian representation?
+  \end{block}
 
 \end{frame}
 
@@ -1114,14 +1224,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Rotations of Quantum Hilbert Space}
+\begin{frame}{Braiding Action on a Quantum System}
 
   \vfill
 
   \begin{itemize}
-    \item 1D action on Hilbert space, permuting particles, compare/contrast to bosons/fermions.
+    \item 1D action on Hilbert space, permuting particles, compare/contrast to bosons/fermions. Note the abelian characteristics of this rep.
     \item Talk about nontrivial braiding effects.
-    \item Example of unitary braid rep acting on Hilbert space.
+    \item Example of unitary braid rep acting on Hilbert space to highlight nonabelian-ness.
   \end{itemize}
 
   \vfill
@@ -1135,20 +1245,87 @@
   \begin{itemize}
     \item Introduce anyons.
     \item Discuss how anyons are described by the braid group.
-    \item Fusion rules, abelian vs nonabelian anyons.
+    \item Abelian vs nonabelian anyons.
+    \item Mention fusion rules.
+  \end{itemize}
+
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Nontrivial Braiding Effects in 1D Representations}
+
+  \begin{itemize}
+    \item Introduce the idea (define it).
+    \item Show diagram to illustrate nontrivial braiding effects qualitatively.
+    \item Nontrivial braiding in 1D rep corresponding to diagram.
+    \item Hint at a greater conclusion but first need to look into the physics perspective\dots
+  \end{itemize}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{A Physicists Approach to Anyons (pt. 1)}
+  
+  \begin{itemize}
     \item Non-interacting anyons.
+  \end{itemize}
+  
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{A Physicists Approach to Anyons (pt. 2)}
+  
+  \begin{itemize}
     \item Non-interacting anyons in harmonic potential.
-    \item Nontrivial braiding effects anyone?
-    \item Applications of anyons! (quantum computing, topological quantum field theory, FQHE, etc.)
+    \item Arrive at $N$-anyon Hamiltonian.
+  \end{itemize}
+
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Nontrivial Braiding Effects in the Hamiltonian}
+  
+  \begin{itemize}
+    \item Compare $N=2$ to $N=3$ Hamiltonian from previous slide.
+    \item Highlight nontrivial braiding effects in the $N=3$ case.
+    \item How does this compare to bosons/fermions? (maybe redundant depending on the depth of the previous discussion)
+    \item Question the physical implications.
   \end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{Physical Implications of Nontrivial Braiding Effects}
+  
+  \begin{itemize}
+    \item FQHE
+    \item Fault-tolerant quantum computing
+  \end{itemize}
+
+  \vfill
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Summary/Conclusion}
 
-  Acknowledgements, questions, references (?)
+  \begin{itemize}
+    \item Outline the talk: what did we talk about?
+    \item What are the takeaways?
+    \item Acknowledgements, questions, references (?)
+  \end{itemize}
 
 \end{frame}
 
