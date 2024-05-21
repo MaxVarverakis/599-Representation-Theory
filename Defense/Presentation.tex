@@ -33,14 +33,15 @@
 % \setbeamercovered{transparent}
 
 %Path relative to the main .tex file 
-\graphicspath{ {../FormattedThesis/TikZ} }
+% \graphicspath{ {../FormattedThesis/TikZ} } % doesn't work for `\input'!
 
 \usepackage{graphicx, amsmath, amsthm, amssymb, enumerate, esint, mathtools,multirow, braket, empheq}
 \usepackage{amsfonts,mathrsfs,float,array}
 %\usepackage{xypic}
 %\usepackage{tikz-cd}
 \usepackage{tikz}
-\usetikzlibrary{arrows, shapes, decorations}
+\usetikzlibrary{decorations.markings, math, calc, braids, intersections, backgrounds}
+% \usetikzlibrary{arrows, shapes, decorations}
 %\usepackage{pgfplots}
 %\usepackage{rotating}
 %\usepackage[shortlabels]{enumitem}
@@ -144,6 +145,7 @@
 
 
 \section{Introduction to Representation Theory}
+% section title frame
 \begin{frame}
   \sectionpage
 \end{frame}
@@ -618,6 +620,7 @@
 
 
 \section{Examples in Physics}
+% section title frame
 \begin{frame}
   \sectionpage
 \end{frame}
@@ -1078,6 +1081,7 @@
 
 
 \section{The Braid Group}
+% section title frame
 \begin{frame}
   \sectionpage
 \end{frame}
@@ -1148,21 +1152,40 @@
 
 \begin{frame}{One-Dimensional Representations of the Braid Group}
 
-  \begin{itemize}
-    \item Define 1D reps.
-    \item Show the abelian-ness of these reps
-  \end{itemize}
+  % \begin{itemize}
+  %   \item Define 1D reps.
+  %   \item Show the abelian-ness of these reps
+  % \end{itemize}
 
-  For $\theta\in\R$:
-  \begin{align*}      
+  \onslide<2->{
+    For $\theta\in\R$ and $j=1,2,\dots,n-1$, we define some \textit{one-dimensional representations} of $B_n$:
+  \begin{align*}
     p_\theta: B_n&\to \C_{\size{z}=1} \\
-    \sigma_i &\mapsto e^{i\theta},
+    \sigma_j &\mapsto e^{i\theta}.
+  \end{align*}
+  }
+
+  % Clearly, $p_\theta$ is a homomorphism, and it is unitary because
+  % \begin{equation*}
+  %     {p_\theta(\sigma_j)}^\dagger = {\left( e^{i\theta} \right)}^\dagger = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_j)}.
+  % \end{equation*}
+
+  \onslide<3->{These representations are \textcolor{CPgold}{\textit{abelian}}}\onslide<4->{:}
+  \begin{align*}
+    \onslide<4->{
+      p_\theta(\sigma_1\sigma_{2}\iv{\sigma_1}\sigma_2) &= p_\theta(\sigma_1)p_\theta(\sigma_{2})p_\theta(\iv{\sigma_1})p_\theta(\sigma_2) \\
+    }
+    \onslide<5->{&= e^{i\theta_1}e^{i\theta_2}e^{-i\theta_{1}}e^{i\theta_2} \\}
+    \onslide<6->{&= e^{i\left( \theta_1-\theta_1 + \theta_2 + \theta_2 \right)} \\}
+    \onslide<7->{&= e^{i\cdot 2\theta_2} = p_\theta(\sigma_2^2)}
   \end{align*}
 
-  Clearly, $p_\theta$ is a homomorphism, and it is unitary because
-  \begin{equation*}
-      {p_\theta(\sigma_i)}^\dagger = {\left( e^{i\theta} \right)}^\dagger = e^{-i\theta} = \iv{\left( e^{i\theta} \right)} = \iv{p_\theta(\sigma_i)}.
-  \end{equation*}
+  \onslide<8->{Hence, for any $\beta\in B_n$ with degree $k$:}
+  \onslide<9->{
+    \begin{align*}
+    p_\theta(\beta) = p_\theta(\sigma_{1}^{m_1}\sigma_{2}^{m_2}\cdots\sigma_{n-1}^{m_{n-1}}) = e^{i\theta(m_1+m_2+\cdots+m_{n-1})} = e^{ik\theta}.
+  \end{align*}
+  }
 
   \vfill
   
@@ -1218,22 +1241,69 @@
 
 
 \section{Physical Applications of the Braid Group}
+% section title frame
 \begin{frame}
   \sectionpage
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Braiding Action on a Quantum System}
+\begin{frame}{(Abelian) Braiding Action on a Quantum System}
+
+  \onslide<2->{\textbf{1D Representation:} Let $p_{\theta}:B_n\to\C$ be defined by $\sigma_j\mapsto e^{i\theta}$ for some $\theta$, for all $j$.}
+  
+  \vfill
+  
+  \onslide<3->{\textbf{Quantum system:} Some wavefunction $\psi(r_1,\dots,r_n)$ describing the identical particles fixed at nondegenerate positions $r_1,r_2,\dots,r_n$}.
+  
+  \vfill
+  
+  \onslide<4->{
+    \textbf{Braiding action:} For any degree-$k$ braid $\beta\in B_n$, we have 
+    \begin{align*}
+      \psi(r_{1'},r_{2'},\dots,r_{n'}) &= p_\theta(\beta)\,\psi(r_1,r_2,\dots,r_n) = \underbrace{e^{ik\theta}}_{\substack{\text{phase}\\\text{shift}}}\psi(r_1,r_2,\dots,r_n),
+    \end{align*}
+  }
+
+  % \begin{itemize}
+  %   \item 1D action on Hilbert space, permuting particles, compare/contrast to bosons/fermions. Note the abelian characteristics of this rep.
+  %   \item Talk about nontrivial braiding effects.
+  %   \item Example of unitary braid rep acting on Hilbert space to highlight nonabelian-ness.
+  % \end{itemize}
 
   \vfill
 
-  \begin{itemize}
-    \item 1D action on Hilbert space, permuting particles, compare/contrast to bosons/fermions. Note the abelian characteristics of this rep.
-    \item Talk about nontrivial braiding effects.
-    \item Example of unitary braid rep acting on Hilbert space to highlight nonabelian-ness.
-  \end{itemize}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{(Nonabelian) Braiding Action on a Quantum System}
+
+  \onslide<2->{\textbf{2D Representation:} Consider the $2\times 2$ unitary representation $\mathcal{U}$ from before.}
+  
+  \vfill
+
+  \onslide<3->{
+    \textbf{Quantum system:} A degenerate set of two quantum states with orthonormal basis $\psi_1(r_1,r_2,r_3)$ and $\psi_2(r_1,r_2,r_3)$. Shorthand: $\ket{1}$ and $\ket{2}$.
+    % \begin{itemize}
+    %   \item<4-> Each basis state can be thought of as a column vector, written as $\ket{1}$ and $\ket{2}$ for $\psi_1$ and $\psi_2$ respectively.
+    % \end{itemize}
+  }
+
+  \vfill
+
+  \onslide<4->{
+    \textbf{Braiding action:} The transformed basis states due to the action of $\sigma_1$ are
+    \begin{align*}
+        \ket{1'} &= \mathcal{U}(\sigma_1)_{1,1}\ket{1} + \mathcal{U}(\sigma_1)_{1,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{1} + \ket{2} \right), \\
+        \ket{2'} &= \mathcal{U}(\sigma_1)_{2,1}\ket{1} + \mathcal{U}(\sigma_1)_{2,2}\ket{2} = \frac{1}{2}e^{-i\frac{\pi}{6}}\left( \ket{1} - \sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}\ket{2} \right).
+    \end{align*}
+  }
+
+  \begin{block}<5->{Remark}
+    The action of a nonabelian braid group representation on a quantum system leads to nontrivial rotations in the many-particle Hilbert space that describes the quantum system.
+  \end{block}
+  
   \vfill
 
 \end{frame}
@@ -1241,13 +1311,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Anyons: A Consequence of Braiding}
-
+  
+  \begin{definition}<2->
+    Particles that obey the braid group permutation rules are known as \textcolor{CPgold}{\textit{anyons}}.
+  \end{definition}
+  
   \begin{itemize}
-    \item Introduce anyons.
-    \item Discuss how anyons are described by the braid group.
-    \item Abelian vs nonabelian anyons.
-    \item Mention fusion rules.
+    \item<2-> The statistical behavior of anyons is governed by the corresponding braid group representation acting on the system.
+    \item<3-> Broadly speaking, there are two types of anyons:
+    \begin{enumerate}
+      \item<4-> \textcolor{CPgold}{\textit{Abelian anyons}}: The braid group representation is abelian.
+      \item<5-> \textcolor{CPgold}{\textit{Nonabelian anyons}}: The braid group representation is nonabelian.
+    \end{enumerate}
   \end{itemize}
+
+  % \begin{itemize}
+  %   \item Introduce anyons.
+  %   \item Discuss how anyons are described by the braid group.
+  %   \item Abelian vs nonabelian anyons.
+  %   \item Mention fusion rules.
+  % \end{itemize}
 
   \vfill
 
@@ -1256,14 +1339,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Nontrivial Braiding Effects in 1D Representations}
-
-  \begin{itemize}
-    \item Introduce the idea (define it).
-    \item Show diagram to illustrate nontrivial braiding effects qualitatively.
-    \item Nontrivial braiding in 1D rep corresponding to diagram.
-    \item Hint at a greater conclusion but first need to look into the physics perspective\dots
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+        \item Introduce the idea (define it).
+        \item Show diagram to illustrate nontrivial braiding effects qualitatively.
+        \item Nontrivial braiding in 1D rep corresponding to diagram.
+        \item Hint at a greater conclusion but first need to look into the physics perspective\dots
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \centering
+      \resizebox{\linewidth}{!}{\input{../FormattedThesis/TikZ/anyon_trajectories.tikz}}
+      \begin{tikzpicture}[remember picture, overlay]
+        \onslide<1>{\fill[white] ($(current page.north)!.225!(current page.center)$) rectangle ($(current page.east)!.5!(current page.center)$);}
+        \onslide<1-2>{\fill[white] ($(current page.north east)!.225!(current page.east)$) rectangle ($(current page.center)!.5!(current page.east)$);}
+        % \onslide<1>{\fill[cyan] ($(current page.north)!.225!(current page.center)$) rectangle ($(current page.north east)!.4!(current page.east)$);}
+        % \onslide<1-2>{\fill[magenta] ($(current page.north)!.85!(current page.center)$) rectangle ($(current page.north east)!.4!(current page.east)$);}
+        \onslide<1-3>{\fill[white] ($(current page.center)!.1!(current page.north)$) rectangle ($(current page.east)!.9!(current page.south east)$);}
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
   
+  \onslide<4->{}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1330,4 +1429,5 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \end{document}
