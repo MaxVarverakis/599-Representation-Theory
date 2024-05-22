@@ -1,5 +1,5 @@
-% \documentclass[compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
-\documentclass[draft,compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
+\documentclass[compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
+% \documentclass[draft,compress,aspectratio=169,10pt,usenames,dvipsnames]{beamer}
 
 \mode<presentation>
 
@@ -1330,7 +1330,7 @@
       \item<6-> \textcolor{CPgold}{\textit{Nonabelian anyons}}: The braid group representation is nonabelian.
     \end{enumerate}
     \vspace{1em}
-    \item<6-> Edge cases: \textcolor{CPgreen}{\textit{bosons}} and \textcolor{CPgreen}{\textit{fermions}}.
+    \item<7-> Edge cases: \textcolor{CPgreen}{\textit{bosons}} and \textcolor{CPgreen}{\textit{fermions}}.
   \end{itemize}
 
   % \begin{itemize}
@@ -1357,7 +1357,7 @@
       \onslide<3->{\textbf{Consequences:}}
       \begin{enumerate}
         \item<3-> A permutation of two anyons requires the knowledge of the positions of all other anyons in the system.
-        \item<4-> This is a consequence of the so-called \textit{nontrivial braiding effects} of the braid group.
+        \item<4-> This is a consequence of the so-called \textcolor{CPgold}{\textit{nontrivial braiding effects}} of the braid group.
       \end{enumerate}
       
       \vspace{.5em}
@@ -1397,33 +1397,36 @@
   
   \vspace{1em}
   
-  \textit{Potential:}\quad$V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$
+  \onslide<2->{\textit{Potential:}\quad$V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$}
   
   \vspace{.5em}
   
-  \textit{Statistical interaction due to braiding:}\quad$\mathcal{L}_{\text{int}} = \hbar\alpha\dot{\phi}, \quad \alpha\in\left[ 0,1 \right]$
+  \onslide<3->{\textit{Statistical interaction due to braiding:}\quad$\mathcal{L}_{\text{int}} = \hbar\alpha\dot{\phi}, \quad \alpha\in\left[ 0,1 \right]$}
   
   \vspace{.5em}
   
-  \textit{Classical Kinetic Energy:}\quad$T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right)$
+  \onslide<4->{\textit{Classical Kinetic Energy:}\quad$T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right)$}
   
   \vspace{.5em}
   
-  \textbf{Lagrangian:}
-  \begin{center}
-    $\mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$
-  \end{center}
+  \onslide<5->{
+    \textbf{Lagrangian:}
+    \begin{center}
+      $\mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$
+    \end{center}
+  }
   % \begin{equation*}
   %   \mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)
   % \end{equation*}
 
   \vspace{.5em}
   
-  \textbf{Generalize to $N$ anyons:} Let $\phi_{ij} = \arctan\left( \frac{y_j-y_i}{x_j-x_i} \right)$,
-  \begin{equation*}
-    \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{2} + \hbar\alpha\sum_{\substack{i<j}}^N\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{2}
-  \end{equation*}
-
+  \onslide<6->{
+    \textbf{Generalize to $N$ anyons:} Let $\phi_{ij} = \arctan\left( \frac{y_j-y_i}{x_j-x_i} \right)$,
+    \begin{equation*}
+      \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{2} + \hbar\alpha\sum_{\substack{i<j}}^N\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{2}
+    \end{equation*}
+  }
 
   % \textit{Change of coordinates:}\quad Relative \, $\vec{r} = \vec{r}_1-\vec{r}_2$, \qquad center-of-mass \;$\vec{R} = \frac{\vec{r}_1+\vec{r}_2}{2}$
 
@@ -1487,14 +1490,14 @@
 
 \begin{frame}{Nontrivial Braiding Effects in the Hamiltonian}
   
-  Nontrivial braiding effects are encoded in the \textcolor{CPgreen}{\textit{long-range interaction}} term for $N\geq 3$.
+  Nontrivial braiding effects emerge from the \textcolor{CPgreen}{\textit{long-range interaction}} term when $N\geq 3$.
 
   % For $N=2$, we obtain a familiar Coulomb-like interaction term without any nontrivial braiding effects:
   \begin{align*}
     \onslide<2->{
       &\mathbf{N=2}\textbf{:}&
       \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{2}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}
-      &=\frac{\alpha^2}{2m}\left( \frac{\vec{r}_{12}\cdot\vec{r}_{12}}{r_{12}^2r_{12}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{21}}{r_{21}^2r_{21}^2} \right)  = \frac{\alpha^2}{mr_{12}^2} \onslide<3->{\sim \textit{Coulomb-like interaction}} \\
+      &=\frac{\alpha^2}{2m}\left( \frac{\vec{r}_{12}\cdot\vec{r}_{12}}{r_{12}^2r_{12}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{21}}{r_{21}^2r_{21}^2} \right)  = \frac{\alpha^2}{mr_{12}^2} \onslide<3->{\longleftarrow \textit{Coulomb-like interaction}} \\
       \\
     }
     \onslide<4->{
@@ -1524,6 +1527,7 @@
   
   \begin{itemize}
     \item FQHE
+    \item Fusion rules?
     \item Fault-tolerant quantum computing
   \end{itemize}
 
@@ -1536,8 +1540,8 @@
 \begin{frame}{Summary/Conclusion}
 
   \begin{itemize}
-    \item Outline the talk: what did we talk about?
-    \item What are the takeaways?
+    \item Summary: what did we talk about?
+    \item What are the main takeaways?
     \item Acknowledgements, questions, references (?)
   \end{itemize}
 
