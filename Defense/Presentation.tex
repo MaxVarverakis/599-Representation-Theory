@@ -1254,7 +1254,7 @@
   
   \vfill
   
-  \onslide<3->{\textbf{Quantum system:} Some wavefunction $\psi(r_1,\dots,r_n)$ describing the identical particles fixed at nondegenerate positions $r_1,r_2,\dots,r_n$}.
+  \onslide<3->{\textbf{Quantum system:} Some wavefunction $\psi(r_1,\dots,r_n)$ describing the identical particles fixed at nondegenerate positions $r_1,r_2,\dots,r_n$.}
   
   \vfill
   
@@ -1312,17 +1312,25 @@
 
 \begin{frame}{Anyons: A Consequence of Braiding}
   
-  \begin{definition}<2->
+  % \vfill
+
+  \begin{definition}<1->
     Particles that obey the braid group permutation rules are known as \textcolor{CPgold}{\textit{anyons}}.
   \end{definition}
   
+  \vspace{1em}
+
   \begin{itemize}
-    \item<2-> The statistical behavior of anyons is governed by the corresponding braid group representation acting on the system.
-    \item<3-> Broadly speaking, there are two types of anyons:
+    \item<2-> Anyons are \textcolor{CPgold}{$(2+1)$\textit{-dimensional}} quasi-particles (2D space $+$ 1D time).
+    \item<3-> Anyon statistics are governed by the specific braid group representation acting on the system. %The statistical behavior of anyons is governed by the corresponding braid group representation acting on the system.
+    \vspace{1em}
+    \item<4-> Two types of anyons:
     \begin{enumerate}
-      \item<4-> \textcolor{CPgold}{\textit{Abelian anyons}}: The braid group representation is abelian.
-      \item<5-> \textcolor{CPgold}{\textit{Nonabelian anyons}}: The braid group representation is nonabelian.
+      \item<5-> \textcolor{CPgold}{\textit{Abelian anyons}}: The braid group representation is abelian.
+      \item<6-> \textcolor{CPgold}{\textit{Nonabelian anyons}}: The braid group representation is nonabelian.
     \end{enumerate}
+    \vspace{1em}
+    \item<6-> Edge cases: \textcolor{CPgreen}{\textit{bosons}} and \textcolor{CPgreen}{\textit{fermions}}.
   \end{itemize}
 
   % \begin{itemize}
@@ -1338,55 +1346,140 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Nontrivial Braiding Effects in 1D Representations}
+\begin{frame}[t]{Nontrivial Braiding Effects in 1D Representations}
+  \vspace{-1em}
   \begin{columns}
     \begin{column}{.5\textwidth}
-      \begin{itemize}
-        \item Introduce the idea (define it).
-        \item Show diagram to illustrate nontrivial braiding effects qualitatively.
-        \item Nontrivial braiding in 1D rep corresponding to diagram.
-        \item Hint at a greater conclusion but first need to look into the physics perspective\dots
-      \end{itemize}
+      \onslide<2->{\textbf{Recall:} A braid is only well-defined if all particle trajectories are known.}
+      
+      \vspace{.5em}
+
+      \onslide<3->{\textbf{Consequences:}}
+      \begin{enumerate}
+        \item<3-> A permutation of two anyons requires the knowledge of the positions of all other anyons in the system.
+        \item<4-> This is a consequence of the so-called \textit{nontrivial braiding effects} of the braid group.
+      \end{enumerate}
+      
+      \vspace{.5em}
+
+      % \onslide<5->{\textbf{Example}}\onslide<8->{\textbf{:}}
+      \onslide<8->{
+        \textbf{1D representation:}
+        \begin{empheq}[right=\onslide<9->{\empheqrbrace\neq \textrm{ if }\theta\not\in\pi\Z}]{align*}
+          \sigma_1\mapsto& e^{i\theta} \\
+          \sigma_2\sigma_1\sigma_2\mapsto& e^{3i\theta}
+        \end{empheq}
+      }
+
+      % \begin{itemize}
+      %   \item Nontrivial braiding in 1D rep corresponding to diagram.
+      %   \item Hint at a greater conclusion but first need to look into the physics perspective\dots
+      % \end{itemize}
+
     \end{column}
     \begin{column}{.5\textwidth}
       \centering
       \resizebox{\linewidth}{!}{\input{../FormattedThesis/TikZ/anyon_trajectories.tikz}}
       \begin{tikzpicture}[remember picture, overlay]
-        \onslide<1>{\fill[white] ($(current page.north)!.225!(current page.center)$) rectangle ($(current page.east)!.5!(current page.center)$);}
-        \onslide<1-2>{\fill[white] ($(current page.north east)!.225!(current page.east)$) rectangle ($(current page.center)!.5!(current page.east)$);}
-        % \onslide<1>{\fill[cyan] ($(current page.north)!.225!(current page.center)$) rectangle ($(current page.north east)!.4!(current page.east)$);}
-        % \onslide<1-2>{\fill[magenta] ($(current page.north)!.85!(current page.center)$) rectangle ($(current page.north east)!.4!(current page.east)$);}
-        \onslide<1-3>{\fill[white] ($(current page.center)!.1!(current page.north)$) rectangle ($(current page.east)!.9!(current page.south east)$);}
+        \onslide<1-4>{\fill[white] ($(current page.north)!.25!(current page.center)$) rectangle ($(current page.east)!.5!(current page.center)$);}
+        \onslide<1-5>{\fill[white] ($(current page.north east)!.225!(current page.east)$) rectangle ($(current page.center)!.5!(current page.east)$);}
+        \onslide<1-6>{\fill[white] (current page.center) rectangle ($(current page.south)!.89!(current page.south east)$);}
       \end{tikzpicture}
     \end{column}
   \end{columns}
-  
-  \onslide<4->{}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{A Physicists Approach to Anyons (pt. 1)}
+\begin{frame}[t]{A Physicists Approach to Anyons (Lagrangian)}
+  Consider two identical non-interacting anyons with positions $\vec{r}_1=(x_1,y_1)$ and $\vec{r}_2=(x_2,y_2)$ in a harmonic potential. Let $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ be the relative angle between the two anyons and $\dot{\phi}=\frac{d\phi}{dt}$.
   
-  \begin{itemize}
-    \item Non-interacting anyons.
-  \end{itemize}
+  \vspace{1em}
   
+  \textit{Potential:}\quad$V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$
+  
+  \vspace{.5em}
+  
+  \textit{Statistical interaction due to braiding:}\quad$\mathcal{L}_{\text{int}} = \hbar\alpha\dot{\phi}, \quad \alpha\in\left[ 0,1 \right]$
+  
+  \vspace{.5em}
+  
+  \textit{Classical Kinetic Energy:}\quad$T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right)$
+  
+  \vspace{.5em}
+  
+  \textbf{Lagrangian:}
+  \begin{center}
+    $\mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$
+  \end{center}
+  % \begin{equation*}
+  %   \mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)
+  % \end{equation*}
+
+  \vspace{.5em}
+  
+  \textbf{Generalize to $N$ anyons:} Let $\phi_{ij} = \arctan\left( \frac{y_j-y_i}{x_j-x_i} \right)$,
+  \begin{equation*}
+    \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{2} + \hbar\alpha\sum_{\substack{i<j}}^N\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{2}
+  \end{equation*}
+
+
+  % \textit{Change of coordinates:}\quad Relative \, $\vec{r} = \vec{r}_1-\vec{r}_2$, \qquad center-of-mass \;$\vec{R} = \frac{\vec{r}_1+\vec{r}_2}{2}$
+
+  % \vspace{.5em}
+
+  % \textbf{Lagrangian Decomposition:}
+  % \begin{equation*}
+  %   \mathcal{L} = \underbrace{m\vd{R}^2}_{\mathcal{L}_R} + \underbrace{\frac{m{\vd{r}}^{2}}{4} + \hbar\alpha\dot{\phi}}_{\mathcal{L}_r} - \underbrace{\frac{1}{2}m\omega^2\left( 2{\vec{R}}^{2} + \frac{{\vec{r}}^{2}}{2} \right)}_{V(\vec{R},\vec{r})}
+  % \end{equation*}
+
+  % \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{A Physicists Approach to Anyons (Hamiltonian)}
+  
+  % \vspace{-1em}
+  % Set $\hbar=1$.
+  \vspace{-1em}
+  \begin{align*}
+    \onslide<2->{
+      &\textbf{Rewrite $N$-anyon $\mathcal{L}$:}& \mathcal{L} &= \frac{m}{2}\sum\limits_{i=1}^{N}\left[ \vd{r}^{2} - \omega^2\vec{r}_i^{2} \right] + \alpha\sum_{i<j}^{N}\vd{r}_{ij}\cdot\frac{\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2} %\alpha\sum\limits_{i<j}^{N}\frac{\vec{r}_{ij}\times\vd{r}_{ij}}{{r}_{ij}^{2}}
+      } \\
+    \onslide<3->{
+      &\textbf{Gauge potential:}& \vec{A}_i(\vec{r}_i) &= \alpha\sum_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}\\
+    }
+    \onslide<4->{
+      &\textbf{$i$-th anyon Hamiltonian:}& \mathcal{H}_i &= \frac{1}{2m}{\bigl(\underbrace{\vec{p}_i - \vec{A}_i(\vec{r}_i)}_{\textcolor{CPgold}{\substack{\text{canonical}\\\text{momentum}}}}\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2}\\
+    }
+    \onslide<5->{
+      &\textbf{$N$-anyon Hamiltonian:}& \mathcal{H}
+      &= \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} \\
+    }
+    \onslide<6->{
+      &\textbf{Expand:}& \mathcal{H} 
+      &= \boxed{\frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}}
+      }
+  \end{align*}
+
   \vfill
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{A Physicists Approach to Anyons (pt. 2)}
+\begin{frame}{Interpreting the $N$-anyon Hamiltonian}
   
-  \begin{itemize}
-    \item Non-interacting anyons in harmonic potential.
-    \item Arrive at $N$-anyon Hamiltonian.
-  \end{itemize}
-
-  \vfill
+  \begin{equation*}
+  \mathcal{H} =
+    \onslide<2->\underbrace{\onslide<1->\frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} \onslide<2->}_{\substack{\text{Mechanical}\\\text{momentum}}}\onslide<1-> + 
+    \onslide<3->\underbrace{\onslide<1->\frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2}\onslide<3->}_{\substack{\text{Harmonic}\\\text{potential}}}\onslide<1-> - 
+    \onslide<4->\underbrace{\onslide<1->\frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2}\onslide<4->}_{\substack{\text{Relative}\\\text{angular}\\\text{momentum}\\\vec{\ell}_{ij} = \vec{r}_{ij}\times\vec{p}_{ij}}}\onslide<1-> + 
+    \onslide<5->\underbrace{\onslide<1->\frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}\onslide<5->}_{\substack{\text{Long-range}\\\text{interaction}}}
+  \end{equation*}
 
 \end{frame}
 
@@ -1394,12 +1487,34 @@
 
 \begin{frame}{Nontrivial Braiding Effects in the Hamiltonian}
   
-  \begin{itemize}
-    \item Compare $N=2$ to $N=3$ Hamiltonian from previous slide.
-    \item Highlight nontrivial braiding effects in the $N=3$ case.
-    \item How does this compare to bosons/fermions? (maybe redundant depending on the depth of the previous discussion)
-    \item Question the physical implications.
-  \end{itemize}
+  Nontrivial braiding effects are encoded in the \textcolor{CPgreen}{\textit{long-range interaction}} term for $N\geq 3$.
+
+  % For $N=2$, we obtain a familiar Coulomb-like interaction term without any nontrivial braiding effects:
+  \begin{align*}
+    \onslide<2->{
+      &\mathbf{N=2}\textbf{:}&
+      \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{2}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}
+      &=\frac{\alpha^2}{2m}\left( \frac{\vec{r}_{12}\cdot\vec{r}_{12}}{r_{12}^2r_{12}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{21}}{r_{21}^2r_{21}^2} \right)  = \frac{\alpha^2}{mr_{12}^2} \onslide<3->{\sim \textit{Coulomb-like interaction}} \\
+      \\
+    }
+    \onslide<4->{
+      &\mathbf{N=3}\textbf{:}&
+      \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{3}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}
+      &=\frac{\alpha^2}{m}\bigg(
+      \onslide<5->\underbrace{\onslide<4->\frac{1}{r_{12}^2} + \frac{1}{r_{13}^2} + \frac{1}{r_{23}^2}\onslide<5->}_{\text{Coulomb-like interaction}}\onslide<4-> + \onslide<6->\underbrace{\onslide<4->\frac{\vec{r}_{12}\cdot\vec{r}_{13}}{r_{12}^2r_{13}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{23}}{r_{21}^2r_{23}^2} + \frac{\vec{r}_{31}\cdot\vec{r}_{32}}{r_{31}^2r_{32}^2}\onslide<6->}_{\textcolor{CPgold}{\textbf{Nontrivial braiding}}}\onslide<4-> \bigg)
+    }
+  \end{align*}
+
+  % \begin{itemize}
+  %   \item Compare $N=2$ to $N=3$ Hamiltonian from previous slide.
+  %   \item Highlight nontrivial braiding effects in the $N=3$ case.
+  %   \item How does this compare to bosons/fermions? (maybe redundant depending on the depth of the previous discussion)
+  %   \item Question the physical implications.
+  % \end{itemize}
+  
+  \begin{block}{Question}<7->
+    Why is this useful? %Who cares?
+  \end{block}
 
 \end{frame}
 
