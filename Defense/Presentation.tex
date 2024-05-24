@@ -1111,10 +1111,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{The Braid Group}
-  
+
+  \begin{definition}
+    The \textcolor{CPgold}{\textit{configuration space}} of $n$ ordered distinct points in the complex plane $\C$ is defined as $M_n = \left\{ \left( z_1,\dots,z_n \right)\in\C^n ; z_i\neq z_j,\forall i\neq j \right\}$.% Alternatively, consider $\mathcal{D}$ to be the collection of all hyperplanes $H_{i,j}=\left\{ z_i=z_j \right\}\in\C^n$ for $1\leq i < j \leq n$. Then we can define $M_n = \C^n \setminus \mathcal{D}$.
+  \end{definition}
+
   \begin{itemize}
-    \item Definition: config space and standard visualization
+    \item Note that $\left( z_1,z_2,z_3,\dots,z_n \right)$ and $\left( z_2,z_1,z_3,\dots,z_n \right)$ are distinct configurations in $M_n$.
+    \item A \textcolor{CPgold}{\textit{braid}} $\beta$ is a \textit{loop}\footnote{The topological formalisms that define the braid group are omitted for times sake.} in $M_n$ and can be thought of as a configuration that evolves over time:
+    \begin{align*}
+      \beta : \left[ 0,1 \right] &\to M_n \\
+    t &\mapsto \beta(t) = \bigl( \beta_1(t),\beta_2(t),\dots,\beta_n(t) \bigr),
+    \end{align*}
+    % \item Up to homotopy, a braid can be though of the motion of these points in the complex plane as $t$ ranges from 0 to 1 in which (for every $t\in[0,1]$, $i\neq j\in\left\{ 1,2,\dots,n \right\}$):
+    % \begin{itemize}
+    %   \item $\beta_i(t)$ is defined,
+    %   \item $\beta_i(t)\neq \beta_j(t)$
+    % \end{itemize}
   \end{itemize}
+
+  \begin{definition}<1->
+    The \textcolor{CPgold}{\textit{braid group}} $B_n$ is the (fundamental) group of all complex-valued $n$-tuples ($M_n$) up to \textit{homotopy}.
+  \end{definition}
+
+  % \begin{itemize}
+  %   \item Definition: config space and standard visualization
+  % \end{itemize}
   
   \vfill
 
@@ -1122,14 +1144,85 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Standard Generators}
+\begin{frame}[t]{Visualization of Braids}
+  
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+        \item Each path traced out by a point in the configuration space is a \textcolor{CPgold}{\textit{strand}}.
+        
+        \vspace{.6em}
+
+        \item The number of strands of a braid is equal to the number of points in the configuration space tuples.
+        
+        \vspace{.6em}
+
+        \item We can think of a braid on $n$ strands as the motion of $n$ distinct points in the complex plane over a normalized time interval.
+        
+        \vspace{.6em}
+        
+        \item Each trajectory is a strand, and the braid is the collection of all strands.
+        
+        \vspace{.6em}
+        
+        \item A braid is defined up to \textcolor{CPgold}{\textit{homotopy}}.
+        
+        \vspace{.6em}
+
+        \item Visualized in $\C\times[0,1]$.
+        
+        \vspace{.6em}
+
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \centering
+      \resizebox{\linewidth}{!}{\input{../FormattedThesis/TikZ/C_braid.tikz}}
+      \begin{tikzpicture}[remember picture, overlay]
+        \onslide<1->{
+          \draw[black!50!blue, opacity=.75, -latex, thick] ($(current page.north)!.6!(current page.center) + (.25\textwidth, 0)$) to node[pos=.5, left] {$t$} ($(current page.south)!.4!(current page.center) + (.25\textwidth, 0)$);
+          \node[below] at ($(current page.south)!.55!(current page.south east) + (0,.125\textwidth)$) {\textit{Braid on 5 strands.}};
+        }
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Standard Generators}
 
   \begin{itemize}
-    \item $\sigma_i$ generators.
-    \item Define \textcolor{CPgold}{\textit{degree}}?
-    \item Braid relations.
-    \item Skip YBE verification?
+    \item Every braid can be decomposed into a finite product of \textcolor{CPgold}{\textit{standard generators}} that permute adjacent points.
+    \item The standard generators of $B_n$ are defined as $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$, in which:
   \end{itemize}
+  
+  \vfill
+  
+  \centering
+  \input{../FormattedThesis/TikZ/sigma_i_strand.tikz}
+  
+  \begin{itemize}
+    \item The \textcolor{CPgold}{\textit{degree}} of a braid $\beta\in B_n$ is the sum of the powers of the standard generators in the decomposition of $\beta$.
+  \end{itemize}
+  
+  % \vfill
+  
+  % \begin{columns}
+  %   \begin{column}{.5\textwidth}
+  %     \begin{itemize}
+  %       \item 
+  %     \end{itemize}
+  %   \end{column}
+  % \end{columns}
+
+  % \begin{itemize}
+  %   \item $\sigma_i$ generators.
+  %   \item Define \textcolor{CPgold}{\textit{degree}}?
+  %   \item Braid relations.
+  %   \item Skip YBE verification?
+  % \end{itemize}
   
   \vfill
 
@@ -1137,16 +1230,41 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Automorphisms of the Free Group}
-
-  \begin{itemize}
-    \item Automorphisms of $\pi_1(\D_n)$.
-    \item Braid relations in this picture.
-  \end{itemize}
-
-  \vfill
+\begin{frame}{Alternative Description of $B_n$}
   
+  \begin{definition}<1->
+    The braid group on $n$ strands, denoted $B_n$, is generated by the standard generators that follow the \textcolor{CPgold}{\textit{braid relations}}, summarized below:
+    \begin{equation*}
+      B_n = \left\langle \sigma_1,\dots,\sigma_{n-1} \;\middle|\;
+      \begin{aligned}
+          \sigma_i\sigma_j = \sigma_j\sigma_i,\ |i-j|>1 \\
+          \sigma_i\sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i\sigma_{i+1}\ 
+      \end{aligned}
+      \right\rangle.
+    \end{equation*}
+  \end{definition}
+
+\textbf{Comment:}
+\begin{itemize}
+  \item $\sigma_i\sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i\sigma_{i+1}$ is known as the \textit{Yang-Baxter equation}, visualized below:
+  % \item An intuitive explanation for the Yang-Baxter equation requires some knot theory:
+\end{itemize}
+\centering
+\resizebox{.7\linewidth}{.2\textwidth}{\input{../FormattedThesis/TikZ/YB_Braid_pres.tikz}}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{frame}{Automorphisms of the Free Group}
+
+%   \begin{itemize}
+%     \item Automorphisms of $\pi_1(\D_n)$.
+%     \item Braid relations in this picture.
+%   \end{itemize}
+
+%   \vfill
+  
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
