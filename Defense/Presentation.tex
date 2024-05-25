@@ -55,6 +55,7 @@
 \usepackage{url}
 \usepackage{multimedia}
 \usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{appendixnumberbeamer}
 
 % \newcommand{\twobytwo}[4]{\left(\begin{array}{cc}
 % #1 & #2  \\
@@ -462,7 +463,7 @@
   \vfill
   
   \begin{definition}<1->
-    A representation $X(G)$ on $V$ is \textit{irreducible} if there is no non-trivial invariant subspace\footnote<1->{Invariant subspace $W\subset V$: $X(g)\vec{w}\in W, \, \forall \, \vec{w}\in W$} in $V$ with respect to $X(G)$. Otherwise, $X(G)$ is \textit{reducible}.
+    A representation $X(G)$ on $V$ is \textcolor{CPgold}{\textit{irreducible}} if there is no non-trivial invariant subspace\footnote<1->{Invariant subspace $W\subset V$: $X(g)\vec{w}\in W, \, \forall \, \vec{w}\in W$} in $V$ with respect to $X(G)$. Otherwise, $X(G)$ is \textcolor{CPgold}{\textit{reducible}}.
   \end{definition}
   
   \vfill
@@ -894,8 +895,8 @@
   
   \textbf{Process to obtaining irreducibles:}
   \begin{enumerate}
-    \item<1-> Let $U$ be any representation of SO(2).
-    \item<2-> Same argument as before: $U(\phi) = e^{-iJ\phi}$, where $J$ is not necessarily the same as before.
+    \item<2-> Let $U$ be any representation of SO(2).
+    \item<3-> Same argument as before: $U(\phi) = e^{-iJ\phi}$, where $J$ is not necessarily the same as before.
   %   \item<3-> Rotations preserve vector lengths\footnote<3->{$\braket{a|b}$ is a fancy inner product that's linear in the \textit{second} argument.}:
   %   \begin{align*}
   %     \size{\vec{a}}^2 = \size{U(\phi)\vec{a}}^2
@@ -904,16 +905,16 @@
   %     &\iff e^{iJ^\dagger\phi}e^{-iJ\phi} = e^{-i(J-J^\dagger)\phi} = 1 \\
   %     &\iff J = J^\dagger \quad (J\text{ is \textit{Hermitian}!})
   %   \end{align*}
-  \item<3-> SO(2) is abelian: Schur's Lemmas $\implies$ all irreducible representations are 1D.
-  \item<4-> Each invariant subspace is spanned by an eigenvector of $J$:
+  \item<4-> SO(2) is abelian: Schur's Lemmas $\implies$ all irreducible representations are 1D.
+  \item<5-> Each invariant subspace is spanned by an eigenvector of $J$:
   \begin{align*}
     J\ket{m} &= m\ket{m}, \\
     U(\phi)\ket{m} &= e^{-iJ\phi}\ket{m} = e^{-im\phi}\ket{m}.
   \end{align*}
-  \item<5-> Periodicity of SO(2) $\implies e^{-i2\pi m} = 1 \implies m\in\Z$.
+  \item<6-> Periodicity of SO(2) $\implies e^{-i2\pi m} = 1 \implies m\in\Z$.
   \end{enumerate}
 
-  \begin{theorem}<6->
+  \begin{theorem}<7->
     The \textit{single-valued irreducible representations of SO(2)} are defined as
   \begin{equation*}
       U^m(\phi) = e^{-im\phi}, \ \forall\, m\in\Z.
@@ -929,14 +930,14 @@
 \begin{frame}[t]{Generalization to 3 Spatial Dimensions}
 
   \begin{itemize}
-    \item<1-> In 3 spatial dimensions, every rotation can be thought of a rotation in a plane with some perpendicular axis of rotation $\vec{n}$: $R_{\vec{n}}(\theta)$.
-    \item<2-> Rotations in a plane are isomorphic to SO(2): $R_{\vec{n}}(\theta) = e^{-i\theta J_{\vec{n}}}$ for some generator $J_{\vec{n}}$.
-    \item<3-> The standard generators along each axis $\left\{ J_x,J_y,J_z \right\}$ form a basis for all rotation generators: $J_{\vec{n}} = n_x J_x + n_y J_y + n_z J_z$.
+    \item<2-> In 3 spatial dimensions, every rotation can be thought of as a rotation in a plane with some perpendicular axis of rotation $\vec{n}$: $R_{\vec{n}}(\theta)$.
+    \item<3-> Rotations in a plane are isomorphic to SO(2): $R_{\vec{n}}(\theta) = e^{-i\theta J_{\vec{n}}}$ for some generator $J_{\vec{n}}$.
+    \item<4-> The standard generators along each axis $\left\{ J_x,J_y,J_z \right\}$ form a basis for all rotation generators: $J_{\vec{n}} = n_x J_x + n_y J_y + n_z J_z$.
   \end{itemize}
   
   \vfill
   
-  \onslide<4->{
+  \onslide<5->{
     \textbf{Consequence:} Any rotation in Euclidean 3-space can be written in terms of the generators:
     \begin{align*}
       R_{\vec{n}}(\theta) = e^{-i\theta J_{\vec{n}}} = e^{-i\theta(n_x J_x + n_y J_y + n_z J_z)} = e^{-i\theta\,\vec{n}\cdot\vec{J}}.
@@ -1129,7 +1130,9 @@
     %   \item $\beta_i(t)\neq \beta_j(t)$
     % \end{itemize}
   \end{itemize}
-
+  
+  \vspace{-1em}
+  
   \begin{definition}<5->
     The \textcolor{CPgold}{\textit{braid group}} $B_n$ is the (fundamental) group of all complex-valued $n$-tuples ($M_n$) up to \textit{homotopy}.
   \end{definition}
@@ -1181,7 +1184,7 @@
         \resizebox{\linewidth}{!}{\input{../FormattedThesis/TikZ/C_braid.tikz}}
         \begin{tikzpicture}[remember picture, overlay]
           \draw[black!50!blue, opacity=.75, -latex, thick] ($(current page.north)!.6!(current page.center) + (.25\textwidth, 0)$) to node[pos=.5, left] {$t$} ($(current page.south)!.4!(current page.center) + (.25\textwidth, 0)$);
-          \node[below] at ($(current page.south)!.55!(current page.south east) + (0,.125\textwidth)$) {\textit{Braid on 5 strands.}};
+          \node[below] at ($(current page.north)!.55!(current page.north east) - (0,.15\textwidth)$) {\textit{Braid on 5 strands.}};
         }
       \end{tikzpicture}
     \end{column}
@@ -1231,7 +1234,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[t]{Alternative Description of $B_n$}
-  
+  \vspace{-.7em}
   \begin{definition}<2->
     The braid group on $n$ strands, denoted $B_n$, is generated by the standard generators that follow the \textcolor{CPgold}{\textit{braid relations}}, summarized below:
     \begin{equation*}
@@ -1251,7 +1254,7 @@
     % \item An intuitive explanation for the Yang-Baxter equation requires some knot theory:
   % \end{itemize}
   \centering
-  \resizebox{.7\linewidth}{.25\textwidth}{\input{../FormattedThesis/TikZ/YB_Braid_pres.tikz}}
+  \resizebox{.7\linewidth}{.225\textwidth}{\input{../FormattedThesis/TikZ/YB_Braid_pres.tikz}}
 }
 
 \end{frame}
@@ -1624,7 +1627,7 @@
   
   \onslide<4->{\textit{Classical Kinetic Energy:}\quad$T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right)$}
   
-  \vspace{.5em}
+  % \vspace{.5em}
   
   \onslide<5->{
     \textbf{Lagrangian:}
@@ -1790,6 +1793,7 @@
 
 
 % BACKUP SLIDES
+\appendix
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
