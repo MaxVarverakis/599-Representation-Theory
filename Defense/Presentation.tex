@@ -627,19 +627,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Preliminaries}
+% \begin{frame}{Preliminaries}
 
-  \textcolor{red}{\textbf{Skip preliminaries?}}
+%   \textcolor{red}{\textbf{Skip preliminaries?}}
 
-  % \textbf{Outline:}
-  % \begin{enumerate}
-  %   \item Dirac notation.
-  %   \item Basic quantum mechanics.
-  %   \item Quantum Hilbert space.
-  %   \item The commutator.
-  % \end{enumerate}
+%   % \textbf{Outline:}
+%   % \begin{enumerate}
+%   %   \item Dirac notation.
+%   %   \item Basic quantum mechanics.
+%   %   \item Quantum Hilbert space.
+%   %   \item The commutator.
+%   % \end{enumerate}
 
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -712,9 +712,9 @@
 
 \begin{frame}{Preliminaries: Basic Quantum Mechanics}
 
-  \begin{itemize}
-    \item Talk about probabilities and whatnot? Eigenvalues = observables? Or just mention when connecting later stuff to physics?
-  \end{itemize}
+  % \begin{itemize}
+  %   \item Talk about probabilities and whatnot? Eigenvalues = observables? Or just mention when connecting later stuff to physics?
+  % \end{itemize}
 
 \end{frame}
 
@@ -1112,13 +1112,13 @@
 
 \begin{frame}{The Braid Group}
 
-  \begin{definition}
+  \begin{definition}<2->
     The \textcolor{CPgold}{\textit{configuration space}} of $n$ ordered distinct points in the complex plane $\C$ is defined as $M_n = \left\{ \left( z_1,\dots,z_n \right)\in\C^n ; z_i\neq z_j,\forall i\neq j \right\}$.% Alternatively, consider $\mathcal{D}$ to be the collection of all hyperplanes $H_{i,j}=\left\{ z_i=z_j \right\}\in\C^n$ for $1\leq i < j \leq n$. Then we can define $M_n = \C^n \setminus \mathcal{D}$.
   \end{definition}
 
   \begin{itemize}
-    \item Note that $\left( z_1,z_2,z_3,\dots,z_n \right)$ and $\left( z_2,z_1,z_3,\dots,z_n \right)$ are distinct configurations in $M_n$.
-    \item A \textcolor{CPgold}{\textit{braid}} $\beta$ is a \textit{loop}\footnote{The topological formalisms that define the braid group are omitted for times sake.} in $M_n$ and can be thought of as a configuration that evolves over time:
+    \item<3-> Note that $\left( z_1,z_2,z_3,\dots,z_n \right)$ and $\left( z_2,z_1,z_3,\dots,z_n \right)$ are distinct configurations in $M_n$.
+    \item<4-> A \textcolor{CPgold}{\textit{braid}} $\beta$ is a \textit{loop}\footnote<4->{The topological formalisms that define the braid group are omitted for times sake.} in $M_n$ and can be thought of as a configuration that evolves over time:
     \begin{align*}
       \beta : \left[ 0,1 \right] &\to M_n \\
     t &\mapsto \beta(t) = \bigl( \beta_1(t),\beta_2(t),\dots,\beta_n(t) \bigr),
@@ -1130,7 +1130,7 @@
     % \end{itemize}
   \end{itemize}
 
-  \begin{definition}<1->
+  \begin{definition}<5->
     The \textcolor{CPgold}{\textit{braid group}} $B_n$ is the (fundamental) group of all complex-valued $n$-tuples ($M_n$) up to \textit{homotopy}.
   \end{definition}
 
@@ -1149,27 +1149,27 @@
   \begin{columns}
     \begin{column}{.5\textwidth}
       \begin{itemize}
-        \item Each path traced out by a point in the configuration space is a \textcolor{CPgold}{\textit{strand}}.
+        \item<2-> Each path traced out by a point in the configuration space is a \textcolor{CPgold}{\textit{strand}}.
         
         \vspace{.6em}
 
-        \item The number of strands of a braid is equal to the number of points in the configuration space tuples.
+        \item<3-> The number of strands of a braid is equal to the number of points in the configuration space tuples.
         
         \vspace{.6em}
 
-        \item We can think of a braid on $n$ strands as the motion of $n$ distinct points in the complex plane over a normalized time interval.
+        \item<4-> We can think of a braid on $n$ strands as the motion of $n$ distinct points in the complex plane over a normalized time interval.
         
         \vspace{.6em}
         
-        \item Each trajectory is a strand, and the braid is the collection of all strands.
+        \item<5-> Each trajectory is a strand, and the braid is the collection of all strands.
         
         \vspace{.6em}
         
-        \item A braid is defined up to \textcolor{CPgold}{\textit{homotopy}}.
+        \item<6-> A braid is defined up to \textcolor{CPgold}{\textit{homotopy}}.
         
         \vspace{.6em}
 
-        \item Visualized in $\C\times[0,1]$.
+        \item<7-> Visualized in $\C\times[0,1]$.
         
         \vspace{.6em}
 
@@ -1177,9 +1177,9 @@
     \end{column}
     \begin{column}{.5\textwidth}
       \centering
-      \resizebox{\linewidth}{!}{\input{../FormattedThesis/TikZ/C_braid.tikz}}
-      \begin{tikzpicture}[remember picture, overlay]
-        \onslide<1->{
+      \onslide<8->{
+        \resizebox{\linewidth}{!}{\input{../FormattedThesis/TikZ/C_braid.tikz}}
+        \begin{tikzpicture}[remember picture, overlay]
           \draw[black!50!blue, opacity=.75, -latex, thick] ($(current page.north)!.6!(current page.center) + (.25\textwidth, 0)$) to node[pos=.5, left] {$t$} ($(current page.south)!.4!(current page.center) + (.25\textwidth, 0)$);
           \node[below] at ($(current page.south)!.55!(current page.south east) + (0,.125\textwidth)$) {\textit{Braid on 5 strands.}};
         }
@@ -1194,17 +1194,17 @@
 \begin{frame}[t]{Standard Generators}
 
   \begin{itemize}
-    \item Every braid can be decomposed into a finite product of \textcolor{CPgold}{\textit{standard generators}} that permute adjacent points.
-    \item The standard generators of $B_n$ are defined as $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$, in which:
+    \item<2-> Every braid can be decomposed into a finite product of \textcolor{CPgold}{\textit{standard generators}} that permute adjacent points.
+    \item<3-> The standard generators of $B_n$ are defined as $\left\{ \sigma_1,\sigma_2,\dots,\sigma_{n-1} \right\}$, in which:
   \end{itemize}
   
   \vfill
-  
-  \centering
-  \input{../FormattedThesis/TikZ/sigma_i_strand.tikz}
-  
+  \onslide<4->{
+    \centering
+    \input{../FormattedThesis/TikZ/sigma_i_strand.tikz}
+  }
   \begin{itemize}
-    \item The \textcolor{CPgold}{\textit{degree}} of a braid $\beta\in B_n$ is the sum of the powers of the standard generators in the decomposition of $\beta$.
+    \item<5-> The \textcolor{CPgold}{\textit{degree}} of a braid $\beta\in B_n$ is the sum of the powers of the standard generators in the decomposition of $\beta$.
   \end{itemize}
   
   % \vfill
@@ -1230,9 +1230,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Alternative Description of $B_n$}
+\begin{frame}[t]{Alternative Description of $B_n$}
   
-  \begin{definition}<1->
+  \begin{definition}<2->
     The braid group on $n$ strands, denoted $B_n$, is generated by the standard generators that follow the \textcolor{CPgold}{\textit{braid relations}}, summarized below:
     \begin{equation*}
       B_n = \left\langle \sigma_1,\dots,\sigma_{n-1} \;\middle|\;
@@ -1244,13 +1244,16 @@
     \end{equation*}
   \end{definition}
 
-\textbf{Comment:}
-\begin{itemize}
-  \item $\sigma_i\sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i\sigma_{i+1}$ is known as the \textit{Yang-Baxter equation}, visualized below:
-  % \item An intuitive explanation for the Yang-Baxter equation requires some knot theory:
-\end{itemize}
-\centering
-\resizebox{.7\linewidth}{.2\textwidth}{\input{../FormattedThesis/TikZ/YB_Braid_pres.tikz}}
+\onslide<3->{
+  \textbf{Comment:} $\sigma_i\sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i\sigma_{i+1}$ is known as the \textit{Yang-Baxter equation}, visualized below:
+  % \begin{itemize}
+    % \item $\sigma_i\sigma_{i+1}\sigma_i = \sigma_{i+1}\sigma_i\sigma_{i+1}$ is known as the \textit{Yang-Baxter equation}, visualized below:
+    % \item An intuitive explanation for the Yang-Baxter equation requires some knot theory:
+  % \end{itemize}
+  \centering
+  \resizebox{.7\linewidth}{.25\textwidth}{\input{../FormattedThesis/TikZ/YB_Braid_pres.tikz}}
+}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1312,14 +1315,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{The Burau Representation}
-  
-  \begin{itemize}
-    \item Go through arguments/motivation for Burau?
-    \item Show covering space picture/diagrams?
-    \item Define Burau representation.
-    \item Note on faithfulness!
-    \item Quickly show it's reducible with the $\mathbf{1}$ eigenvector?
-  \end{itemize}
+
+  \onslide<2->{
+    Define the matrix $U=\begin{bmatrix}
+    1-t & t \\ 1 & 0
+  \end{bmatrix}$, where $t$ is a free parameter.
+  }
+
+  \begin{definition}<3->
+    The \textcolor{CPgold}{\textit{Burau representation}} of the braid group $B_n$ is defined on the standard generators:
+    \begin{align*}
+      \psi_n:B_n&\to\text{GL}_n(\Z[t,\iv{t}]) \\
+    \sigma_i &\mapsto \begin{bmatrix}
+        I_{i-1} & 0 & 0 \\
+        0 & U & 0 \\
+        0 & 0 & I_{n-i-1}
+    \end{bmatrix}.
+    \end{align*}
+  \end{definition}
+
+  \onslide<4->{
+    The Burau representation satisfies the braid relations:
+  \begin{align*}
+    \psi_n(\sigma_i)\psi_n(\sigma_j) &= \psi_n(\sigma_j)\psi_n(\sigma_i) \text{ for } |i-j|>1, \\
+    \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \text{ for } i\in\left\{ 1,\dots,n-2 \right\}.
+  \end{align*}
+  }
+
+  % \begin{itemize}
+  %   \item Go through arguments/motivation for Burau?
+  %   \item Show covering space picture/diagrams?
+  %   \item Define Burau representation.
+  %   \item Note on faithfulness!
+  %   \item Quickly show it's reducible with the $\mathbf{1}$ eigenvector?
+  % \end{itemize}
 
   \vfill
 
@@ -1327,14 +1356,69 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}{The Burau Representation is Reducible}
+  \onslide<2->{
+    \qquad\!\textbf{Notice:}\quad
+    $U\begin{bmatrix}
+        1\\1
+    \end{bmatrix} = \begin{bmatrix}
+        1-t & t \\ 1 & 0
+    \end{bmatrix}\begin{bmatrix}
+        1\\1
+    \end{bmatrix} = \begin{bmatrix}
+        1-t+t \\ 1
+    \end{bmatrix} = \begin{bmatrix}
+        1 \\ 1
+    \end{bmatrix}$
+  }
+  \vspace{1em}
+  
+  \begin{align*}
+    \onslide<3->{\textbf{Block structure} \text{ of } \psi_n(\sigma_i)&\implies\vec{1}=\begin{bmatrix}
+      1\\1\\\vdots\\1
+    \end{bmatrix} \text{ is invariant under }\psi_n(\sigma_i)\ \forall\, i=1,2,\dots,n-1 \\}
+    \onslide<4->{&\implies\psi_n(\beta)\vec{1}=\vec{1}\ \forall\, \beta\in B_n \quad\left( \text{span$\left\{ \vec{1} \right\}$ is $\psi_n$-invariant} \right) \\
+    \\}
+    \onslide<5->{&\implies \textcolor{CPgold}{\textbf{Burau representation is reducible}}!}
+  \end{align*}
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}{Unitary Representation of the Braid Group}
 
+  \begin{definition}<2->
+    A matrix $M\in\text{GL}_n(\C)$ is \textcolor{CPgold}{\textit{unitary}} if $M^\dagger = \iv{M}$.
+  \end{definition}
+
   \begin{itemize}
-    \item Define reduced Burau representation.
-    \item Obtain unitary representation from reduced Burau. (Not sure how much detail to go into here.)
-    \item Maybe just jump right to defining the unitary reps in the $2\times 2$ case?
-    \item Comment on why we want a unitary rep!
+    \item<3-> The \textcolor{CPgold}{\textit{reduced Burau representation}} on $B_n$ is an $(n-1)$-dimensional representation of the braid group.
+    \item<4-> \textcolor{CPgold}{\textit{Unitary representations}} of $B_n$ can be constructed from the reduced Burau representation.
+    % \item The unitary representations depend on the choice of $t$ in the Burau representation.
   \end{itemize}
+  \begin{definition}<5->
+    Define the unitary representation $\mathcal{U}:B_3\to U(2)$ by
+    \begin{align*}
+      \mathcal{U}(\sigma_1) &= \frac{1}{2}e^{-i\frac{\pi}{6}}\begin{bmatrix}
+        \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
+        % \\
+        1 & -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)}
+    \end{bmatrix}\\
+    \mathcal{U}(\sigma_2) &= \frac{1}{2}e^{-i\frac{\pi}{6}}\begin{bmatrix}
+      -\sqrt{3}\,e^{-i\arctan\left( \frac{1}{\sqrt{2}} \right)} & 1 \\
+      % \\
+      1 & \sqrt{3}\,e^{i\arctan\left( \frac{1}{\sqrt{2}} \right)}
+  \end{bmatrix}
+    \end{align*}
+  \end{definition}
+  
+  % \begin{itemize}
+  %   \item Define reduced Burau representation.
+  %   \item Obtain unitary representation from reduced Burau. (Not sure how much detail to go into here.)
+  %   \item Maybe just jump right to defining the unitary reps in the $2\times 2$ case?
+  %   \item Comment on why we want a unitary rep!
+  % \end{itemize}
 
   \vfill
   
@@ -1344,14 +1428,29 @@
 
 \begin{frame}{Nonabelian Characteristics of the Unitary Representation}
   
-  \begin{itemize}
-    \item Compare and contrast $\mathcal{U}(\sigma_{1,2})$ to their inverses.
-    \item Note that $[\mathcal{U}(\sigma_{1,2}),\mathcal{U}(\sigma_{2,1})]\neq 0$ to highlight nonabelian-ness.
-  \end{itemize}
+  \onslide<2->{\textbf{Observations:}}
+  \begin{enumerate}
+    \item<3-> $[\mathcal{U}(\sigma_1),\mathcal{U}(\sigma_2)]\neq 0\implies \textcolor{CPgold}{\mathcal{U}\textit{ nonabelian}}$.
+    \item<4-> $\iv{\mathcal{U}(\sigma_i)}={\mathcal{U}(\sigma_i)}^\dagger\neq \mathcal{U}(\sigma_i)$ for $i=1,2$.
+  \end{enumerate}
+  
+  \vspace{1em}
+  
+  \onslide<5->{\textbf{Consequence:} $\sigma_1^2$ and $\sigma_2^2$ are not the identity braid, which is in contrast to the permutation group where transpositions are involutory.}
 
-  \begin{block}{Question}
-    What are the physical implications of this nonabelian representation?
+  \vfill
+
+  % \begin{itemize}
+  %   \item Compare and contrast $\mathcal{U}(\sigma_{1,2})$ to their inverses.
+  %   \item Note that $[\mathcal{U}(\sigma_{1,2}),\mathcal{U}(\sigma_{2,1})]\neq 0$ to highlight nonabelian-ness.
+  % \end{itemize}
+
+  \begin{block}<6->{Question}
+    What are the physical implications of this nonabelian unitary representation?
   \end{block}
+  \onslide<7->{\textcolor{CPgreen}{\textbf{Answer:}} Unitary matrices preserve inner products, so the unitary representations of the braid group can act on a quantum system by braiding particles!}
+
+  \vfill
 
 \end{frame}
 
@@ -1483,7 +1582,7 @@
       % \onslide<5->{\textbf{Example}}\onslide<8->{\textbf{:}}
       \onslide<8->{
         \textbf{1D representation:}
-        \begin{empheq}[right=\onslide<9->{\empheqrbrace\neq \textrm{ if }\theta\not\in\pi\Z}]{align*}
+        \begin{empheq}[right=\onslide<9->{\empheqrbrace\neq \text{ if }\theta\not\in\pi\Z}]{align*}
           \sigma_1\mapsto& e^{i\theta} \\
           \sigma_2\sigma_1\sigma_2\mapsto& e^{3i\theta}
         \end{empheq}
@@ -1644,10 +1743,18 @@
 \begin{frame}{Physical Implications of Nontrivial Braiding Effects}
   
   \begin{itemize}
-    \item FQHE
-    \item Fusion rules?
-    \item Fault-tolerant quantum computing
+    \item<2-> The fractional quantum Hall effect is a physical manifestation of anyonic braiding in 2D electron systems (fractional charge, fractional statistics).
+    
+    \vspace{1em}
+
+    \item<3-> Depending on the specific representation of the braid group, one can define topological properties of different flavors of anyons. The corresponding combination (fusion) rules can be used to describe the behavior of anyonic systems.
+    
+    \vspace{1em}
+
+    \item<4-> Certain nonabelian anyons (defined by specific fusion rules) are alleged to enable fault-tolerant quantum computers, and is an ongoing area of research.
   \end{itemize}
+
+  % or just bullet them and talk about the context/info
 
   \vfill
   
@@ -1655,13 +1762,84 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Summary/Conclusion}
+\begin{frame}{Summary}
 
-  \begin{itemize}
-    \item Summary: what did we talk about?
-    \item What are the main takeaways?
-    \item Acknowledgements, questions, references (?)
-  \end{itemize}
+  \textbf{Main Takeaways:}
+  \begin{enumerate}
+    \item<2-> Representation theory is a powerful tool that can be used to obtain fundamental results in quantum mechanics and beyond.
+    \item<3-> Unitary representations of the braid group can act on $(2+1)$-dimensional quantum systems, resulting in anyons.
+    \item<4-> Anyons exhibit fractional statistics compared to the boson/fermion dichotomy.
+    \item<5-> The nontrivial braiding effects of anyons results in useful physical properties that can be exploited for various physical applications.
+  \end{enumerate}
+  
+  \vfill
+  
+  \onslide<6->\textcolor{CPgold}{\textbf{Thank you for your attention!}}
+  
+  \vfill
+
+  % \begin{itemize}
+  %   \item Summary: what did we talk about?
+  %   \item What are the main takeaways?
+  %   \item Acknowledgements, questions, references (?)
+  % \end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% BACKUP SLIDES
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{SO(3) Calculations (pt. 1)}
+  
+  The state $\ket{\phi}$ can be decomposed into a linear combination of the eigenvectors of $J$:
+  \begin{align*}
+      \ket{\phi} = \left( \sum_{m} \ket{m}\bra{m} \right)\ket{\phi} = \sum_{m} \braket{m|\phi}\ket{m},
+  \end{align*}
+  where
+  \begin{align*}
+      \braket{m|\phi} = \braket{m|U(\phi)|\mathcal{O}} = \braket{U^\dagger(\phi)m|\mathcal{O}} = \braket{e^{im\phi}m|\mathcal{O}} = e^{-im\phi}\braket{m|\mathcal{O}}
+  \end{align*}
+  is the projection of $\ket{\phi}$ onto the eigenvector $\ket{m}$ of $J$.
+
+  Thus,
+  \begin{align*}
+    J\ket{\phi} &= \sum_{m} e^{-im\phi} J\ket{m} = \sum_{m} m e^{-im\phi}\ket{m} = \sum_{m} i \frac{\partial}{\partial\phi} \left( e^{-im\phi}\ket{m} \right) = i\frac{\partial}{\partial\phi}\ket{\phi} \\
+    &\implies \braket{\phi|J|\psi} = \braket{J^\dagger \phi|\psi} = -i\frac{\partial}{\partial\phi}\braket{\phi|\psi} = -i\frac{\partial}{\partial\phi}\psi(\phi).
+  \end{align*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{SO(3) Calculations (pt. 2)}
+
+  \begin{align*}
+    \phi &= \arctan\left(\frac{y}{x}\right) \\
+    &\implies \frac{\partial}{\partial\phi} = (\vec{r}\times\vec{\nabla})\cdot\e_z \implies J = -i \frac{\partial}{\partial\phi} = -i \left( \vec{r}\times\vec{\nabla} \right)\cdot\e_z = \frac{1}{\hbar}\hat{L_z} \implies \vh{L} = \vh{r}\times\vh{p} \\
+    \vh{p} &= -i\nabla \implies \hat{L}_z = x \hat{p}_y - y \hat{p}_x \\
+    \hat{H} &= \frac{\vh{p}^2}{2m}  + \hat{V}(\vec{r}), \quad [V(\vec{r}),\hat{L}_z] = 0, \quad [\vh{p}^2,\hat{L}_z] = 0 \implies [\hat{H},\hat{L}_z] = 0,
+  \end{align*}
+  where the last line easily generalizes to $\vh{L}$.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Lie Algebra}
+  
+  \begin{align*}
+    J^2\ket{j} = (J_- J_+ + J_z + J_z^2 )\ket{j} &= (0 + j + j^2)\ket{j} = j(j+1)\ket{j}, \\
+    \\
+    J^2\ket{j,m} &= j(j+1)\ket{j,m}, \\
+    \\
+    J_z\ket{j,m} &= m\ket{j,m}, \\
+    \\
+    J_\pm\ket{j,m} &= \sqrt{j(j+1)-m(m\pm 1)}\ket{j,m\pm 1}.
+\end{align*}
 
 \end{frame}
 
