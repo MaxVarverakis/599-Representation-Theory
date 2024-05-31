@@ -53,7 +53,7 @@ The visualization of a braid is the same as in the case of pure braids, only now
 Note that for $n\geq 1$ there is a natural inclusion $\iota:B_n\hookrightarrow B_{n+1}$ in which we add a new strand to any $\beta\in B_n$ that does not interact with the other strands.
 
 \section{Standard generators of the braid group}\label{sec:std_gens}
-Formalized by Artin~\cite{Artin1947}, each braid can be decomposed into a product of \textit{standard generators} of the braid group. When visualizing braids in $\R\times[0,1]$, a crossing of two strands is clearly indicated by one going over the other, as in \cref{fig:Gen_on_Strands}. Suppose each crossing occurs at a different time $t\in[0,1]$. Then by rescaling the time component of an arbitrary braid, we can decompose it into a stack of simple braids with only one crossing between neighboring strands per braid. Each single crossing of strands can be obtained by performing a transposition between neighboring endpoints of the strands.
+Formalized by Artin~\cite{Artin1947}, each braid can be decomposed into a product of \textit{standard generators} of the braid group. When visualizing braids in $\R\times[0,1]$, a crossing of two strands is clearly indicated by one going over the other, as in \cref{fig:Gen_on_Strands}. Suppose each crossing occurs at a different time $t\in[0,1]$. Then by rescaling the time component of an arbitrary braid, we can decompose it into a stack of \textit{simple braids} with only one crossing between neighboring strands per braid. Each single crossing of strands can be obtained by performing a transposition between neighboring endpoints of the strands.
 
 % \missingfigure[figwidth=6cm]{Gonzalez Figure 2}
 \begin{figure}[htbp]
@@ -141,7 +141,7 @@ The first condition that the standard generators commute if $|i-j|>1$ is easily 
     \centering
     % \includegraphics[width = .5\textwidth]{sketch_YB_citerion_verification.png}
     \input{TikZ/YB_Braid_v2.tikz}
-    \mycaption{Graphical verification of \cref{eq:BnGenYangBaxter}}{All of the above braids are equivalent up to homotopy. The transformation between the middle two braid diagrams is known as a Reidmeister type-III move, in which the red strand (or string in the context of knot theory) is moved completely under the crossing of the blue and green strands.}\label{fig:YB_criterion_verification}
+    \mycaption{Graphical verification of \cref{eq:BnGenYangBaxter}}{All of the above braids are equivalent up to homotopy. The transformation between the middle two braid diagrams is known as a Reidmeister type-III move, in which the horizontal strand (or string in the context of knot theory) is moved completely under the crossing of the other two strands.}\label{fig:YB_criterion_verification}
 \end{figure}
 
 \section[One-dimensional representations of $B_n$]{One-dimensional representations of $\mathbf{B_n}$}\label{sec:1D_rep}
@@ -206,23 +206,28 @@ With this topological tool, we construct a countably infinite-degree covering of
 
 We start this construction with a countably infinite stack of copies of $\D_n$. Then, for every $i\in\Z$, for each of the $n$ punctures on $\sheet{\D}{n,i}$, apply a cut from the hole to some point on the boundary of $\sheet{\D}{n,i}$, as illustrated in \cref{fig:D3_cuts} for the case when $n=3$. Each cut results in two edges, which will be referred to as the left edge and the right edge. Through a homeomorphic deformation, connect the left edges of $\sheet{\D}{n,i}$ to the corresponding right edges of $\sheet{\D}{n,i+1}$, and the right edges of $\sheet{\D}{n,i}$ to the left edges of $\sheet{\D}{n,i-1}$, for every sheet.
 
-\begin{figure}[htbp]
-    \centering
-    % \includegraphics[width=.3\textwidth]{D3_cuts.png}
-    \input{TikZ/D3_cuts.tikz}
-    \mycaption{Punctured disk covering space}{
-        % In the case of $\D_3$, this figure demonstrates how the cuts are applied across each of the three punctures for each sheet in the covering $\widetilde{\D}_3$. The power of $t$ in the base point label $t^j\xi$ indicates that we are on the $j$-th sheet of the covering.
-        For the covering of $\D_3$, we observe the $i$-th sheet of $\widetilde{\D}_3$ with the cuts applied across each of the three punctures. The base point of the loop is indicated by the red dot, and labelled as $t^i\xi$. The power of $t$ indicates that we are on the $i$-th sheet of the covering. The portions of three different loops are drawn to illustrate the behavior of loops as they pass through various edges on $\sheet{\D}{3,i}$. The loop that would traditionally be $x_1$ is labeled by $t^i x_1$ to indicate that it's starting on the $i$-th sheet. When it passes through the left edge corresponding to this puncture labeled with a 1, it traverses up to the sheet $\sheet{\D}{3,i+1}$ and ends at base point $t^{i+1}\xi$. Similarly, the loop that starts on $\sheet{\D}{3,i-1}$ and passes through the left edge of puncture 2 ends up coming out of the right edge of puncture 2 on $\sheet{\D}{3,i}$ and ends at the base point $t^i\xi$. This loop is labeled by the starting sheet, so it is $t^{i-1}x_2$. Finally, the loop that starts on $\sheet{\D}{3,i+1}$ and passes through the right edge of puncture 3 ends up coming out of the left edge of puncture 3 on $\sheet{\D}{3,i}$. This loop is labeled by $-t^{i}x_3$ since it is the inverse of $t^i x_3$, with the negative sign indicating that the loop direction is reversed.
-    }\label{fig:D3_cuts}
-\end{figure}
-
 Now, viewing a single sheet, say $\sheet{\D}{n,0}$, from above, when a loop with base point $\tilde{\xi}_0$ passes through a cut from the left, it traverses up to the next sheet, and ends at the base point $\tilde{\xi}_1$. Similarly, a loop passing through a cut from the right ends at the base point $\tilde{\xi}_{-1}$, on the sheet $\sheet{\D}{n,-1}$ below $\sheet{\D}{n,0}$. To keep track of the various loops, we use a free parameter $t$. For example, we can label the base point on the $j$-th sheet by $t^j\xi$, and a (clockwise) loop $\gamma$ that starts on $\sheet{\D}{n,j}$ would be written $t^j \gamma$, for $j\in\Z$.
 
 Notice that the substitution of a complex number for the free parameter $t$ results in a possibly finite degree covering. As an example, if we set $t$ to an $n$-th root of unity, then we obtain an $n$-th degree covering of $\D_n$. For the purposes of this construction, we will keep $t$ as a free parameter for now.{ }\cref{fig:D3_cuts} demonstrates how loops interact with the cuts on different sheets. The following example describes the action of the standard generators of $B_3$ on the covering space $\widetilde{\D}_3$.
 
 \begin{example}\label{ex:Burau_D3}
-    Consider the case when $n=3$. Then we have the corresponding covering space $\widetilde{\D}_3$ of $\D_3$. See \cref{fig:D3_cuts} for the view of a single sheet with various loops interacting with the cuts on the sheet. The actions of the standard generators of $B_3$ in $\pi_1(\D_3)$ are known, and can be visually understood in \cref{fig:sigma_on_Dn}. In the context of the covering space $\widetilde{\D}_3$, the action of the generators $\sigma_1$ and $\sigma_2$ is observed by reducing the visualization to only the base points on each sheet and the loops themselves. This can be seen in \cref{fig:Burau_D3} for the case of $\sigma_1$.
+    Consider the case when $n=3$. Then we have the corresponding covering space $\widetilde{\D}_3$ of $\D_3$. As in \cref{fig:D3_cuts}, we observe the $i$-th sheet of $\widetilde{\D}_3$ with the cuts applied across each of the three punctures. The base point of the loop is indicated by the red dot, and labelled as $t^i\xi$. The power of $t$ indicates that we are on the $i$-th sheet of the covering. The portions of three different loops are drawn to illustrate the behavior of loops as they pass through various edges on $\sheet{\D}{3,i}$.
     
+    The loop that would traditionally be $x_1$ is labeled by $t^i x_1$ to indicate that it's starting on the $i$-th sheet. When it passes through the left edge corresponding to this puncture labeled with a 1, it traverses up to the sheet $\sheet{\D}{3,i+1}$ and ends at base point $t^{i+1}\xi$. Similarly, the loop that starts on $\sheet{\D}{3,i-1}$ and passes through the left edge of puncture 2 ends up coming out of the right edge of puncture 2 on $\sheet{\D}{3,i}$ and ends at the base point $t^i\xi$. This loop is labeled by the starting sheet, so it is $t^{i-1}x_2$. Finally, the loop that starts on $\sheet{\D}{3,i+1}$ and passes through the right edge of puncture 3 ends up coming out of the left edge of puncture 3 on $\sheet{\D}{3,i}$. This loop is labeled by $-t^{i}x_3$ since it is the inverse of $t^i x_3$, with the negative sign indicating that the loop direction is reversed.
+    
+    \begin{figure}[htbp]
+        \centering
+        % \includegraphics[width=.3\textwidth]{D3_cuts.png}
+        \input{TikZ/D3_cuts.tikz}
+        \mycaption{Punctured disk covering space}{
+            In the case of $\D_3$, this figure demonstrates how the cuts are applied across each of the three punctures for each sheet in the covering $\widetilde{\D}_3$. The power of $t$ in the base point label $t^i\xi$ indicates that we are on the $i$-th sheet of the covering.
+        }\label{fig:D3_cuts}
+    \end{figure}
+
+    % See \cref{fig:D3_cuts} for the view of a single sheet with various loops interacting with the cuts on the sheet. 
+    
+    The actions of the standard generators of $B_3$ in $\pi_1(\D_3)$ are known, and can be visually understood in \cref{fig:sigma_on_Dn}. In the context of the covering space $\widetilde{\D}_3$, the action of the generators $\sigma_1$ and $\sigma_2$ is observed by reducing the visualization to only the base points on each sheet and the loops themselves. This can be seen in \cref{fig:Burau_D3} for the case of $\sigma_1$.
+
     \begin{figure}[h!]
         \centering
         % \includegraphics[width = .3\textwidth]{Burau_D3.png}
@@ -381,11 +386,12 @@ Let $\vec{v}_i$ be defined as the vector with $i$-th component $-t$, $(i+1)$-th 
         0 & 1 & 0 & 0 \\
         0 & 0 & 0 & I_{n-i-1}
     \end{bmatrix}\begin{bmatrix}
-        0 \\ \vdots \\ 0 \\ -t \\ 1 \\ 0 \\ \vdots \\ 0
+        \vec{0}_{i-1} \\ -t \\ 1 \\ \vec{0}_{n-i-1}
     \end{bmatrix} = \begin{bmatrix}
-        0 \\ \vdots \\ 0 \\ t^2 \\ -t \\ 0 \\ \vdots \\ 0
-    \end{bmatrix} = -t\vec{v}_i.
+        \vec{0}_{i-1} \\ t^2 \\ -t \\ \vec{0}_{n-i-1}
+    \end{bmatrix} = -t\vec{v}_i,
 \end{align}
+where $\vec{0}_{k}$ denotes the $k$-dimensional zero vector.
 
 % Due to the block diagonal nature of $\psi_n(\sigma_i)$ and sparsity of $\vec{v}_i$, we can quickly verify that $\vec{v}_i$ is an eigenvector of $\psi_n(\sigma_i)$ with eigenvalue $-t$:
 % \begin{align*}

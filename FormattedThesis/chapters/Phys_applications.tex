@@ -7,7 +7,7 @@ The goal of this chapter is to highlight some key results in physics through the
 % \textcolor{blue}{Intro paragraph here?}
 
 \subsection{The rotation group}
-Consider the rotations of a 2-dimensional Euclidean vector space about the origin. Let $\e_1$ and $\e_2$ be orthonormal basis vectors of this space. Using geometry, we can determine how a rotation by some angle $\phi$, written in operator form as $R(\phi)$, acts on the basis vectors:
+Consider the rotations of a 2-dimensional Euclidean vector space about the origin. Let $\e_1$ and $\e_2$ be orthonormal basis vectors of this space. Using geometry, we can determine how a rotation by some angle $\phi\in\R/2\pi\Z$, written in operator form as $R(\phi)$, acts on the basis vectors:
 \begin{align}
     R(\phi)\e_1 &= \e_1\cos\phi + \e_2\sin\phi \label{eq:rot_1}\\
     R(\phi)\e_2 &= -\e_1\sin\phi + \e_2\cos\phi.\label{eq:rot_2}
@@ -180,7 +180,7 @@ If we relax the periodic condition on $U$ to $U(2n\pi) = I$ for some $n\in\Z$, t
 \end{align}
 Hence, the rotation $R(\phi)$ is assigned to both $\pm e^{-i\frac{\phi}{2}}$ in the $U^{1/2}$ representation. For this reason, it can be said that $U^{1/2}$ is a \textit{double-valued} representation of SO(2).
 
-Despite this ambiguity in the realization of rotations in SO(2), the modified periodicity condition is still satisfied, as $U^{1/2}(4\pi) = e^{-i2\pi} = 1$. In other words, the double-valued representation of SO(2) traverses the unit circle twice before returning to the identity. In general, $U^{n/m}$ is an $m$-valued representation of SO(2) for $\frac{n}{m}\in\Q$ and $\gcd(n,m)=1$.
+Despite this ambiguity in the realization of rotations in SO(2), the modified periodicity condition is still satisfied, as $U^{1/2}(4\pi) = e^{-i2\pi} = 1$. In other words, the double-valued representation of SO(2) traverses the unit circle twice before returning to the identity. In general, $U^{n/m}$ is an $m$-valued representation of SO(2) for $\frac{n}{m}\in\Q$ and $\gcd(n,m)=1$. Moreover, the integer $n$ determines how quickly the representation scans over the unit circle as $\phi$ varies.
 
 The physical importance of these irreducible representations will be discussed when generalizing to rotations in 3-dimensional space in \cref{sec:phys_SO3}.
 
@@ -391,7 +391,7 @@ we have
 \begin{equation}
     \vec{P} = -i\vec{\nabla}.\label{eq:P_3D}
 \end{equation}
-Again, up to $\hbar$, \cref{eq:P_3D} is precisely the quantum mechanical linear momentum operator in 3 dimensions, often denoted $\vh{p}=(\hat{p}_x,\hat{p}_y,\hat{p}_z)$.
+Again, up to a scaling by $\hbar$, \cref{eq:P_3D} is precisely the quantum mechanical linear momentum operator in 3 dimensions, often denoted $\vh{p}=(\hat{p}_x,\hat{p}_y,\hat{p}_z)$.
 
 
 \section{Symmetry, invariance, and conserved quantities}\label{sec:PJ_physical}
@@ -530,7 +530,7 @@ The profound connection between symmetries and conserved quantities is a fundame
 \section{3D rotations and the group SO(3)}\label{sec:SO3}
 As was done for translations in \cref{sub:3D_translations}, we can generalize SO(2) to rotations in 3-dimensional space, albeit with less triviality. The group of rotations in Euclidean 3-space, which corresponds to 3-dimensional linear operators that fix the length of vectors, is the \textit{special orthogonal group in 3D}, denoted by SO(3).
 
-Consider a rotation in three dimensions about an axis (unit vector) $\vec{n}$ by an angle $\theta$. The rotation $R_{\vec{n}}(\theta)$ is a linear transformation that maps a vector $\vec{v}$ to a new vector $\vec{v}'$ such that $\size{\vec{v}}=\size{\vec{v}'}$. The rotation angle $\theta\in[0,2\pi)$ is a continuous parameter, and every one-parameter subgroup of SO(3) can be written as $\left\{ R_{\vec{n}}(\theta) \st \theta\in[0,2\pi) \right\}$ for fixed $\vec{n}$.
+Consider a rotation in three dimensions about an axis (unit vector) $\vec{n}$ by an angle $\theta$. The rotation $R_{\vec{n}}(\theta)$ is a linear transformation that maps a vector $\vec{v}$ to a new vector $\vec{v}'$ such that $\size{\vec{v}}=\size{\vec{v}'}$. The rotation angle $\theta\in\R/2\pi\Z\iso[0,2\pi)$ is a continuous parameter, and every one-parameter subgroup of SO(3) can be written as $\left\{ R_{\vec{n}}(\theta) \st \theta\in[0,2\pi) \right\}$ for fixed $\vec{n}$.
 
 The set of rotations in a plane perpendicular $\vec{n}$ is clearly isomorphic to SO(2). Thus, for a fixed axis of rotation $\vec{n}$, an infinitesimal rotation $R_{\vec{n}}(d\theta)$ can be used to obtain a generator of rotations about $\vec{n}$. The derivation is identical to that of $J$ for SO(2) in \cref{sub:inf_rot}. Hence, we can label the generator of rotations about $\vec{n}$ as $J_{\vec{n}}$, and the corresponding results from \cref{sec:SO2} can be applied to $J_{\vec{n}}$. Most notably, for arbitrary $\theta$, we can write
 \begin{align}

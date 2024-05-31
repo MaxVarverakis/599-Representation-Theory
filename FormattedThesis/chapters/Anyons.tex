@@ -1,7 +1,7 @@
 \chapter{Anyons: A Consequence of Braiding Particles}\label{ch:anyons}
 
 \section{Braiding action on a quantum system}
-As discussed in~\cite{Deshmukh}, each of the standard generators of the braid group can be realized as unitary operators on a quantum system. For the one-dimensional representations of the braid group (\cref{sec:1D_rep}), the action on a quantum system is merely a phase shift by $e^{ik\theta}$ for some $\theta\in\R$ and $k\in\Z$ the degree of the braid. We can see this explicitly by considering the action of $\beta\in B_n$ on a wavefunction $\psi(r_1,\dots,r_n)$ by permuting the identical particles fixed at nondegenerate positions $r_1,r_2,\dots,r_n$:
+As discussed in~\cite{Deshmukh}, each of the standard generators of the braid group can be realized as unitary operators on a quantum system. For the one-dimensional representations of the braid group (\cref{sec:1D_rep}), the action on a quantum system is merely a phase shift by $e^{ik\theta}$ for some $\theta\in\R$ and degree of the braid $k\in\Z$. We can see this explicitly by considering the action of $\beta\in B_n$ on a wavefunction $\psi(r_1,\dots,r_n)$ by permuting the identical particles fixed at nondegenerate positions $r_1,r_2,\dots,r_n$:
 \begin{align}
     \psi(r_{1'},r_{2'},\dots,r_{n'}) &= p_\theta(\beta)\psi(r_1,r_2,\dots,r_n) = e^{ik\theta}\psi(r_1,r_2,\dots,r_n),
 \end{align}
@@ -53,7 +53,7 @@ where a dot indicates a total time derivative $\frac{d}{dt}$ and $\phi = \arctan
 
 Notice that if we take $\alpha\to 0$, the interaction term vanishes, as expected for bosons. Similarly, for $\alpha>0$, $\phi$ becomes singular if $\vec{r}_1 = \vec{r_2}$, which motivates the Pauli exclusion principle for fermions. In fact, this means that for any $\alpha>0$, the corresponding anyons exhibit some form of the Pauli exclusion principle.
 
-The classical kinetic energy of this system is
+Note that we are assuming the mass of the two anyons are equal, so $m\coloneq m_1=m_2$. The classical kinetic energy of this system is then given by
 \begin{equation}
     T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right).
 \end{equation}
@@ -66,7 +66,7 @@ which can also be viewed as the Lagrangian for 2 interacting bosons/fermions. We
     \vec{R} &= \frac{\vec{r}_1+\vec{r}_2}{2}, \\
     \vec{r} &= \vec{r}_1-\vec{r}_2,
 \end{align}
-where $\vec{r}$ is the relative position vector and $\vec{R}$ is the center-of-mass position vector of the two anyons. Note that we are assuming that the mass of the two particles are equal ($m_1=m_2$). Classically, the momentum of a particle is given by the product of its mass and velocity. The corresponding center-of-mass and relative momenta are then given by:
+where $\vec{r}$ is the relative position vector and $\vec{R}$ is the center-of-mass position vector of the two anyons. Classically, the momentum of a particle is given by the product of its mass and velocity. The corresponding center-of-mass and relative momenta are then given by:
 \begin{align}
     \vec{P} &= 2m\vd{R} = 2m \frac{\vec{r}_1+\vec{r}_2}{2} = m\vd{r}_1 + m\vd{r}_2 = \vec{p}_1 + \vec{p}_2, \\
     \vec{p} &= \mu\vd{r} = \frac{m}{2}\left( \vd{r}_1-\vd{r}_2 \right) = \frac{\vec{p}_1 - \vec{p}_2}{2},

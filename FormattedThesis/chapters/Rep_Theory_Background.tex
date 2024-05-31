@@ -72,10 +72,10 @@ The above example involves a finite group. Infinite groups can also have represe
 \end{example}
 
 \begin{definition}[Equivalence of Representations]
-    For a group $G$, two representations are \textit{equivalent} if they are related by a similarity transformation. Equivalent representations form an equivalence class.
+    For a group $G$, two representations are \textit{equivalent} if they are related by a similarity transformation.
 \end{definition}
 
-To determine whether two representations belong to the same equivalence class, we define the following.
+Equivalent representations form an equivalence class. To determine whether two representations belong to the same equivalence class, we define the following.
 \begin{definition}[Character of a Representation]
     The \textit{character} $\chi(g)$ of an element $g\in G$ in a representation $X$ is defined as the trace of the matrix representation: $\chi(g) = \tr{X(g)}$.
 \end{definition}
@@ -96,7 +96,7 @@ The identification of invariant subspaces on a representation space leads to the
 A reducible representation can be decomposed into a direct sum of irreducible representations. This decomposition is unique up to similarity.
 
 \begin{example}
-    Under the group of 2-dimensional rotations, consider the 1-dimensional subspace spanned by $\e_1$. This subspace is not invariant under 2-dimensional rotations because a rotation of $\e_1$ by $\pi/2$ results in the vector $\e_2$ that is clearly not in the subspace spanned by $\e_1$. A similar argument shows that the subspace spanned by $\e_2$ is not invariant under 2-dimensional rotations.
+    Under the group of 2-dimensional rotations, consider the complex subspace spanned by $\e_1$. This subspace is not invariant under 2-dimensional rotations because a rotation of $\e_1$ by $\phi\neq 0,\pi$ results in the vector $\e_1\cos\phi + \e_2\sin\phi$ that is not of the form $z\e_1$ for $z\in\C$. A similar argument shows that the subspace spanned by $\e_2$ is not invariant under 2-dimensional rotations.
 
     However, if there are eigenvectors of the rotation operator, we then have invariant subspaces formed by the span of the eigenvectors.
     % For example, the eigenvalues of the rotation operator $X(\phi)$ are such that
@@ -119,7 +119,7 @@ A reducible representation can be decomposed into a direct sum of irreducible re
     %         x_1\\x_2
     %     \end{bmatrix},
     % \end{align*}
-    Consider the linear combination of basis vectors
+    Consider the $\C$-linear combination of basis vectors
     \begin{equation}
         \e_\pm = \frac{1}{\sqrt{2}}\left( \mp\e_1 + i\e_2 \right),
     \end{equation}
