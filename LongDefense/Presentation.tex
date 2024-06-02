@@ -644,70 +644,70 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}[t]{Preliminaries: Physics Conventions}
+\begin{frame}[t]{Preliminaries: Physics Conventions}
   
-%   \begin{enumerate}
-%     \item<2-> The quantum state of a system is described by a vector in a complex Hilbert space.
-%     \item<3-> The corresponding vectors are often called \textit{\textcolor{CPgold}{state vectors}}.
-%     \item<4-> The inner product defined on the Hilbert space is linear in the second argument:
-%     \setbeamercovered{transparent}
-%     \begin{equation*}
-%       \onslide<5,7->{(1)\ \ \langle \phi,\lambda\psi\rangle=\lambda\langle \phi,\psi\rangle} \onslide<6->{\qquad (2)\ \ \langle \alpha\phi,\psi\rangle=\overline{\alpha}\langle \phi,\psi\rangle}
-%     \end{equation*}
-%     \setbeamercovered{invisible}
-%     \item<7-> The \textcolor{CPgold}{\textit{Hermitian conjugate}} or \textcolor{CPgold}{\textit{adjoint}} of an operator $A$ is denoted $A^{\dagger}$, and is thought of as complex conjugation and transposition in matrix form.
-%     \item<8-> Operators that are self-adjoint are called \textcolor{CPgold}{\textit{Hermitian}}.
-%   \end{enumerate}
+  \begin{enumerate}
+    \item<2-> The quantum state of a system is described by a vector in a complex Hilbert space.
+    \item<3-> The corresponding vectors are often called \textit{\textcolor{CPgold}{state vectors}}.
+    \item<4-> The inner product defined on the Hilbert space is linear in the second argument:
+    \setbeamercovered{transparent}
+    \begin{equation*}
+      \onslide<5,7->{(1)\ \ \langle \phi,\lambda\psi\rangle=\lambda\langle \phi,\psi\rangle} \onslide<6->{\qquad (2)\ \ \langle \alpha\phi,\psi\rangle=\overline{\alpha}\langle \phi,\psi\rangle}
+    \end{equation*}
+    \setbeamercovered{invisible}
+    \item<7-> The \textcolor{CPgold}{\textit{Hermitian conjugate}} or \textcolor{CPgold}{\textit{adjoint}} of an operator $A$ is denoted $A^{\dagger}$, and is thought of as complex conjugation and transposition in matrix form.
+    \item<8-> Operators that are self-adjoint are called \textcolor{CPgold}{\textit{Hermitian}}.
+  \end{enumerate}
   
-%   \vfill
+  \vfill
 
-% \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{frame}{Preliminaries: Dirac notation}
-  
-%   \begin{itemize}
-%     \item<2-> \textit{Dirac} or \textit{bra-ket} notation is a convenient way to represent vectors and operators in quantum mechanics.
-%     \item<3-> A \textcolor{CPgold}{\textit{ket}} is a column (state) vector, denoted $\ket{\psi}$.
-%     \item<4-> A \textcolor{CPgold}{\textit{bra}} is a row vector, $\bra{\psi}$. This can be thought of as a linear functional on the relevant Hilbert space:
-%     \begin{equation*}
-%       \bra{\phi}(\psi) = \langle \phi,\psi\rangle.
-%     \end{equation*}
-%     \item<5-> \textbf{Inner product:} $\braket{\phi|\psi}$
-%     \item<6-> \textbf{Outer product:} $\ket{\phi}\bra{\psi}$
-%     \item<7-> The action of an operator $A$ on a vector $\ket{\psi}$ is written as $\ket{A\psi} = A\ket{\psi}$.
-%     \item<8-> Equivalent ways to write the same thing:
-%     \begin{align*}
-%       \braket{A^\dagger\phi|\psi} = \bra{\phi}A\ket{\psi} = \braket{\phi|A\psi}.
-%     \end{align*}
-%   \end{itemize}
-  
-%   \vfill
-%   % \textit{``It's like playing with LEGOs.''}
-  
-% \end{frame}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}{Orthonormality, Completeness, and Wavefunctions}
+\begin{frame}{Preliminaries: Dirac notation}
   
-%   \begin{definition}<1->
-%     Let $\left\{ \ket{1},\ket{2},\ket{3},\dots \right\}$ be an orthonormal basis for some quantum Hilbert space. In the context of physics, the \textcolor{CPgold}{orthonormality} and \textcolor{CPgold}{completeness} relations of the basis vectors allow any state vector $\ket{\psi}$ to be written as a linear combination of the basis vectors:
-%     \begin{align*}
-%       \ket{\psi} = \left( \sum_n \ket{n}\bra{n} \right)\ket{\psi} = \sum_n \ket{n}\braket{n|\psi},
-%     \end{align*}
-%     where $\sum_n \ket{n}\bra{n}$ is the identity operator.
-%   \end{definition}
-%   \onslide<2->\textit{This is just a fancy change of basis!}
+  \begin{itemize}
+    \item<2-> \textit{Dirac} or \textit{bra-ket} notation is a convenient way to represent vectors and operators in quantum mechanics.
+    \item<3-> A \textcolor{CPgold}{\textit{ket}} is a column (state) vector, denoted $\ket{\psi}$.
+    \item<4-> A \textcolor{CPgold}{\textit{bra}} is a row vector, $\bra{\psi}$. This can be thought of as a linear functional on the relevant Hilbert space:
+    \begin{equation*}
+      \bra{\phi}(\psi) = \langle \phi,\psi\rangle.
+    \end{equation*}
+    \item<5-> \textbf{Inner product:} $\braket{\phi|\psi}$
+    \item<6-> \textbf{Outer product:} $\ket{\phi}\bra{\psi}$
+    \item<7-> The action of an operator $A$ on a vector $\ket{\psi}$ is written as $\ket{A\psi} = A\ket{\psi}$.
+    \item<8-> Equivalent ways to write the same thing:
+    \begin{align*}
+      \braket{A^\dagger\phi|\psi} = \bra{\phi}A\ket{\psi} = \braket{\phi|A\psi}.
+    \end{align*}
+  \end{itemize}
+  
+  \vfill
+  % \textit{``It's like playing with LEGOs.''}
+  
+\end{frame}
 
-%   \begin{definition}<3->
-%     For a continuous basis labelled by $\ket{x}$ where $x$ is a continuous parameter, the \textcolor{CPgold}{\textit{wavefunction}} $\psi(x)$ is the projection: $\braket{x|\psi} = \psi(x)$.
-%   \end{definition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Orthonormality, Completeness, and Wavefunctions}
   
-%   \vfill
+  \begin{definition}<1->
+    Let $\left\{ \ket{1},\ket{2},\ket{3},\dots \right\}$ be an orthonormal basis for some quantum Hilbert space. In the context of physics, the \textcolor{CPgold}{orthonormality} and \textcolor{CPgold}{completeness} relations of the basis vectors allow any state vector $\ket{\psi}$ to be written as a linear combination of the basis vectors:
+    \begin{align*}
+      \ket{\psi} = \left( \sum_n \ket{n}\bra{n} \right)\ket{\psi} = \sum_n \ket{n}\braket{n|\psi},
+    \end{align*}
+    where $\sum_n \ket{n}\bra{n}$ is the identity operator.
+  \end{definition}
+  \onslide<2->\textit{This is just a fancy change of basis!}
+
+  \begin{definition}<3->
+    For a continuous basis labelled by $\ket{x}$ where $x$ is a continuous parameter, the \textcolor{CPgold}{\textit{wavefunction}} $\psi(x)$ is the projection: $\braket{x|\psi} = \psi(x)$.
+  \end{definition}
   
-% \end{frame}
+  \vfill
+  
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -927,7 +927,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% SHORTEN!!!
 \begin{frame}[t]{Generalization to 3 Spatial Dimensions}
 
   \begin{itemize}
@@ -1059,7 +1058,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% SHORTEN!!!
 \begin{frame}{Additional Applications}
   
   \begin{enumerate}
@@ -1614,7 +1612,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% cut out?
 \begin{frame}[t]{A Physicists Approach to Anyons (Lagrangian)}
   Consider two identical non-interacting anyons with positions $\vec{r}_1=(x_1,y_1)$ and $\vec{r}_2=(x_2,y_2)$ in a harmonic potential. Let $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ be the relative angle between the two anyons and $\dot{\phi}=\frac{d\phi}{dt}$.
   
@@ -1666,7 +1663,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% cut out?
 \begin{frame}[t]{A Physicists Approach to Anyons (Hamiltonian)}
   
   % \vspace{-1em}
@@ -1698,7 +1694,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% cut out?
 \begin{frame}{Interpreting the $N$-anyon Hamiltonian}
   
   \begin{equation*}
@@ -1713,7 +1708,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% cut out?
 \begin{frame}{Nontrivial Braiding Effects in the Hamiltonian}
   
   Nontrivial braiding effects emerge from the \textcolor{CPgreen}{\textit{long-range interaction}} term when $N\geq 3$.
@@ -1749,7 +1743,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% cut out?
 \begin{frame}{Physical Implications of Nontrivial Braiding Effects}
   
   \begin{itemize}
