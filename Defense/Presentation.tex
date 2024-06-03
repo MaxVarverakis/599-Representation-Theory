@@ -199,8 +199,6 @@
 
 \begin{frame}{Properties of Representations}
 
-  \setbeamercovered{transparent}
-
   \begin{block}<2->{Group Multiplication}
     Representations are group morphisms, so they satisfy the group multiplication rule:
     \begin{equation*}
@@ -216,7 +214,6 @@
 
   \vfill
 
-  \setbeamercovered{invisible}
   \onslide<4->
   \underline{\bfseries Consequences:}
   % \setbeamercovered{transparent}
@@ -364,7 +361,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% cut out?
 \begin{frame}[t]{Thoughts}
 
   % \vfill
@@ -385,28 +382,6 @@
   \vfill
   
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{frame}{Character Outline}
-
-%   \begin{enumerate}
-%     \item Basics of characters.
-%     \item Similar representations have the same character.
-%     \item Lead into uniqueness of representations.
-%   \end{enumerate}
-
-%   \vfill
-
-%   \begin{block}{Question}
-%     How many representations does a group have?
-%   \end{block}
-%   % \onslide<3->
-%   {\textcolor{CPgold}{\textbf{Answer:}} Something to lead into irreducibility.}
-
-%   \vfill
-
-% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -443,21 +418,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \begin{frame}{Irrep Outline}
-
-%   \begin{enumerate}
-%     \item Define irreducibility.
-%     \item Relate to invariant subspaces.
-%     \item Schur's Lemmas?
-%     \item Note the consequence of abelian groups and one-dimensional representations. Will be useful later\dots
-%   \end{enumerate}
-
-%   \vfill
-
-% \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}{Decomposing Representations}
   
   \vfill
@@ -479,20 +439,6 @@
   \vfill
 
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \begin{frame}{2D Rotation Irreps Outline}
-
-%   \begin{enumerate}
-%     \item Back to our rotation group example\dots
-%     \item Span of $\e_1$ or $\e_2$ not invariant under rotations.
-%     \item Define $\e_{\pm}$.
-%     \item Show each is invariant.
-%     \item Decompose previous representation into direct sum of these two.
-%   \end{enumerate}
-
-% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -526,7 +472,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% state but don't prove?
 \begin{frame}{Schur's Lemmas (pt. 1)}
 
   \begin{lemma}<1->
@@ -547,7 +493,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% state but don't prove?
 \begin{frame}{Schur's Lemma's (pt. 2)}
 
   \begin{lemma}
@@ -568,7 +514,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% state but don't prove?
 \begin{frame}{Consequence of Schur's Lemmas}
   
   \begin{corollary}
@@ -1011,7 +957,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% cut out?
 \begin{frame}[t]{Conservation of Angular Momentum}
 
   % \begin{definition}<1->
@@ -1318,76 +1264,76 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cut out?
+% \begin{frame}{The Burau Representation}
 
-\begin{frame}{The Burau Representation}
+%   \onslide<2->{
+%     Define the matrix $U=\begin{bmatrix}
+%     1-t & t \\ 1 & 0
+%   \end{bmatrix}$, where $t$ is a free parameter.
+%   }
 
-  \onslide<2->{
-    Define the matrix $U=\begin{bmatrix}
-    1-t & t \\ 1 & 0
-  \end{bmatrix}$, where $t$ is a free parameter.
-  }
+%   \begin{definition}<3->
+%     The \textcolor{CPgold}{\textit{Burau representation}} of the braid group $B_n$ is defined on the standard generators:
+%     \begin{align*}
+%       \psi_n:B_n&\to\text{GL}_n(\Z[t,\iv{t}]) \\
+%     \sigma_i &\mapsto \begin{bmatrix}
+%         I_{i-1} & 0 & 0 \\
+%         0 & U & 0 \\
+%         0 & 0 & I_{n-i-1}
+%     \end{bmatrix}.
+%     \end{align*}
+%   \end{definition}
 
-  \begin{definition}<3->
-    The \textcolor{CPgold}{\textit{Burau representation}} of the braid group $B_n$ is defined on the standard generators:
-    \begin{align*}
-      \psi_n:B_n&\to\text{GL}_n(\Z[t,\iv{t}]) \\
-    \sigma_i &\mapsto \begin{bmatrix}
-        I_{i-1} & 0 & 0 \\
-        0 & U & 0 \\
-        0 & 0 & I_{n-i-1}
-    \end{bmatrix}.
-    \end{align*}
-  \end{definition}
+%   \onslide<4->{
+%     The Burau representation satisfies the braid relations:
+%   \begin{align*}
+%     \psi_n(\sigma_i)\psi_n(\sigma_j) &= \psi_n(\sigma_j)\psi_n(\sigma_i) \text{ for } |i-j|>1, \\
+%     \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \text{ for } i\in\left\{ 1,\dots,n-2 \right\}.
+%   \end{align*}
+%   }
 
-  \onslide<4->{
-    The Burau representation satisfies the braid relations:
-  \begin{align*}
-    \psi_n(\sigma_i)\psi_n(\sigma_j) &= \psi_n(\sigma_j)\psi_n(\sigma_i) \text{ for } |i-j|>1, \\
-    \psi_n(\sigma_i)\psi_n(\sigma_{i+1})\psi_n(\sigma_i) &= \psi_n(\sigma_{i+1})\psi_n(\sigma_i)\psi_n(\sigma_{i+1}) \text{ for } i\in\left\{ 1,\dots,n-2 \right\}.
-  \end{align*}
-  }
+%   % \begin{itemize}
+%   %   \item Go through arguments/motivation for Burau?
+%   %   \item Show covering space picture/diagrams?
+%   %   \item Define Burau representation.
+%   %   \item Note on faithfulness!
+%   %   \item Quickly show it's reducible with the $\mathbf{1}$ eigenvector?
+%   % \end{itemize}
 
-  % \begin{itemize}
-  %   \item Go through arguments/motivation for Burau?
-  %   \item Show covering space picture/diagrams?
-  %   \item Define Burau representation.
-  %   \item Note on faithfulness!
-  %   \item Quickly show it's reducible with the $\mathbf{1}$ eigenvector?
-  % \end{itemize}
+%   \vfill
 
-  \vfill
-
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{The Burau Representation is Reducible}
-  \onslide<2->{
-    \qquad\!\textbf{Notice:}\quad
-    $U\begin{bmatrix}
-        1\\1
-    \end{bmatrix} = \begin{bmatrix}
-        1-t & t \\ 1 & 0
-    \end{bmatrix}\begin{bmatrix}
-        1\\1
-    \end{bmatrix} = \begin{bmatrix}
-        1-t+t \\ 1
-    \end{bmatrix} = \begin{bmatrix}
-        1 \\ 1
-    \end{bmatrix}$
-  }
-  \vspace{1em}
+% cut out?
+% \begin{frame}{The Burau Representation is Reducible}
+%   \onslide<2->{
+%     \qquad\!\textbf{Notice:}\quad
+%     $U\begin{bmatrix}
+%         1\\1
+%     \end{bmatrix} = \begin{bmatrix}
+%         1-t & t \\ 1 & 0
+%     \end{bmatrix}\begin{bmatrix}
+%         1\\1
+%     \end{bmatrix} = \begin{bmatrix}
+%         1-t+t \\ 1
+%     \end{bmatrix} = \begin{bmatrix}
+%         1 \\ 1
+%     \end{bmatrix}$
+%   }
+%   \vspace{1em}
   
-  \begin{align*}
-    \onslide<3->{\textbf{Block structure} \text{ of } \psi_n(\sigma_i)&\implies\vec{1}=\begin{bmatrix}
-      1\\1\\\vdots\\1
-    \end{bmatrix} \text{ is invariant under }\psi_n(\sigma_i)\ \forall\, i=1,2,\dots,n-1 \\}
-    \onslide<4->{&\implies\psi_n(\beta)\vec{1}=\vec{1}\ \forall\, \beta\in B_n \quad\left( \text{span$\left\{ \vec{1} \right\}$ is $\psi_n$-invariant} \right) \\
-    \\}
-    \onslide<5->{&\implies \textcolor{CPgold}{\textbf{Burau representation is reducible}}!}
-  \end{align*}
+%   \begin{align*}
+%     \onslide<3->{\textbf{Block structure} \text{ of } \psi_n(\sigma_i)&\implies\vec{1}=\begin{bmatrix}
+%       1\\1\\\vdots\\1
+%     \end{bmatrix} \text{ is invariant under }\psi_n(\sigma_i)\ \forall\, i=1,2,\dots,n-1 \\}
+%     \onslide<4->{&\implies\psi_n(\beta)\vec{1}=\vec{1}\ \forall\, \beta\in B_n \quad\left( \text{span$\left\{ \vec{1} \right\}$ is $\psi_n$-invariant} \right) \\
+%     \\}
+%     \onslide<5->{&\implies \textcolor{CPgold}{\textbf{Burau representation is reducible}}!}
+%   \end{align*}
   
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1615,82 +1561,122 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % cut out?
-\begin{frame}[t]{A Physicists Approach to Anyons (Lagrangian)}
-  Consider two identical non-interacting anyons with positions $\vec{r}_1=(x_1,y_1)$ and $\vec{r}_2=(x_2,y_2)$ in a harmonic potential. Let $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ be the relative angle between the two anyons and $\dot{\phi}=\frac{d\phi}{dt}$.
+% \begin{frame}[t]{A Physicists Approach to Anyons (Lagrangian)}
+%   Consider two identical non-interacting anyons with positions $\vec{r}_1=(x_1,y_1)$ and $\vec{r}_2=(x_2,y_2)$ in a harmonic potential. Let $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ be the relative angle between the two anyons and $\dot{\phi}=\frac{d\phi}{dt}$.
   
-  \vspace{1em}
+%   \vspace{1em}
   
-  \onslide<2->{\textit{Potential:}\quad$V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$}
+%   \onslide<2->{\textit{Potential:}\quad$V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$}
   
-  \vspace{.5em}
+%   \vspace{.5em}
   
-  \onslide<3->{\textit{Statistical interaction due to braiding:}\quad$\mathcal{L}_{\text{int}} = \hbar\alpha\dot{\phi}, \quad \alpha\in\left[ 0,1 \right]$}
+%   \onslide<3->{\textit{Statistical interaction due to braiding:}\quad$\mathcal{L}_{\text{int}} = \hbar\alpha\dot{\phi}, \quad \alpha\in\left[ 0,1 \right]$}
   
-  \vspace{.5em}
+%   \vspace{.5em}
   
-  \onslide<4->{\textit{Classical Kinetic Energy:}\quad$T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right)$}
+%   \onslide<4->{\textit{Classical Kinetic Energy:}\quad$T = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right)$}
   
-  % \vspace{.5em}
+%   % \vspace{.5em}
   
-  \onslide<5->{
-    \textbf{Lagrangian:}
-    \begin{center}
-      $\mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$
-    \end{center}
-  }
-  % \begin{equation*}
-  %   \mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)
-  % \end{equation*}
+%   \onslide<5->{
+%     \textbf{Lagrangian:}
+%     \begin{center}
+%       $\mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)$
+%     \end{center}
+%   }
+%   % \begin{equation*}
+%   %   \mathcal{L}\left( r_1, r_2, \vd{r}_1,\vd{r}_2, \dot{\phi} \right) = T + \mathcal{L}_{\text{int}} - V(\vec{r}_1,\vec{r}_2) = \frac{1}{2}m\left( {\vd{r}_1}^2 + {\vd{r}_2}^2 \right) + \hbar\alpha\dot{\phi} - \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} \right)
+%   % \end{equation*}
 
-  \vspace{.5em}
+%   \vspace{.5em}
   
-  \onslide<6->{
-    \textbf{Generalize to $N$ anyons:} Let $\phi_{ij} = \arctan\left( \frac{y_j-y_i}{x_j-x_i} \right)$,
-    \begin{equation*}
-      \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{2} + \hbar\alpha\sum_{\substack{i<j}}^N\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{2}
-    \end{equation*}
-  }
+%   \onslide<6->{
+%     \textbf{Generalize to $N$ anyons:} Let $\phi_{ij} = \arctan\left( \frac{y_j-y_i}{x_j-x_i} \right)$,
+%     \begin{equation*}
+%       \mathcal{L} = \sum_{i=1}^{N}\frac{m}{2}\vd{r}_i^{2} + \hbar\alpha\sum_{\substack{i<j}}^N\dot{\phi}_{ij} - \frac{m\omega^2}{2}\sum_{i=1}^{N}{\vec{r}_i}^{2}
+%     \end{equation*}
+%   }
 
-  % \textit{Change of coordinates:}\quad Relative \, $\vec{r} = \vec{r}_1-\vec{r}_2$, \qquad center-of-mass \;$\vec{R} = \frac{\vec{r}_1+\vec{r}_2}{2}$
+%   % \textit{Change of coordinates:}\quad Relative \, $\vec{r} = \vec{r}_1-\vec{r}_2$, \qquad center-of-mass \;$\vec{R} = \frac{\vec{r}_1+\vec{r}_2}{2}$
 
-  % \vspace{.5em}
+%   % \vspace{.5em}
 
-  % \textbf{Lagrangian Decomposition:}
-  % \begin{equation*}
-  %   \mathcal{L} = \underbrace{m\vd{R}^2}_{\mathcal{L}_R} + \underbrace{\frac{m{\vd{r}}^{2}}{4} + \hbar\alpha\dot{\phi}}_{\mathcal{L}_r} - \underbrace{\frac{1}{2}m\omega^2\left( 2{\vec{R}}^{2} + \frac{{\vec{r}}^{2}}{2} \right)}_{V(\vec{R},\vec{r})}
-  % \end{equation*}
+%   % \textbf{Lagrangian Decomposition:}
+%   % \begin{equation*}
+%   %   \mathcal{L} = \underbrace{m\vd{R}^2}_{\mathcal{L}_R} + \underbrace{\frac{m{\vd{r}}^{2}}{4} + \hbar\alpha\dot{\phi}}_{\mathcal{L}_r} - \underbrace{\frac{1}{2}m\omega^2\left( 2{\vec{R}}^{2} + \frac{{\vec{r}}^{2}}{2} \right)}_{V(\vec{R},\vec{r})}
+%   % \end{equation*}
 
-  % \vfill
+%   % \vfill
 
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % cut out?
-\begin{frame}[t]{A Physicists Approach to Anyons (Hamiltonian)}
+\begin{frame}[t]{A Physicists Approach to Anyons}
   
   % \vspace{-1em}
   % Set $\hbar=1$.
   \vspace{-1em}
-  \begin{align*}
-    \onslide<2->{
-      &\textbf{Rewrite $N$-anyon $\mathcal{L}$:}& \mathcal{L} &= \frac{m}{2}\sum\limits_{i=1}^{N}\left[ \vd{r}^{2} - \omega^2\vec{r}_i^{2} \right] + \alpha\sum_{i<j}^{N}\vd{r}_{ij}\cdot\frac{\left( -y_{ij}\hat{x} + x_{ij}\hat{y} \right)}{r_{ij}^2} %\alpha\sum\limits_{i<j}^{N}\frac{\vec{r}_{ij}\times\vd{r}_{ij}}{{r}_{ij}^{2}}
-      } \\
-    \onslide<3->{
-      &\textbf{Gauge potential:}& \vec{A}_i(\vec{r}_i) &= \alpha\sum_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}\\
-    }
-    \onslide<4->{
-      &\textbf{$i$-th anyon Hamiltonian:}& \mathcal{H}_i &= \frac{1}{2m}{\bigl(\underbrace{\vec{p}_i - \vec{A}_i(\vec{r}_i)}_{\textcolor{CPgold}{\substack{\text{canonical}\\\text{momentum}}}}\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2}\\
-    }
-    \onslide<5->{
-      &\textbf{$N$-anyon Hamiltonian:}& \mathcal{H}
-      &= \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} \\
-    }
-    \onslide<6->{
-      &\textbf{Expand:}& \mathcal{H} 
-      &= \boxed{\frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}}
-      }
-  \end{align*}
+  Consider $N$ identical non-interacting anyons with positions $\vec{r}_i=(x_i,y_i)$ in a harmonic potential. Let $\vec{r}_{ij}=\vec{r}_{i}-\vec{r}_{j}$. %Let $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ be the relative angle between the two anyons and $\dot{\phi}=\frac{d\phi}{dt}$.
+  
+  % \vspace{1em}
+  
+  \vfill
+
+  \onslide<2->{\textbf{Harmonic Potential:}\quad$V(\vec{r}_1,\vec{r}_2,\dots,\vec{r}_N) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} + \cdots + {\vec{r}_N}^{2} \right)$}
+  
+  % \vspace{.5em}
+  
+  \vfill
+
+  \onslide<3->{\textbf{Statistical interaction parameter:}\quad$\alpha\in\left[ 0,1 \right]$}
+  
+  \vfill
+
+  \onslide<4->{
+      \textbf{Gauge potential:}\quad$\vec{A}_i(\vec{r}_i) = \alpha\sum\limits_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum\limits_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}$
+  }
+  
+  \vfill
+
+  \onslide<5->{
+    \textbf{$i$-th anyon Hamiltonian:}\quad$\mathcal{H}_i = \frac{1}{2m}{\bigl(\underbrace{\vec{p}_i - \vec{A}_i(\vec{r}_i)}_{\textcolor{CPgold}{\substack{\text{canonical}\\\text{momentum}}}}\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2}$
+  }
+  
+  \vfill
+
+  \onslide<6->{
+    \textbf{$N$-anyon Hamiltonian:}\quad$\mathcal{H}
+    = \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2}$
+  }
+  
+  % \vfill
+
+  % \vspace{-1em}
+
+  % \begin{align*}
+    % \onslide<2->{
+    %   &\textbf{Harmonic Potential:}& V(\vec{r}_1,\vec{r}_2,\dots,\vec{r}_N) &= \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} + \cdots + {\vec{r}_N}^{2} \right)\\
+    % }
+    % \onslide<3->{
+    %   &\textbf{Statistical interaction parameter:} & \alpha&\in\left[ 0,1 \right]\\
+    % }
+    % \onslide<4->{
+    %   &\textbf{Gauge potential:}& \vec{A}_i(\vec{r}_i) &= \alpha\sum_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}\\
+    % }
+    % \onslide<5->{
+    %   &\textbf{$i$-th anyon Hamiltonian:}& \mathcal{H}_i &= \frac{1}{2m}{\bigl(\underbrace{\vec{p}_i - \vec{A}_i(\vec{r}_i)}_{\textcolor{CPgold}{\substack{\text{canonical}\\\text{momentum}}}}\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2}\\
+    % }
+    % \onslide<6->{
+    %   &\textbf{$N$-anyon Hamiltonian:}& \mathcal{H}
+    %   &= \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} \\
+    % }
+    % \onslide<7->{
+    %   &\textbf{Expand:}& \mathcal{H} 
+    %   &= \boxed{\frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}}
+    %   }
+  % \end{align*}
 
   \vfill
 

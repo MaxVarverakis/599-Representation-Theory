@@ -73,55 +73,49 @@
 \headcommand {\beamer@framepages {159}{161}}
 \headcommand {\slideentry {3}{0}{6}{162/170}{}{0}}
 \headcommand {\beamer@framepages {162}{170}}
-\headcommand {\slideentry {3}{0}{7}{171/174}{}{0}}
-\headcommand {\beamer@framepages {171}{174}}
-\headcommand {\slideentry {3}{0}{8}{175/179}{}{0}}
-\headcommand {\beamer@framepages {175}{179}}
-\headcommand {\slideentry {3}{0}{9}{180/184}{}{0}}
-\headcommand {\beamer@framepages {180}{184}}
-\headcommand {\slideentry {3}{0}{10}{185/191}{}{0}}
-\headcommand {\beamer@framepages {185}{191}}
-\headcommand {\beamer@sectionpages {140}{191}}
-\headcommand {\beamer@subsectionpages {140}{191}}
-\headcommand {\sectionentry {4}{Physical Applications of the Braid Group}{192}{Physical Applications of the Braid Group}{0}}
-\headcommand {\slideentry {4}{0}{1}{192/192}{}{0}}
-\headcommand {\beamer@framepages {192}{192}}
-\headcommand {\slideentry {4}{0}{2}{193/196}{}{0}}
-\headcommand {\beamer@framepages {193}{196}}
-\headcommand {\slideentry {4}{0}{3}{197/201}{}{0}}
-\headcommand {\beamer@framepages {197}{201}}
-\headcommand {\slideentry {4}{0}{4}{202/208}{}{0}}
-\headcommand {\beamer@framepages {202}{208}}
-\headcommand {\slideentry {4}{0}{5}{209/217}{}{0}}
-\headcommand {\beamer@framepages {209}{217}}
-\headcommand {\slideentry {4}{0}{6}{218/223}{}{0}}
-\headcommand {\beamer@framepages {218}{223}}
-\headcommand {\slideentry {4}{0}{7}{224/229}{}{0}}
-\headcommand {\beamer@framepages {224}{229}}
-\headcommand {\slideentry {4}{0}{8}{230/234}{}{0}}
-\headcommand {\beamer@framepages {230}{234}}
-\headcommand {\slideentry {4}{0}{9}{235/241}{}{0}}
-\headcommand {\beamer@framepages {235}{241}}
-\headcommand {\slideentry {4}{0}{10}{242/245}{}{0}}
-\headcommand {\beamer@framepages {242}{245}}
-\headcommand {\slideentry {4}{0}{11}{246/251}{}{0}}
-\headcommand {\beamer@framepages {246}{251}}
-\headcommand {\gdef \insertmainframenumber {48}}
+\headcommand {\slideentry {3}{0}{7}{171/175}{}{0}}
+\headcommand {\beamer@framepages {171}{175}}
+\headcommand {\slideentry {3}{0}{8}{176/182}{}{0}}
+\headcommand {\beamer@framepages {176}{182}}
+\headcommand {\beamer@sectionpages {140}{182}}
+\headcommand {\beamer@subsectionpages {140}{182}}
+\headcommand {\sectionentry {4}{Physical Applications of the Braid Group}{183}{Physical Applications of the Braid Group}{0}}
+\headcommand {\slideentry {4}{0}{1}{183/183}{}{0}}
+\headcommand {\beamer@framepages {183}{183}}
+\headcommand {\slideentry {4}{0}{2}{184/187}{}{0}}
+\headcommand {\beamer@framepages {184}{187}}
+\headcommand {\slideentry {4}{0}{3}{188/192}{}{0}}
+\headcommand {\beamer@framepages {188}{192}}
+\headcommand {\slideentry {4}{0}{4}{193/199}{}{0}}
+\headcommand {\beamer@framepages {193}{199}}
+\headcommand {\slideentry {4}{0}{5}{200/208}{}{0}}
+\headcommand {\beamer@framepages {200}{208}}
+\headcommand {\slideentry {4}{0}{6}{209/214}{}{0}}
+\headcommand {\beamer@framepages {209}{214}}
+\headcommand {\slideentry {4}{0}{7}{215/219}{}{0}}
+\headcommand {\beamer@framepages {215}{219}}
+\headcommand {\slideentry {4}{0}{8}{220/226}{}{0}}
+\headcommand {\beamer@framepages {220}{226}}
+\headcommand {\slideentry {4}{0}{9}{227/230}{}{0}}
+\headcommand {\beamer@framepages {227}{230}}
+\headcommand {\slideentry {4}{0}{10}{231/236}{}{0}}
+\headcommand {\beamer@framepages {231}{236}}
+\headcommand {\gdef \insertmainframenumber {45}}
 \headcommand {\partentry {\translate {Appendix}}{1}}
-\headcommand {\beamer@partpages {1}{251}}
-\headcommand {\beamer@sectionpages {192}{251}}
-\headcommand {\beamer@subsectionpages {192}{251}}
-\headcommand {\beamer@appendixpages {252}}
-\headcommand {\slideentry {4}{0}{12}{252/252}{}{1}}
-\headcommand {\beamer@framepages {252}{252}}
-\headcommand {\slideentry {4}{0}{13}{253/253}{}{1}}
-\headcommand {\beamer@framepages {253}{253}}
-\headcommand {\slideentry {4}{0}{14}{254/254}{}{1}}
-\headcommand {\beamer@framepages {254}{254}}
-\headcommand {\beamer@partpages {252}{254}}
-\headcommand {\beamer@subsectionpages {252}{254}}
-\headcommand {\beamer@sectionpages {252}{254}}
-\headcommand {\beamer@documentpages {254}}
+\headcommand {\beamer@partpages {1}{236}}
+\headcommand {\beamer@sectionpages {183}{236}}
+\headcommand {\beamer@subsectionpages {183}{236}}
+\headcommand {\beamer@appendixpages {237}}
+\headcommand {\slideentry {4}{0}{11}{237/237}{}{1}}
+\headcommand {\beamer@framepages {237}{237}}
+\headcommand {\slideentry {4}{0}{12}{238/238}{}{1}}
+\headcommand {\beamer@framepages {238}{238}}
+\headcommand {\slideentry {4}{0}{13}{239/239}{}{1}}
+\headcommand {\beamer@framepages {239}{239}}
+\headcommand {\beamer@partpages {237}{239}}
+\headcommand {\beamer@subsectionpages {237}{239}}
+\headcommand {\beamer@sectionpages {237}{239}}
+\headcommand {\beamer@documentpages {239}}
 \headcommand {\gdef \inserttotalframenumber {3}}
-\headcommand {\gdef \inserttotalframenumber {48}}
+\headcommand {\gdef \inserttotalframenumber {45}}
 \headcommand {\gdef \appendixtotalframenumber {3}}
