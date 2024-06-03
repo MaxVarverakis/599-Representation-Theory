@@ -1102,27 +1102,26 @@
       \begin{itemize}
         \item<2-> Each path traced out by a point in the configuration space is a \textcolor{CPgold}{\textit{strand}}.
         
-        \vspace{.6em}
+        % \vspace{.6em}
+        
+        % \item<3-> A braid on $n$ strands is the collection of the $n$ trajectories of the points $\C$.
+        % \vspace{.6em}
 
-        \item<3-> The number of strands of a braid is equal to the number of points in each tuple in the configuration space.
+        % \item<3-> The number of strands of a braid is equal to the number of points in each tuple in the configuration space.
         
-        \vspace{.6em}
+        \vfill
 
-        \item<4-> We can think of a braid on $n$ strands as the motion of $n$ distinct points in the complex plane over a normalized time interval.
+        \item<3-> We can think of a braid on $n$ strands as the motion of $n$ distinct points in the complex plane over a normalized time interval.
         
-        \vspace{.6em}
+        \vfill
         
-        \item<5-> Each trajectory is a strand, and the braid is the collection of all strands.
+        \item<4-> A braid is defined up to \textcolor{CPgold}{\textit{homotopy}}.
         
-        \vspace{.6em}
-        
-        \item<6-> A braid is defined up to \textcolor{CPgold}{\textit{homotopy}}.
-        
-        \vspace{.6em}
+        \vfill
 
-        \item<7-> Visualized in $\C\times[0,1]$.
+        \item<5-> Visualized in $\C\times[0,1]$.
         
-        \vspace{.6em}
+        \vfill
 
       \end{itemize}
     \end{column}
@@ -1549,7 +1548,7 @@
       \centering
       \resizebox{\linewidth}{!}{\input{../FormattedThesis/TikZ/anyon_trajectories.tikz}}
       \begin{tikzpicture}[remember picture, overlay]
-        \onslide<1-4>{\fill[white] ($(current page.north)!.25!(current page.center)$) rectangle ($(current page.east)!.5!(current page.center)$);}
+        \onslide<1-4>{\fill[white] ($(current page.north)!.275!(current page.center)$) rectangle ($(current page.east)!.5!(current page.center)$);}
         \onslide<1-5>{\fill[white] ($(current page.north east)!.225!(current page.east)$) rectangle ($(current page.center)!.5!(current page.east)$);}
         \onslide<1-6>{\fill[white] (current page.center) rectangle ($(current page.south)!.89!(current page.south east)$);}
       \end{tikzpicture}
@@ -1613,125 +1612,125 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % cut out?
-\begin{frame}[t]{A Physicists Approach to Anyons}
+% \begin{frame}[t]{A Physicists Approach to Anyons}
   
-  % \vspace{-1em}
-  % Set $\hbar=1$.
-  \vspace{-1em}
-  Consider $N$ identical non-interacting anyons with positions $\vec{r}_i=(x_i,y_i)$ in a harmonic potential. Let $\vec{r}_{ij}=\vec{r}_{i}-\vec{r}_{j}$. %Let $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ be the relative angle between the two anyons and $\dot{\phi}=\frac{d\phi}{dt}$.
+%   % \vspace{-1em}
+%   % Set $\hbar=1$.
+%   \vspace{-1em}
+%   Consider $N$ identical non-interacting anyons with positions $\vec{r}_i=(x_i,y_i)$ in a harmonic potential. Let $\vec{r}_{ij}=\vec{r}_{i}-\vec{r}_{j}$. %Let $\phi = \arctan\left( \frac{y_2-y_1}{x_2-x_1} \right)$ be the relative angle between the two anyons and $\dot{\phi}=\frac{d\phi}{dt}$.
   
-  % \vspace{1em}
+%   % \vspace{1em}
   
-  \vfill
+%   \vfill
 
-  \onslide<2->{\textbf{Harmonic Potential:}\quad$V(\vec{r}_1,\vec{r}_2,\dots,\vec{r}_N) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} + \cdots + {\vec{r}_N}^{2} \right)$}
+%   \onslide<2->{\textbf{Harmonic Potential:}\quad$V(\vec{r}_1,\vec{r}_2,\dots,\vec{r}_N) = \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} + \cdots + {\vec{r}_N}^{2} \right)$}
   
-  % \vspace{.5em}
+%   % \vspace{.5em}
   
-  \vfill
+%   \vfill
 
-  \onslide<3->{\textbf{Statistical interaction parameter:}\quad$\alpha\in\left[ 0,1 \right]$}
+%   \onslide<3->{\textbf{Statistical interaction parameter:}\quad$\alpha\in\left[ 0,1 \right]$}
   
-  \vfill
+%   \vfill
 
-  \onslide<4->{
-      \textbf{Gauge potential:}\quad$\vec{A}_i(\vec{r}_i) = \alpha\sum\limits_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum\limits_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}$
-  }
+%   \onslide<4->{
+%       \textbf{Gauge potential:}\quad$\vec{A}_i(\vec{r}_i) = \alpha\sum\limits_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum\limits_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}$
+%   }
   
-  \vfill
+%   \vfill
 
-  \onslide<5->{
-    \textbf{$i$-th anyon Hamiltonian:}\quad$\mathcal{H}_i = \frac{1}{2m}{\bigl(\underbrace{\vec{p}_i - \vec{A}_i(\vec{r}_i)}_{\textcolor{CPgold}{\substack{\text{canonical}\\\text{momentum}}}}\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2}$
-  }
+%   \onslide<5->{
+%     \textbf{$i$-th anyon Hamiltonian:}\quad$\mathcal{H}_i = \frac{1}{2m}{\bigl(\underbrace{\vec{p}_i - \vec{A}_i(\vec{r}_i)}_{\textcolor{CPgold}{\substack{\text{canonical}\\\text{momentum}}}}\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2}$
+%   }
   
-  \vfill
+%   \vfill
 
-  \onslide<6->{
-    \textbf{$N$-anyon Hamiltonian:}\quad$\mathcal{H}
-    = \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2}$
-  }
+%   \onslide<6->{
+%     \textbf{$N$-anyon Hamiltonian:}\quad$\mathcal{H}
+%     = \frac{1}{2m} \sum\limits_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum\limits_{i=1}^{N}{r}_i^{2}$
+%   }
   
-  % \vfill
+%   % \vfill
 
-  % \vspace{-1em}
+%   % \vspace{-1em}
 
-  % \begin{align*}
-    % \onslide<2->{
-    %   &\textbf{Harmonic Potential:}& V(\vec{r}_1,\vec{r}_2,\dots,\vec{r}_N) &= \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} + \cdots + {\vec{r}_N}^{2} \right)\\
-    % }
-    % \onslide<3->{
-    %   &\textbf{Statistical interaction parameter:} & \alpha&\in\left[ 0,1 \right]\\
-    % }
-    % \onslide<4->{
-    %   &\textbf{Gauge potential:}& \vec{A}_i(\vec{r}_i) &= \alpha\sum_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}\\
-    % }
-    % \onslide<5->{
-    %   &\textbf{$i$-th anyon Hamiltonian:}& \mathcal{H}_i &= \frac{1}{2m}{\bigl(\underbrace{\vec{p}_i - \vec{A}_i(\vec{r}_i)}_{\textcolor{CPgold}{\substack{\text{canonical}\\\text{momentum}}}}\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2}\\
-    % }
-    % \onslide<6->{
-    %   &\textbf{$N$-anyon Hamiltonian:}& \mathcal{H}
-    %   &= \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} \\
-    % }
-    % \onslide<7->{
-    %   &\textbf{Expand:}& \mathcal{H} 
-    %   &= \boxed{\frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}}
-    %   }
-  % \end{align*}
+%   % \begin{align*}
+%     % \onslide<2->{
+%     %   &\textbf{Harmonic Potential:}& V(\vec{r}_1,\vec{r}_2,\dots,\vec{r}_N) &= \frac{1}{2}m\omega^2\left( {\vec{r}_1}^{2} + {\vec{r}_2}^{2} + \cdots + {\vec{r}_N}^{2} \right)\\
+%     % }
+%     % \onslide<3->{
+%     %   &\textbf{Statistical interaction parameter:} & \alpha&\in\left[ 0,1 \right]\\
+%     % }
+%     % \onslide<4->{
+%     %   &\textbf{Gauge potential:}& \vec{A}_i(\vec{r}_i) &= \alpha\sum_{j\neq i}\frac{\hat{z}\times \vec{r}_{ij}}{r_{ij}^2} = \alpha\sum_{j\neq i}\frac{-y_{ij}\hat{x} + x_{ij}\hat{y}}{r_{ij}^2}\\
+%     % }
+%     % \onslide<5->{
+%     %   &\textbf{$i$-th anyon Hamiltonian:}& \mathcal{H}_i &= \frac{1}{2m}{\bigl(\underbrace{\vec{p}_i - \vec{A}_i(\vec{r}_i)}_{\textcolor{CPgold}{\substack{\text{canonical}\\\text{momentum}}}}\bigr)}^2 + \frac{m\omega^2}{2}{r}_i^{2}\\
+%     % }
+%     % \onslide<6->{
+%     %   &\textbf{$N$-anyon Hamiltonian:}& \mathcal{H}
+%     %   &= \frac{1}{2m} \sum_{i=1}^{N}{\bigl(\vec{p}_i - \vec{A}_i(\vec{r}_i)\bigr)}^2 + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} \\
+%     % }
+%     % \onslide<7->{
+%     %   &\textbf{Expand:}& \mathcal{H} 
+%     %   &= \boxed{\frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} + \frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2} - \frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2} + \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}}
+%     %   }
+%   % \end{align*}
 
-  \vfill
+%   \vfill
 
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % cut out?
-\begin{frame}{Interpreting the $N$-anyon Hamiltonian}
+% \begin{frame}{Interpreting the $N$-anyon Hamiltonian}
   
-  \begin{equation*}
-  \mathcal{H} =
-    \onslide<2->\underbrace{\onslide<1->\frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} \onslide<2->}_{\substack{\text{Mechanical}\\\text{momentum}}}\onslide<1-> + 
-    \onslide<3->\underbrace{\onslide<1->\frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2}\onslide<3->}_{\substack{\text{Harmonic}\\\text{potential}}}\onslide<1-> - 
-    \onslide<4->\underbrace{\onslide<1->\frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2}\onslide<4->}_{\substack{\text{Relative}\\\text{angular}\\\text{momentum}\\\vec{\ell}_{ij} = \vec{r}_{ij}\times\vec{p}_{ij}}}\onslide<1-> + 
-    \onslide<5->\underbrace{\onslide<1->\frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}\onslide<5->}_{\substack{\text{Long-range}\\\text{interaction}}}
-  \end{equation*}
+%   \begin{equation*}
+%   \mathcal{H} =
+%     \onslide<2->\underbrace{\onslide<1->\frac{1}{2m}\sum_{i=1}^{N}{p}_i^{2} \onslide<2->}_{\substack{\text{Mechanical}\\\text{momentum}}}\onslide<1-> + 
+%     \onslide<3->\underbrace{\onslide<1->\frac{m\omega^2}{2}\sum_{i=1}^{N}{r}_i^{2}\onslide<3->}_{\substack{\text{Harmonic}\\\text{potential}}}\onslide<1-> - 
+%     \onslide<4->\underbrace{\onslide<1->\frac{\alpha}{2m}\sum_{\substack{i=1\\j\neq i}}^{N}\frac{\vec{\ell}_{ij}}{r_{ij}^2}\onslide<4->}_{\substack{\text{Relative}\\\text{angular}\\\text{momentum}\\\vec{\ell}_{ij} = \vec{r}_{ij}\times\vec{p}_{ij}}}\onslide<1-> + 
+%     \onslide<5->\underbrace{\onslide<1->\frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{N}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}\onslide<5->}_{\substack{\text{Long-range}\\\text{interaction}}}
+%   \end{equation*}
 
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % cut out?
-\begin{frame}{Nontrivial Braiding Effects in the Hamiltonian}
+% \begin{frame}{Nontrivial Braiding Effects in the Hamiltonian}
   
-  Nontrivial braiding effects emerge from the \textcolor{CPgreen}{\textit{long-range interaction}} term when $N\geq 3$.
+%   Nontrivial braiding effects emerge from the \textcolor{CPgreen}{\textit{long-range interaction}} term when $N\geq 3$.
 
-  % For $N=2$, we obtain a familiar Coulomb-like interaction term without any nontrivial braiding effects:
-  \begin{align*}
-    \onslide<2->{
-      &\mathbf{N=2}\textbf{:}&
-      \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{2}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}
-      &=\frac{\alpha^2}{2m}\left( \frac{\vec{r}_{12}\cdot\vec{r}_{12}}{r_{12}^2r_{12}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{21}}{r_{21}^2r_{21}^2} \right)  = \frac{\alpha^2}{mr_{12}^2} \onslide<3->{\longleftarrow \textit{Coulomb-like interaction}} \\
-      \\
-    }
-    \onslide<4->{
-      &\mathbf{N=3}\textbf{:}&
-      \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{3}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}
-      &=\frac{\alpha^2}{m}\bigg(
-      \onslide<5->\underbrace{\onslide<4->\frac{1}{r_{12}^2} + \frac{1}{r_{13}^2} + \frac{1}{r_{23}^2}\onslide<5->}_{\text{Coulomb-like interaction}}\onslide<4-> + \onslide<6->\underbrace{\onslide<4->\frac{\vec{r}_{12}\cdot\vec{r}_{13}}{r_{12}^2r_{13}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{23}}{r_{21}^2r_{23}^2} + \frac{\vec{r}_{31}\cdot\vec{r}_{32}}{r_{31}^2r_{32}^2}\onslide<6->}_{\textcolor{CPgold}{\textbf{Nontrivial braiding}}}\onslide<4-> \bigg)
-    }
-  \end{align*}
+%   % For $N=2$, we obtain a familiar Coulomb-like interaction term without any nontrivial braiding effects:
+%   \begin{align*}
+%     \onslide<2->{
+%       &\mathbf{N=2}\textbf{:}&
+%       \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{2}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}
+%       &=\frac{\alpha^2}{2m}\left( \frac{\vec{r}_{12}\cdot\vec{r}_{12}}{r_{12}^2r_{12}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{21}}{r_{21}^2r_{21}^2} \right)  = \frac{\alpha^2}{mr_{12}^2} \onslide<3->{\longleftarrow \textit{Coulomb-like interaction}} \\
+%       \\
+%     }
+%     \onslide<4->{
+%       &\mathbf{N=3}\textbf{:}&
+%       \frac{\alpha^2}{2m}\sum_{\substack{i=1\\j,k\neq i}}^{3}\frac{\vec{r}_{ij}\cdot\vec{r}_{ik}}{r_{ij}^2r_{ik}^2}
+%       &=\frac{\alpha^2}{m}\bigg(
+%       \onslide<5->\underbrace{\onslide<4->\frac{1}{r_{12}^2} + \frac{1}{r_{13}^2} + \frac{1}{r_{23}^2}\onslide<5->}_{\text{Coulomb-like interaction}}\onslide<4-> + \onslide<6->\underbrace{\onslide<4->\frac{\vec{r}_{12}\cdot\vec{r}_{13}}{r_{12}^2r_{13}^2} + \frac{\vec{r}_{21}\cdot\vec{r}_{23}}{r_{21}^2r_{23}^2} + \frac{\vec{r}_{31}\cdot\vec{r}_{32}}{r_{31}^2r_{32}^2}\onslide<6->}_{\textcolor{CPgold}{\textbf{Nontrivial braiding}}}\onslide<4-> \bigg)
+%     }
+%   \end{align*}
 
-  % \begin{itemize}
-  %   \item Compare $N=2$ to $N=3$ Hamiltonian from previous slide.
-  %   \item Highlight nontrivial braiding effects in the $N=3$ case.
-  %   \item How does this compare to bosons/fermions? (maybe redundant depending on the depth of the previous discussion)
-  %   \item Question the physical implications.
-  % \end{itemize}
+%   % \begin{itemize}
+%   %   \item Compare $N=2$ to $N=3$ Hamiltonian from previous slide.
+%   %   \item Highlight nontrivial braiding effects in the $N=3$ case.
+%   %   \item How does this compare to bosons/fermions? (maybe redundant depending on the depth of the previous discussion)
+%   %   \item Question the physical implications.
+%   % \end{itemize}
   
-  \begin{block}{Question}<7->
-    Why is this useful? %Who cares?
-  \end{block}
+%   \begin{block}{Question}<7->
+%     Why is this useful? %Who cares?
+%   \end{block}
 
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1739,18 +1738,16 @@
 \begin{frame}{Physical Implications of Nontrivial Braiding Effects}
   
   \begin{itemize}
-    \item<2-> The fractional quantum Hall effect is a physical manifestation of anyonic braiding in 2D electron systems (fractional charge, fractional statistics).
+    \item<2-> The \textcolor{CPgreen}{\textit{fractional quantum Hall effect}} is a physical manifestation of anyonic braiding in 2D electron systems (fractional charge, fractional statistics).
     
     \vspace{1em}
 
-    \item<3-> Depending on the specific representation of the braid group, one can define topological properties of different flavors of anyons. The corresponding combination (fusion) rules can be used to describe the behavior of anyonic systems.
+    \item<3-> Anyons can have different topological flavors, leading to special \textcolor{CPgreen}{\textit{fusion rules}} that can be used to describe the behavior of anyonic systems.
     
     \vspace{1em}
 
-    \item<4-> Certain nonabelian anyons (defined by specific fusion rules) are alleged to enable fault-tolerant quantum computers, and is an ongoing area of research.
+    \item<4-> Specific fusion rules $+$ nonabelian anyons $=$ fault-tolerant topological \textcolor{CPgreen}{\textit{quantum computer}}. This is an ongoing area of research.
   \end{itemize}
-
-  % or just bullet them and talk about the context/info
 
   \vfill
   
