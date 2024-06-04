@@ -1,0 +1,42 @@
+\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}[
+    braid/.cd,
+    crossing convention=under,
+    crossing height = .75cm,
+    gap = .075,
+    ultra thick
+]
+\pic (b) {braid={1 s_1 1 s_2^{-1} 1}};
+
+\foreach \i in {1,...,3} {
+    \fill (b-\i-s) circle (2pt) node[above] {$\i$};
+    \fill (b-\i-e) circle (2pt);
+}
+
+\coordinate (t1) at ($(b-1-s) + (-.25cm,.5cm)$);
+\coordinate (t2) at ($(b-3-s) + (1cm,.5cm)$);
+\coordinate (t3) at ($(b-3-s) + (.25cm,-.35cm)$);
+\coordinate (t4) at ($(b-1-s) + (-1cm,-.35cm)$);
+
+\coordinate (b1) at ($(b-2-e) + (-.25cm,.5cm)$);
+\coordinate (b2) at ($(b-1-e) + (1cm,.5cm)$);
+\coordinate (b3) at ($(b-1-e) + (.25cm,-.35cm)$);
+\coordinate (b4) at ($(b-2-e) + (-1cm,-.35cm)$);
+
+\draw[thick] (t1) -- (t2) -- (t3) -- (t4) -- cycle;
+\draw[thick] (b1) -- (b2) -- (b3) -- (b4) -- cycle;
+
+\onslide<7->{
+    \draw[dashed, thick, fill=black, fill opacity=.15, draw opacity=.6] ($(b1)!.5!(t1)$) -- ($(b2)!.5!(t2)$) -- ($(b3)!.5!(t3)$) -- ($(b4)!.5!(t4)$) -- cycle;
+    \fill ($(b-1-s)!.5!(b-2-e)$) circle (1.75pt);
+    \fill ($(b-2-s)!.5!(b-3-e)$) circle (1.75pt);
+    \fill ($(b-3-s)!.5!(b-1-e)$) circle (1.75pt);
+}
+
+
+\node[left] at ($(t1)!.5!(t4)$) {$\C\times\left\{ 0 \right\}$};
+\node[left] at ($(b1)!.5!(b4)$) {$\C\times\left\{ 1 \right\}$};
+
+\draw[black!50!blue, opacity=.75, -latex, thick] ($(t1)!.5!(t4) - (.75,.35)$) -- ($(b1)!.5!(b4) - (.75, -.35)$) node[midway, left] {$t$};
+
+\end{tikzpicture}
