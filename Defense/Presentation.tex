@@ -227,7 +227,7 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% cut out?
 \begin{frame}{Example: The Trivial Representation}
 
   \begin{block}<1->{Trivial Representation of a Group}
@@ -341,59 +341,59 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % cut out?
-\begin{frame}[t]{Thoughts}
+% \begin{frame}[t]{Thoughts}
 
-  % \vfill
-  \begin{itemize}
-    \item<2-> Can you think of other ways to represent 2D rotations?
-    \item<3-> What about $e^{i\phi}$ parameterization?
-    \item<4-> How many ways can we represent 2D rotations? 
-    \item<5->Are certain representations equivalent?
-    \item<6-> What does it mean for representations to be equivalent? Unique?
-  \end{itemize}
+%   % \vfill
+%   \begin{itemize}
+%     \item<2-> Can you think of other ways to represent 2D rotations?
+%     \item<3-> What about $e^{i\phi}$ parameterization?
+%     \item<4-> How many ways can we represent 2D rotations? 
+%     \item<5-> Are certain representations equivalent?
+%     \item<6-> What does it mean for representations to be equivalent? Unique?
+%   \end{itemize}
   
-  \vfill
+%   \vfill
 
-  \begin{block}<7->{Question}
-    How do we classify representations of a group?
-  \end{block}
+%   \begin{block}<7->{Question}
+%     How do we classify representations of a group?
+%   \end{block}
 
-  \vfill
+%   \vfill
   
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[t]{Equivalent Representations}
+% \begin{frame}[t]{Equivalent Representations}
   
-  \begin{definition}<1->
-    Two representations are \textit{equivalent} if they are related by a similarity transformation.
-  \end{definition}
+%   \begin{definition}<1->
+%     Two representations are \textit{equivalent} if they are related by a similarity transformation.
+%   \end{definition}
   
-  % \vfill
+%   % \vfill
 
-  \begin{itemize}
-    \item<2-> If two representations are equivalent, then their matrix forms have the same \textcolor{CPgold}{\textit{trace}}.
-    \item<3-> Equivalent representations form an equivalence class.
-  \end{itemize}
+%   \begin{itemize}
+%     \item<2-> If two representations are equivalent, then their matrix forms have the same \textcolor{CPgold}{\textit{trace}}.
+%     \item<3-> Equivalent representations form an equivalence class.
+%   \end{itemize}
   
-  \begin{definition}<4->
-    The \textcolor{CPgold}{\textit{character}} of a representation is the trace of the representation matrix.
-  \end{definition}
+%   \begin{definition}<4->
+%     The \textcolor{CPgold}{\textit{character}} of a representation is the trace of the representation matrix.
+%   \end{definition}
   
-  \onslide<5->
-  E.g., if $g\in G$ and $X$ is a representation of $G$, then the character of $X(g)$ is $\chi(g) = \tr{X(g)}$.
+%   \onslide<5->
+%   E.g., if $g\in G$ and $X$ is a representation of $G$, then the character of $X(g)$ is $\chi(g) = \tr{X(g)}$.
   
-  \vfill
+%   \vfill
   
-  \begin{itemize}
-    \item<6-> If two representations have the same character for all $g\in G$, then they are equivalent.
-    \item<7-> We can use characters to classify representations.
-  \end{itemize}
+%   \begin{itemize}
+%     \item<6-> If two representations have the same character for all $g\in G$, then they are equivalent.
+%     \item<7-> We can use characters to classify representations.
+%   \end{itemize}
 
-  \vfill
+%   \vfill
 
-\end{frame}
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -810,7 +810,7 @@
   
   \onslide<2->{The label $j$ describes how particles with spin behave under rotations:}
   \begin{itemize}
-    \item<3-> $j=0$: Gauge bosons (Higgs boson)
+    \item<3-> $j=0$: Scalar bosons (Higgs boson)
     \item<4-> $j=\frac{1}{2}$: Quarks and leptons (electrons, neutrinos, protons\dots)
     \item<5-> $j=1$: Gauge bosons (photons, W/Z bosons, gluons)
     \item<6-> $j=2$: Gravitons (not yet observed)
@@ -977,11 +977,11 @@
         
         \vspace{1em}
         
-        \item<4-> A braid is defined up to \textcolor{CPgold}{\textit{homotopy}}.
+        \item<4-> Visualized in $\C\times[0,1]$.
         
         \vspace{1em}
-
-        \item<5-> Visualized in $\C\times[0,1]$.
+        
+        \item<6-> A braid is defined up to \textcolor{CPgold}{\textit{homotopy}}.
         
         \vspace{1em}
 
@@ -989,7 +989,7 @@
     \end{column}
     \begin{column}{.5\textwidth}
       \centering
-      \onslide<6->{
+      \onslide<5->{
         \resizebox{\linewidth}{!}{\input{braid.tikz}}
         \begin{tikzpicture}[remember picture, overlay]
           % \draw[black!50!blue, opacity=.75, -latex, thick] ($(current page.north)!.6!(current page.center) + (.15\textwidth, 0)$) to node[pos=.5, left] {$t$} ($(current page.south)!.35!(current page.center) + (.15\textwidth, 0)$);
