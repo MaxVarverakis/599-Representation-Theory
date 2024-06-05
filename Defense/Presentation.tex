@@ -227,64 +227,6 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% cut out?
-\begin{frame}{Example: The Trivial Representation}
-
-  \begin{block}<1->{Trivial Representation of a Group}
-    For any group $G$, the trivial representation takes $g\mapsto 1$ for all $g\in G$.
-  \end{block}
-
-  % \vfill
-
-  \onslide<2->
-  \underline{\bfseries Comments:}
-
-  \begin{itemize}
-    \item<2-> The trivial representation is always one-dimensional.
-    \item<3-> For groups with more than one element, the trivial representation is not injective, so we call it a \textcolor{CPgold}{\textit{degenerate representation}}.
-    \item<4-> If a representation is injective, then it is a \textcolor{CPgold}{\textit{faithful representation}}.
-  \end{itemize}
-
-  \vfill
-
-
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Example: A Faithful Representation of $S_n$}
-
-  \vfill
-
-  \begin{block}<1->{Defining representation of $S_n$}
-  The defining representation $D$ of $S_n$ encodes the action of the symmetric group on the standard basis of $\R^n$. If a permutation sends $i$ to $j$, then place a 1 the $i$-th column and $j$-th row of the representation matrix.
-  \end{block}
-  
-  \vfill
-
-  \onslide<2->
-  E.g., in $S_3$:
-  \vspace*{-.75em}
-  \setbeamercovered{transparent}
-  \begin{align*}
-    \onslide<3,5->{D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}} \qquad
-    \onslide<4->{D\big((123)\big) = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}}
-  \end{align*}
-  
-  \vfill
-
-  \setbeamercovered{invisible}
-  \begin{itemize}
-    \item<5-> The defining representation of $S_n$ is $n$-dimensional.
-    \item<6-> This representation is faithful.
-  \end{itemize}
-
-  \vfill
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[t]{Example: Representation of Continuous Rotation Group}
 
@@ -402,7 +344,7 @@
   \vfill
   
   \begin{definition}<1->
-    A representation $X(G)$ on $V$ is \textcolor{CPgold}{\textit{irreducible}} if there is no non-trivial invariant subspace\footnote<1->{Invariant subspace $W\subset V$: $X(g)\vec{w}\in W, \, \forall \, \vec{w}\in W$} in $V$ with respect to $X(G)$. Otherwise, $X(G)$ is \textcolor{CPgold}{\textit{reducible}}.
+    A representation $X(G)$ on $V$ is \textcolor{CPgold}{\textit{irreducible}} if there is no non-trivial X-invariant subspace\footnote<1->{Invariant subspace $W\subset V$: $X(g)\vec{w}\in W, \, \forall \, \vec{w}\in W$} in $V$ with respect to $X(G)$. Otherwise, $X(G)$ is \textcolor{CPgold}{\textit{reducible}}.
   \end{definition}
   
   \vfill
@@ -412,7 +354,7 @@
   \begin{itemize}
     \item<3-> Irreducible representations are the building blocks of all representations.
     \item<4-> A reducible representation can be decomposed into a direct sum of irreducible representations.
-    \item<5-> The decomposition of a representation into irreducibles is unique up to equivalence.
+    \item<5-> The decomposition of a representation into irreducibles is unique up to matrix similarity.
   \end{itemize}
   
   \vfill
@@ -421,97 +363,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[t]{Example: Irreducible Representation of 2D Rotations}
+\begin{frame}{Schur's Lemmas}
   
-  % \vfill
-  % \onslide<1->
-  \textbf{Note:} The subspace spanned by $\e_1$ (or $\e_2$) is \textit{not} invariant under rotations!
-
-  \begin{block}<2->{Invariance of $\e_{\pm}$}
-    Let $\e_{\pm} = \frac{1}{\sqrt{2}}\left(\mp\e_1 + i\e_2\right)$. Then, $X(\phi)\e_{\pm} = e^{\pm i\phi}\e_{\pm}$.
-  \end{block}
-  
-  \vfill
-
-  \onslide<3->{
-    \underline{\textbf{Decomposition of $X$}}
-    
-    \vspace{.5em}
-    
-    The span of each $\e_{\pm}$ is an $X$-invariant subspace of $V_2$. In this basis, we rewrite $X$ as a direct sum of the 1D irreducible representations\footnote<3->{1-dimensional representations are always irreducible!}:
-    \begin{equation*}
-      X(\phi) = \begin{bmatrix} e^{i\phi} & 0 \\ 0 & e^{-i\phi} \end{bmatrix}.
-    \end{equation*}
-  }
-  
-  % Say something about block diagonal matrix form in general?
-
-  \vfill
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% state but don't prove?
-\begin{frame}{Schur's Lemmas (pt. 1)}
-
   \begin{lemma}<1->
     Let $X:G\to V$ and $Y:G\to W$ be irreducible representations of a group $G$. If there exists a fixed linear transformation $T:V\to W$ such that $TX(g) = Y(g)T$ for all $g\in G$, then $T$ is either the zero map or invertible.
   \end{lemma}
 
-  \begin{pfsketch}<2->
-    \begin{enumerate}
-      \item<3-> The kernel of $T$ is invariant under $X(G)$.
-      \item<4-> The image of $T$ is invariant under $Y(G)$.
-      \item<5-> Since $X$ and $Y$ are irreducible, $\ker(T) = \left\{ \vec{0} \right\}$ and $\text{im}(T) = V$ or $\ker(T) = V$ and $\text{im}(T) = \left\{ 0 \right\}$.
-      \item<6-> By the rank-nullity theorem, conclude that $T$ is either the zero map or invertible.
-    \end{enumerate}
-  \end{pfsketch}
-  
-  \vfill
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% state but don't prove?
-\begin{frame}{Schur's Lemma's (pt. 2)}
-
-  \begin{lemma}
+  \begin{lemma}<2->
     Let $X$ be an irreducible representation of a group $G$ and $T$ a linear operator that commutes with all $X(g)$ for $g\in G$. Then $T$ is a scalar multiple of the identity operator.
   \end{lemma}
 
-  \begin{pfsketch}<2->
-    \begin{enumerate}
-      \item<3-> Consider $\lambda$ to be an eigenvalue of $T$.
-      \item<4-> Then $T - \lambda I$ is not invertible.
-      \item<5-> By assumption, $(T-\lambda I)X(g)=X(g)(T-\lambda I)$ for all $g\in G$.
-      \item<6-> By previous lemma, $T-\lambda I = 0 \implies T = \lambda I$.
-    \end{enumerate}
-  \end{pfsketch}
-
-  \vfill
-  
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% state but don't prove?
-\begin{frame}{Consequence of Schur's Lemmas}
-  
-  \begin{corollary}
+  \begin{corollary}<3->
     If $G$ is a finite abelian group, then the irreducible representations of $G$ are one-dimensional.
   \end{corollary}
-
-  \begin{pfsketch}<2->
-    \begin{enumerate}
-      \item<3-> Fix $h\in G$.
-      \item<4-> Since $G$ is abelian, $X(h)X(g) = X(g)X(h)$ for all $g\in G$.
-      \item<5-> Schur's second lemma implies $X(h)=\lambda_h I$ for some scalar $\lambda_h$.
-      \item<6-> The element $h$ was arbitrary, so $X(g) = \lambda_g I$ for all $g\in G$.
-      \item<7-> $X(G)$ is equivalent to the representation $g\mapsto \lambda_g$ for all $g\in G$.
-      \item<8-> One-dimensional representations are irreducible.
-    \end{enumerate}
-  \end{pfsketch}
-
-  \vfill
 
 \end{frame}
 
@@ -534,7 +398,8 @@
   \vfill
 
   \begin{block}<8->{How does this help in physics?}
-    Irreducible representations can describe symmetries of physical systems with remarkably fundamental implications.
+    The groups corresponding to physical transformations have irreducible representations that lead to fundamental insights in physics.
+    % Irreducible representations can describe symmetries of physical systems with remarkably fundamental implications.
   \end{block}
 
   % \onslide<4-> \textbf{Physics perspective:} irreducible representations can describe symmetries of physical systems and have important consequences.
@@ -613,7 +478,7 @@
     \item<3-> The \textit{periodicity condition} $R(\phi+2\pi) = R(\phi)$ is satisfied.
     \item<4-> The \textit{identity element} is $R(0) = I$.
     \item<5-> SO(2) is \textit{abelian}: $R(\phi_1)R(\phi_2) = R(\phi_1+\phi_2) = R(\phi_2)R(\phi_1)$.
-    \item<6-> SO(2) is \textit{reducible} (earlier example with $\e_{\pm}$).
+    \item<6-> SO(2) is \textit{reducible}. % (earlier example with $\e_{\pm}$).
   \end{itemize}
   
   \vfill
@@ -698,7 +563,7 @@
       \onslide<6->{&= \begin{bmatrix}
           \cos\phi & -\sin\phi \\
           \sin\phi & \cos\phi
-      \end{bmatrix}.}
+      \end{bmatrix}}\onslide<7->{\longleftarrow\textbf{The rotation matrix!}}
     \end{align*}
   }
 
@@ -784,16 +649,16 @@
 
 \begin{frame}[t]{Connection to Quantum Mechanics}
 
-  Using a similar process to generate SO(3) invariant subspaces that correspond to irreducible representations, we summarize the results in a theorem:
+  % Using a similar process to generate SO(3) invariant subspaces that correspond to irreducible representations, we summarize the results in a theorem:
   \begin{theorem}<2->
     The irreducible representations of SO(3) are labeled by $j = 0,\frac{1}{2},1,\frac{3}{2},2,\dots$, and the $2j+1$ eigenvectors spanning an invariant subspace are labelled by their eigenvalues: $m = -j,-j+1,\dots,j-1,j$.
   \end{theorem}
   \onslide<3->\textbf{Consequences:}
   \begin{itemize}
     % \item<4-> In the $j=1/2$ representation, the eigenvectors transform as fermion spin states and give rise to \textcolor{CPgreen}{\textit{spinors}}!
-    \item<4-> One can obtain the explicit form of $\vec{J}$ and subsequently its components $J_x,J_y,J_z$. These are precisely the \textcolor{CPgreen}{\textit{angular momentum operators}} in quantum mechanics.
-    \item<5-> The eigenvalues of these operators correspond to the measurable angular momenta of the quantum system.
-    \item<6-> Quantum spin is a property that is labeled by $j$ and has possible spin states $\ket{m}$.
+    \item<4-> Explicit form of $\vec{J}$ (hence $J_x,J_y,J_z$) $=$ quantum \textcolor{CPgreen}{\textit{angular momentum operators}}.
+    \item<5-> Eigenvalues of $J_x,J_y,J_z$ $=$ measurable angular momenta of the quantum system.
+    \item<6-> \textcolor{CPgreen}{\textit{Quantum spin}} is labeled by $j$ and has possible spin states $\ket{m}$.
     % \item<6-> This generalizes to other types of angular momentum, such as \textit{spin angular momentum}!
   \end{itemize}
 
@@ -823,24 +688,43 @@
     \setbeamercolor{block title}{bg=red!75!black, fg=white} % Customize title color
     \setbeamercolor{block body}{bg=red!10} % Customize body color
     \begin{block}<7->{Discretization of Angular Momentum for Free}
-      Arguably the most defining characteristic of quantum mechanics is that classically measurable quantities become discretized (quantized) when observed on the quantum scale. Without any physical motivation, the irreducible representations of SO(3) gave it to us for free!
+      Discretization (quantization) of angular momentum follows directly from the irreducible representations of SO(3)!
+      % Arguably the most defining characteristic of quantum mechanics is that classically measurable quantities become discretized (quantized) when observed on the quantum scale. Without any physical motivation, the irreducible representations of SO(3) gave it to us for free!
     \end{block}
   }
 
   % \vfill
 
   % \onslide<3->{\textit{Now is an appropriate time to let some tears out.}}
-
-  \vfill
-  
-  \onslide<8->{But that's not all folks!}
   
   \vfill
   
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% cut out?
+
+\begin{frame}{Additional Applications of SO(3)}
+  
+  % \item<2-> The $j=1/2$ irreducible representation of SO(3) describes \textit{fermions}. A modified periodicity condition due to the half-integer representation leads to \textit{spinors}!
+  \onslide<2->{We can take tensor products of the irreducibles of SO(3) to obtain multi-particle states, arriving at results such as:}
+  \begin{itemize}
+    \item<3-> Clebsch-Gordan coefficients
+    \item<4-> singlet versus triplet states
+    \item<5-> the Pauli exclusion principle
+  \end{itemize}
+
+\vfill
+
+\onslide<6->{But that's not all folks!}
+
+% \onslide<6->{\textit{This is the tip of the iceberg!}}
+
+\vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}[t]{Conservation of Angular Momentum}
 
   % \begin{definition}<1->
@@ -868,9 +752,12 @@
     \setbeamercolor{block body}{bg=red!10} % Customize body color
     \begin{block}<4->{Consequences}
       \begin{enumerate}[\textcolor{red!25!black}{\bfseries\arabic{enumi}.}]
-        \item<4-> Any system with radial symmetry is invariant under SO(3) rotations, so $[ \hat{H}, \vec{J} ] = 0$.
-        \item<5-> Conservation of angular momentum is a direct result of the radial symmetry of the system.
-        \item<6-> Similar arguments can be made for the continuous group of translations in space, leading to the conservation of linear momentum for translationally invariant systems.
+        \item<4->Radial symmetry$\implies$SO(3)-invariance$\implies [ \hat{H}, \vec{J} ] = 0\implies$angular momentum conserved!
+        % \item<5-> Conservation of angular momentum is a direct result of the radial symmetry of the system.
+        \item<5-> Invariant under continuous translations $\implies$ conservation of linear momentum!
+        \item<6-> Lorentz invariance $\implies$ conservation of energy and momentum!
+        % \item<6-> Time invariance $\implies$ conservation of energy!
+        % \item<6-> Similar arguments can be made for the continuous group of translations in space, leading to the conservation of linear momentum for translationally invariant systems.
       \end{enumerate}
     \end{block}
   }
@@ -882,27 +769,6 @@
   %   \item We can do the same thing for translation group which gives us the familiar $\hat{p}$ operator and conservation of linear momentum!
   % \end{itemize}
   
-  \vfill
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% SHORTEN!!!
-\begin{frame}{Additional Applications}
-  
-    % \item<2-> The $j=1/2$ irreducible representation of SO(3) describes \textit{fermions}. A modified periodicity condition due to the half-integer representation leads to \textit{spinors}!
-    \onslide<2->{We can take tensor products of the irreducibles of SO(3) to obtain multi-particle states, arriving at results such as:}
-    \begin{itemize}
-      \item<3-> Clebsch-Gordan coefficients
-      \item<4-> singlet versus triplet states
-      \item<5-> the Pauli exclusion principle
-    \end{itemize}
-  
-  \vfill
-  
-  \onslide<6->{\textit{This is the tip of the iceberg!}}
-
   \vfill
 
 \end{frame}
@@ -941,7 +807,7 @@
   \vspace{-1em}
   
   \begin{definition}<5->
-    The \textcolor{CPgold}{\textit{braid group}} $B_n$ is the (fundamental) group of all complex-valued $n$-tuples ($M_n$) up to \textit{homotopy}.
+    The \textcolor{CPgold}{\textit{braid group}} $B_n$ is the fundamental group of $M_n/S_n$, where $S_n$ is the symmetric group on $n$ elements.
   \end{definition}
 
   % \begin{itemize}
@@ -962,7 +828,7 @@
         
         \vspace{-2em}
 
-        \item<2-> Each path traced out by a point in the configuration space is a \textcolor{CPgold}{\textit{strand}}.
+        \item<3-> Each path traced out by a point in the configuration space is a \textcolor{CPgold}{\textit{strand}}.
         
         % \vspace{.6em}
         
@@ -973,11 +839,11 @@
         
         \vspace{1em}
 
-        \item<3-> We can think of a braid on $n$ strands as the motion of $n$ distinct points in the complex plane over a normalized time interval.
+        \item<4-> We can think of a braid on $n$ strands as the motion of $n$ distinct points in the complex plane over a normalized time interval.
         
         \vspace{1em}
         
-        \item<4-> Visualized in $\C\times[0,1]$.
+        \item<5-> Visualized in $\C\times[0,1]$.
         
         \vspace{1em}
         
@@ -989,7 +855,7 @@
     \end{column}
     \begin{column}{.5\textwidth}
       \centering
-      \onslide<5->{
+      \onslide<2->{
         \resizebox{\linewidth}{!}{\input{braid.tikz}}
         \begin{tikzpicture}[remember picture, overlay]
           % \draw[black!50!blue, opacity=.75, -latex, thick] ($(current page.north)!.6!(current page.center) + (.15\textwidth, 0)$) to node[pos=.5, left] {$t$} ($(current page.south)!.35!(current page.center) + (.15\textwidth, 0)$);
@@ -1638,6 +1504,162 @@
   \begin{block}{Question}<7->
     Why is this useful? %Who cares?
   \end{block}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Example: The Trivial Representation}
+
+  \begin{block}<1->{Trivial Representation of a Group}
+    For any group $G$, the trivial representation takes $g\mapsto 1$ for all $g\in G$.
+  \end{block}
+
+  % \vfill
+
+  \onslide<2->
+  \underline{\bfseries Comments:}
+
+  \begin{itemize}
+    \item<2-> The trivial representation is always one-dimensional.
+    \item<3-> For groups with more than one element, the trivial representation is not injective, so we call it a \textcolor{CPgold}{\textit{degenerate representation}}.
+    \item<4-> If a representation is injective, then it is a \textcolor{CPgold}{\textit{faithful representation}}.
+  \end{itemize}
+
+  \vfill
+
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Example: A Faithful Representation of $S_n$}
+
+  \vfill
+
+  \begin{block}<1->{Defining representation of $S_n$}
+  The defining representation $D$ of $S_n$ encodes the action of the symmetric group on the standard basis of $\R^n$. If a permutation sends $i$ to $j$, then place a 1 the $i$-th column and $j$-th row of the representation matrix.
+  \end{block}
+  
+  \vfill
+
+  \onslide<2->
+  E.g., in $S_3$:
+  \vspace*{-.75em}
+  \setbeamercovered{transparent}
+  \begin{align*}
+    \onslide<3,5->{D\big((23)\big) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}} \qquad
+    \onslide<4->{D\big((123)\big) = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}}
+  \end{align*}
+  
+  \vfill
+
+  \setbeamercovered{invisible}
+  \begin{itemize}
+    \item<5-> The defining representation of $S_n$ is $n$-dimensional.
+    \item<6-> This representation is faithful.
+  \end{itemize}
+
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Example: Irreducible Representation of 2D Rotations}
+  
+  % \vfill
+  % \onslide<1->
+  \textbf{Note:} The subspace spanned by $\e_1$ (or $\e_2$) is \textit{not} invariant under rotations!
+
+  \begin{block}<2->{Invariance of $\e_{\pm}$}
+    Let $\e_{\pm} = \frac{1}{\sqrt{2}}\left(\mp\e_1 + i\e_2\right)$. Then, $X(\phi)\e_{\pm} = e^{\pm i\phi}\e_{\pm}$.
+  \end{block}
+  
+  \vfill
+
+  \onslide<3->{
+    \underline{\textbf{Decomposition of $X$}}
+    
+    \vspace{.5em}
+    
+    The span of each $\e_{\pm}$ is an $X$-invariant subspace of $V_2$. In this basis, we rewrite $X$ as a direct sum of the 1D irreducible representations\footnote<3->{1-dimensional representations are always irreducible!}:
+    \begin{equation*}
+      X(\phi) = \begin{bmatrix} e^{i\phi} & 0 \\ 0 & e^{-i\phi} \end{bmatrix}.
+    \end{equation*}
+  }
+  
+  % Say something about block diagonal matrix form in general?
+
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Schur's Lemmas (pt. 1)}
+
+  \begin{lemma}<1->
+    Let $X:G\to V$ and $Y:G\to W$ be irreducible representations of a group $G$. If there exists a fixed linear transformation $T:V\to W$ such that $TX(g) = Y(g)T$ for all $g\in G$, then $T$ is either the zero map or invertible.
+  \end{lemma}
+
+  \begin{pfsketch}<2->
+    \begin{enumerate}
+      \item<3-> The kernel of $T$ is invariant under $X(G)$.
+      \item<4-> The image of $T$ is invariant under $Y(G)$.
+      \item<5-> Since $X$ and $Y$ are irreducible, $\ker(T) = \left\{ \vec{0} \right\}$ and $\text{im}(T) = V$ or $\ker(T) = V$ and $\text{im}(T) = \left\{ 0 \right\}$.
+      \item<6-> By the rank-nullity theorem, conclude that $T$ is either the zero map or invertible.
+    \end{enumerate}
+  \end{pfsketch}
+  
+  \vfill
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Schur's Lemma's (pt. 2)}
+
+  \begin{lemma}
+    Let $X$ be an irreducible representation of a group $G$ and $T$ a linear operator that commutes with all $X(g)$ for $g\in G$. Then $T$ is a scalar multiple of the identity operator.
+  \end{lemma}
+
+  \begin{pfsketch}<2->
+    \begin{enumerate}
+      \item<3-> Consider $\lambda$ to be an eigenvalue of $T$.
+      \item<4-> Then $T - \lambda I$ is not invertible.
+      \item<5-> By assumption, $(T-\lambda I)X(g)=X(g)(T-\lambda I)$ for all $g\in G$.
+      \item<6-> By previous lemma, $T-\lambda I = 0 \implies T = \lambda I$.
+    \end{enumerate}
+  \end{pfsketch}
+
+  \vfill
+  
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Consequence of Schur's Lemmas}
+  
+  \begin{corollary}
+    If $G$ is a finite abelian group, then the irreducible representations of $G$ are one-dimensional.
+  \end{corollary}
+
+  \begin{pfsketch}<2->
+    \begin{enumerate}
+      \item<3-> Fix $h\in G$.
+      \item<4-> Since $G$ is abelian, $X(h)X(g) = X(g)X(h)$ for all $g\in G$.
+      \item<5-> Schur's second lemma implies $X(h)=\lambda_h I$ for some scalar $\lambda_h$.
+      \item<6-> The element $h$ was arbitrary, so $X(g) = \lambda_g I$ for all $g\in G$.
+      \item<7-> $X(G)$ is equivalent to the representation $g\mapsto \lambda_g$ for all $g\in G$.
+      \item<8-> One-dimensional representations are irreducible.
+    \end{enumerate}
+  \end{pfsketch}
+
+  \vfill
 
 \end{frame}
 
