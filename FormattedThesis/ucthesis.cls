@@ -420,7 +420,7 @@ DATE SUBMITTED: \@degreemonth~\@degreeyear
 \vspace*{0.5in}
 
 \begin{tabular}{rp{3.01in}}
-TITLE:  &\@title     \par\\
+TITLE:  &\begin{minipage}[t]{3.01in}\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000 \@title\end{minipage}     \par\\
 AUTHOR: &\@author     \par\\
 DATE SUBMITTED: &\@degreemonth~\@degreeyear  \par\\
 
@@ -481,7 +481,7 @@ ALL RIGHTS RESERVED
 {\fmfont
 {\abstractname}\par
 \@title\par
-\vspace{.1in}
+% \vspace{.1in}
 \@author\par
 %{\@degree} in \@field\par
 %\vspace{.1in}
@@ -990,6 +990,24 @@ Thesis Committee Chair
 
 % LIST OF FIGURES
 %
+% Hack to remove gap in list of figures between chapters (https://tex.stackexchange.com/questions/675749/remove-chapter-gap-in-list-of-figures-in-report-class)
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+                         \refstepcounter{chapter}%
+                         \typeout{\@chapapp\space\thechapter.}%
+                         \addcontentsline{toc}{chapter}%
+                                   {\protect\numberline{\thechapter}#1}%
+                    \else
+                      \addcontentsline{toc}{chapter}{#1}%
+                    \fi
+                    \chaptermark{#1}%
+%                    \addtocontents{lof}{\protect\addvspace{10\p@}}% 
+                    \addtocontents{lot}{\protect\addvspace{10\p@}}%
+                    \if@twocolumn
+                      \@topnewpage[\@makechapterhead{#2}]%
+                    \else
+                      \@makechapterhead{#2}%
+                      \@afterheading
+                    \fi}
 % Single-space list of figures, add it to the table of contents.
 \def\listoffigures{\@restonecolfalse
   \if@twocolumn\@restonecoltrue\onecolumn\fi
